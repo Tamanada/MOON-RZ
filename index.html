@@ -63,6 +63,34 @@
   .bar{height:8px;background:#ffffff12;border-radius:999px;overflow:hidden}
   .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--moon),var(--gold));transition:width .6s cubic-bezier(.2,.8,.2,1)}
   .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--moon-2)55,#0000);border:1px solid var(--moon-2)55;font-weight:700}
+  .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--accent,var(--moon));box-shadow:0 0 14px -2px var(--accent,var(--moon));transition:.15s;flex:none}
+  .avatarchip:hover{transform:scale(1.06)}
+
+  /* profile editor */
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+  .field input[type=text]{width:100%;background:#0a0a16;border:1px solid var(--line);color:var(--txt);padding:11px 14px;border-radius:11px;font-size:15px;font-weight:600}
+  .field input[type=text]:focus{outline:none;border-color:var(--moon)}
+  .picker{display:flex;flex-wrap:wrap;gap:9px}
+  .picker .av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:23px;cursor:pointer;background:var(--panel-2);border:2px solid var(--line);transition:.13s}
+  .picker .av:hover{border-color:var(--moon-2)}
+  .picker .av.sel{border-color:var(--moon);box-shadow:0 0 12px -2px var(--moon)}
+  .picker .col{width:34px;height:34px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:.13s}
+  .picker .col.sel{border-color:#fff}
+
+  /* referral / partners */
+  .reflink{display:flex;gap:8px;align-items:stretch;margin:14px 0}
+  .reflink input{flex:1;background:#0a0a16;border:1px solid var(--line);color:var(--moon);padding:12px 14px;border-radius:11px;font-size:13px;font-weight:600;font-family:monospace}
+  .stepnum{width:26px;height:26px;border-radius:50%;background:var(--moon-2);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+  .step{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+  .step p{margin:0;padding-top:2px}
+  .cexcard{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:.16s}
+  .cexcard:hover{border-color:var(--moon-2)80;transform:translateY(-2px)}
+  .cexlogo{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:20px;font-weight:800;color:#0a0a14;flex:none}
+  .cexcard .info{flex:1;min-width:0}
+  .cexcard .info b{font-size:15px}
+  .cexcard .info p{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .badge-soon{font-size:10px;background:#ffffff10;border:1px solid var(--line);color:var(--muted);padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px}
 
   .content{padding:30px 26px;max-width:1080px;margin:0 auto}
   .hero{background:linear-gradient(120deg,#1d1542,#161630 60%,#0e1f2e);border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;margin-bottom:26px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
@@ -176,12 +204,15 @@
       <span class="label">Mon espace</span>
       <button data-view="simulator"><span class="ico">📈</span> Simulateur Trading</button>
       <button data-view="missions"><span class="ico">🎯</span> Missions du jour</button>
+      <button data-view="referral"><span class="ico">🤝</span> Parrainage</button>
+      <button data-view="partners"><span class="ico">🏦</span> Exchanges (CEX)</button>
       <button data-view="profile"><span class="ico">🧑‍🚀</span> Profil & Rang</button>
     </nav>
   </aside>
 
   <div class="main">
     <header class="topbar">
+      <div class="avatarchip" id="avatarChip" title="Mon profil">🧑‍🚀</div>
       <div class="rankchip" id="rankChip">Crypto Explorer</div>
       <div class="lvlwrap">
         <div class="top"><span>Niveau <b id="lvlNum">1</b></span><span><b id="xpNow">0</b> / <span id="xpNext">100</span> XP</span></div>
@@ -247,6 +278,22 @@ const ACADEMIES=[
   {id:8,icon:"🤖",title:"AI & Crypto",reward:"AI Trader NFT",intro:"Utiliser l'IA : analyste crypto, scanner de marché, stratégies."},
   {id:9,icon:"🪙",title:"Tokenization",reward:"Token Engineer NFT",intro:"Créer ton propre token : smart contracts, liquidité, vesting."},
   {id:10,icon:"🌙",title:"MOON-RZ Mastery",reward:"MOON-RZ MASTER NFT",intro:"Maîtriser l'écosystème complet de bout en bout."}
+];
+
+/* ---------- Personnalisation ---------- */
+const AVATARS=["🧑‍🚀","👩‍🚀","🦊","🐺","🦉","🐉","🦅","🐱","🦁","🐸","🤖","👽","🧙","🦸","🥷","🧛","🌙","🚀","💎","🔥","⚡","👑","🎩","🐳"];
+const ACCENTS=["#a78bfa","#ffcc66","#34d399","#60a5fa","#f472b6","#f87171","#22d3ee","#fb923c"];
+
+/* ---------- Partenaires CEX (liens de parrainage) ----------
+   👉 DAVID : remplace `url:"#"` par tes vrais liens d'affiliation.
+   Mets `url:""` pour afficher "Bientôt". */
+const CEX_PARTNERS=[
+  {name:"Binance",   tag:"BTC",  col:"#f3ba2f", url:"", desc:"Le plus grand exchange mondial. Spot, futures, staking."},
+  {name:"Bybit",     tag:"BY",   col:"#f7a600", url:"", desc:"Très populaire en futures, interface claire pour débuter."},
+  {name:"OKX",       tag:"OK",   col:"#ffffff", url:"", desc:"Exchange complet + Web3 wallet intégré."},
+  {name:"Bitget",    tag:"BG",   col:"#00f0ff", url:"", desc:"Copy-trading et bots pour débutants."},
+  {name:"MEXC",      tag:"MX",   col:"#1972f5", url:"", desc:"Énorme choix d'altcoins, frais bas."},
+  {name:"Kraken",    tag:"KR",   col:"#7b3ff2", url:"", desc:"Réputé pour la sécurité et la conformité."}
 ];
 
 /* ---------- CONTENU (modules + quiz) par académie ---------- */
@@ -636,7 +683,9 @@ const CONTENT={
 
 /* ---------- ÉTAT JOUEUR ---------- */
 const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,
-  sim:{cash:10000,qty:{},started:false}};
+  sim:{cash:10000,qty:{},started:false},
+  profile:{name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},
+  ref:{code:"",invited:0},referredBy:null};
 let S=load();
 
 function load(){
@@ -647,8 +696,15 @@ function load(){
   const s=Object.assign({},DEFAULT,r);
   s.done=Object.assign({},r.done); s.passed=Object.assign({},r.passed);
   s.sim=Object.assign({cash:10000,qty:{},started:false},r.sim||{});
+  s.profile=Object.assign({name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},r.profile||{});
+  s.ref=Object.assign({code:"",invited:0},r.ref||{});
+  if(!s.ref.code) s.ref.code=genRefCode();
   return s;
 }
+function genRefCode(){ return "MOON-"+Math.random().toString(36).slice(2,7).toUpperCase(); }
+function displayName(){ return S.profile.name && S.profile.name.trim() ? S.profile.name.trim() : rankFor(levelFromXp(S.xp).lvl); }
+function refLink(){ return location.origin+location.pathname+"?ref="+S.ref.code; }
+function applyAccent(){ document.documentElement.style.setProperty('--accent',S.profile.accent); }
 function save(){ localStorage.setItem("moonrz",JSON.stringify(S)); }
 function doneList(aid){ return S.done[aid]||(S.done[aid]=[]); }
 function isPassed(aid){ return !!S.passed[aid]; }
@@ -674,9 +730,11 @@ function renderHUD(){
   lvlNum.textContent=L.lvl; xpNow.textContent=L.into; xpNext.textContent=L.need;
   xpBar.style.width=Math.min(100,(L.into/L.need)*100)+"%";
   tokenBal.textContent=S.coins; streak.textContent=S.streak; rankChip.textContent=rankFor(L.lvl);
+  avatarChip.textContent=S.profile.avatar; applyAccent();
 }
 const $=id=>document.getElementById(id);
-['lvlNum','xpNow','xpNext','xpBar','tokenBal','streak','rankChip'].forEach(k=>window[k]=$(k));
+['lvlNum','xpNow','xpNext','xpBar','tokenBal','streak','rankChip','avatarChip'].forEach(k=>window[k]=$(k));
+avatarChip.onclick=()=>go("profile");
 
 function toast(html){
   const el=document.createElement("div"); el.className="toast"; el.innerHTML=html;
@@ -701,10 +759,12 @@ function buildNav(){
   nav.insertBefore(frag,nav.querySelectorAll(".label")[1]);
   nav.querySelector('[data-view="simulator"]').onclick=()=>go("simulator");
   nav.querySelector('[data-view="missions"]').onclick=()=>go("missions");
+  nav.querySelector('[data-view="referral"]').onclick=()=>go("referral");
+  nav.querySelector('[data-view="partners"]').onclick=()=>go("partners");
   nav.querySelector('[data-view="profile"]').onclick=()=>go("profile");
 
   const mt=$("mobtab"); mt.innerHTML="";
-  [["academy:1","⛓️ Academy 1"],["academy:2","🛡️ Academy 2"],["simulator","📈 Sim"],["missions","🎯 Missions"],["profile","🧑‍🚀 Profil"]].forEach(([v,label])=>{
+  [["academy:1","⛓️ Academy 1"],["simulator","📈 Sim"],["referral","🤝 Parrainage"],["partners","🏦 CEX"],["missions","🎯 Missions"],["profile","🧑‍🚀 Profil"]].forEach(([v,label])=>{
     const b=document.createElement("button"); b.textContent=label; b.dataset.k=v;
     b.onclick=()=>{const [n,id]=v.split(":"); go(n,id?+id:null);}; mt.appendChild(b);
   });
@@ -733,6 +793,8 @@ function render(){
   else if(VIEW.name==="simulator"){ c.innerHTML=viewSim(); startSim(); }
   else if(VIEW.name==="profile") c.innerHTML=viewProfile();
   else if(VIEW.name==="missions") c.innerHTML=viewMissions();
+  else if(VIEW.name==="referral") c.innerHTML=viewReferral();
+  else if(VIEW.name==="partners") c.innerHTML=viewPartners();
   bindContent();
 }
 
@@ -951,8 +1013,17 @@ function viewProfile(){
   const badges=Object.keys(S.passed).filter(k=>S.passed[k]);
   const modCount=Object.values(S.done).reduce((a,b)=>a+(b?b.length:0),0);
   return `
-   <div class="hero"><span class="pill">Mon espace</span><h1>🧑‍🚀 <span class="acc">${rankFor(L.lvl)}</span></h1>
+   <div class="hero"><span class="pill">Mon espace</span><h1><span id="profAv">${S.profile.avatar}</span> <span class="acc">${displayName()}</span></h1>
      <p>Niveau ${L.lvl} · ${S.xp} XP · ${S.coins} MOON-RZ. ${nextRank?`Prochain rang « <b>${nextRank.name}</b> » au niveau ${nextRank.lvl}.`:'Rang ultime atteint ! 🌙'}</p></div>
+
+   <div class="section-title">🎨 Personnaliser mon profil</div>
+   <div class="card">
+     <div class="field"><label>Pseudo</label><input type="text" id="nameInput" maxlength="20" placeholder="${rankFor(L.lvl)}" value="${(S.profile.name||'').replace(/"/g,'&quot;')}" /></div>
+     <div class="field"><label>Avatar</label><div class="picker" id="avPicker">${AVATARS.map(a=>`<div class="av ${a===S.profile.avatar?'sel':''}" data-av="${a}">${a}</div>`).join("")}</div></div>
+     <div class="field" style="margin-bottom:6px"><label>Couleur d'accent</label><div class="picker" id="colPicker">${ACCENTS.map(c=>`<div class="col ${c===S.profile.accent?'sel':''}" data-col="${c}" style="background:${c}"></div>`).join("")}</div></div>
+   </div>
+
+   <div class="section-title">📊 Mes statistiques</div>
    <div class="grid cols-3">
      <div class="card"><h3>⭐ Niveau</h3><p style="font-size:30px;color:#fff;font-weight:800">${L.lvl}<span style="font-size:14px;color:var(--muted)">/100</span></p></div>
      <div class="card"><h3>🪙 MOON-RZ</h3><p style="font-size:30px;color:var(--gold);font-weight:800">${S.coins}</p></div>
@@ -966,6 +1037,62 @@ function viewProfile(){
      ${RANKS.map(r=>`<div style="display:flex;align-items:center;gap:12px;opacity:${L.lvl>=r.lvl?1:.4}"><b style="width:40px;color:${L.lvl>=r.lvl?'var(--gold)':'var(--muted)'}">L${r.lvl}</b><span style="flex:1">${r.name}</span>${L.lvl>=r.lvl?'<span class="tag done">✓</span>':''}</div>`).join("")}
    </div></div>
    <div style="margin-top:24px;text-align:center"><button class="btn ghost" id="resetBtn">⟲ Réinitialiser toute ma progression</button></div>`;
+}
+
+/* ---------- PARRAINAGE ---------- */
+function viewReferral(){
+  return `
+   <div class="hero"><span class="pill">Communauté</span><h1>🤝 <span class="acc">Parrainage</span></h1>
+     <p>Invite tes amis sur MOON-RZ Academy et gagnez des <b>MOON-RZ</b> ensemble. Plus ta communauté grandit, plus tu montes. 🚀</p></div>
+
+   <div class="card">
+     <h3>🔗 Ton lien de parrainage</h3>
+     <p>Partage ce lien : ton ami reçoit un bonus de bienvenue, et toi une récompense quand il progresse.</p>
+     <div class="reflink"><input type="text" id="refUrl" readonly value="${refLink()}" /><button class="btn sm" id="copyRef">📋 Copier</button></div>
+     <div style="display:flex;gap:10px;flex-wrap:wrap">
+       <button class="btn ghost sm" id="shareWa">🟢 WhatsApp</button>
+       <button class="btn ghost sm" id="shareTg">🔵 Telegram</button>
+       <button class="btn ghost sm" id="shareX">𝕏 Twitter/X</button>
+       <button class="btn ghost sm" id="shareNative">📤 Partager…</button>
+     </div>
+     <p style="margin-top:12px;font-size:12.5px;color:var(--muted)">Ton code : <b style="color:var(--moon);font-family:monospace">${S.ref.code}</b></p>
+   </div>
+
+   <div class="grid cols-3" style="margin-top:18px">
+     <div class="card"><h3>👥 Amis invités</h3><p style="font-size:30px;color:var(--moon);font-weight:800">${S.ref.invited}</p></div>
+     <div class="card"><h3>🪙 Gagné via parrainage</h3><p style="font-size:30px;color:var(--gold);font-weight:800">${S.ref.invited*100}</p></div>
+     <div class="card"><h3>🎁 Récompense / ami</h3><p style="font-size:30px;color:#fff;font-weight:800">+100</p><p>MOON-RZ</p></div>
+   </div>
+
+   <div class="section-title">⚙️ Comment ça marche</div>
+   <div class="card">
+     <div class="step"><span class="stepnum">1</span><p>Tu partages ton lien unique à un ami.</p></div>
+     <div class="step"><span class="stepnum">2</span><p>Il rejoint MOON-RZ Academy via ton lien → il reçoit <b>+50 MOON-RZ</b> de bienvenue.</p></div>
+     <div class="step"><span class="stepnum">3</span><p>Quand il atteint le niveau 5, tu reçois <b>+100 MOON-RZ</b>. 🎉</p></div>
+     ${S.referredBy?`<div class="callout">✅ Tu as été invité par le code <b>${S.referredBy}</b> — bonus de bienvenue crédité !</div>`:''}
+     <div class="callout warn" style="margin-top:14px">ℹ️ Le suivi des invitations en temps réel (qui a rejoint, crédits automatiques) sera activé avec les comptes cloud. Pour l'instant le bonus de bienvenue est local à l'appareil.</div>
+   </div>`;
+}
+
+/* ---------- PARTENAIRES CEX ---------- */
+function viewPartners(){
+  const cards=CEX_PARTNERS.map(p=>{
+    const live=p.url && p.url!=="#";
+    return `<div class="cexcard">
+      <div class="cexlogo" style="background:${p.col}">${p.tag}</div>
+      <div class="info"><b>${p.name}</b><p>${p.desc}</p></div>
+      ${live?`<a class="btn sm" href="${p.url}" target="_blank" rel="noopener">S'inscrire →</a>`:`<span class="badge-soon">Bientôt</span>`}
+    </div>`;
+  }).join("");
+  return `
+   <div class="hero"><span class="pill">Passer à l'action</span><h1>🏦 <span class="acc">Exchanges partenaires</span></h1>
+     <p>Prêt à acheter tes premières vraies cryptos ? Inscris-toi sur un exchange via nos liens partenaires. Tu soutiens l'académie, sans surcoût pour toi.</p></div>
+
+   <div class="callout warn" style="max-width:760px">⚠️ <b>Rappel sécurité (Academy 2)</b> : un exchange centralisé garde tes fonds. « Not your keys, not your coins. » Pour épargner du long terme, transfère vers ton propre wallet. Ne mets sur un CEX que ce que tu utilises activement.</div>
+
+   <div class="grid" style="margin-top:18px">${cards}</div>
+
+   <p style="margin-top:18px;font-size:12.5px;color:var(--muted);text-align:center">Ceci n'est pas un conseil financier. Le trading comporte des risques. Forme-toi d'abord (Academy 6 &amp; 7) et entraîne-toi sur le Simulateur.</p>`;
 }
 
 /* ---------- MISSIONS ---------- */
@@ -1001,7 +1128,38 @@ function bindContent(){
   document.querySelectorAll("[data-complete]").forEach(el=>el.onclick=()=>completeModule(el.dataset.complete,+el.dataset.aid));
   const cd=$("claimDaily"); if(cd) cd.onclick=claimDaily;
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
+  bindProfile(); bindReferral();
   if(VIEW.name==="quiz") bindQuiz();
+}
+
+function bindProfile(){
+  const ni=$("nameInput");
+  if(ni) ni.oninput=()=>{ S.profile.name=ni.value; save(); const a=$("profAv"); renderHUD(); };
+  document.querySelectorAll("#avPicker .av").forEach(el=>el.onclick=()=>{
+    S.profile.avatar=el.dataset.av; save();
+    document.querySelectorAll("#avPicker .av").forEach(x=>x.classList.remove("sel")); el.classList.add("sel");
+    const pa=$("profAv"); if(pa) pa.textContent=el.dataset.av; renderHUD();
+  });
+  document.querySelectorAll("#colPicker .col").forEach(el=>el.onclick=()=>{
+    S.profile.accent=el.dataset.col; save();
+    document.querySelectorAll("#colPicker .col").forEach(x=>x.classList.remove("sel")); el.classList.add("sel");
+    applyAccent(); renderHUD();
+  });
+}
+
+function copyText(txt,okMsg){
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(()=>toast(okMsg)).catch(()=>fallbackCopy(txt,okMsg)); }
+  else fallbackCopy(txt,okMsg);
+}
+function fallbackCopy(txt,okMsg){ const i=$("refUrl"); if(i){i.select();try{document.execCommand("copy");toast(okMsg);}catch(e){toast("Copie manuelle : "+txt);}} else toast(txt); }
+
+function bindReferral(){
+  const cr=$("copyRef"); if(cr) cr.onclick=()=>copyText(refLink(),"🔗 Lien copié !");
+  const msg=encodeURIComponent("🌙 Rejoins-moi sur MOON-RZ Academy — apprends la crypto et gagne des MOON-RZ ! "+refLink());
+  const wa=$("shareWa"); if(wa) wa.onclick=()=>window.open("https://wa.me/?text="+msg,"_blank");
+  const tg=$("shareTg"); if(tg) tg.onclick=()=>window.open("https://t.me/share/url?url="+encodeURIComponent(refLink())+"&text="+encodeURIComponent("🌙 Rejoins MOON-RZ Academy !"),"_blank");
+  const tx=$("shareX"); if(tx) tx.onclick=()=>window.open("https://twitter.com/intent/tweet?text="+msg,"_blank");
+  const sn=$("shareNative"); if(sn) sn.onclick=()=>{ if(navigator.share) navigator.share({title:"MOON-RZ Academy",text:"🌙 Rejoins-moi sur MOON-RZ Academy !",url:refLink()}).catch(()=>{}); else copyText(refLink(),"🔗 Lien copié (partage natif indisponible)"); };
 }
 function completeModule(id,aid){
   if(doneList(aid).includes(id))return;
@@ -1011,7 +1169,20 @@ function completeModule(id,aid){
   VIEW={name:"lesson",id,aid}; render();
 }
 
+/* ---------- PARRAINAGE : capter ?ref= ---------- */
+function handleIncomingRef(){
+  const params=new URLSearchParams(location.search);
+  const ref=params.get("ref");
+  if(ref && !S.referredBy && ref!==S.ref.code){
+    S.referredBy=ref; S.coins+=50; save();
+    setTimeout(()=>{ toast(`🎉 Invité par <b>${ref}</b> !<br><b>+50 MOON-RZ</b> de bienvenue`); renderHUD(); },800);
+  }
+  // nettoie l'URL pour éviter de re-créditer au refresh
+  if(ref && history.replaceState){ history.replaceState(null,"",location.pathname); }
+}
+
 /* ---------- BOOT ---------- */
+handleIncomingRef();
 buildNav(); renderHUD(); render();
 </script>
 </body>
