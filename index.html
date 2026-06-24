@@ -64,6 +64,11 @@
   .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--moon),var(--gold));transition:width .6s cubic-bezier(.2,.8,.2,1)}
   .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--moon-2)55,#0000);border:1px solid var(--moon-2)55;font-weight:700}
   .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--accent,var(--moon));box-shadow:0 0 14px -2px var(--accent,var(--moon));transition:.15s;flex:none}
+  .langsel{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer;max-width:140px}
+  .langsel:focus{outline:none;border-color:var(--moon)}
+  .langsel option{background:var(--panel)}
+  html[dir=rtl] .sidebar{border-right:0;border-left:1px solid var(--line)}
+  html[dir=rtl] .callout{border-left:0;border-right:3px solid var(--moon)}
   .avatarchip:hover{transform:scale(1.06)}
 
   /* profile editor */
@@ -200,13 +205,13 @@
   <aside class="sidebar">
     <div class="logo"><span class="moonball"></span> <span>MOON-RZ <b>Academy</b></span></div>
     <nav class="nav" id="nav">
-      <span class="label">Parcours</span>
-      <span class="label">Mon espace</span>
-      <button data-view="simulator"><span class="ico">📈</span> Simulateur Trading</button>
-      <button data-view="missions"><span class="ico">🎯</span> Missions du jour</button>
-      <button data-view="referral"><span class="ico">🤝</span> Parrainage</button>
-      <button data-view="partners"><span class="ico">🏦</span> Exchanges (CEX)</button>
-      <button data-view="profile"><span class="ico">🧑‍🚀</span> Profil & Rang</button>
+      <span class="label" data-t="parcours">Parcours</span>
+      <span class="label" data-t="monespace">Mon espace</span>
+      <button data-view="simulator"><span class="ico">📈</span> <span data-t="sim">Simulateur Trading</span></button>
+      <button data-view="missions"><span class="ico">🎯</span> <span data-t="missions">Missions du jour</span></button>
+      <button data-view="referral"><span class="ico">🤝</span> <span data-t="referral">Parrainage</span></button>
+      <button data-view="partners"><span class="ico">🏦</span> <span data-t="partners">Exchanges (CEX)</span></button>
+      <button data-view="profile"><span class="ico">🧑‍🚀</span> <span data-t="profile">Profil & Rang</span></button>
     </nav>
   </aside>
 
@@ -221,6 +226,7 @@
       <div class="spacer"></div>
       <div class="stat token"><span class="coin"></span> <b id="tokenBal">0</b> MOON-RZ</div>
       <div class="stat">🔥 <b id="streak">0</b>j</div>
+      <select id="langSel" class="langsel" title="Langue / Language"></select>
     </header>
 
     <div class="mobtab" id="mobtab"></div>
@@ -295,6 +301,35 @@ const CEX_PARTNERS=[
   {name:"MEXC",      tag:"MX",   col:"#1972f5", url:"", desc:"Énorme choix d'altcoins, frais bas."},
   {name:"Kraken",    tag:"KR",   col:"#7b3ff2", url:"", desc:"Réputé pour la sécurité et la conformité."}
 ];
+
+/* ---------- i18n : 15 langues ---------- */
+const LANGS=[
+  {c:"en",n:"English",f:"🇬🇧"},{c:"fr",n:"Français",f:"🇫🇷"},{c:"es",n:"Español",f:"🇪🇸"},
+  {c:"pt",n:"Português",f:"🇵🇹"},{c:"de",n:"Deutsch",f:"🇩🇪"},{c:"ru",n:"Русский",f:"🇷🇺"},
+  {c:"tr",n:"Türkçe",f:"🇹🇷"},{c:"ar",n:"العربية",f:"🇸🇦",rtl:true},{c:"zh",n:"中文",f:"🇨🇳"},
+  {c:"ja",n:"日本語",f:"🇯🇵"},{c:"ko",n:"한국어",f:"🇰🇷"},{c:"hi",n:"हिन्दी",f:"🇮🇳"},
+  {c:"id",n:"Indonesia",f:"🇮🇩"},{c:"vi",n:"Tiếng Việt",f:"🇻🇳"},{c:"th",n:"ไทย",f:"🇹🇭"}
+];
+// T[key] = { code: traduction }  (fallback en -> fr -> key)
+const T={
+  parcours:{en:"Learn",fr:"Parcours",es:"Aprender",pt:"Aprender",de:"Lernen",ru:"Обучение",tr:"Öğren",ar:"تعلّم",zh:"学习",ja:"学ぶ",ko:"학습",hi:"सीखें",id:"Belajar",vi:"Học",th:"เรียนรู้"},
+  monespace:{en:"My space",fr:"Mon espace",es:"Mi espacio",pt:"Meu espaço",de:"Mein Bereich",ru:"Мой профиль",tr:"Alanım",ar:"مساحتي",zh:"我的空间",ja:"マイスペース",ko:"내 공간",hi:"मेरा स्थान",id:"Ruang Saya",vi:"Của tôi",th:"พื้นที่ของฉัน"},
+  sim:{en:"Trading Simulator",fr:"Simulateur Trading",es:"Simulador de Trading",pt:"Simulador de Trading",de:"Trading-Simulator",ru:"Симулятор трейдинга",tr:"Trading Simülatörü",ar:"محاكي التداول",zh:"交易模拟器",ja:"トレード・シミュレーター",ko:"트레이딩 시뮬레이터",hi:"ट्रेडिंग सिम्युलेटर",id:"Simulator Trading",vi:"Mô phỏng giao dịch",th:"เครื่องจำลองเทรด"},
+  missions:{en:"Daily Missions",fr:"Missions du jour",es:"Misiones diarias",pt:"Missões diárias",de:"Tägliche Missionen",ru:"Ежедневные задания",tr:"Günlük Görevler",ar:"المهام اليومية",zh:"每日任务",ja:"デイリーミッション",ko:"일일 미션",hi:"दैनिक मिशन",id:"Misi Harian",vi:"Nhiệm vụ hàng ngày",th:"ภารกิจประจำวัน"},
+  referral:{en:"Referral",fr:"Parrainage",es:"Referidos",pt:"Indicações",de:"Empfehlungen",ru:"Рефералы",tr:"Davet",ar:"الإحالة",zh:"邀请好友",ja:"紹介",ko:"추천",hi:"रेफ़रल",id:"Referral",vi:"Giới thiệu",th:"แนะนำเพื่อน"},
+  partners:{en:"Exchanges (CEX)",fr:"Exchanges (CEX)",es:"Exchanges (CEX)",pt:"Exchanges (CEX)",de:"Börsen (CEX)",ru:"Биржи (CEX)",tr:"Borsalar (CEX)",ar:"المنصات (CEX)",zh:"交易所 (CEX)",ja:"取引所 (CEX)",ko:"거래소 (CEX)",hi:"एक्सचेंज (CEX)",id:"Bursa (CEX)",vi:"Sàn (CEX)",th:"ตลาดเทรด (CEX)"},
+  profile:{en:"Profile & Rank",fr:"Profil & Rang",es:"Perfil y Rango",pt:"Perfil e Rank",de:"Profil & Rang",ru:"Профиль и ранг",tr:"Profil ve Rütbe",ar:"الملف والرتبة",zh:"个人资料和等级",ja:"プロフィール＆ランク",ko:"프로필 & 등급",hi:"प्रोफ़ाइल और रैंक",id:"Profil & Peringkat",vi:"Hồ sơ & Hạng",th:"โปรไฟล์ & อันดับ"},
+  level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"}
+};
+function t(k){ const e=T[k]; if(!e) return k; return e[S.lang]||e.en||e.fr||k; }
+function applyLang(){
+  const L=LANGS.find(x=>x.c===S.lang)||LANGS[1];
+  document.documentElement.lang=S.lang;
+  document.documentElement.dir=L.rtl?"rtl":"ltr";
+  document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent=t(el.dataset.t); });
+  const sel=$("langSel"); if(sel) sel.value=S.lang;
+}
+function setLang(c){ S.lang=c; save(); applyLang(); buildMobtab(); render(); }
 
 /* ---------- CONTENU (modules + quiz) par académie ---------- */
 const CONTENT={
@@ -682,7 +717,7 @@ const CONTENT={
 };
 
 /* ---------- ÉTAT JOUEUR ---------- */
-const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,
+const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lang:"fr",
   sim:{cash:10000,qty:{},started:false},
   profile:{name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},
   ref:{code:"",invited:0},referredBy:null};
@@ -763,8 +798,16 @@ function buildNav(){
   nav.querySelector('[data-view="partners"]').onclick=()=>go("partners");
   nav.querySelector('[data-view="profile"]').onclick=()=>go("profile");
 
+  // sélecteur de langue
+  const sel=$("langSel");
+  sel.innerHTML=LANGS.map(l=>`<option value="${l.c}">${l.f} ${l.n}</option>`).join("");
+  sel.value=S.lang; sel.onchange=()=>setLang(sel.value);
+
+  buildMobtab();
+}
+function buildMobtab(){
   const mt=$("mobtab"); mt.innerHTML="";
-  [["academy:1","⛓️ Academy 1"],["simulator","📈 Sim"],["referral","🤝 Parrainage"],["partners","🏦 CEX"],["missions","🎯 Missions"],["profile","🧑‍🚀 Profil"]].forEach(([v,label])=>{
+  [["academy:1","⛓️ Academy 1"],["simulator","📈 "+t("sim")],["referral","🤝 "+t("referral")],["partners","🏦 CEX"],["missions","🎯 "+t("missions")],["profile","🧑‍🚀 "+t("profile")]].forEach(([v,label])=>{
     const b=document.createElement("button"); b.textContent=label; b.dataset.k=v;
     b.onclick=()=>{const [n,id]=v.split(":"); go(n,id?+id:null);}; mt.appendChild(b);
   });
@@ -1183,7 +1226,7 @@ function handleIncomingRef(){
 
 /* ---------- BOOT ---------- */
 handleIncomingRef();
-buildNav(); renderHUD(); render();
+buildNav(); applyLang(); renderHUD(); render();
 </script>
 </body>
 </html>
