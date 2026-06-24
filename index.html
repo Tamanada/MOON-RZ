@@ -319,7 +319,32 @@ const T={
   referral:{en:"Referral",fr:"Parrainage",es:"Referidos",pt:"Indicações",de:"Empfehlungen",ru:"Рефералы",tr:"Davet",ar:"الإحالة",zh:"邀请好友",ja:"紹介",ko:"추천",hi:"रेफ़रल",id:"Referral",vi:"Giới thiệu",th:"แนะนำเพื่อน"},
   partners:{en:"Exchanges (CEX)",fr:"Exchanges (CEX)",es:"Exchanges (CEX)",pt:"Exchanges (CEX)",de:"Börsen (CEX)",ru:"Биржи (CEX)",tr:"Borsalar (CEX)",ar:"المنصات (CEX)",zh:"交易所 (CEX)",ja:"取引所 (CEX)",ko:"거래소 (CEX)",hi:"एक्सचेंज (CEX)",id:"Bursa (CEX)",vi:"Sàn (CEX)",th:"ตลาดเทรด (CEX)"},
   profile:{en:"Profile & Rank",fr:"Profil & Rang",es:"Perfil y Rango",pt:"Perfil e Rank",de:"Profil & Rang",ru:"Профиль и ранг",tr:"Profil ve Rütbe",ar:"الملف والرتبة",zh:"个人资料和等级",ja:"プロフィール＆ランク",ko:"프로필 & 등급",hi:"प्रोफ़ाइल और रैंक",id:"Profil & Peringkat",vi:"Hồ sơ & Hạng",th:"โปรไฟล์ & อันดับ"},
-  level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"}
+  level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"},
+  sec_modules:{en:"📚 Modules",fr:"📚 Modules",es:"📚 Módulos",pt:"📚 Módulos",de:"📚 Module",ru:"📚 Модули",tr:"📚 Modüller",ar:"📚 الوحدات",zh:"📚 模块",ja:"📚 モジュール",ko:"📚 모듈",hi:"📚 मॉड्यूल",id:"📚 Modul",vi:"📚 Mô-đun",th:"📚 บทเรียน"},
+  sec_exam:{en:"🎓 Final exam",fr:"🎓 Examen final"},
+  take_exam:{en:"Take the exam 🎓",fr:"Passer l’examen 🎓"},
+  retake_exam:{en:"Retake the exam",fr:"Repasser l’examen"},
+  exam_passed:{en:"🏅 Exam passed",fr:"🏅 Examen réussi"},
+  test_knowledge:{en:"Test your knowledge",fr:"Valide tes connaissances"},
+  exam_ready:{en:"6 questions. Score ≥ 80% to earn the NFT + a big MOON-RZ bonus.",fr:"6 questions. Réussis ≥ 80% pour gagner le NFT + un gros bonus MOON-RZ."},
+  exam_locked:{en:"Finish all modules first to unlock the exam.",fr:"Termine d’abord tous les modules pour débloquer l’examen."},
+  unlocked:{en:"Unlocked",fr:"Débloqué"},
+  done_tag:{en:"✓ Done",fr:"✓ Terminé"},
+  back_modules:{en:"← Modules",fr:"← Modules"},
+  module_word:{en:"Module",fr:"Module"},
+  module_done:{en:"✓ Module already completed",fr:"✓ Module déjà validé"},
+  next_module:{en:"Next module →",fr:"Module suivant →"},
+  got_it:{en:"✓ Got it",fr:"✓ J'ai compris"},
+  reward_word:{en:"Reward",fr:"Récompense"},
+  quit:{en:"← Quit",fr:"← Quitter"},
+  exam_word:{en:"Exam",fr:"Examen"},
+  exam_intro:{en:"questions. You need at least 80% to pass and earn your NFT.",fr:"questions. Il te faut au moins 80% pour valider et gagner ton NFT."},
+  submit_answers:{en:"Submit my answers",fr:"Valider mes réponses"},
+  answer_all:{en:"⚠️ Answer all the questions!",fr:"⚠️ Réponds à toutes les questions !"},
+  pass_msg:{en:"🎉 Passed! Exam validated.",fr:"🎉 Réussi ! Examen validé."},
+  fail_msg:{en:"Not yet — you need 80%. Review the modules and try again!",fr:"Pas encore — il faut 80%. Relis les modules et réessaie !"},
+  back_academy:{en:"Back to academy →",fr:"Retour à l'académie →"},
+  retry:{en:"Retry 🔄",fr:"Réessayer 🔄"}
 };
 function t(k){ const e=T[k]; if(!e) return k; return e[S.lang]||e.en||e.fr||k; }
 function applyLang(){
@@ -716,6 +741,395 @@ const CONTENT={
   ]}
 };
 
+/* ---------- PACKS DE TRADUCTION DU CONTENU (par langue) ----------
+   Chaque pack surcharge title/body/quiz de la base FR (même id de module).
+   Repli automatique sur le FR si un pack ou un module manque. */
+const CONTENT_I18N={
+ en:{
+  1:{ modules:{
+    bc:{title:"What is a blockchain?",body:`
+      <p>A <b>blockchain</b> is a giant ledger shared by thousands of computers around the world. Nobody owns it, and anybody can verify it.</p>
+      <h4>The key idea</h4>
+      <p>Transactions are grouped into <b>blocks</b>. Each block is linked to the previous one by a cryptographic fingerprint (a <code>hash</code>). Hence the name: a <i>chain of blocks</i>.</p>
+      <ul><li><b>Decentralized</b> — no bank, no central server.</li><li><b>Immutable</b> — once written, the past can't be changed.</li><li><b>Transparent</b> — anyone can verify everything.</li></ul>
+      <div class="callout">💡 Analogy: a public Google Doc that thousands of people copy at the same time. If someone cheats on their copy, the others reject it automatically.</div>`},
+    btc:{title:"Bitcoin — digital gold",body:`
+      <p><b>Bitcoin (BTC)</b> is the first blockchain, created in 2009 by Satoshi Nakamoto. Its goal: digital money with no bank, impossible to counterfeit.</p>
+      <h4>Why "digital gold"?</h4>
+      <ul><li>Supply <b>capped at 21 million</b> BTC. Never more.</li><li>Secured by <b>Proof of Work</b> (mining).</li><li>Mostly used as a <b>store of value</b>.</li></ul>
+      <div class="callout">The smallest piece of Bitcoin is a <code>satoshi</code>: 1 BTC = 100,000,000 satoshis.</div>`},
+    eth:{title:"Ethereum — the world computer",body:`
+      <p><b>Ethereum (ETH)</b> is not just about sending money: it's a platform that runs <b>smart contracts</b>.</p>
+      <p>On it people build decentralized applications (<code>dApps</code>): DeFi, NFTs, DAOs, Web3 games.</p>
+      <ul><li>Native coin: <b>Ether (ETH)</b>.</li><li>Fees are called <b>gas</b>.</li><li>Since 2022 it uses <b>Proof of Stake</b>, far greener.</li></ul>`},
+    bnb:{title:"BNB Chain — fast and cheap",body:`
+      <p><b>BNB Chain</b> is Ethereum-compatible with <b>very low fees</b> and fast transactions.</p>
+      <ul><li>Native coin: <b>BNB</b>.</li><li><b>EVM</b>-compatible: same wallets and tools as Ethereum.</li><li>Very popular with beginners.</li></ul>
+      <div class="callout warn">⚠️ Low fees also mean lots of scams and fake tokens. (Academy 2)</div>`},
+    sc:{title:"Smart Contracts",body:`
+      <p>A <b>smart contract</b> is a program on the blockchain that runs by itself when its conditions are met. No middleman.</p>
+      <h4>Example</h4><p>« <i>If I receive 1 ETH, I send this NFT to the buyer.</i> » The code is law: <code>code is law</code>.</p>
+      <div class="callout">Automatic and tamper-proof, but if the code has a bug there's no customer service. Hence <b>audits</b>.</div>`},
+    wallet:{title:"Wallets",body:`
+      <p>A <b>wallet</b> doesn't "hold" your crypto (it lives on the blockchain). It holds your <b>keys</b>.</p>
+      <ul><li><b>Public address</b> — like an IBAN, to receive.</li><li><b>Private key</b> — the ultimate password, never shared.</li><li><b>Seed phrase</b> (12/24 words) — your wallet backup.</li></ul>
+      <div class="callout warn">🔒 "Not your keys, not your coins." Write your seed phrase on paper, never as a photo or in the cloud.</div>`}
+  }, quiz:[
+    {q:"What makes a blockchain « immutable »?",a:["A central bank protects it","Each block is linked to the previous one by a hash","An admin password","It's on a single server"],correct:1},
+    {q:"What is Bitcoin's maximum supply?",a:["100 million","Unlimited","21 million","1 billion"],correct:2},
+    {q:"Beyond sending money, what is Ethereum for?",a:["Mining Bitcoin","Running smart contracts and dApps","Storing files","Replacing central banks"],correct:1},
+    {q:"What must you NEVER share?",a:["Your public address","Your nickname","Your seed phrase / private key","Your blockchain's name"],correct:2},
+    {q:"Fees on Ethereum are called…",a:["Gas","Satoshi","Staking","Hash"],correct:0},
+    {q:"« Not your keys, not your coins » means…",a:["Keep crypto on an exchange","Whoever holds the keys controls the funds","Keys are free","You can't lose crypto"],correct:1}
+  ]},
+  2:{ modules:{
+    scam:{title:"Crypto scams: overview",body:`
+      <p>Crypto has no middleman: <b>no bank can reverse</b> a transaction. That's freedom… but also a playground for scammers. Your best protection is <b>you</b>.</p>
+      <h4>The main families</h4>
+      <ul><li><b>Phishing</b> — fake sites/messages that steal your access.</li><li><b>Rug pull</b> — a project's team vanishes with the funds.</li><li><b>Wallet drainer</b> — a booby-trapped signature that empties your wallet.</li><li><b>Fake airdrops / fake tokens</b> — bait to make you sign.</li></ul>
+      <div class="callout warn">🚩 Rule #1: if it's too good to be true (guaranteed ×10, "double your ETH"), it's a scam. Always.</div>`},
+    phish:{title:"Phishing",body:`
+      <p><b>Phishing</b> imitates a site/service you know to steal your seed phrase or trick you into signing.</p>
+      <h4>How to spot it</h4>
+      <ul><li>Check the <b>URL character by character</b>: <code>binance.com</code> ≠ <code>binqnce.com</code>.</li><li>Beware <b>Google ads</b> at the top of results — often fake.</li><li><b>No</b> legitimate support ever asks for your seed phrase.</li><li>Bookmark the real sites and always go through them.</li></ul>
+      <div class="callout warn">⚠️ A site asking for your 12/24 words = 100% scam. No exceptions.</div>`},
+    rug:{title:"Rug Pulls",body:`
+      <p>A <b>rug pull</b>: a team creates a token, attracts buyers, then <b>removes all the liquidity</b> and disappears. The price crashes to zero.</p>
+      <h4>Warning signs</h4>
+      <ul><li><b>Anonymous</b> team with no track record.</li><li><b>Liquidity not locked</b>.</li><li>A few wallets hold <b>most</b> of the tokens.</li><li>Huge hype, profit promises, no real product.</li></ul>
+      <div class="callout">🔎 Tools: a block explorer (Etherscan/BscScan) + contract scanners to see the holder distribution.</div>`},
+    drain:{title:"Wallet Drainers & approvals",body:`
+      <p>You don't need to give your private key to get drained: just signing a booby-trapped <b>approval</b> is enough.</p>
+      <h4>The classic trap</h4>
+      <p>A fake "mint" or "claim" makes you sign an <code>approve</code> that lets the attacker spend your tokens. Later, they empty everything.</p>
+      <ul><li>Read <b>what you sign</b>: a "set approval for all" message is dangerous.</li><li>Revoke unused approvals (e.g. <code>revoke.cash</code>).</li><li>Use a <b>burner wallet</b> for risky mints.</li></ul>
+      <div class="callout warn">🖊️ A signature can cost you as much as a leaked seed phrase. Slow down before clicking "Confirm".</div>`},
+    fake:{title:"Fake airdrops & fake tokens",body:`
+      <p>You receive a weird token "for free" in your wallet. It's <b>bait</b>.</p>
+      <ul><li><b>Never</b> interact with an unknown token received for no reason.</li><li>"Airdrops" that ask you to <b>connect your wallet and sign</b> on a shady site = drainer.</li><li>Verify the token's official address on the project's <b>real</b> site/Twitter.</li></ul>
+      <div class="callout">🎁 A real airdrop never asks you to send funds "to unlock" your reward.</div>`},
+    audit:{title:"Your security checklist",body:`
+      <p>Before touching a project, run this <b>quick audit checklist</b>:</p>
+      <ul><li>✅ URL verified + bookmarked</li><li>✅ Identifiable team / reputation</li><li>✅ Audited contract, locked liquidity</li><li>✅ Healthy holder distribution</li><li>✅ I understand what I'm signing</li><li>✅ Burner wallet for risky actions</li><li>✅ Seed phrase offline, never typed online</li></ul>
+      <div class="callout">🛡️ Crypto Guardian mantra: <b>"Slow down, verify, then sign."</b> Haste is the thief's best friend.</div>`}
+  }, quiz:[
+    {q:"A site asks for your 12 seed words. What do you do?",a:["Type them in, it's support","Leave: no legit service asks for them","Give just the first 6","Ask a friend"],correct:1},
+    {q:"What is a rug pull?",a:["A network upgrade","The team removes liquidity and disappears","A type of staking","A hardware wallet"],correct:1},
+    {q:"How does a drainer empty a wallet without your private key?",a:["By guessing your password","Via a booby-trapped signature/approval","By mining your coins","By email"],correct:1},
+    {q:"What is a strong rug-pull signal?",a:["Locked liquidity","Anonymous team + unlocked liquidity","Audited contract","Many spread-out holders"],correct:1},
+    {q:"You get an unknown token for free. Best reaction?",a:["Sell it fast","Don't interact with it","Click to see the site","Send it back"],correct:1},
+    {q:"The right reflex before signing a transaction?",a:["Sign fast before the price moves","Read what I sign and check the URL","Disable my antivirus","Share my screen"],correct:1}
+  ]},
+  3:{ modules:{
+    dex:{title:"DEX vs CEX",body:`
+      <p>There are two ways to trade crypto:</p>
+      <h4>CEX — centralized exchange</h4>
+      <p>Like Binance, Coinbase. A company holds your funds for you. Convenient, but <b>"not your keys, not your coins"</b>: you depend on it.</p>
+      <h4>DEX — decentralized exchange</h4>
+      <p>Like Uniswap, PancakeSwap. You trade <b>directly from your wallet</b>, no middleman. A smart contract handles the swap.</p>
+      <ul><li>CEX = simple, fast, but centralized and KYC.</li><li>DEX = self-custodial, open 24/7, but you're solely responsible.</li></ul>
+      <div class="callout">💡 DeFi (decentralized finance) is the whole world of financial services running on smart contracts, with no bank.</div>`},
+    lp:{title:"Liquidity Pools & AMM",body:`
+      <p>On a DEX there's no classic order book: <b>liquidity pools</b> make swaps possible.</p>
+      <h4>How it works</h4>
+      <p>Users (the <b>LPs, liquidity providers</b>) deposit two assets in equal value, e.g. ETH + USDC. An algorithm called an <b>AMM</b> sets the price via the formula <code>x · y = k</code>.</p>
+      <ul><li>You provide liquidity → you earn <b>trading fees</b>.</li><li>In return you receive an <b>LP token</b> representing your share of the pool.</li></ul>
+      <div class="callout">The more liquidity in a pool, the less the price moves per trade (low <i>slippage</i>).</div>`},
+    yield:{title:"Yield Farming",body:`
+      <p><b>Yield farming</b> means putting your crypto to work to generate returns, often stacking several protocols.</p>
+      <ul><li>You provide liquidity → you get LP tokens.</li><li>You stake those LP tokens → you receive reward tokens.</li><li>Returns are measured in <b>APR / APY</b> (yearly rate).</li></ul>
+      <div class="callout warn">⚠️ 1000% APYs exist… but are almost always unsustainable. High yield = high risk. Always ask "where does this yield come from?".</div>`},
+    stake:{title:"Staking",body:`
+      <p><b>Staking</b> means locking your tokens to help secure a <b>Proof of Stake</b> network, and earning rewards in return.</p>
+      <ul><li>You lock tokens (e.g. ETH, SOL) → you earn a steady yield.</li><li>More stable and simpler than yield farming.</li><li>Watch out for <b>unbonding periods</b>: your funds may be locked for a few days.</li></ul>
+      <div class="callout">Staking ≈ "money that earns interest", while keeping control of your keys.</div>`},
+    lend:{title:"Lending & Borrowing",body:`
+      <p>Protocols like Aave let you <b>lend</b> your crypto (and earn interest) or <b>borrow</b> (against collateral).</p>
+      <h4>The key concept: over-collateralization</h4>
+      <p>To borrow $100 you must deposit more than $100 in collateral (e.g. $150). If your collateral drops too much, you get <b>liquidated</b> automatically.</p>
+      <ul><li>Lender → passive income on your crypto.</li><li>Borrower → liquidity without selling your assets.</li></ul>
+      <div class="callout warn">⚠️ Liquidation is the #1 danger of borrowing. Always keep a comfortable safety margin.</div>`},
+    derisk:{title:"DeFi risks",body:`
+      <p>DeFi is powerful but has its own risks. Knowing them is half the job.</p>
+      <ul><li><b>Impermanent loss</b> — providing liquidity, if prices diverge you may end up with less value than just holding.</li><li><b>Smart contract risk</b> — a bug or hack can drain a protocol.</li><li><b>Rug pulls / fake protocols</b> — see Academy 2.</li><li><b>Liquidation risk</b> — on borrowing.</li></ul>
+      <div class="callout">🧠 DeFi Builder rule: never put more into a protocol than you can afford to lose, and favor established, audited protocols.</div>`}
+  }, quiz:[
+    {q:"Key difference between a CEX and a DEX?",a:["The DEX is more expensive","On a DEX you trade from your wallet, no middleman","The CEX has no fees","No difference"],correct:1},
+    {q:"What sets the price on a DEX like Uniswap?",a:["A human trader","An AMM via a math formula","The central bank","Random chance"],correct:1},
+    {q:"What do you get by providing liquidity to a pool?",a:["Nothing","Trading fees and an LP token","A credit card","A guaranteed NFT"],correct:1},
+    {q:"A protocol shows 1500% APY. Healthy reaction?",a:["Invest everything, it's free","Be wary: very high yield = very high risk","It's surely a scam, ignore","Take it at face value"],correct:1},
+    {q:"What is liquidation in lending?",a:["A loyalty bonus","Forced sale of your collateral if it drops too much","Withdrawing your interest","A network upgrade"],correct:1},
+    {q:"Impermanent loss mostly affects…",a:["Borrowers","Liquidity providers when prices diverge","Bitcoin stakers","No one"],correct:1}
+  ]},
+  4:{ modules:{
+    nftbasic:{title:"NFT basics",body:`
+      <p>An <b>NFT</b> (Non-Fungible Token) is a <b>unique</b>, tamper-proof token recorded on a blockchain. "Non-fungible" = not interchangeable, unlike $1 which equals any other $1.</p>
+      <ul><li>Proves the <b>ownership</b> and <b>authenticity</b> of a digital (or physical) asset.</li><li>Each NFT has a unique ID and a public history.</li></ul>
+      <div class="callout warn">⚠️ Common myth: "an NFT is just an image". No — it's an <b>ownership certificate</b> on the blockchain. The image is just one possible use.</div>`},
+    collec:{title:"Collections & standards",body:`
+      <p>Most NFTs are grouped into <b>collections</b> (e.g. 10,000 pieces sharing a theme).</p>
+      <h4>Technical standards</h4>
+      <ul><li><b>ERC-721</b> — each token is unique (1 work = 1 token).</li><li><b>ERC-1155</b> — allows semi-fungible (e.g. 100 copies of the same game item).</li></ul>
+      <p><b>Rarity</b> (rare traits) strongly drives perceived value within a collection.</p>
+      <div class="callout">The <b>metadata</b> (image, attributes) is often stored on IPFS to stay decentralized and permanent.</div>`},
+    utility:{title:"Utility NFTs",body:`
+      <p>A <b>utility NFT</b> grants access to something: that's its real value, beyond the image.</p>
+      <ul><li><b>Access / membership</b> — entry to a community, an event, premium content (like MOON-RZ Academy NFTs 😉).</li><li><b>Perks</b> — discounts, airdrops, voting rights.</li><li><b>Certifications</b> — a verifiable diploma or badge.</li></ul>
+      <div class="callout">💡 The question to ask before buying: "what does this NFT actually do?". If it's only for speculation, the risk is high.</div>`},
+    gaming:{title:"Gaming NFTs",body:`
+      <p>In Web3 games, items (characters, weapons, land) can be NFTs you <b>truly own</b> and can resell.</p>
+      <ul><li><b>Play-to-earn</b> — earn tokens/NFTs by playing.</li><li><b>Interoperability</b> — the (still young) idea of using one item across multiple games.</li></ul>
+      <div class="callout warn">⚠️ Many P2E games collapsed because their economy relied on a constant influx of new players. Always assess the game's <b>economic sustainability</b>.</div>`},
+    rwa:{title:"Real World Assets (RWA)",body:`
+      <p><b>RWAs</b> tokenize real-world assets: real estate, art, bonds, gold… represented by a token on the blockchain.</p>
+      <ul><li>Enables <b>fractional ownership</b> (owning 1% of an apartment).</li><li>More liquidity for assets that are usually hard to sell.</li><li>Fast-growing sector, but heavily tied to <b>regulation</b>.</li></ul>
+      <div class="callout">One of your other projects (STAYLO) is exactly about tokenizing real assets — precisely what this module covers.</div>`},
+    mint:{title:"Create & list an NFT",body:`
+      <p>Steps from idea to NFT for sale:</p>
+      <ul><li><b>1. Create</b> the visual / content and its metadata.</li><li><b>2. Mint</b> — record the NFT on the blockchain (via a marketplace or contract).</li><li><b>3. List</b> — put it up for sale (fixed price or auction) on a marketplace (OpenSea, Magic Eden…).</li><li><b>4. Royalties</b> — set a % you earn on every future resale.</li></ul>
+      <div class="callout">🎨 NFT Architect tip: a collection's value is 80% <b>community and utility</b>, 20% art. Build both.</div>`}
+  }, quiz:[
+    {q:"What does « non-fungible » mean?",a:["Worthless","Unique and non-interchangeable","Free","Stored offline"],correct:1},
+    {q:"An NFT is fundamentally…",a:["Just a JPEG image","An ownership certificate on the blockchain","A coin like Bitcoin","A password"],correct:1},
+    {q:"Which standard is used for semi-fungible game items?",a:["ERC-20","ERC-721","ERC-1155","BTC-1"],correct:2},
+    {q:"What does a « utility NFT » provide?",a:["Nothing beyond the image","Concrete access or a perk","Guaranteed profit","Lower Binance fees"],correct:1},
+    {q:"What are RWAs?",a:["Trading bots","Tokenization of real-world assets","A type of wallet","Gas fees"],correct:1},
+    {q:"What are NFT royalties for?",a:["To pay gas","To earn a % on every future resale","To mint for free","To delete the NFT"],correct:1}
+  ]},
+  5:{ modules:{
+    brand:{title:"Web3 branding",body:`
+      <p>In Web3, your <b>brand</b> is what makes people trust you in an ocean of projects. Before the tech, there's the <b>story</b>.</p>
+      <ul><li><b>Clear mission</b> — what problem you solve, for whom.</li><li><b>Visual identity</b> — logo, colors, tone (like MOON-RZ's lunar universe).</li><li><b>Consistency</b> — the same message everywhere (site, X, Discord).</li></ul>
+      <div class="callout">💡 People don't buy a token, they join a <b>vision</b>. Tell a story they want to belong to.</div>`},
+    community:{title:"Community building",body:`
+      <p>In crypto, <b>the community is the product</b>. A project with no community is dead, even with great tech.</p>
+      <ul><li><b>Discord / Telegram</b> — the daily HQ.</li><li><b>X (Twitter)</b> — the storefront and acquisition.</li><li><b>Real engagement</b> — reply, listen, reward active members.</li></ul>
+      <div class="callout warn">⚠️ Beware vanity metrics: 50,000 bought followers are worth less than 500 real engaged fans. Aim for quality, not noise.</div>`},
+    marketing:{title:"Crypto marketing",body:`
+      <p>Web3 marketing blends the classics with levers unique to the ecosystem.</p>
+      <ul><li><b>Educational content</b> — deliver value before selling.</li><li><b>Partnerships & KOLs</b> — crypto influencers (vet them, lots of fakes).</li><li><b>Airdrops & quests</b> — reward action to bootstrap the community (the Learn→Earn model).</li></ul>
+      <div class="callout">The best crypto marketing is still a product that works + users who talk about it themselves.</div>`},
+    dao:{title:"DAOs",body:`
+      <p>A <b>DAO</b> (Decentralized Autonomous Organization) is an organization governed by its community via the blockchain, instead of a boss.</p>
+      <ul><li><b>Governance tokens</b> — holding the token = voting rights.</li><li><b>Proposals & votes</b> — the community decides on changes and the treasury.</li><li><b>Transparency</b> — decisions and funds visible on-chain.</li></ul>
+      <div class="callout">⚖️ Key challenge: preventing a few large holders ("whales") from controlling all votes. Governance design matters as much as the tech.</div>`},
+    tokenomics:{title:"Tokenomics",body:`
+      <p><b>Tokenomics</b> is your token's economy: what determines whether it holds value over time.</p>
+      <ul><li><b>Supply</b> — total, circulating, inflation/deflation.</li><li><b>Distribution</b> — team, community, investors, and <b>vesting</b> (gradual unlocks).</li><li><b>Utility</b> — why hold the token? (gas, governance, access, rewards…).</li><li><b>Supply vs demand</b> — a useful, scarce token gains value.</li></ul>
+      <div class="callout">🧮 The MOON-RZ token follows this logic: earned through action (Learn→Earn) and spent to unlock content, NFTs and competitions.</div>`},
+    launch:{title:"Launch your project",body:`
+      <p>Putting the pieces together to go from idea to launch:</p>
+      <ul><li><b>1. Vision & whitepaper</b> — what, why, how.</li><li><b>2. Community</b> — build it BEFORE launch.</li><li><b>3. Tokenomics</b> — healthy and transparent.</li><li><b>4. Product / MVP</b> — show it works (like this app!).</li><li><b>5. Launch & liquidity</b> — then iterate with the community.</li></ul>
+      <div class="callout">🏗️ Web3 Founder mantra: "Community first, hype second." A successful launch is prepared months ahead.</div>`}
+  }, quiz:[
+    {q:"In crypto, what do people really buy?",a:["An isolated token","A vision and a community","The logo","Gas"],correct:1},
+    {q:"Why be wary of 50,000 followers at once?",a:["It's always a good sign","It can be a vanity metric (fake engagement)","It lowers the token price","It raises gas"],correct:1},
+    {q:"What is a DAO?",a:["A hardware wallet","An organization governed by its community on-chain","A type of NFT","A centralized exchange"],correct:1},
+    {q:"What is vesting in tokenomics for?",a:["Burning tokens","Gradually unlocking tokens (team, investors)","Paying gas","Creating NFTs"],correct:0},
+    {q:"What risk threatens DAO governance?",a:["Too much transparency","Vote concentration among a few whales","Free votes","Too many members"],correct:1},
+    {q:"The right priority before a launch?",a:["Maximum hype right away","Build the community and a working product","Buy followers","Launch with no whitepaper"],correct:1}
+  ]},
+  6:{ modules:{
+    candles:{title:"Reading a chart: candles",body:`
+      <p>The <b>Japanese candlestick</b> chart is the trader's universal language. Each candle sums up the buyer/seller battle over a period.</p>
+      <h4>One candle = 4 prices</h4>
+      <ul><li><b>Open</b> and <b>close</b> (the candle body).</li><li><b>High</b> and <b>low</b> (the wicks).</li><li><b>Green</b> body = close above open (up). <b>Red</b> = down.</li></ul>
+      <p>The <b>timeframe</b> changes everything: a 1-minute candle ≠ a 1-day candle.</p>
+      <div class="callout">💡 Open your <b>Simulator</b> alongside: you'll watch real prices move. Trading is learned with your eye on the market, not in books.</div>`},
+    sr:{title:"Support & Resistance",body:`
+      <p>These are the most important price levels to spot.</p>
+      <h4>Support</h4>
+      <p>A <b>floor</b> where buyers take over and bounce the price. The price "struggles to fall" below this level.</p>
+      <h4>Resistance</h4>
+      <p>A <b>ceiling</b> where sellers take over. The price "struggles to rise" above it.</p>
+      <ul><li>The more a level is tested, the more significant it is.</li><li>A broken support often becomes a resistance (and vice versa).</li></ul>
+      <div class="callout warn">⚠️ These levels are <b>zones</b>, not pixel-perfect lines. Don't over-precise.</div>`},
+    trend:{title:"Trends",body:`
+      <p>"<b>The trend is your friend</b>": a trader's first question is always "which way is the market going?".</p>
+      <ul><li><b>Uptrend</b> — higher highs and higher lows.</li><li><b>Downtrend</b> — lower highs and lower lows.</li><li><b>Range</b> — the price oscillates sideways, no direction.</li></ul>
+      <div class="callout">📐 A <b>trendline</b> connects the lows (in an uptrend) or the highs (in a downtrend). Its break can signal a change of direction.</div>`},
+    volume:{title:"Volume",body:`
+      <p><b>Volume</b> = the amount traded over a period. It's the <b>fuel</b> behind a price move.</p>
+      <ul><li>A rise on <b>high volume</b> = credible, supported move.</li><li>A rise on <b>low volume</b> = suspicious, the move may fizzle.</li><li>A volume spike often accompanies reversals or breakouts.</li></ul>
+      <div class="callout">🔎 Simple rule: volume <b>confirms</b> price. A resistance break with no volume is suspect.</div>`},
+    liquidity:{title:"Liquidity",body:`
+      <p><b>Liquidity</b> is the ease of buying or selling without moving the price. Lots of orders on both sides = a liquid market.</p>
+      <ul><li><b>Liquid</b> asset (BTC, ETH) → low <b>slippage</b>, execution near the shown price.</li><li><b>Illiquid</b> asset (small token) → one big order moves the price, ground for manipulation.</li></ul>
+      <div class="callout warn">⚠️ Many traps (pump &amp; dump) are only possible on illiquid assets. Favor deep markets when starting out.</div>`},
+    analyse:{title:"Putting it into practice",body:`
+      <p>Bring it all together for your first structured <b>market analysis</b>:</p>
+      <ul><li><b>1. Trend</b> — up, down or range?</li><li><b>2. Levels</b> — where are the key supports and resistances?</li><li><b>3. Volume</b> — does it confirm the current move?</li><li><b>4. Liquidity</b> — is the asset deep enough?</li><li><b>5. Plan</b> — where I enter, where I cut if I'm wrong (that's Academy 7).</li></ul>
+      <div class="callout">🏋️ Market Analyst exercise: open the <b>Simulator</b>, pick BTC or ETH, and run these 5 steps out loud before clicking "Buy". Repeat on ETH, BNB, SOL, XRP.</div>`}
+  }, quiz:[
+    {q:"What does a candle's body represent?",a:["The high and low","The open and close","Volume","Fees"],correct:1},
+    {q:"What is a support?",a:["A price ceiling","A floor where buyers bounce the price","A type of token","A red candle"],correct:1},
+    {q:"An uptrend is…",a:["Higher highs and higher lows","A flat price","Lower lows","Always low volume"],correct:0},
+    {q:"What is volume for?",a:["Computing fees","Confirming the credibility of a price move","Creating NFTs","Securing the wallet"],correct:1},
+    {q:"An illiquid asset is dangerous because…",a:["It has too much volume","One big order can move the price (manipulation)","It's too expensive","It has no chart"],correct:1},
+    {q:"The first question before trading?",a:["What's the project logo?","Which way is the trend going?","Who's the CEO?","How many followers?"],correct:1}
+  ]},
+  7:{ modules:{
+    mtf:{title:"Multi Time Frame Analysis",body:`
+      <p>A good trader looks at <b>several timeframes</b> before acting. Just one is looking through a keyhole.</p>
+      <h4>The top-down method</h4>
+      <ul><li><b>Higher TF</b> (day/week) → the underlying trend, the backdrop.</li><li><b>Medium TF</b> (4h/1h) → the zones of interest.</li><li><b>Lower TF</b> (15m/5m) → the precise entry point.</li></ul>
+      <p>Golden rule: <b>trade in the direction of the higher trend</b>, and refine the entry on the lower one.</p>
+      <div class="callout warn">⚠️ Classic beginner mistake: taking a 5-minute signal that goes against the daily trend. That's swimming against the current.</div>`},
+    risk:{title:"Risk Management",body:`
+      <p>The truth no one tells beginners: <b>trading is first about managing risk, not predicting price.</b> You survive before you win.</p>
+      <h4>The 1% rule</h4>
+      <p>Never risk <b>more than 1 to 2%</b> of your capital on a single trade. At 1% risk, it would take 100 losing trades in a row to wipe you out — nearly impossible.</p>
+      <ul><li>A 50% loss then requires a <b>100%</b> gain just to break even. Protecting capital is math.</li><li>The <b>stop-loss</b> is not optional: it's your seatbelt.</li></ul>
+      <div class="callout">🧮 Practice it in the Simulator: decide BEFORE buying how much you accept to lose, and stick to it.</div>`},
+    sizing:{title:"Position Sizing",body:`
+      <p><b>Position sizing</b> answers "how much do I buy?". It follows from your risk, not your enthusiasm.</p>
+      <h4>The formula</h4>
+      <p><code>Size = (Capital × % risk) ÷ distance to stop-loss</code></p>
+      <p>Example: $10,000 capital, 1% risk ($100), stop at -5% → you can deploy <b>$2,000</b> on this trade (since 5% of 2000 = 100).</p>
+      <div class="callout warn">⚠️ It's not "I like this coin so I put it all in". Position size is a <b>calculation</b>, defined by where you cut if you're wrong.</div>`},
+    rr:{title:"Stop-loss, Take-profit & R:R",body:`
+      <p>Every trade must have an exit plan <b>before</b> you enter.</p>
+      <ul><li><b>Stop-loss (SL)</b> — the price where you admit you're wrong and cut.</li><li><b>Take-profit (TP)</b> — the price where you take gains.</li><li><b>Risk/Reward ratio (R:R)</b> — how much you aim for vs how much you risk.</li></ul>
+      <p>A R:R of <b>1:3</b> means risking $100 to aim for $300. With such a ratio you can be wrong more often than right and still be <b>profitable</b>.</p>
+      <div class="callout">📐 Aim for at least 1:2. Below that, the smallest losing streak sinks you.</div>`},
+    journal:{title:"Journal & Psychology",body:`
+      <p>Your worst enemy in trading isn't the market: it's <b>you</b> (fear, greed, revenge).</p>
+      <h4>The trading journal</h4>
+      <p>Log every trade: entry, exit, reason, emotion felt, result. That's how you spot recurring mistakes and truly improve.</p>
+      <ul><li><b>FOMO</b> — buying out of fear of missing out = entering too late.</li><li><b>Revenge trading</b> — trying to "win it back" after a loss = disaster.</li><li><b>Discipline > motivation</b> — a coldly followed plan beats instinct.</li></ul>
+      <div class="callout">🧠 Professional Trader mantra: "Plan the trade, trade the plan." Decide calmly, execute without emotion.</div>`},
+    strategy:{title:"Build your strategy",body:`
+      <p>A strategy is a set of <b>written rules</b> you follow without improvising. Three main styles:</p>
+      <ul><li><b>Scalping</b> — many very short trades (minutes). Intense, demanding.</li><li><b>Swing</b> — holding a position for a few days/weeks on a trend.</li><li><b>Investing (DCA)</b> — buying regularly for the long term, no timing.</li></ul>
+      <h4>Your strategy must define</h4>
+      <p>Which market · which TF · entry condition · stop-loss · take-profit · position size · emotion-management rule.</p>
+      <div class="callout">🏋️ Professional Trader exercise: write ONE strategy (swing style), then test it over 10 trades in the Simulator, respecting every rule. Log everything in your journal.</div>`}
+  }, quiz:[
+    {q:"In multi-timeframe analysis, you trade…",a:["Against the higher trend","With the higher trend, entry refined on the lower TF","Only on 1 minute","At random"],correct:1},
+    {q:"The 1% rule says to…",a:["Earn 1% guaranteed per day","Never risk more than 1-2% of capital per trade","Invest 1% in Bitcoin","Pay 1% fees"],correct:1},
+    {q:"Position sizing mainly depends on…",a:["Your enthusiasm for the coin","Your accepted risk and the distance to your stop-loss","The project's follower count","The candle color"],correct:1},
+    {q:"A Risk/Reward of 1:3 means…",a:["Risk 300 to make 100","Risk 100 to aim for 300","Three trades a day","30% fees"],correct:1},
+    {q:"What is revenge trading?",a:["A winning strategy","Trying to win back a loss, often disastrous","A type of order","Trading at night"],correct:1},
+    {q:"What is a trading journal for?",a:["Nothing","Spotting recurring mistakes and improving","Paying less tax","Mining coins"],correct:1}
+  ]},
+  8:{ modules:{
+    copilot:{title:"AI, your crypto copilot",body:`
+      <p>AI (Claude, ChatGPT…) doesn't replace your brain: it's a <b>copilot</b> that saves huge time on research, analysis and learning.</p>
+      <ul><li><b>Explain</b> a complex concept at your level.</li><li><b>Summarize</b> a 40-page whitepaper in 10 lines.</li><li><b>Brainstorm</b> a strategy or a project.</li><li><b>Code</b> a script, a bot, a simple smart contract.</li></ul>
+      <div class="callout">💡 This MOON-RZ Academy app was itself built with AI. AI is a force multiplier for a solo creator.</div>`},
+    prompt:{title:"Prompt well",body:`
+      <p>The quality of the answer depends on the quality of your question. A good <b>prompt</b> gives context and a clear goal.</p>
+      <h4>The R-C-T recipe</h4>
+      <ul><li><b>Role</b> — "Act as an expert crypto analyst."</li><li><b>Context</b> — the data, your level, the constraint.</li><li><b>Task</b> — exactly what you want, and the output format.</li></ul>
+      <div class="callout warn">⚠️ Be specific: "analyze BTC" is vague. "Give me BTC's support, resistance and trend on H4, in 5 bullets" is actionable.</div>`},
+    analyst:{title:"Build an AI crypto analyst",body:`
+      <p>You can turn an AI into a reusable <b>analysis assistant</b> with fixed instructions.</p>
+      <h4>Example instruction</h4>
+      <p>"You are my analyst. For each asset I give you, always reply with: trend, key levels, volume, risk level /10, and a one-sentence plan. Never financial advice, only analysis."</p>
+      <div class="callout">🎯 The AI structures your thinking and forces you to follow the Academy 6 method. The final decision is still YOU.</div>`},
+    scanner:{title:"AI market scanner",body:`
+      <p>A <b>scanner</b> filters information down to what matters, and AI speeds up that filtering.</p>
+      <ul><li>Summarize the day's news and market sentiment.</li><li>Compare several projects on fixed criteria (team, tokenomics, liquidity…).</li><li>Spot signals to dig into — <b>never</b> to execute blindly.</li></ul>
+      <div class="callout warn">⚠️ An AI signal is a <b>lead</b>, not an order. Always verify the data yourself before acting.</div>`},
+    agents:{title:"AI agents & automation",body:`
+      <p>An <b>AI agent</b> is an AI that can chain actions toward a goal (search, analyze, write, sometimes execute via tools).</p>
+      <ul><li>Automate a daily watch.</li><li>Generate regular reports.</li><li>Assist creation (content, code, design).</li></ul>
+      <div class="callout warn">⚠️ Real danger: an agent connected to a wallet or exchange can cause damage if poorly scoped. Start read-only / in the simulator.</div>`},
+    ailimits:{title:"AI limits & safety",body:`
+      <p>AI is powerful but fallible. Knowing the limits = using it wisely.</p>
+      <ul><li><b>Hallucinations</b> — AI can invent facts confidently. Verify numbers and contracts.</li><li><b>Stale data</b> — it may not know current prices.</li><li><b>Security</b> — NEVER give your seed phrase or private keys to an AI or any site.</li></ul>
+      <div class="callout">🧠 AI Trader rule: AI <b>assists</b> your decision, it doesn't <b>replace</b> it. Always keep control and critical thinking.</div>`}
+  }, quiz:[
+    {q:"What's the right role of AI in crypto?",a:["Deciding for you","A copilot that speeds up research and analysis","Holding your private keys","Guaranteeing profits"],correct:1},
+    {q:"A good prompt ideally contains…",a:["A single vague word","Role, context and a clear task with format","Only emojis","Your seed phrase"],correct:1},
+    {q:"A signal from an AI scanner is…",a:["An order to execute blindly","A lead to verify yourself","A profit guarantee","A smart contract"],correct:1},
+    {q:"What's the risk of an AI agent connected to a wallet?",a:["None","It can cause damage if poorly scoped","It mines faster","It lowers gas"],correct:1},
+    {q:"What is an AI hallucination?",a:["A display bug","When AI invents a fact confidently","A type of NFT","A network outage"],correct:1},
+    {q:"Can you give your seed phrase to an AI to help you?",a:["Yes if it's well-known","Never, to no one and no tool","Yes the first 12 words","Only on weekends"],correct:1}
+  ]},
+  9:{ modules:{
+    standards:{title:"Token standards",body:`
+      <p>Creating a token means following a recognized <b>standard</b> so it's compatible with wallets and exchanges.</p>
+      <ul><li><b>ERC-20</b> (Ethereum) — the standard for fungible tokens.</li><li><b>BEP-20</b> (BNB Chain) — the equivalent, lower fees.</li><li>On Solana it's the <b>SPL Token</b> program.</li></ul>
+      <p>A token is defined by: a <b>name</b>, a <b>symbol</b> (e.g. MOON), a <b>total supply</b> and a number of <b>decimals</b>.</p>
+      <div class="callout">💡 Technically, creating a basic token is simple. What's hard — and what matters — is everything around it (utility, liquidity, trust).</div>`},
+    contract:{title:"The token smart contract",body:`
+      <p>The token lives in a <b>smart contract</b> that defines its rules: who can mint, burn, and with what limits.</p>
+      <ul><li><b>Mint</b> — create new tokens.</li><li><b>Burn</b> — destroy some (reduces supply, deflationary).</li><li><b>Owner / permissions</b> — who controls what.</li></ul>
+      <div class="callout warn">⚠️ A badly written contract = an open door to hacks and rug pulls. For a real launch, a professional <b>audit</b> is essential.</div>`},
+    liquidity9:{title:"Liquidity & launch",body:`
+      <p>A token with no <b>liquidity</b> is worthless: no one can buy or sell it.</p>
+      <h4>Creating a market</h4>
+      <p>You create a <b>liquidity pool</b> on a DEX (e.g. your token + USDC). The deposited ratio sets the starting price.</p>
+      <ul><li><b>Locking the liquidity</b> reassures people: the team can't pull it all.</li><li>Communicate the official contract to avoid fake tokens (see Academy 2).</li></ul>
+      <div class="callout">🔒 Locked liquidity + audited contract = two seriousness signals a savvy investor looks for.</div>`},
+    vesting:{title:"Vesting",body:`
+      <p><b>Vesting</b> unlocks tokens <b>gradually</b> over time, instead of releasing everything at once.</p>
+      <ul><li>Stops the team and early investors from selling everything at launch (a "dump").</li><li>Aligns incentives for the <b>long term</b>.</li><li>Often shown in a token release schedule.</li></ul>
+      <div class="callout warn">⚠️ Before investing in a project, check the vesting: if huge amounts unlock soon, the price can drop.</div>`},
+    governance:{title:"Governance",body:`
+      <p>A token can grant <b>decision power</b>: that's governance (linked to DAOs, Academy 5).</p>
+      <ul><li>Holding the token = voting on the project's evolution.</li><li>Decisions and treasury managed transparently, on-chain.</li><li>The challenge: avoiding <b>whale</b> dominance over all votes.</li></ul>
+      <div class="callout">⚖️ Good governance design distributes power and encourages community participation.</div>`},
+    launch9:{title:"Launch a token responsibly",body:`
+      <p>Recap of a <b>serious</b> launch, the opposite of a scam:</p>
+      <ul><li><b>1.</b> Clear utility — what the token is really for.</li><li><b>2.</b> Audited contract, healthy permissions.</li><li><b>3.</b> Transparent tokenomics (supply, distribution, vesting).</li><li><b>4.</b> Liquidity provided and locked.</li><li><b>5.</b> Informed community, official contract published.</li></ul>
+      <div class="callout">🪙 Token Engineer mantra: "A token only has value through what you can do with it." Build the use before the price. That's exactly the MOON-RZ token logic.</div>`}
+  }, quiz:[
+    {q:"What is the standard for fungible tokens on Ethereum?",a:["ERC-721","ERC-20","SPL","BTC-1"],correct:1},
+    {q:"What does the « burn » operation do?",a:["Creates tokens","Destroys tokens and reduces supply","Locks liquidity","Mints an NFT"],correct:1},
+    {q:"Why lock the liquidity?",a:["To pay less gas","To reassure: the team can't pull it all","To increase decimals","To mine"],correct:1},
+    {q:"What is vesting for?",a:["Gradually unlocking tokens and avoiding dumps","Creating an NFT","Auditing the code","Paying fees"],correct:0},
+    {q:"A governance token lets you…",a:["Vote on the project's evolution","Lower Binance fees","Mine Bitcoin","Store the seed phrase"],correct:0},
+    {q:"What gives a token lasting value?",a:["Its logo","Its real utility","The number of decimals","Its color"],correct:1}
+  ]},
+  10:{ modules:{
+    m_wallet:{title:"Checkpoint 1 — Wallet & security",body:`
+      <p>Welcome to the final academy. Here you no longer discover: you <b>connect everything</b> and prove your mastery.</p>
+      <h4>What you now master</h4>
+      <ul><li>Create and secure a wallet, protect your seed phrase.</li><li>Recognize phishing, rug pulls, drainers (Academy 2).</li><li>The reflex: "Slow down, verify, then sign."</li></ul>
+      <div class="callout">🌙 A true Web3 master protects their funds <b>by habit</b>, without even thinking. Security is your foundation.</div>`},
+    m_defi:{title:"Checkpoint 2 — DeFi & yield",body:`
+      <p>You now know how to put your assets to work <b>while understanding the risks</b>.</p>
+      <ul><li>Swap on a DEX, provide liquidity, read an APY.</li><li>Staking, lending, and the danger of liquidation.</li><li>Impermanent loss and smart contract risk.</li></ul>
+      <div class="callout">🧠 Mastery = never chasing a yield you can't explain the source of.</div>`},
+    m_nft:{title:"Checkpoint 3 — NFT & creation",body:`
+      <p>You see the NFT for what it is: an <b>ownership certificate</b> and a carrier of utility.</p>
+      <ul><li>Understand collections, standards, rarity.</li><li>Assess the real utility before buying.</li><li>Know how to create, list, and set royalties.</li></ul>
+      <div class="callout">🎯 Your MOON-RZ badges are themselves utility NFTs: they prove what you've learned.</div>`},
+    m_trade:{title:"Checkpoint 4 — Trading & risk",body:`
+      <p>You read a market and act with a <b>plan</b>, not your emotions.</p>
+      <ul><li>Trend, supports/resistances, volume, liquidity.</li><li>The 1% rule, position sizing, R:R ≥ 1:2.</li><li>Trading journal and discipline against FOMO.</li></ul>
+      <div class="callout">🏋️ Proof by action: apply a full strategy in the <b>Simulator</b>, from entry plan to stop-loss.</div>`},
+    m_build:{title:"Checkpoint 5 — Build & tokenize",body:`
+      <p>You can go from mere user to ecosystem <b>builder</b>.</p>
+      <ul><li>Vision, branding, community first.</li><li>Healthy tokenomics: supply, distribution, vesting, utility.</li><li>Launch a responsible token, with governance and locked liquidity.</li></ul>
+      <div class="callout">🏗️ "Community first, hype second." You can now recognize — and build — a serious project.</div>`},
+    m_master:{title:"Final checkpoint — MOON-RZ Master",body:`
+      <p>Final stretch. You've gone through all 10 academies: blockchain, security, DeFi, NFT, entrepreneurship, trading, AI, tokenization.</p>
+      <h4>The MOON-RZ Master profile</h4>
+      <ul><li>🛡️ Autonomous and safe in Web3.</li><li>💹 Able to analyze a market and manage risk.</li><li>🏗️ Able to understand, assess and build a project.</li><li>🧠 Critical thinking: no easy-money promise traps you.</li></ul>
+      <div class="callout">🏆 Pass the final exam to earn the <b>MOON-RZ MASTER NFT</b> and reach the ultimate rank: <b>MOON-RZ Legend</b>. True mastery is to keep learning. 🚀</div>`}
+  }, quiz:[
+    {q:"The ultimate security reflex of a Web3 master?",a:["Sign fast","Slow down, verify, then sign; never give your seed","Keep funds on an exchange","Disable your antivirus"],correct:1},
+    {q:"Before chasing a high DeFi yield, you must…",a:["Invest everything fast","Be able to explain where the yield comes from and its risk","Ignore fees","Trust the shown APY"],correct:1},
+    {q:"Which rule protects your capital in trading?",a:["Bet it all on one coin","Risk max 1-2% per trade with a stop-loss","Trade with no plan","Double down after each loss"],correct:1},
+    {q:"What gives a token/NFT lasting value?",a:["Hype alone","Its real utility and community","The number of decimals","The logo color"],correct:1},
+    {q:"The right role of AI for a crypto master?",a:["Decide and trade for them","Assist the decision, which stays human","Hold the private keys","Guarantee profits"],correct:1},
+    {q:"Ultimately, true Web3 mastery is…",a:["Having the biggest portfolio","Being autonomous, managing risk and keeping learning","Following every influencer","Buying every new token"],correct:1}
+  ]}
+ }
+};
+function ac(aid){
+  const base=CONTENT[aid]; if(!base) return base;
+  const tr=(S.lang!=="fr" && CONTENT_I18N[S.lang] && CONTENT_I18N[S.lang][aid]) ? CONTENT_I18N[S.lang][aid] : null;
+  if(!tr) return base;
+  return {
+    modules: base.modules.map(m=> (tr.modules&&tr.modules[m.id]) ? Object.assign({},m,{title:tr.modules[m.id].title,body:tr.modules[m.id].body}) : m),
+    quiz: tr.quiz || base.quiz
+  };
+}
+
 /* ---------- ÉTAT JOUEUR ---------- */
 const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lang:"fr",
   sim:{cash:10000,qty:{},started:false},
@@ -843,7 +1257,7 @@ function render(){
 
 /* ---------- ACADEMY OVERVIEW ---------- */
 function viewAcademy(aid){
-  const A=ACADEMIES.find(x=>x.id===aid), C=CONTENT[aid];
+  const A=ACADEMIES.find(x=>x.id===aid), C=ac(aid);
   if(!C) return viewComingSoon(A);
   const total=C.modules.length, done=doneList(aid).length, pct=Math.round(done/total*100), allDone=done>=total;
   const cards=C.modules.map(m=>{
@@ -851,25 +1265,25 @@ function viewAcademy(aid){
     return `<div class="card hover" data-lesson="${m.id}" data-aid="${aid}" style="cursor:pointer">
       <h3><span class="ico">${m.icon}</span> ${m.title}</h3>
       <p>${m.body.replace(/<[^>]+>/g,' ').trim().slice(0,90)}…</p>
-      <div class="meta"><span class="tag">+${m.xp} XP</span><span class="tag gold">+${m.coins} MOON-RZ</span>${d?'<span class="tag done">✓ Terminé</span>':''}</div>
+      <div class="meta"><span class="tag">+${m.xp} XP</span><span class="tag gold">+${m.coins} MOON-RZ</span>${d?`<span class="tag done">${t("done_tag")}</span>`:''}</div>
     </div>`;
   }).join("");
   return `
    <div class="hero"><span class="pill">Academy ${aid}</span>
      <h1>${A.icon} <span class="acc">${A.title}</span></h1>
-     <p>${A.intro} Termine les ${total} modules puis valide l'examen pour débloquer ton <b>${A.reward}</b> 🏅</p>
+     <p>${A.intro}</p>
      <div class="progress-ring" style="margin-top:18px"><div class="bar" style="flex:1;max-width:280px"><span style="width:${pct}%"></span></div><b style="font-size:13px">${done}/${total} modules · ${pct}%</b></div>
    </div>
-   <div class="section-title">📚 Modules</div>
+   <div class="section-title">${t("sec_modules")}</div>
    <div class="grid cols-2">${cards}</div>
-   <div class="section-title">🎓 Examen final</div>
+   <div class="section-title">${t("sec_exam")}</div>
    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-     <div><h3 style="margin-bottom:4px">${isPassed(aid)?'🏅 Examen réussi':'Valide tes connaissances'}</h3>
-       <p>${allDone?'6 questions. Réussis ≥ 80% pour gagner le NFT + un gros bonus MOON-RZ.':'Termine d’abord tous les modules pour débloquer l’examen.'}</p></div>
-     <button class="btn moon" ${allDone?'':'disabled'} data-action="quiz" data-aid="${aid}">${isPassed(aid)?'Repasser l’examen':'Passer l’examen 🎓'}</button>
+     <div><h3 style="margin-bottom:4px">${isPassed(aid)?t("exam_passed"):t("test_knowledge")}</h3>
+       <p>${allDone?t("exam_ready"):t("exam_locked")}</p></div>
+     <button class="btn moon" ${allDone?'':'disabled'} data-action="quiz" data-aid="${aid}">${isPassed(aid)?t("retake_exam"):t("take_exam")}</button>
    </div>
    ${isPassed(aid)?`<div class="card" style="margin-top:18px;border-color:#34d39955;background:linear-gradient(120deg,#10241c,#15152a)">
-      <h3>🏅 ${A.reward} <span class="tag done">Débloqué</span></h3>
+      <h3>🏅 ${A.reward} <span class="tag done">${t("unlocked")}</span></h3>
       <p>Bravo ! Academy ${aid} validée.${aid===10?' 🌙 Tu as terminé les 10 académies — tu es officiellement une <b>MOON-RZ Legend</b>. Félicitations, bâtisseur du Web3 ! 🏆':CONTENT[aid+1]?` L'Academy ${aid+1} est maintenant débloquée 🔓`:' Les prochaines arrivent bientôt.'}</p></div>`:''}
   `;
 }
@@ -887,24 +1301,24 @@ function viewLocked(aid){
 
 /* ---------- LESSON ---------- */
 function viewLesson(id,aid){
-  const C=CONTENT[aid], i=C.modules.findIndex(m=>m.id===id), m=C.modules[i], d=doneList(aid).includes(m.id), next=C.modules[i+1];
+  const C=ac(aid), i=C.modules.findIndex(m=>m.id===id), m=C.modules[i], d=doneList(aid).includes(m.id), next=C.modules[i+1];
   return `
-   <button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">← Modules</button>
-   <div class="lesson"><div class="lhead"><span class="pill">Module ${i+1}/${C.modules.length}</span><h1 style="font-size:24px">${m.icon} ${m.title}</h1></div>
+   <button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">${t("back_modules")}</button>
+   <div class="lesson"><div class="lhead"><span class="pill">${t("module_word")} ${i+1}/${C.modules.length}</span><h1 style="font-size:24px">${m.icon} ${m.title}</h1></div>
      <div class="lbody">${m.body}</div>
-     <div class="lfoot"><div>${d?'<span class="tag done">✓ Module déjà validé</span>':`<span class="tag">Récompense : +${m.xp} XP · +${m.coins} MOON-RZ</span>`}</div>
-       <div style="display:flex;gap:10px">${d&&next?`<button class="btn ghost" data-lesson="${next.id}" data-aid="${aid}">Module suivant →</button>`:''}${!d?`<button class="btn" data-complete="${m.id}" data-aid="${aid}">✓ J'ai compris (valider)</button>`:''}</div></div></div>`;
+     <div class="lfoot"><div>${d?`<span class="tag done">${t("module_done")}</span>`:`<span class="tag">${t("reward_word")} : +${m.xp} XP · +${m.coins} MOON-RZ</span>`}</div>
+       <div style="display:flex;gap:10px">${d&&next?`<button class="btn ghost" data-lesson="${next.id}" data-aid="${aid}">${t("next_module")}</button>`:''}${!d?`<button class="btn" data-complete="${m.id}" data-aid="${aid}">${t("got_it")}</button>`:''}</div></div></div>`;
 }
 
 /* ---------- QUIZ ---------- */
 let quizState=null;
 function viewQuiz(aid){
-  const C=CONTENT[aid], A=ACADEMIES.find(x=>x.id===aid);
+  const C=ac(aid), A=ACADEMIES.find(x=>x.id===aid);
   quizState={aid,answers:Array(C.quiz.length).fill(null),submitted:false};
   const qs=C.quiz.map((q,qi)=>`<div class="q" data-qi="${qi}"><h4>${qi+1}. ${q.q}</h4>${q.a.map((opt,oi)=>`<button class="opt" data-qi="${qi}" data-oi="${oi}">${opt}</button>`).join("")}</div>`).join("");
-  return `<button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">← Quitter</button>
-   <div class="hero"><span class="pill">Examen final</span><h1>🎓 <span class="acc">${A.title} — Examen</span></h1><p>${C.quiz.length} questions. Il te faut au moins <b>80%</b> pour valider et gagner ton NFT.</p></div>
-   <div class="quiz card">${qs}<div id="quizResult"></div><button class="btn moon" id="submitQuiz" style="margin-top:10px">Valider mes réponses</button></div>`;
+  return `<button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">${t("quit")}</button>
+   <div class="hero"><span class="pill">${t("sec_exam").replace('🎓 ','')}</span><h1>🎓 <span class="acc">${A.title} — ${t("exam_word")}</span></h1><p>${C.quiz.length} ${t("exam_intro")}</p></div>
+   <div class="quiz card">${qs}<div id="quizResult"></div><button class="btn moon" id="submitQuiz" style="margin-top:10px">${t("submit_answers")}</button></div>`;
 }
 function bindQuiz(){
   document.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{
@@ -915,9 +1329,9 @@ function bindQuiz(){
   const b=$("submitQuiz"); if(b) b.onclick=submitQuiz;
 }
 function submitQuiz(){
-  if(quizState.answers.includes(null)){ toast("⚠️ Réponds à toutes les questions !"); return; }
+  if(quizState.answers.includes(null)){ toast(t("answer_all")); return; }
   quizState.submitted=true;
-  const aid=quizState.aid, C=CONTENT[aid]; let score=0;
+  const aid=quizState.aid, C=ac(aid); let score=0;
   C.quiz.forEach((q,qi)=>{
     const chosen=quizState.answers[qi];
     document.querySelectorAll(`.opt[data-qi="${qi}"]`).forEach(o=>{
@@ -930,15 +1344,15 @@ function submitQuiz(){
   });
   const total=C.quiz.length, pct=Math.round(score/total*100), pass=pct>=80;
   const res=$("quizResult");
-  res.innerHTML=`<div class="card" style="margin:18px 0;text-align:center;border-color:${pass?'#34d39955':'#f8717155'}"><h2 style="font-size:30px">${score}/${total} <span style="color:var(--muted);font-size:16px">(${pct}%)</span></h2><p style="margin-top:8px">${pass?'🎉 Réussi ! Examen validé.':'Pas encore — il faut 80%. Relis les modules et réessaie !'}</p></div>`;
+  res.innerHTML=`<div class="card" style="margin:18px 0;text-align:center;border-color:${pass?'#34d39955':'#f8717155'}"><h2 style="font-size:30px">${score}/${total} <span style="color:var(--muted);font-size:16px">(${pct}%)</span></h2><p style="margin-top:8px">${pass?t("pass_msg"):t("fail_msg")}</p></div>`;
   $("submitQuiz").style.display="none";
   if(pass){
     const first=!isPassed(aid); S.passed[aid]=true; save();
-    if(first) award(120,80,`🏅 ${ACADEMIES.find(x=>x.id===aid).reward} débloqué !`);
-    else award(20,10,"Révision réussie.");
-    res.innerHTML+=`<button class="btn" data-goto="${aid}" style="display:block;margin:0 auto">Retour à l'académie →</button>`;
+    if(first) award(120,80,`🏅 ${ACADEMIES.find(x=>x.id===aid).reward} !`);
+    else award(20,10,"OK 👍");
+    res.innerHTML+=`<button class="btn" data-goto="${aid}" style="display:block;margin:0 auto">${t("back_academy")}</button>`;
   } else {
-    res.innerHTML+=`<button class="btn moon" data-action="quiz" data-aid="${aid}" style="display:block;margin:10px auto 0">Réessayer 🔄</button>`;
+    res.innerHTML+=`<button class="btn moon" data-action="quiz" data-aid="${aid}" style="display:block;margin:10px auto 0">${t("retry")}</button>`;
   }
   setTimeout(bindContent,50);
 }
@@ -1206,7 +1620,7 @@ function bindReferral(){
 }
 function completeModule(id,aid){
   if(doneList(aid).includes(id))return;
-  const m=CONTENT[aid].modules.find(x=>x.id===id);
+  const m=ac(aid).modules.find(x=>x.id===id);
   doneList(aid).push(id); save();
   award(m.xp,m.coins,`✓ Module « ${m.title} » validé`);
   VIEW={name:"lesson",id,aid}; render();
