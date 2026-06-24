@@ -1,0 +1,14 @@
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Dépendances éventuelles (futur build React)
+node_modules/
+dist/
+.env
+.env.*
+
+# Outils locaux
+.vscode/
