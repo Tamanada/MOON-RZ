@@ -384,6 +384,7 @@ const T={
   profile:{en:"Profile & Rank",fr:"Profil & Rang",es:"Perfil y Rango",pt:"Perfil e Rank",de:"Profil & Rang",ru:"Профиль и ранг",tr:"Profil ve Rütbe",ar:"الملف والرتبة",zh:"个人资料和等级",ja:"プロフィール＆ランク",ko:"프로필 & 등급",hi:"प्रोफ़ाइल और रैंक",id:"Profil & Peringkat",vi:"Hồ sơ & Hạng",th:"โปรไฟล์ & อันดับ"},
   level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"},
   install:{en:"Install",fr:"Installer",es:"Instalar",pt:"Instalar",de:"Installieren",ru:"Установить",tr:"Yükle",ar:"تثبيت",zh:"安装",ja:"インストール",ko:"설치",hi:"इंस्टॉल",id:"Pasang",vi:"Cài đặt",th:"ติดตั้ง"},
+  cont_next:{en:"Continue to",fr:"Continuer vers",es:"Continuar a",pt:"Continuar para",de:"Weiter zu",ru:"Перейти к",tr:"Devam et",ar:"المتابعة إلى",zh:"继续前往",ja:"次へ進む",ko:"계속하기",hi:"आगे बढ़ें",id:"Lanjut ke",vi:"Tiếp tục đến",th:"ไปต่อที่"},
   /* onboarding */
   ob_skip:{en:"Skip",fr:"Passer",es:"Saltar",pt:"Pular",de:"Überspringen",ru:"Пропустить",tr:"Atla",ar:"تخطّي",zh:"跳过",ja:"スキップ",ko:"건너뛰기",hi:"छोड़ें",id:"Lewati",vi:"Bỏ qua",th:"ข้าม"},
   ob_next:{en:"Next →",fr:"Suivant →",es:"Siguiente →",pt:"Próximo →",de:"Weiter →",ru:"Далее →",tr:"İleri →",ar:"التالي →",zh:"下一步 →",ja:"次へ →",ko:"다음 →",hi:"अगला →",id:"Berikutnya →",vi:"Tiếp →",th:"ถัดไป →"},
@@ -3250,9 +3251,13 @@ function buildNav(){
 }
 function buildMobtab(){
   const mt=$("mobtab"); mt.innerHTML="";
-  [["academy:1","⛓️ Academy 1"],["simulator","📈 "+t("sim")],["referral","🤝 "+t("referral")],["partners","🏦 CEX"],["missions","🎯 "+t("missions")],["profile","🧑‍🚀 "+t("profile")]].forEach(([v,label])=>{
-    const b=document.createElement("button"); b.textContent=label; b.dataset.k=v;
-    b.onclick=()=>{const [n,id]=v.split(":"); go(n,id?+id:null);}; mt.appendChild(b);
+  const items=[];
+  ACADEMIES.forEach(a=>{ const lock=!academyUnlocked(a.id); items.push({k:"academy:"+a.id,label:a.icon+" "+a.id+(lock?' 🔒':isPassed(a.id)?' 🏅':'')}); });
+  [["simulator","📈 "+t("sim")],["referral","🤝 "+t("referral")],["partners","🏦 CEX"],["missions","🎯 "+t("missions")],["profile","🧑‍🚀 "+t("profile")]].forEach(([k,label])=>items.push({k,label}));
+  items.forEach(it=>{
+    const b=document.createElement("button"); b.textContent=it.label; b.dataset.k=it.k;
+    b.onclick=()=>{ const [n,id]=it.k.split(":"); if(n==="academy"&&!academyUnlocked(+id)){ toast("🔒 Termine l'académie précédente pour débloquer !"); return; } go(n,id?+id:null); };
+    mt.appendChild(b);
   });
 }
 function refreshNavLocks(){
@@ -3265,6 +3270,7 @@ function refreshNavLocks(){
 }
 function setActiveNav(){
   refreshNavLocks();
+  buildMobtab();
   document.querySelectorAll("#nav button:not([data-view='academy'])").forEach(b=>b.classList.toggle("active",b.dataset.view===VIEW.name));
   document.querySelectorAll("#mobtab button").forEach(b=>{const [n,id]=b.dataset.k.split(":");b.classList.toggle("active",n===VIEW.name&&(!id||+id===VIEW.id));});
 }
@@ -3313,7 +3319,8 @@ function viewAcademy(aid){
    </div>
    ${isPassed(aid)?`<div class="card" style="margin-top:18px;border-color:#34d39955;background:linear-gradient(120deg,#10241c,#15152a)">
       <h3>🏅 ${A.reward} <span class="tag done">${t("unlocked")}</span></h3>
-      <p>Bravo ! Academy ${aid} validée.${aid===10?' 🌙 Tu as terminé les 10 académies — tu es officiellement une <b>MOON-RZ Legend</b>. Félicitations, bâtisseur du Web3 ! 🏆':CONTENT[aid+1]?` L'Academy ${aid+1} est maintenant débloquée 🔓`:' Les prochaines arrivent bientôt.'}</p></div>`:''}
+      <p>Bravo ! Academy ${aid} validée.${aid===10?' 🌙 Tu as terminé les 10 académies — tu es officiellement une <b>MOON-RZ Legend</b>. Félicitations, bâtisseur du Web3 ! 🏆':` L'Academy ${aid+1} est maintenant débloquée 🔓`}</p>
+      ${aid<10?`<button class="btn moon" data-goto="${aid+1}" style="margin-top:6px">${t("cont_next")} ${ACADEMIES.find(x=>x.id===aid+1).icon} ${ACADEMIES.find(x=>x.id===aid+1).title} →</button>`:''}</div>`:''}
   `;
 }
 function viewComingSoon(A){
