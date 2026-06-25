@@ -197,6 +197,36 @@
   .levelup h2{font-size:26px;margin-bottom:6px}
   .levelup .rank{color:var(--gold);font-weight:700;font-size:18px;margin-bottom:18px}
 
+  /* onboarding / splash */
+  .onboarding{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;
+    background:radial-gradient(900px 600px at 50% -5%, #2a1a55, #0a0a14 72%)}
+  .onboarding.show{display:flex}
+  .ob-card{width:440px;max-width:100%;background:linear-gradient(170deg,#1a1438,#10101f);border:1px solid var(--moon-2)55;
+    border-radius:26px;padding:24px 26px 26px;box-shadow:0 30px 80px -20px #000,0 0 70px -30px var(--moon-2);position:relative;overflow:hidden}
+  .ob-card::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#fff,var(--moon) 55%,var(--moon-2));opacity:.12;filter:blur(6px)}
+  .ob-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;position:relative;z-index:1}
+  .ob-skip{background:none;border:0;color:var(--muted);cursor:pointer;font-size:13px;font-weight:600;padding:4px}
+  .ob-skip:hover{color:var(--txt)}
+  .ob-body{min-height:300px;display:flex;flex-direction:column;justify-content:center;text-align:center;position:relative;z-index:1;animation:obFade .4s}
+  @keyframes obFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .ob-moon{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;
+    background:radial-gradient(circle at 35% 30%,#fff,var(--moon) 55%,var(--moon-2));box-shadow:0 0 50px var(--moon-2);animation:float 2.6s ease-in-out infinite}
+  .ob-card h2{font-size:25px;line-height:1.2;margin-bottom:12px}
+  .ob-card h2 .acc{background:linear-gradient(90deg,var(--moon),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .ob-lead{color:#cfcfe6;font-size:15px;line-height:1.6;max-width:360px;margin:0 auto}
+  .ob-pillars{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+  .ob-pill{display:flex;gap:14px;align-items:flex-start;text-align:left;background:#ffffff07;border:1px solid var(--line);border-radius:14px;padding:13px 15px}
+  .ob-pill .pi{font-size:26px;line-height:1;flex:none}
+  .ob-pill b{font-size:15px}
+  .ob-pill p{color:var(--muted);font-size:13px;line-height:1.45;margin-top:2px}
+  .ob-dots{display:flex;gap:7px;justify-content:center;margin:18px 0 16px}
+  .ob-dots i{width:8px;height:8px;border-radius:999px;background:#ffffff22;transition:.25s}
+  .ob-dots i.on{background:var(--moon);width:22px}
+  .ob-nav{display:flex;gap:10px;position:relative;z-index:1}
+  .ob-nav .btn{flex:1;justify-content:center}
+  @media(max-width:880px){ .ob-card{padding:20px 18px 22px} .ob-card h2{font-size:22px} .ob-body{min-height:280px} }
+
   .empty{text-align:center;padding:60px 20px;color:var(--muted)}
   .empty .big{font-size:46px;margin-bottom:14px;opacity:.6}
   .progress-ring{display:flex;align-items:center;gap:14px}
@@ -264,6 +294,8 @@
     <main class="content" id="content"></main>
   </div>
 </div>
+
+<div class="onboarding" id="onboarding"><div class="ob-card" id="obCard"></div></div>
 
 <div class="toast-wrap" id="toasts"></div>
 <div class="levelup" id="levelup">
@@ -352,6 +384,22 @@ const T={
   profile:{en:"Profile & Rank",fr:"Profil & Rang",es:"Perfil y Rango",pt:"Perfil e Rank",de:"Profil & Rang",ru:"Профиль и ранг",tr:"Profil ve Rütbe",ar:"الملف والرتبة",zh:"个人资料和等级",ja:"プロフィール＆ランク",ko:"프로필 & 등급",hi:"प्रोफ़ाइल और रैंक",id:"Profil & Peringkat",vi:"Hồ sơ & Hạng",th:"โปรไฟล์ & อันดับ"},
   level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"},
   install:{en:"Install",fr:"Installer",es:"Instalar",pt:"Instalar",de:"Installieren",ru:"Установить",tr:"Yükle",ar:"تثبيت",zh:"安装",ja:"インストール",ko:"설치",hi:"इंस्टॉल",id:"Pasang",vi:"Cài đặt",th:"ติดตั้ง"},
+  /* onboarding */
+  ob_skip:{en:"Skip",fr:"Passer",es:"Saltar",pt:"Pular",de:"Überspringen",ru:"Пропустить",tr:"Atla",ar:"تخطّي",zh:"跳过",ja:"スキップ",ko:"건너뛰기",hi:"छोड़ें",id:"Lewati",vi:"Bỏ qua",th:"ข้าม"},
+  ob_next:{en:"Next →",fr:"Suivant →",es:"Siguiente →",pt:"Próximo →",de:"Weiter →",ru:"Далее →",tr:"İleri →",ar:"التالي →",zh:"下一步 →",ja:"次へ →",ko:"다음 →",hi:"अगला →",id:"Berikutnya →",vi:"Tiếp →",th:"ถัดไป →"},
+  ob_start:{en:"Let's go 🚀",fr:"C'est parti 🚀",es:"¡Vamos! 🚀",pt:"Vamos! 🚀",de:"Los geht's 🚀",ru:"Поехали 🚀",tr:"Hadi başlayalım 🚀",ar:"هيا لنبدأ 🚀",zh:"出发 🚀",ja:"はじめる 🚀",ko:"시작하기 🚀",hi:"चलो शुरू करें 🚀",id:"Ayo mulai 🚀",vi:"Bắt đầu nào 🚀",th:"ไปกันเลย 🚀"},
+  ob_replay:{en:"🎬 Replay intro",fr:"🎬 Revoir l'intro",es:"🎬 Ver intro otra vez",pt:"🎬 Rever intro",de:"🎬 Intro erneut ansehen",ru:"🎬 Смотреть интро снова",tr:"🎬 Tanıtımı tekrar izle",ar:"🎬 إعادة المقدمة",zh:"🎬 重看介绍",ja:"🎬 イントロを再生",ko:"🎬 인트로 다시 보기",hi:"🎬 इंट्रो फिर देखें",id:"🎬 Putar ulang intro",vi:"🎬 Xem lại giới thiệu",th:"🎬 ดูอินโทรอีกครั้ง"},
+  ob1_t:{en:"Welcome to MOON-RZ 🌙",fr:"Bienvenue sur MOON-RZ 🌙",es:"Bienvenido a MOON-RZ 🌙",pt:"Bem-vindo à MOON-RZ 🌙",de:"Willkommen bei MOON-RZ 🌙",ru:"Добро пожаловать в MOON-RZ 🌙",tr:"MOON-RZ'ye hoş geldin 🌙",ar:"مرحبًا بك في MOON-RZ 🌙",zh:"欢迎来到 MOON-RZ 🌙",ja:"MOON-RZ へようこそ 🌙",ko:"MOON-RZ에 오신 걸 환영해요 🌙",hi:"MOON-RZ में आपका स्वागत है 🌙",id:"Selamat datang di MOON-RZ 🌙",vi:"Chào mừng đến MOON-RZ 🌙",th:"ยินดีต้อนรับสู่ MOON-RZ 🌙"},
+  ob1_d:{en:"The Web3 academy that rewards you for learning. No theory overload here — you learn, you practice, you earn.",fr:"L'académie Web3 qui te récompense pour apprendre. Ici, on ne te noie pas sous la théorie : tu apprends, tu pratiques, tu gagnes.",es:"La academia Web3 que te recompensa por aprender. Aquí no te ahogamos en teoría: aprendes, practicas y ganas.",pt:"A academia Web3 que recompensa você por aprender. Aqui não há excesso de teoria: você aprende, pratica e ganha.",de:"Die Web3-Akademie, die dich fürs Lernen belohnt. Keine Theorieflut hier — du lernst, übst und verdienst.",ru:"Web3-академия, которая вознаграждает за обучение. Здесь без перегруза теорией — ты учишься, практикуешься и зарабатываешь.",tr:"Öğrenmen için seni ödüllendiren Web3 akademisi. Burada teori bombardımanı yok — öğrenir, pratik yapar, kazanırsın.",ar:"أكاديمية Web3 التي تكافئك على التعلّم. لا إغراق في النظريات هنا — تتعلّم، تتدرّب، وتربح.",zh:"这所 Web3 学院因你学习而奖励你。这里没有满屏理论——你学习、你实践、你赚取。",ja:"学ぶほど報われるWeb3アカデミー。理論漬けにはしません——学び、試し、稼ぐ。",ko:"배우면 보상하는 Web3 아카데미. 이론에 파묻히지 않아요 — 배우고, 연습하고, 법니다.",hi:"Web3 अकादमी जो सीखने पर आपको इनाम देती है। यहाँ थ्योरी का बोझ नहीं — आप सीखते हैं, अभ्यास करते हैं, कमाते हैं।",id:"Akademi Web3 yang memberimu hadiah karena belajar. Tanpa teori bertele-tele — kamu belajar, berlatih, dan menghasilkan.",vi:"Học viện Web3 thưởng cho bạn vì đã học. Không nhồi nhét lý thuyết — bạn học, luyện tập và kiếm thưởng.",th:"สถาบัน Web3 ที่ให้รางวัลคุณเมื่อเรียนรู้ ที่นี่ไม่มีทฤษฎีท่วมหัว — คุณเรียน ฝึก และรับรางวัล"},
+  ob2_t:{en:"How it works",fr:"Comment ça marche ?",es:"¿Cómo funciona?",pt:"Como funciona?",de:"So funktioniert's",ru:"Как это работает",tr:"Nasıl çalışır?",ar:"كيف يعمل؟",zh:"运作方式",ja:"仕組み",ko:"작동 방식",hi:"यह कैसे काम करता है",id:"Cara kerja",vi:"Cách hoạt động",th:"วิธีการทำงาน"},
+  ob2a_t:{en:"📚 Learn",fr:"📚 Apprends",es:"📚 Aprende",pt:"📚 Aprenda",de:"📚 Lernen",ru:"📚 Учись",tr:"📚 Öğren",ar:"📚 تعلّم",zh:"📚 学习",ja:"📚 学ぶ",ko:"📚 배우기",hi:"📚 सीखें",id:"📚 Belajar",vi:"📚 Học",th:"📚 เรียนรู้"},
+  ob2a_d:{en:"10 academies, from Bitcoin to trading. Zero useless jargon.",fr:"10 académies, de Bitcoin au trading. Zéro jargon inutile.",es:"10 academias, de Bitcoin al trading. Cero jerga inútil.",pt:"10 academias, de Bitcoin ao trading. Zero jargão inútil.",de:"10 Akademien, von Bitcoin bis Trading. Null unnötiger Fachjargon.",ru:"10 академий — от Bitcoin до трейдинга. Ноль лишнего жаргона.",tr:"Bitcoin'den trading'e 10 akademi. Sıfır gereksiz jargon.",ar:"10 أكاديميات، من Bitcoin إلى التداول. صفر مصطلحات لا فائدة منها.",zh:"10 所学院，从比特币到交易。零无用术语。",ja:"Bitcoinからトレードまで10アカデミー。無駄な専門用語ゼロ。",ko:"비트코인부터 트레이딩까지 10개 아카데미. 쓸데없는 전문 용어 제로.",hi:"बिटकॉइन से ट्रेडिंग तक 10 अकादमियाँ। ज़ीरो बेकार शब्दजाल।",id:"10 akademi, dari Bitcoin sampai trading. Nol jargon tak berguna.",vi:"10 học viện, từ Bitcoin đến giao dịch. Không thuật ngữ thừa thãi.",th:"10 สถาบัน ตั้งแต่ Bitcoin จนถึงการเทรด ไม่มีศัพท์ที่ไร้ประโยชน์"},
+  ob2b_t:{en:"🎮 Practice",fr:"🎮 Pratique",es:"🎮 Practica",pt:"🎮 Pratique",de:"🎮 Üben",ru:"🎮 Практикуйся",tr:"🎮 Pratik yap",ar:"🎮 تدرّب",zh:"🎮 实践",ja:"🎮 試す",ko:"🎮 연습하기",hi:"🎮 अभ्यास करें",id:"🎮 Berlatih",vi:"🎮 Luyện tập",th:"🎮 ฝึกฝน"},
+  ob2b_d:{en:"A simulator with real prices. Mess up without losing a cent.",fr:"Un simulateur avec de vrais prix. Trompe-toi sans perdre un centime.",es:"Un simulador con precios reales. Equivócate sin perder un céntimo.",pt:"Um simulador com preços reais. Erre sem perder um centavo.",de:"Ein Simulator mit echten Preisen. Mach Fehler, ohne einen Cent zu verlieren.",ru:"Симулятор с реальными ценами. Ошибайся, не теряя ни копейки.",tr:"Gerçek fiyatlı bir simülatör. Tek kuruş kaybetmeden hata yap.",ar:"محاكٍ بأسعار حقيقية. أخطئ دون أن تخسر قرشًا.",zh:"真实价格的模拟器。犯错也不损失一分钱。",ja:"本物の価格のシミュレーター。1円も失わずに失敗できる。",ko:"실제 가격 시뮬레이터. 한 푼도 잃지 않고 실수해보세요.",hi:"असली कीमतों वाला सिम्युलेटर। एक पैसा खोए बिना गलती करें।",id:"Simulator dengan harga nyata. Salah tanpa kehilangan sepeser pun.",vi:"Mô phỏng với giá thật. Sai lầm mà không mất một xu.",th:"เครื่องจำลองด้วยราคาจริง ผิดพลาดได้โดยไม่เสียเงินสักบาท"},
+  ob2c_t:{en:"🪙 Earn",fr:"🪙 Gagne",es:"🪙 Gana",pt:"🪙 Ganhe",de:"🪙 Verdienen",ru:"🪙 Зарабатывай",tr:"🪙 Kazan",ar:"🪙 اربح",zh:"🪙 赚取",ja:"🪙 稼ぐ",ko:"🪙 벌기",hi:"🪙 कमाएँ",id:"🪙 Hasilkan",vi:"🪙 Kiếm thưởng",th:"🪙 รับรางวัล"},
+  ob2c_d:{en:"MOON-RZ and NFT badges with every win.",fr:"Des MOON-RZ et des badges NFT à chaque victoire.",es:"MOON-RZ e insignias NFT con cada victoria.",pt:"MOON-RZ e selos NFT a cada vitória.",de:"MOON-RZ und NFT-Abzeichen für jeden Sieg.",ru:"MOON-RZ и NFT-значки за каждую победу.",tr:"Her zaferde MOON-RZ ve NFT rozetleri.",ar:"MOON-RZ وشارات NFT مع كل فوز.",zh:"每次胜利都能获得 MOON-RZ 和 NFT 徽章。",ja:"勝つたびにMOON-RZとNFTバッジ。",ko:"승리할 때마다 MOON-RZ와 NFT 배지.",hi:"हर जीत पर MOON-RZ और NFT बैज।",id:"MOON-RZ dan lencana NFT di setiap kemenangan.",vi:"MOON-RZ và huy hiệu NFT cho mỗi chiến thắng.",th:"MOON-RZ และตรา NFT ทุกครั้งที่ชนะ"},
+  ob3_t:{en:"Ready for liftoff?",fr:"Prêt à décoller ?",es:"¿Listo para despegar?",pt:"Pronto para decolar?",de:"Bereit zum Abheben?",ru:"Готов к взлёту?",tr:"Kalkışa hazır mısın?",ar:"جاهز للانطلاق؟",zh:"准备起飞了吗？",ja:"飛び立つ準備はいい？",ko:"이륙 준비됐나요?",hi:"उड़ान भरने को तैयार?",id:"Siap lepas landas?",vi:"Sẵn sàng cất cánh?",th:"พร้อมทะยานหรือยัง?"},
+  ob3_d:{en:"Your first lesson is waiting — 5 minutes to create your first wallet, risk-free. Level up, unlock ranks, become a MOON-RZ Legend. 🚀",fr:"Ta première leçon t'attend — 5 minutes pour créer ton premier wallet, sans aucun risque. Monte de niveau, débloque des rangs, et deviens une MOON-RZ Legend. 🚀",es:"Tu primera lección te espera — 5 minutos para crear tu primera billetera, sin riesgo. Sube de nivel, desbloquea rangos y conviértete en una MOON-RZ Legend. 🚀",pt:"Sua primeira lição espera — 5 minutos para criar sua primeira carteira, sem risco. Suba de nível, desbloqueie ranks e torne-se uma MOON-RZ Legend. 🚀",de:"Deine erste Lektion wartet — 5 Minuten für deine erste Wallet, risikofrei. Steig auf, schalte Ränge frei und werde eine MOON-RZ Legend. 🚀",ru:"Первый урок ждёт — 5 минут, чтобы создать первый кошелёк без риска. Повышай уровень, открывай ранги и стань MOON-RZ Legend. 🚀",tr:"İlk dersin seni bekliyor — risksiz ilk cüzdanını 5 dakikada oluştur. Seviye atla, rütbeler aç ve bir MOON-RZ Legend ol. 🚀",ar:"درسك الأول بانتظارك — 5 دقائق لإنشاء محفظتك الأولى دون مخاطرة. ارتقِ بالمستويات، افتح الرتب، وكن MOON-RZ Legend. 🚀",zh:"你的第一课在等着——5 分钟创建你的第一个钱包，零风险。升级、解锁等级，成为 MOON-RZ Legend。🚀",ja:"最初のレッスンが待っています——5分でリスクなしに最初のウォレットを作成。レベルを上げ、ランクを解放し、MOON-RZ Legendへ。🚀",ko:"첫 레슨이 기다려요 — 5분이면 위험 없이 첫 지갑을 만들어요. 레벨을 올리고 등급을 열어 MOON-RZ Legend가 되세요. 🚀",hi:"आपका पहला पाठ इंतज़ार कर रहा है — बिना जोखिम 5 मिनट में अपना पहला वॉलेट बनाएँ। लेवल बढ़ाएँ, रैंक अनलॉक करें और MOON-RZ Legend बनें। 🚀",id:"Pelajaran pertamamu menanti — 5 menit untuk membuat dompet pertamamu, tanpa risiko. Naik level, buka peringkat, dan jadilah MOON-RZ Legend. 🚀",vi:"Bài học đầu tiên đang chờ — 5 phút để tạo ví đầu tiên, không rủi ro. Lên cấp, mở khóa hạng và trở thành MOON-RZ Legend. 🚀",th:"บทเรียนแรกรออยู่ — 5 นาทีสร้างกระเป๋าใบแรกแบบไร้ความเสี่ยง เลเวลอัป ปลดล็อกอันดับ และเป็น MOON-RZ Legend 🚀"},
   sec_modules:{en:"📚 Modules",fr:"📚 Modules",es:"📚 Módulos",pt:"📚 Módulos",de:"📚 Module",ru:"📚 Модули",tr:"📚 Modüller",ar:"📚 الوحدات",zh:"📚 模块",ja:"📚 モジュール",ko:"📚 모듈",hi:"📚 मॉड्यूल",id:"📚 Modul",vi:"📚 Mô-đun",th:"📚 บทเรียน"},
   sec_exam:{en:"🎓 Final exam",fr:"🎓 Examen final",es:"🎓 Examen final",pt:"🎓 Exame final",de:"🎓 Abschlussprüfung",ru:"🎓 Финальный экзамен",tr:"🎓 Final sınavı",ar:"🎓 الاختبار النهائي",zh:"🎓 期末考试",ja:"🎓 最終試験",ko:"🎓 최종 시험",hi:"🎓 अंतिम परीक्षा",id:"🎓 Ujian akhir",vi:"🎓 Bài kiểm tra cuối",th:"🎓 ข้อสอบสุดท้าย"},
   take_exam:{en:"Take the exam 🎓",fr:"Passer l’examen 🎓",es:"Hacer el examen 🎓",pt:"Fazer o exame 🎓",de:"Prüfung ablegen 🎓",ru:"Сдать экзамен 🎓",tr:"Sınava gir 🎓",ar:"ابدأ الاختبار 🎓",zh:"参加考试 🎓",ja:"試験を受ける 🎓",ko:"시험 보기 🎓",hi:"परीक्षा दें 🎓",id:"Ikuti ujian 🎓",vi:"Làm bài kiểm tra 🎓",th:"ทำข้อสอบ 🎓"},
@@ -1616,7 +1664,7 @@ function ac(aid){
 }
 
 /* ---------- ÉTAT JOUEUR ---------- */
-const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lang:"fr",
+const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lang:"fr",onboarded:false,
   sim:{cash:10000,qty:{},started:false},
   profile:{name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},
   ref:{code:"",invited:0},referredBy:null};
@@ -1978,7 +2026,7 @@ function viewProfile(){
    <div class="card"><div style="display:flex;flex-direction:column;gap:8px">
      ${RANKS.map(r=>`<div style="display:flex;align-items:center;gap:12px;opacity:${L.lvl>=r.lvl?1:.4}"><b style="width:40px;color:${L.lvl>=r.lvl?'var(--gold)':'var(--muted)'}">L${r.lvl}</b><span style="flex:1">${r.name}</span>${L.lvl>=r.lvl?'<span class="tag done">✓</span>':''}</div>`).join("")}
    </div></div>
-   <div style="margin-top:24px;text-align:center"><button class="btn ghost" id="resetBtn">${t("reset_btn")}</button></div>`;
+   <div style="margin-top:24px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn ghost" id="replayOb">${t("ob_replay")}</button><button class="btn ghost" id="resetBtn">${t("reset_btn")}</button></div>`;
 }
 
 /* ---------- PARRAINAGE ---------- */
@@ -2070,6 +2118,7 @@ function bindContent(){
   document.querySelectorAll("[data-complete]").forEach(el=>el.onclick=()=>completeModule(el.dataset.complete,+el.dataset.aid));
   const cd=$("claimDaily"); if(cd) cd.onclick=claimDaily;
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
+  const rob=$("replayOb"); if(rob) rob.onclick=showOnboarding;
   bindProfile(); bindReferral();
   if(VIEW.name==="quiz") bindQuiz();
 }
@@ -2123,6 +2172,39 @@ function handleIncomingRef(){
   if(ref && history.replaceState){ history.replaceState(null,"",location.pathname); }
 }
 
+/* ---------- ONBOARDING / SPLASH ---------- */
+let obStep=0;
+function showOnboarding(){ obStep=0; renderOnboarding(); $("onboarding").classList.add("show"); }
+function closeOnboarding(){ $("onboarding").classList.remove("show"); if(!S.onboarded){ S.onboarded=true; save(); } }
+function obFinish(){ closeOnboarding(); go("academy",1); }
+function renderOnboarding(){
+  const langOpts=LANGS.map(l=>`<option value="${l.c}" ${l.c===S.lang?'selected':''}>${l.f} ${l.n}</option>`).join("");
+  let body="";
+  if(obStep===0){
+    body=`<div class="ob-moon"></div><h2><span class="acc">${t("ob1_t")}</span></h2><p class="ob-lead">${t("ob1_d")}</p>`;
+  } else if(obStep===1){
+    const pills=[["📚","ob2a"],["🎮","ob2b"],["🪙","ob2c"]];
+    body=`<h2>${t("ob2_t")}</h2><div class="ob-pillars">${pills.map(([ic,k])=>`<div class="ob-pill"><span class="pi">${ic}</span><div><b>${t(k+"_t").replace(ic+" ","")}</b><p>${t(k+"_d")}</p></div></div>`).join("")}</div>`;
+  } else {
+    body=`<div class="ob-moon"></div><h2><span class="acc">${t("ob3_t")}</span></h2><p class="ob-lead">${t("ob3_d")}</p>`;
+  }
+  $("obCard").innerHTML=`
+    <div class="ob-top">
+      <select id="obLang" class="langsel">${langOpts}</select>
+      <button class="ob-skip" id="obSkip">${t("ob_skip")}</button>
+    </div>
+    <div class="ob-body">${body}</div>
+    <div class="ob-dots">${[0,1,2].map(i=>`<i class="${i===obStep?'on':''}"></i>`).join("")}</div>
+    <div class="ob-nav">
+      ${obStep>0?`<button class="btn ghost" id="obBack" style="flex:0 0 54px">←</button>`:''}
+      <button class="btn ${obStep===2?'':'moon'}" id="obNext">${obStep===2?t("ob_start"):t("ob_next")}</button>
+    </div>`;
+  $("obLang").onchange=()=>{ setLang($("obLang").value); renderOnboarding(); };
+  $("obSkip").onclick=obFinish;
+  $("obNext").onclick=()=>{ if(obStep<2){ obStep++; renderOnboarding(); } else obFinish(); };
+  const bk=$("obBack"); if(bk) bk.onclick=()=>{ obStep--; renderOnboarding(); };
+}
+
 /* ---------- PWA : service worker + invite d'installation ---------- */
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{ navigator.serviceWorker.register("./sw.js").catch(()=>{}); });
@@ -2146,6 +2228,7 @@ window.addEventListener("appinstalled",()=>{ const b=$("installBtn"); if(b) b.st
 /* ---------- BOOT ---------- */
 handleIncomingRef();
 buildNav(); applyLang(); renderHUD(); render();
+if(!S.onboarded) showOnboarding();
 </script>
 </body>
 </html>
