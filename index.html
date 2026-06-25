@@ -3384,8 +3384,8 @@ function submitQuiz(){
   $("submitQuiz").style.display="none";
   if(pass){
     const first=!isPassed(aid); S.passed[aid]=true; save();
-    if(first) award(120,80,`🏅 ${ACADEMIES.find(x=>x.id===aid).reward} !`);
-    else award(20,10,"OK 👍");
+    if(first){ award(120,80,`🏅 ${ACADEMIES.find(x=>x.id===aid).reward} !`); renderHUD(); }
+    else toast("✓ "+t("exam_passed")); // examen déjà validé : pas de récompense en plus (anti-farm)
     res.innerHTML+=`<button class="btn" data-goto="${aid}" style="display:block;margin:0 auto">${t("back_academy")}</button>`;
   } else {
     res.innerHTML+=`<button class="btn moon" data-action="quiz" data-aid="${aid}" style="display:block;margin:10px auto 0">${t("retry")}</button>`;
