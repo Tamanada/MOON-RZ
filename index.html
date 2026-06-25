@@ -2,8 +2,17 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>MOON-RZ Academy — Learn · Practice · Earn</title>
+<!-- PWA -->
+<link rel="manifest" href="./manifest.webmanifest" />
+<meta name="theme-color" content="#0a0a14" />
+<link rel="icon" type="image/png" href="./favicon.png" />
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="MOON-RZ" />
 <style>
   :root{
     --bg:#0a0a14;
@@ -65,6 +74,8 @@
   .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--moon-2)55,#0000);border:1px solid var(--moon-2)55;font-weight:700}
   .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--accent,var(--moon));box-shadow:0 0 14px -2px var(--accent,var(--moon));transition:.15s;flex:none}
   .langsel{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer;max-width:140px}
+  .installbtn{background:linear-gradient(90deg,var(--moon),var(--moon-2));border:0;color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 6px 16px -6px var(--moon-2)}
+  .installbtn:hover{filter:brightness(1.08)}
   .langsel:focus{outline:none;border-color:var(--moon)}
   .langsel option{background:var(--panel)}
   html[dir=rtl] .sidebar{border-right:0;border-left:1px solid var(--line)}
@@ -227,6 +238,7 @@
       <div class="stat token"><span class="coin"></span> <b id="tokenBal">0</b> MOON-RZ</div>
       <div class="stat">🔥 <b id="streak">0</b>j</div>
       <select id="langSel" class="langsel" title="Langue / Language"></select>
+      <button id="installBtn" class="installbtn" style="display:none">📲 <span data-t="install">Installer</span></button>
     </header>
 
     <div class="mobtab" id="mobtab"></div>
@@ -320,6 +332,7 @@ const T={
   partners:{en:"Exchanges (CEX)",fr:"Exchanges (CEX)",es:"Exchanges (CEX)",pt:"Exchanges (CEX)",de:"Börsen (CEX)",ru:"Биржи (CEX)",tr:"Borsalar (CEX)",ar:"المنصات (CEX)",zh:"交易所 (CEX)",ja:"取引所 (CEX)",ko:"거래소 (CEX)",hi:"एक्सचेंज (CEX)",id:"Bursa (CEX)",vi:"Sàn (CEX)",th:"ตลาดเทรด (CEX)"},
   profile:{en:"Profile & Rank",fr:"Profil & Rang",es:"Perfil y Rango",pt:"Perfil e Rank",de:"Profil & Rang",ru:"Профиль и ранг",tr:"Profil ve Rütbe",ar:"الملف والرتبة",zh:"个人资料和等级",ja:"プロフィール＆ランク",ko:"프로필 & 등급",hi:"प्रोफ़ाइल और रैंक",id:"Profil & Peringkat",vi:"Hồ sơ & Hạng",th:"โปรไฟล์ & อันดับ"},
   level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"},
+  install:{en:"Install",fr:"Installer",es:"Instalar",pt:"Instalar",de:"Installieren",ru:"Установить",tr:"Yükle",ar:"تثبيت",zh:"安装",ja:"インストール",ko:"설치",hi:"इंस्टॉल",id:"Pasang",vi:"Cài đặt",th:"ติดตั้ง"},
   sec_modules:{en:"📚 Modules",fr:"📚 Modules",es:"📚 Módulos",pt:"📚 Módulos",de:"📚 Module",ru:"📚 Модули",tr:"📚 Modüller",ar:"📚 الوحدات",zh:"📚 模块",ja:"📚 モジュール",ko:"📚 모듈",hi:"📚 मॉड्यूल",id:"📚 Modul",vi:"📚 Mô-đun",th:"📚 บทเรียน"},
   sec_exam:{en:"🎓 Final exam",fr:"🎓 Examen final"},
   take_exam:{en:"Take the exam 🎓",fr:"Passer l’examen 🎓"},
@@ -2078,6 +2091,26 @@ function handleIncomingRef(){
   // nettoie l'URL pour éviter de re-créditer au refresh
   if(ref && history.replaceState){ history.replaceState(null,"",location.pathname); }
 }
+
+/* ---------- PWA : service worker + invite d'installation ---------- */
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{ navigator.serviceWorker.register("./sw.js").catch(()=>{}); });
+}
+let deferredPrompt=null;
+window.addEventListener("beforeinstallprompt",(e)=>{
+  e.preventDefault(); deferredPrompt=e;
+  const b=$("installBtn"); if(b) b.style.display="";
+});
+(function bindInstall(){
+  const b=$("installBtn"); if(!b) return;
+  b.onclick=async()=>{
+    if(!deferredPrompt) return;
+    deferredPrompt.prompt();
+    try{ await deferredPrompt.userChoice; }catch(e){}
+    deferredPrompt=null; b.style.display="none";
+  };
+})();
+window.addEventListener("appinstalled",()=>{ const b=$("installBtn"); if(b) b.style.display="none"; toast("🎉 MOON-RZ installé !"); });
 
 /* ---------- BOOT ---------- */
 handleIncomingRef();

@@ -1,0 +1,19 @@
+{
+  "name": "MOON-RZ Academy",
+  "short_name": "MOON-RZ",
+  "description": "Learn · Practice · Earn — la plus grande académie Web3 gamifiée. 10 académies, simulateur de trading et token MOON-RZ.",
+  "lang": "fr",
+  "dir": "auto",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a14",
+  "theme_color": "#0a0a14",
+  "categories": ["education", "finance"],
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
