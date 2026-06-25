@@ -1,8 +1,8 @@
 /* MOON-RZ Academy — Service Worker
-   Stratégie : network-first pour le même-origine (toujours frais en ligne,
-   fonctionne hors-ligne via le cache). Les requêtes externes (API Binance)
-   ne sont PAS interceptées → elles passent normalement par le réseau. */
-const CACHE = "moonrz-v1";
+   Le document HTML est TOUJOURS rechargé depuis le réseau quand on est en ligne
+   (cache: "reload" -> contourne le cache HTTP du navigateur), avec repli sur le
+   cache hors-ligne. Les requêtes externes (API Binance) ne sont PAS interceptées. */
+const CACHE = "moonrz-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -29,11 +29,16 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   const url = new URL(req.url);
-  // On ne gère que le même-origine en GET. Le reste (Binance, etc.) -> réseau direct.
+  // Même-origine GET uniquement. Le reste (Binance, etc.) -> réseau direct.
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
 
+  // Le document principal : réseau frais obligatoire (contourne le cache HTTP).
+  const isDoc = req.mode === "navigate" || url.pathname === "/" ||
+                url.pathname.endsWith("/") || url.pathname.endsWith("index.html");
+  const fetchReq = isDoc ? new Request(req.url, { cache: "reload" }) : req;
+
   e.respondWith(
-    fetch(req)
+    fetch(fetchReq)
       .then((res) => {
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
