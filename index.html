@@ -2399,6 +2399,380 @@ const CONTENT_I18N={
     {q:"O bom papel da IA para um mestre cripto?",a:["Decidir e operar por ele","Assistir a decisão, que continua humana","Guardar as chaves privadas","Garantir lucros"],correct:1},
     {q:"No fundo, o verdadeiro domínio do Web3 é…",a:["Ter a maior carteira","Ser autônomo, gerir o risco e continuar aprendendo","Seguir todos os influenciadores","Comprar cada token novo"],correct:1}
   ]}
+ },
+ de:{
+  1:{ modules:{
+    bc:{title:"Was ist eine Blockchain?",body:`
+      <p>Eine <b>Blockchain</b> ist ein riesiges Register, das von Tausenden Computern weltweit geteilt wird. Niemand besitzt es, und jeder kann es überprüfen.</p>
+      <h4>Die Kernidee</h4>
+      <p>Transaktionen werden in <b>Blöcken</b> gebündelt. Jeder Block ist mit dem vorherigen durch einen kryptografischen Fingerabdruck (einen <code>Hash</code>) verbunden. Daher der Name: eine <i>Kette von Blöcken</i>.</p>
+      <ul><li><b>Dezentral</b> — keine Bank, kein zentraler Server.</li><li><b>Unveränderlich</b> — einmal geschrieben, lässt sich die Vergangenheit nicht ändern.</li><li><b>Transparent</b> — jeder kann alles prüfen.</li></ul>
+      <div class="callout">💡 Analogie: ein öffentliches Google Doc, das Tausende gleichzeitig kopieren. Schummelt jemand in seiner Kopie, lehnen die anderen sie automatisch ab.</div>`},
+    btc:{title:"Bitcoin — das digitale Gold",body:`
+      <p><b>Bitcoin (BTC)</b> ist die erste Blockchain, 2009 von Satoshi Nakamoto erschaffen. Ziel: digitales Geld ohne Bank, unmöglich zu fälschen.</p>
+      <h4>Warum „digitales Gold"?</h4>
+      <ul><li>Angebot <b>auf 21 Millionen</b> BTC begrenzt. Nie mehr.</li><li>Gesichert durch <b>Proof of Work</b> (Mining).</li><li>Vor allem als <b>Wertspeicher</b> genutzt.</li></ul>
+      <div class="callout">Der kleinste Teil von Bitcoin ist ein <code>Satoshi</code>: 1 BTC = 100.000.000 Satoshis.</div>`},
+    eth:{title:"Ethereum — der Weltcomputer",body:`
+      <p><b>Ethereum (ETH)</b> dient nicht nur zum Geldsenden: es ist eine Plattform, die <b>Smart Contracts</b> ausführt.</p>
+      <p>Darauf baut man dezentrale Apps (<code>dApps</code>): DeFi, NFTs, DAOs, Web3-Spiele.</p>
+      <ul><li>Native Münze: <b>Ether (ETH)</b>.</li><li>Die Gebühren heißen <b>Gas</b>.</li><li>Seit 2022 nutzt es <b>Proof of Stake</b>, viel umweltfreundlicher.</li></ul>`},
+    bnb:{title:"BNB Chain — schnell und günstig",body:`
+      <p><b>BNB Chain</b> ist Ethereum-kompatibel, mit <b>sehr niedrigen Gebühren</b> und schnellen Transaktionen.</p>
+      <ul><li>Native Münze: <b>BNB</b>.</li><li><b>EVM</b>-kompatibel: dieselben Wallets und Tools wie Ethereum.</li><li>Sehr beliebt bei Einsteigern.</li></ul>
+      <div class="callout warn">⚠️ Niedrige Gebühren bedeuten auch viele Betrügereien und Fake-Tokens. (Academy 2)</div>`},
+    sc:{title:"Smart Contracts",body:`
+      <p>Ein <b>Smart Contract</b> ist ein Programm auf der Blockchain, das von selbst läuft, sobald seine Bedingungen erfüllt sind. Kein Mittelsmann.</p>
+      <h4>Beispiel</h4><p>« <i>Wenn ich 1 ETH erhalte, sende ich dieses NFT an den Käufer.</i> » Der Code ist Gesetz: <code>code is law</code>.</p>
+      <div class="callout">Automatisch und fälschungssicher, aber bei einem Bug im Code gibt es keinen Kundendienst. Daher die <b>Audits</b>.</div>`},
+    wallet:{title:"Die Wallets",body:`
+      <p>Eine <b>Wallet</b> „enthält" nicht deine Kryptos (die liegen auf der Blockchain). Sie enthält deine <b>Schlüssel</b>.</p>
+      <ul><li><b>Öffentliche Adresse</b> — wie eine IBAN, zum Empfangen.</li><li><b>Privater Schlüssel</b> — das ultimative Passwort, niemals geteilt.</li><li><b>Seed Phrase</b> (12/24 Wörter) — das Backup der Wallet.</li></ul>
+      <div class="callout warn">🔒 „Not your keys, not your coins." Schreibe deine Seed Phrase auf Papier, nie als Foto oder in die Cloud.</div>`}
+  }, quiz:[
+    {q:"Was macht eine Blockchain « unveränderlich »?",a:["Eine Zentralbank schützt sie","Jeder Block ist mit dem vorherigen per Hash verbunden","Ein Admin-Passwort","Sie liegt auf einem einzigen Server"],correct:1},
+    {q:"Wie hoch ist das maximale Angebot von Bitcoin?",a:["100 Millionen","Unbegrenzt","21 Millionen","1 Milliarde"],correct:2},
+    {q:"Wofür dient Ethereum über das Geldsenden hinaus?",a:["Bitcoin minen","Smart Contracts und dApps ausführen","Dateien speichern","Zentralbanken ersetzen"],correct:1},
+    {q:"Was darfst du NIEMALS teilen?",a:["Deine öffentliche Adresse","Deinen Nicknamen","Deine Seed Phrase / privaten Schlüssel","Den Namen deiner Blockchain"],correct:2},
+    {q:"Die Gebühren auf Ethereum heißen…",a:["Gas","Satoshi","Staking","Hash"],correct:0},
+    {q:"« Not your keys, not your coins » bedeutet…",a:["Krypto auf einer Börse halten","Wer die Schlüssel hat, kontrolliert die Gelder","Schlüssel sind kostenlos","Man kann Krypto nicht verlieren"],correct:1}
+  ]},
+  2:{ modules:{
+    scam:{title:"Krypto-Betrug: Überblick",body:`
+      <p>Krypto hat keinen Mittelsmann: <b>keine Bank macht</b> eine Transaktion rückgängig. Das ist Freiheit… aber auch der Spielplatz der Betrüger. Dein bester Schutz bist <b>du</b>.</p>
+      <h4>Die großen Familien</h4>
+      <ul><li><b>Phishing</b> — Fake-Seiten/Nachrichten, die deinen Zugang stehlen.</li><li><b>Rug Pull</b> — das Team eines Projekts verschwindet mit den Geldern.</li><li><b>Wallet Drainer</b> — eine manipulierte Signatur, die deine Wallet leert.</li><li><b>Fake-Airdrops / Fake-Tokens</b> — Köder, damit du unterschreibst.</li></ul>
+      <div class="callout warn">🚩 Regel Nr. 1: Klingt es zu gut, um wahr zu sein (×10 garantiert, „verdopple dein ETH"), ist es Betrug. Immer.</div>`},
+    phish:{title:"Phishing",body:`
+      <p><b>Phishing</b> imitiert eine dir bekannte Seite/Dienst, um deine Seed Phrase zu stehlen oder dich zum Unterschreiben zu bringen.</p>
+      <h4>So erkennst du es</h4>
+      <ul><li>Prüfe die <b>URL Zeichen für Zeichen</b>: <code>binance.com</code> ≠ <code>binqnce.com</code>.</li><li>Vorsicht bei <b>Google-Anzeigen</b> oben in den Ergebnissen — oft gefälscht.</li><li><b>Kein</b> seriöser Support fragt nach deiner Seed Phrase.</li><li>Speichere die echten Seiten als Lesezeichen und gehe immer darüber.</li></ul>
+      <div class="callout warn">⚠️ Eine Seite, die nach deinen 12/24 Wörtern fragt = 100% Betrug. Keine Ausnahmen.</div>`},
+    rug:{title:"Rug Pulls",body:`
+      <p>Ein <b>Rug Pull</b>: ein Team erstellt einen Token, lockt Käufer an und <b>entzieht dann die gesamte Liquidität</b> und verschwindet. Der Preis stürzt auf null.</p>
+      <h4>Warnzeichen</h4>
+      <ul><li><b>Anonymes</b> Team ohne Track Record.</li><li><b>Liquidität nicht gesperrt</b>.</li><li>Wenige Wallets halten <b>den Großteil</b> der Tokens.</li><li>Riesiger Hype, Gewinnversprechen, kein echtes Produkt.</li></ul>
+      <div class="callout">🔎 Tools: ein Block Explorer (Etherscan/BscScan) + Contract-Scanner, um die Holder-Verteilung zu sehen.</div>`},
+    drain:{title:"Wallet Drainer und Approvals",body:`
+      <p>Du musst nicht deinen privaten Schlüssel hergeben, um geleert zu werden: eine manipulierte <b>Freigabe (Approval)</b> zu unterschreiben reicht.</p>
+      <h4>Die klassische Falle</h4>
+      <p>Ein Fake-„Mint" oder „Claim" lässt dich ein <code>approve</code> unterschreiben, das dem Angreifer erlaubt, deine Tokens auszugeben. Später leert er alles.</p>
+      <ul><li>Lies, <b>was du unterschreibst</b>: eine „set approval for all"-Nachricht ist gefährlich.</li><li>Widerrufe ungenutzte Freigaben (z. B. <code>revoke.cash</code>).</li><li>Nutze eine <b>Burner-Wallet</b> für riskante Mints.</li></ul>
+      <div class="callout warn">🖊️ Eine Signatur kann so teuer sein wie eine geleakte Seed Phrase. Geh langsam, bevor du „Confirm" klickst.</div>`},
+    fake:{title:"Fake-Airdrops und Fake-Tokens",body:`
+      <p>Du erhältst „gratis" einen seltsamen Token in deiner Wallet. Das ist ein <b>Köder</b>.</p>
+      <ul><li><b>Niemals</b> mit einem unbekannten, grundlos erhaltenen Token interagieren.</li><li>„Airdrops", die verlangen, die <b>Wallet zu verbinden und zu unterschreiben</b> auf einer dubiosen Seite = Drainer.</li><li>Prüfe die offizielle Token-Adresse auf der <b>echten</b> Seite/Twitter des Projekts.</li></ul>
+      <div class="callout">🎁 Ein echter Airdrop verlangt nie, Gelder zu senden, „um deine Belohnung freizuschalten".</div>`},
+    audit:{title:"Deine Sicherheits-Checkliste",body:`
+      <p>Bevor du ein Projekt anfasst, geh diese <b>schnelle Audit-Checkliste</b> durch:</p>
+      <ul><li>✅ URL geprüft + als Lesezeichen</li><li>✅ Team identifizierbar / Reputation</li><li>✅ Contract auditiert, Liquidität gesperrt</li><li>✅ Gesunde Holder-Verteilung</li><li>✅ Ich verstehe, was ich unterschreibe</li><li>✅ Burner-Wallet für riskante Aktionen</li><li>✅ Seed Phrase offline, nie online eingegeben</li></ul>
+      <div class="callout">🛡️ Mantra des Crypto Guardian: <b>„Langsam machen, prüfen, dann unterschreiben."</b> Eile ist der Freund des Diebs.</div>`}
+  }, quiz:[
+    {q:"Eine Seite fragt nach deinen 12 Seed-Wörtern. Was tust du?",a:["Eingeben, das ist der Support","Verlassen: kein seriöser Dienst fragt danach","Nur die ersten 6 geben","Einen Freund fragen"],correct:1},
+    {q:"Was ist ein Rug Pull?",a:["Ein Netzwerk-Update","Das Team entzieht die Liquidität und verschwindet","Eine Art Staking","Eine Hardware-Wallet"],correct:1},
+    {q:"Wie leert ein Drainer eine Wallet ohne deinen privaten Schlüssel?",a:["Indem er dein Passwort errät","Über eine manipulierte Signatur/Freigabe","Indem er deine Coins mint","Per E-Mail"],correct:1},
+    {q:"Was ist ein starkes Rug-Pull-Signal?",a:["Gesperrte Liquidität","Anonymes Team + nicht gesperrte Liquidität","Auditierter Contract","Viele verteilte Holder"],correct:1},
+    {q:"Du bekommst gratis einen unbekannten Token. Gute Reaktion?",a:["Schnell verkaufen","Nicht damit interagieren","Klicken, um die Seite zu sehen","Zurücksenden"],correct:1},
+    {q:"Der richtige Reflex vor dem Unterschreiben einer Transaktion?",a:["Schnell unterschreiben, bevor der Preis steigt","Lesen, was ich unterschreibe, und die URL prüfen","Antivirus deaktivieren","Meinen Bildschirm teilen"],correct:1}
+  ]},
+  3:{ modules:{
+    dex:{title:"DEX vs CEX",body:`
+      <p>Es gibt zwei Wege, Krypto zu tauschen:</p>
+      <h4>CEX — zentralisierte Börse</h4>
+      <p>Wie Binance, Coinbase. Eine Firma verwahrt deine Gelder. Praktisch, aber <b>„not your keys, not your coins"</b>: du hängst von ihr ab.</p>
+      <h4>DEX — dezentrale Börse</h4>
+      <p>Wie Uniswap, PancakeSwap. Du tauschst <b>direkt aus deiner Wallet</b>, ohne Mittelsmann. Ein Smart Contract regelt den Swap.</p>
+      <ul><li>CEX = einfach, schnell, aber zentralisiert und mit KYC.</li><li>DEX = selbstverwaltet, 24/7 offen, aber du bist allein verantwortlich.</li></ul>
+      <div class="callout">💡 DeFi (dezentrale Finanzen) ist das ganze Universum von Finanzdiensten auf Smart Contracts, ohne Bank.</div>`},
+    lp:{title:"Liquidity Pools und AMM",body:`
+      <p>Auf einer DEX gibt es kein klassisches Orderbuch: <b>Liquidity Pools</b> machen die Swaps möglich.</p>
+      <h4>So funktioniert's</h4>
+      <p>Nutzer (die <b>LPs, Liquiditätsgeber</b>) hinterlegen zwei Assets zu gleichem Wert, z. B. ETH + USDC. Ein Algorithmus namens <b>AMM</b> bestimmt den Preis über die Formel <code>x · y = k</code>.</p>
+      <ul><li>Du stellst Liquidität bereit → du verdienst <b>Trading-Gebühren</b>.</li><li>Im Gegenzug erhältst du einen <b>LP-Token</b>, der deinen Anteil am Pool darstellt.</li></ul>
+      <div class="callout">Je mehr Liquidität in einem Pool, desto weniger bewegt sich der Preis pro Trade (geringes <i>Slippage</i>).</div>`},
+    yield:{title:"Yield Farming",body:`
+      <p><b>Yield Farming</b> heißt, seine Kryptos arbeiten zu lassen, um Rendite zu erzeugen, oft durch Stapeln mehrerer Protokolle.</p>
+      <ul><li>Du stellst Liquidität bereit → du bekommst LP-Tokens.</li><li>Du stakest diese LP-Tokens → du erhältst Belohnungs-Tokens.</li><li>Die Rendite misst man in <b>APR / APY</b> (Jahresrate).</li></ul>
+      <div class="callout warn">⚠️ APYs von 1000% gibt es… sind aber fast immer nicht nachhaltig. Hohe Rendite = hohes Risiko. Frag dich immer „woher kommt diese Rendite?".</div>`},
+    stake:{title:"Staking",body:`
+      <p><b>Staking</b> heißt, seine Tokens zu sperren, um ein <b>Proof-of-Stake</b>-Netzwerk zu sichern, und dafür Belohnungen zu erhalten.</p>
+      <ul><li>Du sperrst Tokens (z. B. ETH, SOL) → du verdienst regelmäßige Rendite.</li><li>Stabiler und einfacher als Yield Farming.</li><li>Achte auf die <b>Unbonding-Zeiten</b>: deine Gelder können einige Tage gesperrt sein.</li></ul>
+      <div class="callout">Staking ≈ „Geld, das Zinsen bringt", während du die Kontrolle über deine Schlüssel behältst.</div>`},
+    lend:{title:"Lending & Borrowing",body:`
+      <p>Protokolle wie Aave erlauben, deine Kryptos zu <b>verleihen</b> (und Zinsen zu verdienen) oder zu <b>leihen</b> (gegen Sicherheiten).</p>
+      <h4>Das Kernkonzept: Überbesicherung</h4>
+      <p>Um 100 $ zu leihen, musst du mehr als 100 $ Sicherheiten hinterlegen (z. B. 150 $). Fällt deine Sicherheit zu stark, wirst du automatisch <b>liquidiert</b>.</p>
+      <ul><li>Verleiher → passives Einkommen auf deine Kryptos.</li><li>Leiher → Liquidität, ohne deine Assets zu verkaufen.</li></ul>
+      <div class="callout warn">⚠️ Die Liquidation ist die Gefahr Nr. 1 beim Leihen. Halte stets einen komfortablen Sicherheitspuffer.</div>`},
+    derisk:{title:"Die Risiken der DeFi",body:`
+      <p>DeFi ist mächtig, hat aber eigene Risiken. Sie zu kennen ist die halbe Miete.</p>
+      <ul><li><b>Impermanent Loss</b> — beim Bereitstellen von Liquidität kannst du, wenn die Preise auseinandergehen, mit weniger Wert enden als bloßes Halten.</li><li><b>Smart-Contract-Risiko</b> — ein Bug oder Hack kann ein Protokoll leeren.</li><li><b>Rug Pulls / Fake-Protokolle</b> — siehe Academy 2.</li><li><b>Liquidationsrisiko</b> — beim Leihen.</li></ul>
+      <div class="callout">🧠 Regel des DeFi Builder: stecke nie mehr in ein Protokoll, als du verlieren kannst, und bevorzuge etablierte, auditierte Protokolle.</div>`}
+  }, quiz:[
+    {q:"Kernunterschied zwischen CEX und DEX?",a:["Die DEX ist teurer","Auf einer DEX tauschst du aus deiner Wallet, ohne Mittelsmann","Die CEX hat keine Gebühren","Kein Unterschied"],correct:1},
+    {q:"Was bestimmt den Preis auf einer DEX wie Uniswap?",a:["Ein menschlicher Trader","Ein AMM über eine mathematische Formel","Die Zentralbank","Der Zufall"],correct:1},
+    {q:"Was bekommst du, wenn du einem Pool Liquidität gibst?",a:["Nichts","Trading-Gebühren und einen LP-Token","Eine Kreditkarte","Ein garantiertes NFT"],correct:1},
+    {q:"Ein Protokoll zeigt 1500% APY. Gesunde Reaktion?",a:["Alles investieren, es ist gratis","Misstrauisch sein: sehr hohe Rendite = sehr hohes Risiko","Sicher ein Scam, ignorieren","Einfach glauben"],correct:1},
+    {q:"Was ist Liquidation beim Lending?",a:["Ein Treuebonus","Der Zwangsverkauf deiner Sicherheit, wenn sie zu stark fällt","Das Abheben deiner Zinsen","Ein Netzwerk-Update"],correct:1},
+    {q:"Impermanent Loss trifft vor allem…",a:["Die Leiher","Die Liquiditätsgeber, wenn die Preise auseinandergehen","Bitcoin-Staker","Niemanden"],correct:1}
+  ]},
+  4:{ modules:{
+    nftbasic:{title:"NFT: die Grundlagen",body:`
+      <p>Ein <b>NFT</b> (Non-Fungible Token) ist ein <b>einzigartiger</b>, fälschungssicherer Token auf einer Blockchain. „Nicht fungibel" = nicht austauschbar, anders als 1 €, das jedem anderen 1 € gleicht.</p>
+      <ul><li>Beweist <b>Eigentum</b> und <b>Echtheit</b> eines digitalen (oder physischen) Vermögenswerts.</li><li>Jedes NFT hat eine eindeutige ID und eine öffentliche Historie.</li></ul>
+      <div class="callout warn">⚠️ Häufiger Irrtum: „ein NFT ist nur ein Bild". Nein — es ist ein <b>Eigentumsnachweis</b> auf der Blockchain. Das Bild ist nur eine mögliche Nutzung.</div>`},
+    collec:{title:"Collections und Standards",body:`
+      <p>Die meisten NFTs sind in <b>Collections</b> gruppiert (z. B. 10.000 Stücke mit gemeinsamem Thema).</p>
+      <h4>Die technischen Standards</h4>
+      <ul><li><b>ERC-721</b> — jeder Token ist einzigartig (1 Werk = 1 Token).</li><li><b>ERC-1155</b> — erlaubt Semi-Fungibles (z. B. 100 Kopien desselben Spielitems).</li></ul>
+      <p>Die <b>Seltenheit</b> (seltene Merkmale) beeinflusst den wahrgenommenen Wert in einer Collection stark.</p>
+      <div class="callout">Die Metadaten (Bild, Attribute) liegen oft auf IPFS, um dezentral und dauerhaft zu bleiben.</div>`},
+    utility:{title:"Utility-NFTs",body:`
+      <p>Ein <b>Utility-NFT</b> gewährt Zugang zu etwas: das ist sein echter Wert, über das Bild hinaus.</p>
+      <ul><li><b>Zugang / Mitgliedschaft</b> — Eintritt in eine Community, ein Event, Premium-Inhalte (wie die NFTs der MOON-RZ Academy 😉).</li><li><b>Vorteile</b> — Rabatte, Airdrops, Stimmrechte.</li><li><b>Zertifizierungen</b> — ein verifizierbares Diplom oder Abzeichen.</li></ul>
+      <div class="callout">💡 Die Frage vor dem Kauf: „Was bringt dieses NFT konkret?". Dient es nur der Spekulation, ist das Risiko hoch.</div>`},
+    gaming:{title:"Gaming-NFTs",body:`
+      <p>In Web3-Spielen können Items (Charaktere, Waffen, Land) NFTs sein, die du <b>wirklich besitzt</b> und weiterverkaufen kannst.</p>
+      <ul><li><b>Play-to-Earn</b> — Tokens/NFTs durchs Spielen verdienen.</li><li><b>Interoperabilität</b> — die (noch junge) Idee, ein Item in mehreren Spielen zu nutzen.</li></ul>
+      <div class="callout warn">⚠️ Viele P2E-Spiele kollabierten, weil ihre Wirtschaft vom ständigen Zustrom neuer Spieler abhing. Bewerte stets die <b>wirtschaftliche Nachhaltigkeit</b> des Spiels.</div>`},
+    rwa:{title:"Real World Assets (RWA)",body:`
+      <p><b>RWAs</b> tokenisieren reale Vermögenswerte: Immobilien, Kunst, Anleihen, Gold… dargestellt durch einen Token auf der Blockchain.</p>
+      <ul><li>Ermöglichen <b>Bruchteilseigentum</b> (1% einer Wohnung besitzen).</li><li>Mehr Liquidität für sonst schwer verkäufliche Assets.</li><li>Stark wachsender Sektor, eng an die <b>Regulierung</b> gebunden.</li></ul>
+      <div class="callout">Ein anderes Projekt von dir (STAYLO) geht genau um die Tokenisierung realer Assets — genau das Thema dieses Moduls.</div>`},
+    mint:{title:"Ein NFT erstellen und listen",body:`
+      <p>Schritte von der Idee zum NFT zum Verkauf:</p>
+      <ul><li><b>1. Erstellen</b> des Visuals / Inhalts und seiner Metadaten.</li><li><b>2. Mint</b> — das NFT auf der Blockchain registrieren (über Marktplatz oder Contract).</li><li><b>3. Listen</b> — zum Verkauf anbieten (Festpreis oder Auktion) auf einem Marktplatz (OpenSea, Magic Eden…).</li><li><b>4. Royalties</b> — einen % festlegen, den du bei jedem künftigen Weiterverkauf erhältst.</li></ul>
+      <div class="callout">🎨 Tipp des NFT Architect: der Wert einer Collection ist zu 80% <b>Community und Utility</b>, zu 20% Kunst. Baue beides.</div>`}
+  }, quiz:[
+    {q:"Was bedeutet « nicht fungibel »?",a:["Wertlos","Einzigartig und nicht austauschbar","Kostenlos","Offline gespeichert"],correct:1},
+    {q:"Ein NFT ist im Grunde…",a:["Nur ein JPEG-Bild","Ein Eigentumsnachweis auf der Blockchain","Eine Münze wie Bitcoin","Ein Passwort"],correct:1},
+    {q:"Welcher Standard dient für semi-fungible Spielitems?",a:["ERC-20","ERC-721","ERC-1155","BTC-1"],correct:2},
+    {q:"Was bietet ein « Utility-NFT »?",a:["Nichts außer dem Bild","Einen konkreten Zugang oder Vorteil","Gewinngarantie","Reduzierte Gebühren bei Binance"],correct:1},
+    {q:"Was sind RWAs?",a:["Trading-Bots","Die Tokenisierung realer Vermögenswerte","Eine Art Wallet","Gas-Gebühren"],correct:1},
+    {q:"Wofür sind die Royalties eines NFT?",a:["Das Gas zahlen","Einen % bei jedem künftigen Weiterverkauf erhalten","Gratis minten","Das NFT löschen"],correct:1}
+  ]},
+  5:{ modules:{
+    brand:{title:"Web3-Branding",body:`
+      <p>Im Web3 ist deine <b>Marke</b> das, was Vertrauen schafft in einem Ozean von Projekten. Vor der Technik kommt die <b>Geschichte</b>.</p>
+      <ul><li><b>Klare Mission</b> — welches Problem du löst, für wen.</li><li><b>Visuelle Identität</b> — Logo, Farben, Ton (wie das Mond-Universum von MOON-RZ).</li><li><b>Konsistenz</b> — dieselbe Botschaft überall (Website, X, Discord).</li></ul>
+      <div class="callout">💡 Menschen kaufen keinen Token, sie schließen sich einer <b>Vision</b> an. Erzähl eine Geschichte, zu der sie gehören wollen.</div>`},
+    community:{title:"Community aufbauen",body:`
+      <p>In Krypto ist <b>die Community das Produkt</b>. Ein Projekt ohne Community ist tot, selbst mit toller Technik.</p>
+      <ul><li><b>Discord / Telegram</b> — das tägliche Hauptquartier.</li><li><b>X (Twitter)</b> — das Schaufenster und die Akquise.</li><li><b>Echtes Engagement</b> — antworten, zuhören, aktive Mitglieder belohnen.</li></ul>
+      <div class="callout warn">⚠️ Vorsicht vor Vanity Metrics: 50.000 gekaufte Follower sind weniger wert als 500 echte, engagierte Fans. Ziel auf Qualität, nicht Lärm.</div>`},
+    marketing:{title:"Krypto-Marketing",body:`
+      <p>Web3-Marketing mischt die Klassiker mit ökosystem-eigenen Hebeln.</p>
+      <ul><li><b>Bildungsinhalte</b> — Wert liefern, bevor man verkauft.</li><li><b>Partnerschaften & KOLs</b> — Krypto-Influencer (prüfen, viele Fakes).</li><li><b>Airdrops & Quests</b> — Aktion belohnen, um die Community zu starten (das Learn→Earn-Modell).</li></ul>
+      <div class="callout">Das beste Krypto-Marketing bleibt ein funktionierendes Produkt + Nutzer, die von selbst darüber reden.</div>`},
+    dao:{title:"Die DAOs",body:`
+      <p>Eine <b>DAO</b> (Dezentrale Autonome Organisation) ist eine Organisation, die von ihrer Community über die Blockchain regiert wird, statt von einem Chef.</p>
+      <ul><li><b>Governance-Tokens</b> — den Token halten = Stimmrecht.</li><li><b>Vorschläge & Abstimmungen</b> — die Community entscheidet über Entwicklung und Treasury.</li><li><b>Transparenz</b> — Entscheidungen und Gelder on-chain sichtbar.</li></ul>
+      <div class="callout">⚖️ Kernherausforderung: verhindern, dass wenige Großhalter („Wale") alle Abstimmungen kontrollieren. Das Governance-Design zählt so viel wie die Technik.</div>`},
+    tokenomics:{title:"Tokenomics",body:`
+      <p><b>Tokenomics</b> ist die Wirtschaft deines Tokens: was bestimmt, ob er über die Zeit Wert hält.</p>
+      <ul><li><b>Angebot</b> — gesamt, im Umlauf, Inflation/Deflation.</li><li><b>Verteilung</b> — Team, Community, Investoren, und das <b>Vesting</b> (schrittweise Freigabe).</li><li><b>Utility</b> — warum den Token halten? (Gas, Governance, Zugang, Belohnungen…).</li><li><b>Angebot vs Nachfrage</b> — ein nützlicher, knapper Token gewinnt an Wert.</li></ul>
+      <div class="callout">🧮 Der MOON-RZ-Token folgt dieser Logik: durch Aktion verdient (Learn→Earn) und ausgegeben, um Inhalte, NFTs und Wettbewerbe freizuschalten.</div>`},
+    launch:{title:"Dein Projekt starten",body:`
+      <p>Die Teile zusammensetzen, um von der Idee zum Launch zu kommen:</p>
+      <ul><li><b>1. Vision & Whitepaper</b> — was, warum, wie.</li><li><b>2. Community</b> — baue sie VOR dem Launch.</li><li><b>3. Tokenomics</b> — gesund und transparent.</li><li><b>4. Produkt / MVP</b> — zeige, dass es funktioniert (wie diese App!).</li><li><b>5. Launch & Liquidität</b> — dann mit der Community iterieren.</li></ul>
+      <div class="callout">🏗️ Mantra des Web3 Founder: „Community first, Hype second." Ein erfolgreicher Launch wird Monate im Voraus vorbereitet.</div>`}
+  }, quiz:[
+    {q:"Was kaufen Menschen in Krypto wirklich?",a:["Einen isolierten Token","Eine Vision und eine Community","Das Logo","Gas"],correct:1},
+    {q:"Warum bei 50.000 Followern auf einmal misstrauisch sein?",a:["Ist immer ein gutes Zeichen","Kann eine Vanity Metric sein (Fake-Engagement)","Senkt den Token-Preis","Erhöht das Gas"],correct:1},
+    {q:"Was ist eine DAO?",a:["Eine Hardware-Wallet","Eine von ihrer Community on-chain regierte Organisation","Eine Art NFT","Eine zentralisierte Börse"],correct:1},
+    {q:"Wofür ist Vesting in der Tokenomics?",a:["Tokens verbrennen","Tokens schrittweise freigeben (Team, Investoren)","Gas zahlen","NFTs erstellen"],correct:0},
+    {q:"Welches Risiko bedroht die Governance einer DAO?",a:["Zu viel Transparenz","Die Stimmenkonzentration bei wenigen Walen","Kostenlose Stimmen","Zu viele Mitglieder"],correct:1},
+    {q:"Die richtige Priorität vor einem Launch?",a:["Sofort maximaler Hype","Community und ein funktionierendes Produkt aufbauen","Follower kaufen","Ohne Whitepaper launchen"],correct:1}
+  ]},
+  6:{ modules:{
+    candles:{title:"Ein Chart lesen: die Kerzen",body:`
+      <p>Der <b>japanische Kerzenchart</b> ist die Universalsprache des Traders. Jede Kerze fasst den Kampf Käufer/Verkäufer in einem Zeitraum zusammen.</p>
+      <h4>Eine Kerze = 4 Preise</h4>
+      <ul><li><b>Eröffnung</b> und <b>Schluss</b> (der Kerzenkörper).</li><li><b>Hoch</b> und <b>Tief</b> (die Dochte).</li><li><b>Grüner</b> Körper = Schluss über Eröffnung (Anstieg). <b>Rot</b> = Rückgang.</li></ul>
+      <p>Der <b>Zeitrahmen (Timeframe)</b> ändert alles: eine 1-Minuten-Kerze ≠ eine 1-Tages-Kerze.</p>
+      <div class="callout">💡 Öffne deinen <b>Simulator</b> parallel: du siehst echte Preise sich bewegen. Trading lernt man mit dem Auge am Markt, nicht in Büchern.</div>`},
+    sr:{title:"Unterstützung und Widerstand",body:`
+      <p>Das sind die wichtigsten Preisniveaus zu erkennen.</p>
+      <h4>Unterstützung</h4>
+      <p>Ein <b>Boden</b>, wo Käufer übernehmen und den Preis abprallen lassen. Der Preis „tut sich schwer", darunter zu fallen.</p>
+      <h4>Widerstand</h4>
+      <p>Eine <b>Decke</b>, wo Verkäufer übernehmen. Der Preis „tut sich schwer", darüber zu steigen.</p>
+      <ul><li>Je öfter ein Niveau getestet wird, desto bedeutsamer ist es.</li><li>Eine durchbrochene Unterstützung wird oft zum Widerstand (und umgekehrt).</li></ul>
+      <div class="callout warn">⚠️ Diese Niveaus sind <b>Zonen</b>, keine pixelgenauen Linien. Übertreib es nicht mit der Präzision.</div>`},
+    trend:{title:"Die Trends",body:`
+      <p>„<b>The trend is your friend</b>": die erste Frage des Traders ist immer „wohin geht der Markt?".</p>
+      <ul><li><b>Aufwärtstrend</b> — höhere Hochs und höhere Tiefs.</li><li><b>Abwärtstrend</b> — tiefere Hochs und tiefere Tiefs.</li><li><b>Range</b> — der Preis schwankt seitwärts, ohne Richtung.</li></ul>
+      <div class="callout">📐 Eine <b>Trendlinie</b> verbindet die Tiefs (im Aufwärtstrend) oder die Hochs (im Abwärtstrend). Ihr Bruch kann einen Richtungswechsel signalisieren.</div>`},
+    volume:{title:"Das Volumen",body:`
+      <p>Das <b>Volumen</b> = die in einem Zeitraum gehandelte Menge. Es ist der <b>Treibstoff</b> hinter einer Preisbewegung.</p>
+      <ul><li>Ein Anstieg mit <b>hohem Volumen</b> = glaubwürdige, getragene Bewegung.</li><li>Ein Anstieg mit <b>geringem Volumen</b> = verdächtig, die Bewegung kann verpuffen.</li><li>Ein Volumenspitze begleitet oft Umkehrungen oder Ausbrüche.</li></ul>
+      <div class="callout">🔎 Einfache Regel: das Volumen <b>bestätigt</b> den Preis. Ein Widerstandsbruch ohne Volumen ist verdächtig.</div>`},
+    liquidity:{title:"Die Liquidität",body:`
+      <p>Die <b>Liquidität</b> ist die Leichtigkeit, zu kaufen oder zu verkaufen, ohne den Preis zu bewegen. Viele Orders auf beiden Seiten = liquider Markt.</p>
+      <ul><li><b>Liquides</b> Asset (BTC, ETH) → geringes <b>Slippage</b>, Ausführung nahe am gezeigten Preis.</li><li><b>Illiquides</b> Asset (kleiner Token) → eine große Order bewegt den Preis, Boden für Manipulation.</li></ul>
+      <div class="callout warn">⚠️ Viele Fallen (Pump &amp; Dump) sind nur bei illiquiden Assets möglich. Bevorzuge tiefe Märkte am Anfang.</div>`},
+    analyse:{title:"In die Praxis umsetzen",body:`
+      <p>Bring alles zusammen für deine erste strukturierte <b>Marktanalyse</b>:</p>
+      <ul><li><b>1. Trend</b> — aufwärts, abwärts oder Range?</li><li><b>2. Niveaus</b> — wo sind die wichtigen Unterstützungen und Widerstände?</li><li><b>3. Volumen</b> — bestätigt es die aktuelle Bewegung?</li><li><b>4. Liquidität</b> — ist das Asset tief genug?</li><li><b>5. Plan</b> — wo steige ich ein, wo schneide ich, wenn ich falsch liege (das ist Academy 7).</li></ul>
+      <div class="callout">🏋️ Übung des Market Analyst: öffne den <b>Simulator</b>, wähle BTC oder ETH und mach diese 5 Schritte laut, bevor du „Kaufen" klickst. Wiederhole mit ETH, BNB, SOL, XRP.</div>`}
+  }, quiz:[
+    {q:"Was stellt der Körper einer Kerze dar?",a:["Das Hoch und das Tief","Die Eröffnung und den Schluss","Das Volumen","Die Gebühren"],correct:1},
+    {q:"Was ist eine Unterstützung?",a:["Eine Preisdecke","Ein Boden, wo Käufer den Preis abprallen lassen","Eine Art Token","Eine rote Kerze"],correct:1},
+    {q:"Ein Aufwärtstrend ist…",a:["Höhere Hochs und höhere Tiefs","Ein flacher Preis","Tiefere Tiefs","Immer geringes Volumen"],correct:0},
+    {q:"Wofür ist das Volumen?",a:["Gebühren berechnen","Die Glaubwürdigkeit einer Preisbewegung bestätigen","NFTs erstellen","Die Wallet sichern"],correct:1},
+    {q:"Ein illiquides Asset ist gefährlich, weil…",a:["Es zu viel Volumen hat","Eine große Order den Preis bewegen kann (Manipulation)","Es zu teuer ist","Es keinen Chart hat"],correct:1},
+    {q:"Die erste Frage vor dem Traden?",a:["Was ist das Projekt-Logo?","Wohin geht der Trend?","Wer ist der CEO?","Wie viele Follower?"],correct:1}
+  ]},
+  7:{ modules:{
+    mtf:{title:"Multi-Timeframe-Analyse",body:`
+      <p>Ein guter Trader schaut <b>mehrere Timeframes</b> an, bevor er handelt. Nur einer ist wie durchs Schlüsselloch schauen.</p>
+      <h4>Die Top-Down-Methode</h4>
+      <ul><li><b>Höherer TF</b> (Tag/Woche) → der zugrundeliegende Trend, die Kulisse.</li><li><b>Mittlerer TF</b> (4h/1h) → die Interessenszonen.</li><li><b>Niedrigerer TF</b> (15m/5m) → der präzise Einstiegspunkt.</li></ul>
+      <p>Goldene Regel: <b>im Sinne des höheren Trends traden</b> und den Einstieg auf dem niedrigeren verfeinern.</p>
+      <div class="callout warn">⚠️ Klassischer Anfängerfehler: ein 5-Minuten-Signal gegen den Tagestrend nehmen. Das ist gegen den Strom schwimmen.</div>`},
+    risk:{title:"Risikomanagement",body:`
+      <p>Die Wahrheit, die niemand Anfängern sagt: <b>Trading heißt zuerst Risiko managen, nicht Preis vorhersagen.</b> Man überlebt, bevor man gewinnt.</p>
+      <h4>Die 1%-Regel</h4>
+      <p>Riskiere nie <b>mehr als 1 bis 2%</b> deines Kapitals pro Trade. Bei 1% Risiko bräuchte es 100 Verlust-Trades in Folge, um pleite zu gehen — fast unmöglich.</p>
+      <ul><li>Ein Verlust von 50% erfordert danach 100% Gewinn, nur um auf null zu kommen. Kapital schützen ist Mathematik.</li><li>Der <b>Stop-Loss</b> ist nicht optional: er ist dein Sicherheitsgurt.</li></ul>
+      <div class="callout">🧮 Übe es im Simulator: entscheide VOR dem Kauf, wie viel du zu verlieren bereit bist, und halte dich daran.</div>`},
+    sizing:{title:"Position Sizing",body:`
+      <p>Das <b>Position Sizing</b> beantwortet „wie viel kaufe ich?". Es folgt aus deinem Risiko, nicht aus deiner Begeisterung.</p>
+      <h4>Die Formel</h4>
+      <p><code>Größe = (Kapital × % Risiko) ÷ Abstand zum Stop-Loss</code></p>
+      <p>Beispiel: Kapital 10.000 $, Risiko 1% (100 $), Stop bei -5% → du kannst <b>2.000 $</b> in diesen Trade stecken (denn 5% von 2000 = 100).</p>
+      <div class="callout warn">⚠️ Es ist nicht „ich mag diesen Coin, also setze ich alles". Die Positionsgröße ist eine <b>Rechnung</b>, definiert dadurch, wo du schneidest, wenn du falsch liegst.</div>`},
+    rr:{title:"Stop-Loss, Take-Profit und R:R",body:`
+      <p>Jeder Trade muss einen Ausstiegsplan <b>vor</b> dem Einstieg haben.</p>
+      <ul><li><b>Stop-Loss (SL)</b> — der Preis, bei dem du zugibst, falsch zu liegen, und schneidest.</li><li><b>Take-Profit (TP)</b> — der Preis, bei dem du Gewinne mitnimmst.</li><li><b>Chance-Risiko-Verhältnis (R:R)</b> — wie viel du anvisierst vs wie viel du riskierst.</li></ul>
+      <p>Ein R:R von <b>1:3</b> heißt 100 $ riskieren, um 300 $ anzuvisieren. Mit so einem Verhältnis kannst du öfter falsch als richtig liegen und trotzdem <b>profitabel</b> sein.</p>
+      <div class="callout">📐 Ziel auf mindestens 1:2. Darunter versenkt dich die kleinste Verlustserie.</div>`},
+    journal:{title:"Journal und Psychologie",body:`
+      <p>Dein schlimmster Feind im Trading ist nicht der Markt: es bist <b>du</b> (Angst, Gier, Rache).</p>
+      <h4>Das Trading-Journal</h4>
+      <p>Notiere jeden Trade: Einstieg, Ausstieg, Grund, gefühlte Emotion, Ergebnis. So findest du wiederkehrende Fehler und verbesserst dich wirklich.</p>
+      <ul><li><b>FOMO</b> — aus Angst, etwas zu verpassen, kaufen = zu spät einsteigen.</li><li><b>Revenge Trading</b> — nach einem Verlust „zurückholen" wollen = Katastrophe.</li><li><b>Disziplin > Motivation</b> — ein kühl befolgter Plan schlägt den Instinkt.</li></ul>
+      <div class="callout">🧠 Mantra des Professional Trader: „Plan the trade, trade the plan." Kühl entscheiden, ohne Emotion ausführen.</div>`},
+    strategy:{title:"Deine Strategie bauen",body:`
+      <p>Eine Strategie ist eine Reihe <b>geschriebener Regeln</b>, denen du ohne Improvisation folgst. Drei große Stile:</p>
+      <ul><li><b>Scalping</b> — viele sehr kurze Trades (Minuten). Intensiv, anspruchsvoll.</li><li><b>Swing</b> — eine Position einige Tage/Wochen in einem Trend halten.</li><li><b>Investieren (DCA)</b> — regelmäßig langfristig kaufen, ohne Timing.</li></ul>
+      <h4>Deine Strategie muss festlegen</h4>
+      <p>Welcher Markt · welcher TF · Einstiegsbedingung · Stop-Loss · Take-Profit · Positionsgröße · Emotionsmanagement-Regel.</p>
+      <div class="callout">🏋️ Übung des Professional Trader: schreibe EINE Strategie (Swing-Stil) und teste sie über 10 Trades im Simulator unter Beachtung jeder Regel. Notiere alles im Journal.</div>`}
+  }, quiz:[
+    {q:"In der Multi-Timeframe-Analyse tradest du…",a:["Gegen den höheren Trend","Im Sinne des höheren Trends, Einstieg auf dem niedrigeren TF verfeinert","Nur auf 1 Minute","Zufällig"],correct:1},
+    {q:"Die 1%-Regel sagt,…",a:["1% garantiert pro Tag zu verdienen","nie mehr als 1-2% des Kapitals pro Trade zu riskieren","1% in Bitcoin zu investieren","1% Gebühren zu zahlen"],correct:1},
+    {q:"Position Sizing hängt vor allem ab von…",a:["Deiner Begeisterung für den Coin","Deinem akzeptierten Risiko und dem Abstand zum Stop-Loss","Der Follower-Zahl des Projekts","Der Kerzenfarbe"],correct:1},
+    {q:"Ein Chance-Risiko von 1:3 heißt…",a:["300 riskieren, um 100 zu machen","100 riskieren, um 300 anzuvisieren","Drei Trades pro Tag","30% Gebühren"],correct:1},
+    {q:"Was ist Revenge Trading?",a:["Eine Gewinnstrategie","Einen Verlust zurückholen wollen, oft katastrophal","Eine Art Order","Nachts traden"],correct:1},
+    {q:"Wofür ist ein Trading-Journal?",a:["Für nichts","Wiederkehrende Fehler finden und sich verbessern","Weniger Steuern zahlen","Coins minen"],correct:1}
+  ]},
+  8:{ modules:{
+    copilot:{title:"Die KI, dein Krypto-Copilot",body:`
+      <p>KI (Claude, ChatGPT…) ersetzt nicht dein Hirn: sie ist ein <b>Copilot</b>, der enorm Zeit bei Recherche, Analyse und Lernen spart.</p>
+      <ul><li>Ein komplexes Konzept auf deinem Niveau <b>erklären</b>.</li><li>Ein 40-Seiten-Whitepaper in 10 Zeilen <b>zusammenfassen</b>.</li><li>Eine Strategie oder ein Projekt <b>brainstormen</b>.</li><li>Ein Skript, einen Bot, einen einfachen Smart Contract <b>programmieren</b>.</li></ul>
+      <div class="callout">💡 Diese MOON-RZ-Academy-App wurde mit KI gebaut. KI ist ein Kraftverstärker für einen Solo-Creator.</div>`},
+    prompt:{title:"Gut prompten",body:`
+      <p>Die Qualität der Antwort hängt von der Qualität der Frage ab. Ein guter <b>Prompt</b> gibt Kontext und ein klares Ziel.</p>
+      <h4>Das R-C-T-Rezept</h4>
+      <ul><li><b>Rolle</b> — „Handle als Experten-Krypto-Analyst."</li><li><b>Kontext</b> — die Daten, dein Niveau, die Einschränkung.</li><li><b>Aufgabe</b> — was du genau willst, und das Ausgabeformat.</li></ul>
+      <div class="callout warn">⚠️ Sei präzise: „analysiere BTC" ist vage. „Gib mir Unterstützung, Widerstand und Trend von BTC im H4, in 5 Punkten" ist umsetzbar.</div>`},
+    analyst:{title:"Einen KI-Krypto-Analysten bauen",body:`
+      <p>Du kannst eine KI in einen wiederverwendbaren <b>Analyse-Assistenten</b> mit festen Anweisungen verwandeln.</p>
+      <h4>Beispiel-Anweisung</h4>
+      <p>„Du bist mein Analyst. Für jedes Asset, das ich gebe, antworte immer mit: Trend, Schlüsselniveaus, Volumen, Risikostufe /10 und einem Plan in einem Satz. Nie Finanzberatung, nur Analyse."</p>
+      <div class="callout">🎯 Die KI strukturiert dein Denken und zwingt dich, der Methode aus Academy 6 zu folgen. Die finale Entscheidung bleibst DU.</div>`},
+    scanner:{title:"KI-Marktscanner",body:`
+      <p>Ein <b>Scanner</b> filtert die Information auf das Wesentliche, und KI beschleunigt dieses Filtern.</p>
+      <ul><li>Die News und die Marktstimmung des Tages zusammenfassen.</li><li>Mehrere Projekte nach festen Kriterien vergleichen (Team, Tokenomics, Liquidität…).</li><li>Signale zum Nachforschen erkennen — <b>nie</b> blind ausführen.</li></ul>
+      <div class="callout warn">⚠️ Ein KI-Signal ist ein <b>Hinweis</b>, kein Befehl. Prüfe die Daten immer selbst, bevor du handelst.</div>`},
+    agents:{title:"KI-Agenten und Automatisierung",body:`
+      <p>Ein <b>KI-Agent</b> ist eine KI, die Aktionen auf ein Ziel hin verkettet (suchen, analysieren, schreiben, manchmal über Tools ausführen).</p>
+      <ul><li>Eine tägliche Überwachung automatisieren.</li><li>Regelmäßige Berichte erzeugen.</li><li>Das Erschaffen unterstützen (Inhalt, Code, Design).</li></ul>
+      <div class="callout warn">⚠️ Echte Gefahr: ein Agent, der mit einer Wallet oder Börse verbunden ist, kann Schaden anrichten, wenn schlecht eingegrenzt. Beginne im Lesemodus / im Simulator.</div>`},
+    ailimits:{title:"Grenzen und Sicherheit der KI",body:`
+      <p>KI ist mächtig, aber fehlbar. Die Grenzen kennen = sie klug nutzen.</p>
+      <ul><li><b>Halluzinationen</b> — die KI kann Fakten selbstbewusst erfinden. Prüfe Zahlen und Contracts.</li><li><b>Veraltete Daten</b> — sie kennt vielleicht nicht die aktuellen Preise.</li><li><b>Sicherheit</b> — gib NIEMALS deine Seed Phrase oder privaten Schlüssel an eine KI oder eine Seite.</li></ul>
+      <div class="callout">🧠 Regel des AI Trader: die KI <b>unterstützt</b> deine Entscheidung, sie <b>ersetzt</b> sie nicht. Behalte immer Kontrolle und kritisches Denken.</div>`}
+  }, quiz:[
+    {q:"Was ist die gute Rolle der KI in Krypto?",a:["Für dich entscheiden","Ein Copilot, der Recherche und Analyse beschleunigt","Deine privaten Schlüssel halten","Gewinne garantieren"],correct:1},
+    {q:"Ein guter Prompt enthält idealerweise…",a:["Ein einziges vages Wort","Rolle, Kontext und eine klare Aufgabe mit Format","Nur Emojis","Deine Seed Phrase"],correct:1},
+    {q:"Ein Signal eines KI-Scanners ist…",a:["Ein Befehl zum blinden Ausführen","Ein Hinweis, den du selbst prüfst","Eine Gewinngarantie","Ein Smart Contract"],correct:1},
+    {q:"Was ist das Risiko eines KI-Agenten an einer Wallet?",a:["Keines","Er kann Schaden anrichten, wenn schlecht eingegrenzt","Er mint schneller","Er senkt das Gas"],correct:1},
+    {q:"Was ist eine KI-Halluzination?",a:["Ein Anzeigefehler","Wenn die KI einen Fakt selbstbewusst erfindet","Eine Art NFT","Ein Netzwerkausfall"],correct:1},
+    {q:"Darfst du deine Seed Phrase einer KI zur Hilfe geben?",a:["Ja, wenn sie bekannt ist","Niemals, niemandem und keinem Tool","Ja, die ersten 12 Wörter","Nur am Wochenende"],correct:1}
+  ]},
+  9:{ modules:{
+    standards:{title:"Die Token-Standards",body:`
+      <p>Einen Token zu erstellen heißt, einem anerkannten <b>Standard</b> zu folgen, damit er mit Wallets und Börsen kompatibel ist.</p>
+      <ul><li><b>ERC-20</b> (Ethereum) — der Standard für fungible Tokens.</li><li><b>BEP-20</b> (BNB Chain) — das Äquivalent, niedrigere Gebühren.</li><li>Auf Solana ist es das <b>SPL-Token</b>-Programm.</li></ul>
+      <p>Ein Token wird definiert durch: einen <b>Namen</b>, ein <b>Symbol</b> (z. B. MOON), ein <b>Gesamtangebot</b> und eine Anzahl von <b>Dezimalstellen</b>.</p>
+      <div class="callout">💡 Technisch ist einen Basis-Token zu erstellen einfach. Das Schwere — und das, was zählt — ist alles drumherum (Utility, Liquidität, Vertrauen).</div>`},
+    contract:{title:"Der Token-Contract",body:`
+      <p>Der Token lebt in einem <b>Smart Contract</b>, der seine Regeln definiert: wer minten, burnen darf, und mit welchen Grenzen.</p>
+      <ul><li><b>Mint</b> — neue Tokens erstellen.</li><li><b>Burn</b> — einige zerstören (senkt das Angebot, deflationär).</li><li><b>Owner / Berechtigungen</b> — wer was kontrolliert.</li></ul>
+      <div class="callout warn">⚠️ Ein schlecht geschriebener Contract = offene Tür für Hacks und Rug Pulls. Für einen echten Launch ist ein professionelles <b>Audit</b> unverzichtbar.</div>`},
+    liquidity9:{title:"Liquidität und Launch",body:`
+      <p>Ein Token ohne <b>Liquidität</b> ist wertlos: niemand kann ihn kaufen oder verkaufen.</p>
+      <h4>Einen Markt schaffen</h4>
+      <p>Man erstellt einen <b>Liquidity Pool</b> auf einer DEX (z. B. dein Token + USDC). Das hinterlegte Verhältnis legt den Startpreis fest.</p>
+      <ul><li><b>Die Liquidität sperren</b> beruhigt: das Team kann nicht alles abziehen.</li><li>Kommuniziere den offiziellen Contract, um Fake-Tokens zu vermeiden (siehe Academy 2).</li></ul>
+      <div class="callout">🔒 Gesperrte Liquidität + auditierter Contract = zwei Seriositätssignale, nach denen ein cleverer Investor sucht.</div>`},
+    vesting:{title:"Das Vesting",body:`
+      <p>Das <b>Vesting</b> gibt die Tokens <b>schrittweise</b> über die Zeit frei, statt alles auf einmal.</p>
+      <ul><li>Hindert Team und Erstinvestoren daran, beim Launch alles zu verkaufen (ein „Dump").</li><li>Richtet die Interessen <b>langfristig</b> aus.</li><li>Wird oft in einem Emissionskalender gezeigt.</li></ul>
+      <div class="callout warn">⚠️ Bevor du in ein Projekt investierst, schau aufs Vesting: werden bald riesige Mengen freigegeben, kann der Preis fallen.</div>`},
+    governance:{title:"Die Governance",body:`
+      <p>Ein Token kann <b>Entscheidungsmacht</b> geben: das ist Governance (verbunden mit DAOs, Academy 5).</p>
+      <ul><li>Den Token halten = über die Entwicklung des Projekts abstimmen.</li><li>Entscheidungen und Treasury transparent on-chain verwaltet.</li><li>Die Herausforderung: die Dominanz der <b>Wale</b> über alle Abstimmungen vermeiden.</li></ul>
+      <div class="callout">⚖️ Ein gutes Governance-Design verteilt die Macht und fördert die Teilnahme der Community.</div>`},
+    launch9:{title:"Einen verantwortungsvollen Token launchen",body:`
+      <p>Zusammenfassung eines <b>seriösen</b> Launches, das Gegenteil eines Scams:</p>
+      <ul><li><b>1.</b> Klare Utility — wofür der Token wirklich gut ist.</li><li><b>2.</b> Auditierter Contract, gesunde Berechtigungen.</li><li><b>3.</b> Transparente Tokenomics (Angebot, Verteilung, Vesting).</li><li><b>4.</b> Liquidität bereitgestellt und gesperrt.</li><li><b>5.</b> Informierte Community, offizieller Contract veröffentlicht.</li></ul>
+      <div class="callout">🪙 Mantra des Token Engineer: „Ein Token hat nur Wert durch das, was man mit ihm tun kann." Baue den Nutzen vor dem Preis. Genau die Logik des MOON-RZ-Tokens.</div>`}
+  }, quiz:[
+    {q:"Was ist der Standard für fungible Tokens auf Ethereum?",a:["ERC-721","ERC-20","SPL","BTC-1"],correct:1},
+    {q:"Was macht die « Burn »-Operation?",a:["Erstellt Tokens","Zerstört Tokens und senkt das Angebot","Sperrt die Liquidität","Mintet ein NFT"],correct:1},
+    {q:"Warum die Liquidität sperren?",a:["Um weniger Gas zu zahlen","Um zu beruhigen: das Team kann nicht alles abziehen","Um die Dezimalstellen zu erhöhen","Um zu minen"],correct:1},
+    {q:"Wofür ist das Vesting?",a:["Tokens schrittweise freigeben und Dumps vermeiden","Ein NFT erstellen","Den Code auditieren","Gebühren zahlen"],correct:0},
+    {q:"Ein Governance-Token erlaubt…",a:["Über die Entwicklung des Projekts abzustimmen","Binance-Gebühren zu senken","Bitcoin zu minen","Die Seed Phrase zu speichern"],correct:0},
+    {q:"Was gibt einem Token dauerhaften Wert?",a:["Sein Logo","Seine echte Utility","Die Anzahl der Dezimalstellen","Seine Farbe"],correct:1}
+  ]},
+  10:{ modules:{
+    m_wallet:{title:"Checkpoint 1 — Wallet und Sicherheit",body:`
+      <p>Willkommen in der letzten Akademie. Hier entdeckst du nicht mehr: du <b>verbindest alles</b> und beweist deine Meisterschaft.</p>
+      <h4>Was du jetzt beherrschst</h4>
+      <ul><li>Eine Wallet erstellen und sichern, deine Seed Phrase schützen.</li><li>Phishing, Rug Pulls, Drainer erkennen (Academy 2).</li><li>Der Reflex: „Langsam machen, prüfen, dann unterschreiben."</li></ul>
+      <div class="callout">🌙 Ein echter Web3-Meister schützt seine Gelder <b>aus Gewohnheit</b>, ohne nachzudenken. Sicherheit ist deine Basis.</div>`},
+    m_defi:{title:"Checkpoint 2 — DeFi und Rendite",body:`
+      <p>Jetzt weißt du, deine Assets arbeiten zu lassen <b>und dabei die Risiken zu verstehen</b>.</p>
+      <ul><li>Swap auf einer DEX, Liquidität bereitstellen, einen APY lesen.</li><li>Staking, Lending und die Gefahr der Liquidation.</li><li>Impermanent Loss und Smart-Contract-Risiko.</li></ul>
+      <div class="callout">🧠 Meisterschaft = nie einer Rendite hinterherjagen, deren Quelle du nicht erklären kannst.</div>`},
+    m_nft:{title:"Checkpoint 3 — NFT und Erschaffen",body:`
+      <p>Du siehst das NFT, was es ist: ein <b>Eigentumsnachweis</b> und ein Träger von Utility.</p>
+      <ul><li>Collections, Standards, Seltenheit verstehen.</li><li>Die echte Utility vor dem Kauf bewerten.</li><li>Erstellen, listen und Royalties konfigurieren können.</li></ul>
+      <div class="callout">🎯 Deine MOON-RZ-Abzeichen sind selbst Utility-NFTs: sie beweisen, was du gelernt hast.</div>`},
+    m_trade:{title:"Checkpoint 4 — Trading und Risiko",body:`
+      <p>Du liest einen Markt und handelst mit einem <b>Plan</b>, nicht mit Emotionen.</p>
+      <ul><li>Trend, Unterstützungen/Widerstände, Volumen, Liquidität.</li><li>Die 1%-Regel, Position Sizing, R:R ≥ 1:2.</li><li>Trading-Journal und Disziplin gegen FOMO.</li></ul>
+      <div class="callout">🏋️ Beweis durch Tat: wende eine vollständige Strategie im <b>Simulator</b> an, vom Einstiegsplan bis zum Stop-Loss.</div>`},
+    m_build:{title:"Checkpoint 5 — Bauen und tokenisieren",body:`
+      <p>Du kannst vom bloßen Nutzer zum <b>Erbauer</b> von Ökosystemen werden.</p>
+      <ul><li>Vision, Branding, Community zuerst.</li><li>Gesunde Tokenomics: Angebot, Verteilung, Vesting, Utility.</li><li>Einen verantwortungsvollen Token launchen, mit Governance und gesperrter Liquidität.</li></ul>
+      <div class="callout">🏗️ „Community first, Hype second." Du erkennst — und baust — jetzt ein seriöses Projekt.</div>`},
+    m_master:{title:"Finaler Checkpoint — MOON-RZ Master",body:`
+      <p>Zielgerade. Du hast alle 10 Akademien durchlaufen: Blockchain, Sicherheit, DeFi, NFT, Unternehmertum, Trading, KI, Tokenisierung.</p>
+      <h4>Das Profil des MOON-RZ Master</h4>
+      <ul><li>🛡️ Autonom und sicher im Web3.</li><li>💹 Fähig, einen Markt zu analysieren und sein Risiko zu managen.</li><li>🏗️ Fähig, ein Projekt zu verstehen, zu bewerten und zu bauen.</li><li>🧠 Kritisches Denken: kein Versprechen von leichtem Geld fängt dich.</li></ul>
+      <div class="callout">🏆 Bestehe die Abschlussprüfung, um das <b>MOON-RZ MASTER NFT</b> zu erringen und den höchsten Rang zu erreichen: <b>MOON-RZ Legend</b>. Wahre Meisterschaft ist, weiter zu lernen. 🚀</div>`}
+  }, quiz:[
+    {q:"Der ultimative Sicherheitsreflex eines Web3-Meisters?",a:["Schnell unterschreiben","Langsam machen, prüfen, dann unterschreiben; nie deine Seed geben","Gelder auf einer Börse halten","Den Antivirus deaktivieren"],correct:1},
+    {q:"Bevor du einer hohen DeFi-Rendite hinterherjagst, musst du…",a:["Schnell alles investieren","Erklären können, woher die Rendite kommt und ihr Risiko","Die Gebühren ignorieren","Dem gezeigten APY vertrauen"],correct:1},
+    {q:"Welche Regel schützt dein Kapital im Trading?",a:["Alles auf einen Coin setzen","Max. 1-2% pro Trade mit Stop-Loss riskieren","Ohne Plan traden","Nach jedem Verlust verdoppeln"],correct:1},
+    {q:"Was gibt einem Token/NFT dauerhaften Wert?",a:["Nur der Hype","Seine echte Utility und Community","Die Anzahl der Dezimalstellen","Die Logo-Farbe"],correct:1},
+    {q:"Die gute Rolle der KI für einen Krypto-Meister?",a:["Für ihn entscheiden und traden","Die Entscheidung unterstützen, die menschlich bleibt","Die privaten Schlüssel halten","Gewinne garantieren"],correct:1},
+    {q:"Im Grunde ist wahre Web3-Meisterschaft…",a:["Das größte Portfolio haben","Autonom sein, das Risiko managen und weiter lernen","Jedem Influencer folgen","Jeden neuen Token kaufen"],correct:1}
+  ]}
  }
 };
 function ac(aid){
