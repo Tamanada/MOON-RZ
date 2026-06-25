@@ -32,7 +32,7 @@
     --shadow:0 10px 40px -10px #000a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
+  html,body{height:100%;overflow-x:hidden;max-width:100%}
   body{
     font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
     background:
@@ -60,7 +60,7 @@
   .nav button.locked{opacity:.4;cursor:not-allowed}
   .nav button .lk{margin-left:auto;font-size:12px}
 
-  .main{padding:0 0 60px}
+  .main{padding:0 0 60px;min-width:0}
   .topbar{display:flex;align-items:center;gap:18px;padding:16px 26px;border-bottom:1px solid var(--line);background:var(--bg-2);backdrop-filter:blur(10px);position:sticky;top:0;z-index:5}
   .topbar .spacer{flex:1}
   .stat{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);padding:7px 13px;border-radius:999px;font-size:13px;font-weight:600}
@@ -202,12 +202,31 @@
   .progress-ring{display:flex;align-items:center;gap:14px}
   .mobtab{display:none}
   @media(max-width:880px){
-    .mobtab{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;border-bottom:1px solid var(--line);position:sticky;top:64px;background:var(--bg);z-index:4}
-    .mobtab button{white-space:nowrap;background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer}
+    .mobtab{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg);-webkit-overflow-scrolling:touch}
+    .mobtab button{white-space:nowrap;background:var(--panel);border:1px solid var(--line);color:var(--txt);padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer;flex:none}
     .mobtab button.active{border-color:var(--moon-2);color:var(--moon)}
-    .topbar{padding:12px 16px;gap:10px;flex-wrap:wrap}
-    .lvlwrap{min-width:140px;order:5}
-    .content{padding:20px 16px}
+    .topbar{padding:9px 14px;gap:8px;flex-wrap:wrap}
+    .topbar .rankchip{display:none}
+    .topbar .spacer{display:none}
+    .avatarchip{width:36px;height:36px;font-size:19px}
+    .lvlwrap{flex:1 1 110px;min-width:100px;order:0;gap:4px}
+    .lvlwrap .top{font-size:11px}
+    .stat{padding:6px 10px;font-size:12px}
+    .langsel{max-width:76px;padding:6px 8px;font-size:12px}
+    .installbtn{padding:7px 10px}
+    .installbtn span{display:none}
+    .content{padding:18px 14px}
+    .hero{padding:22px 18px}
+    .hero h1{font-size:22px}
+    .hero p{font-size:13.5px}
+    .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+    .ticktable{font-size:12.5px}
+    .ticktable th,.ticktable td{padding:9px 7px}
+    .btn.sm{padding:6px 10px;font-size:12px}
+  }
+  @media(max-width:380px){
+    .topbar .stat.token .coin{display:none}
+    .hero h1{font-size:20px}
   }
 </style>
 </head>
@@ -1847,7 +1866,7 @@ function viewSim(){
      <p>Capital virtuel de départ : <b>10 000 $</b>. Prix réels en direct (Binance). Apprends à acheter/vendre <b>sans aucun risque</b>. Toutes tes erreurs deviennent des leçons.</p></div>
    <div class="grid cols-3" id="simStats"></div>
    <div class="section-title">💹 Marché <span id="liveDot" style="color:var(--muted);font-size:11px;letter-spacing:0;text-transform:none">· connexion…</span></div>
-   <div class="card" style="padding:6px 6px 2px"><table class="ticktable"><thead><tr><th>Actif</th><th style="text-align:right">Prix</th><th style="text-align:right">24h</th><th style="text-align:right">Ma position</th><th></th></tr></thead><tbody id="tickBody"></tbody></table></div>
+   <div class="card" style="padding:6px"><div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="ticktable" style="min-width:440px"><thead><tr><th>Actif</th><th style="text-align:right">Prix</th><th style="text-align:right">24h</th><th style="text-align:right">Ma position</th><th></th></tr></thead><tbody id="tickBody"></tbody></table></div></div>
    <div style="margin-top:18px;display:flex;justify-content:flex-end"><button class="btn ghost sm" id="resetSim">⟲ Réinitialiser le simulateur</button></div>`;
 }
 function updateSimDOM(live){
