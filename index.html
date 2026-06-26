@@ -151,7 +151,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .launch .scrim{position:relative;z-index:1;padding:0 24px calc(46px + env(safe-area-inset-bottom));text-align:center;background:linear-gradient(to top,rgba(5,6,18,.92),rgba(5,6,18,.55) 55%,transparent)}
   .launch .brand{font-size:30px;color:#fff;letter-spacing:.5px;text-shadow:0 2px 20px rgba(0,0,0,.7)}
   .launch .brand b{color:var(--accent)}
-  .launch .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:9px}
+  .launch .encourage{font-size:16px;font-weight:600;line-height:1.45;color:#fff;opacity:.96;max-width:330px;margin:11px auto 0;text-shadow:0 1px 14px rgba(0,0,0,.7);animation:obFade .5s}
   .launch .dots{margin-top:20px;display:flex;gap:7px;justify-content:center}
   .launch .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);animation:ld 1s infinite}
   .launch .dots i:nth-child(2){animation-delay:.15s}
@@ -389,7 +389,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   <img id="launchImg" alt="" />
   <div class="scrim">
     <div class="brand mrz-display">MOON-RZ <b>Academy</b></div>
-    <div class="tag mrz-mono">Learn · Practice · Earn</div>
+    <div class="encourage" id="launchMsg">Learn · Practice · Earn</div>
     <div class="dots"><i></i><i></i><i></i></div>
   </div>
 </div>
@@ -3906,9 +3906,64 @@ window.addEventListener("beforeinstallprompt",(e)=>{
 })();
 window.addEventListener("appinstalled",()=>{ const b=$("installBtn"); if(b) b.style.display="none"; toast("🎉 MOON-RZ installé !"); });
 
+/* ---------- 50 phrases d'encouragement (affichées au lancement) ---------- */
+const PHRASES=[
+  "De retour ? La lune n'attend que toi. 🌙",
+  "Chaque jour d'apprentissage te rapproche du sommet.",
+  "Les pros d'aujourd'hui étaient les débutants d'hier.",
+  "Une leçon par jour, et tu deviens imbattable.",
+  "Ton futur toi te remercie déjà.",
+  "Le marché récompense ceux qui apprennent.",
+  "Prêt à décoller ? 🚀",
+  "La régularité bat le talent. Reviens, encore.",
+  "Tu construis quelque chose de grand, brique par brique.",
+  "Aujourd'hui, un pas de plus vers MOON-RZ Legend.",
+  "Le savoir, c'est le seul actif qui ne crashe jamais.",
+  "Reste curieux, reste en sécurité, reste légendaire.",
+  "Chaque quiz réussi est un muscle de plus.",
+  "On n'arrête pas une fusée en plein vol. 🚀",
+  "La crypto récompense la patience et l'apprentissage.",
+  "Tu es revenu. C'est déjà 90% du chemin.",
+  "Petit à petit, l'élève devient maître.",
+  "Apprends comme si tu allais en vivre.",
+  "Ta discipline aujourd'hui = ta liberté demain.",
+  "Le meilleur investissement ? Toi-même.",
+  "Garde tes clés, garde ta tête, garde le cap.",
+  "Un explorateur ne s'arrête jamais à mi-chemin.",
+  "Tu apprends, tu pratiques, tu gagnes. On y va.",
+  "Les MOON-RZ se méritent. À toi de jouer.",
+  "Le doute s'efface avec la connaissance.",
+  "Encore une session, encore un niveau.",
+  "Tu n'es pas en retard. Tu es exactement à l'heure.",
+  "Vise la lune. Même raté, tu seras parmi les étoiles.",
+  "La crypto ne dort jamais. Toi un peu, quand même. 😄",
+  "Chaque erreur du simulateur t'évite une vraie perte.",
+  "Bienvenue, futur bâtisseur du Web3.",
+  "Le savoir partagé revient toujours plus fort.",
+  "Avance à ton rythme, mais avance.",
+  "Ta leçon du jour t'attend, ne la fais pas patienter.",
+  "Le plus dur, c'était de commencer. Et tu l'as fait.",
+  "Sois le plus malin de la pièce. Apprends.",
+  "Ta série de jours est une fierté. Continue. 🔥",
+  "On ne te paie pas en promesses, mais en compétences.",
+  "Reviens demain. Ton cerveau adore ça.",
+  "Un pas par jour, et la montagne se gravit.",
+  "Tu transformes ton temps en super-pouvoir.",
+  "Le Web3 a besoin de gens qui comprennent. Comme toi.",
+  "Pas de hype ici. Que du vrai savoir.",
+  "Chaque badge raconte ton histoire. Écris la suite.",
+  "La connaissance, c'est ton armure anti-scam.",
+  "Décolle. Personne ne devient légende au sol. 🚀",
+  "Ton avenir crypto se construit maintenant.",
+  "Reviens, recommence, recommence en mieux.",
+  "Tu es plus proche du sommet qu'hier.",
+  "La lune est loin ? Pas pour quelqu'un comme toi. 🌙"
+];
+
 /* ---------- ÉCRAN DE LANCEMENT ---------- */
 (function(){
   var l=$("launch"); if(!l) return;
+  var msg=$("launchMsg"); if(msg) msg.textContent=PHRASES[Math.floor(Math.random()*PHRASES.length)];
   var img=$("launchImg");
   if(img){ img.src=(window.MOONRZ_ASSETS&&MOONRZ_ASSETS.launch)||"assets/brand/launch.jpg";
     if(img.complete) img.classList.add("in"); else img.onload=()=>img.classList.add("in"); }
