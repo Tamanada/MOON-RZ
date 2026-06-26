@@ -370,7 +370,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   }
 </style>
 </head>
-<body>
+<body class="mrz-stage">
 <div class="app">
   <aside class="sidebar">
     <div class="logo"><span class="moonball"></span> <span>MOON-RZ <b>Academy</b></span></div>
@@ -3617,11 +3617,14 @@ function viewProfile(){
   const badges=Object.keys(S.passed).filter(k=>S.passed[k]);
   const modCount=Object.values(S.done).reduce((a,b)=>a+(b?b.length:0),0);
   return `
-   <div class="hero"><span class="pill">${t("monespace")}</span><h1><span id="profAv">${S.profile.avatar}</span> <span class="acc">${displayName()}</span></h1>
-     <p>${t("level")} ${L.lvl} · ${S.xp} XP · ${S.coins} MOON-RZ.</p></div>
+   <div class="mrz-card" style="padding:24px;margin-bottom:16px">
+     <span class="mrz-chip mrz-mono" style="display:inline-block;padding:5px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:10px">${t("monespace")}</span>
+     <h1 class="mrz-display" style="font-size:26px;color:var(--text);line-height:1.15"><span id="profAv">${S.profile.avatar}</span> <span style="color:var(--accent)">${displayName()}</span></h1>
+     <p style="color:var(--muted);margin-top:8px">${t("level")} ${L.lvl} · ${S.xp} XP · ${S.coins} MOON-RZ.</p>
+   </div>
 
    <div class="section-title">${t("prof_customize")}</div>
-   <div class="card">
+   <div class="mrz-card" style="padding:20px">
      <div class="field"><label>${t("lbl_pseudo")}</label><input type="text" id="nameInput" maxlength="20" placeholder="${rankFor(L.lvl)}" value="${(S.profile.name||'').replace(/"/g,'&quot;')}" /></div>
      <div class="field"><label>${t("lbl_avatar")}</label><div class="picker" id="avPicker">${AVATARS.map(a=>`<div class="av ${a===S.profile.avatar?'sel':''}" data-av="${a}">${a}</div>`).join("")}</div></div>
      <div class="field" style="margin-bottom:6px"><label>${t("lbl_accent")}</label><div class="picker" id="colPicker">${ACCENTS.map(c=>`<div class="col ${c===S.profile.accent?'sel':''}" data-col="${c}" style="background:${c}"></div>`).join("")}</div></div>
@@ -3640,18 +3643,25 @@ function viewProfile(){
 
    <div class="section-title">${t("prof_stats")}</div>
    <div class="grid cols-3">
-     <div class="card"><h3>⭐ ${t("level")}</h3><p style="font-size:30px;color:#fff;font-weight:800">${L.lvl}<span style="font-size:14px;color:var(--muted)">/100</span></p></div>
-     <div class="card"><h3>🪙 MOON-RZ</h3><p style="font-size:30px;color:var(--gold);font-weight:800">${S.coins}</p></div>
-     <div class="card"><h3>${t("st_modules")}</h3><p style="font-size:30px;color:#fff;font-weight:800">${modCount}</p><p>${t("st_modules_sub")}</p></div>
-     <div class="card"><h3>${t("st_streak")}</h3><p style="font-size:30px;color:var(--moon);font-weight:800">${S.streak} j</p></div>
-     <div class="card"><h3>${t("st_badges")}</h3><p style="font-size:30px;font-weight:800">${badges.length}</p><p>${badges.length?badges.map(b=>ACADEMIES.find(a=>a.id==b).reward).join(', '):t("st_badges_none")}</p></div>
-     <div class="card"><h3>${t("st_sim")}</h3><p style="font-size:22px;color:var(--green);font-weight:800;margin-top:6px">$${fmt(portfolioValue(),0)}</p></div>
+     ${[
+       ['⭐ '+t("level"), `${L.lvl}<span style="font-size:14px;color:var(--muted)">/100</span>`, '', 'var(--text)'],
+       ['🪙 MOON-RZ', S.coins, '', 'var(--accent)'],
+       [t("st_modules"), modCount, t("st_modules_sub"), 'var(--text)'],
+       [t("st_streak"), S.streak+' j', '', 'var(--accent)'],
+       [t("st_badges"), badges.length, badges.length?badges.map(b=>ACADEMIES.find(a=>a.id==b).reward).join(', '):t("st_badges_none"), 'var(--text)'],
+       [t("st_sim"), '$'+fmt(portfolioValue(),0), '', 'var(--pos)']
+     ].map(c=>`<div class="mrz-card" style="padding:18px"><h3 style="font-size:14px;color:var(--muted);font-weight:700;margin:0 0 6px">${c[0]}</h3><div class="mrz-display" style="font-size:28px;color:${c[3]}">${c[1]}</div>${c[2]?`<p style="font-size:12px;color:var(--muted);margin-top:3px">${c[2]}</p>`:''}</div>`).join("")}
    </div>
+
    <div class="section-title">${t("ranks_sec")}</div>
-   <div class="card"><div style="display:flex;flex-direction:column;gap:8px">
-     ${RANKS.map(r=>`<div style="display:flex;align-items:center;gap:12px;opacity:${L.lvl>=r.lvl?1:.4}"><b style="width:40px;color:${L.lvl>=r.lvl?'var(--gold)':'var(--muted)'}">L${r.lvl}</b><span style="flex:1">${r.name}</span>${L.lvl>=r.lvl?'<span class="tag done">✓</span>':''}</div>`).join("")}
+   <div class="mrz-card" style="padding:18px"><div style="display:flex;flex-direction:column;gap:8px">
+     ${RANKS.map(r=>`<div style="display:flex;align-items:center;gap:12px;opacity:${L.lvl>=r.lvl?1:.4}"><b class="mrz-mono" style="width:40px;color:${L.lvl>=r.lvl?'var(--accent)':'var(--muted)'}">L${r.lvl}</b><span style="flex:1;color:var(--text)">${r.name}</span>${L.lvl>=r.lvl?'<span style="color:var(--pos);font-weight:700">✓</span>':''}</div>`).join("")}
    </div></div>
-   <div style="margin-top:24px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn ghost" id="replayOb">${t("ob_replay")}</button><button class="btn ghost" id="resetBtn">${t("reset_btn")}</button></div>`;
+
+   <div style="margin-top:24px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+     <button class="mrz-btn-ghost mrz-focus" id="replayOb">${t("ob_replay")}</button>
+     <button class="mrz-btn-ghost mrz-focus" id="resetBtn">${t("reset_btn")}</button>
+   </div>`;
 }
 
 /* ---------- PARRAINAGE ---------- */
