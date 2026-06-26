@@ -32,7 +32,8 @@
     --shadow:0 10px 40px -10px #000a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%;overflow-x:hidden;max-width:100%}
+  html,body{height:100%}
+  body{overflow-x:clip}
   body{
     font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
     background:
@@ -3274,7 +3275,7 @@ function setActiveNav(){
   document.querySelectorAll("#nav button:not([data-view='academy'])").forEach(b=>b.classList.toggle("active",b.dataset.view===VIEW.name));
   document.querySelectorAll("#mobtab button").forEach(b=>{const [n,id]=b.dataset.k.split(":");b.classList.toggle("active",n===VIEW.name&&(!id||+id===VIEW.id));});
 }
-function go(name,id){ stopSim(); VIEW={name,id:id||1}; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+function go(name,id){ stopSim(); VIEW={name,id:id||1}; render(); }
 
 function render(){
   setActiveNav();
@@ -3288,6 +3289,7 @@ function render(){
   else if(VIEW.name==="referral") c.innerHTML=viewReferral();
   else if(VIEW.name==="partners") c.innerHTML=viewPartners();
   bindContent();
+  window.scrollTo(0,0); // toujours remonter en haut à chaque transition de page
 }
 
 /* ---------- ACADEMY OVERVIEW ---------- */
@@ -3614,10 +3616,10 @@ function claimDaily(){
 
 /* ============================================================ BIND ============================================================ */
 function bindContent(){
-  document.querySelectorAll("[data-lesson]").forEach(el=>el.onclick=()=>{VIEW={name:"lesson",id:el.dataset.lesson,aid:+el.dataset.aid};render();window.scrollTo({top:0,behavior:"smooth"});});
+  document.querySelectorAll("[data-lesson]").forEach(el=>el.onclick=()=>{VIEW={name:"lesson",id:el.dataset.lesson,aid:+el.dataset.aid};render();});
   document.querySelectorAll("[data-goto]").forEach(el=>el.onclick=()=>go("academy",+el.dataset.goto));
   document.querySelectorAll("[data-gosim]").forEach(el=>el.onclick=()=>go("simulator"));
-  document.querySelectorAll("[data-action='quiz']").forEach(el=>el.onclick=()=>{stopSim();VIEW={name:"quiz",id:+el.dataset.aid};render();window.scrollTo({top:0,behavior:"smooth"});});
+  document.querySelectorAll("[data-action='quiz']").forEach(el=>el.onclick=()=>{stopSim();VIEW={name:"quiz",id:+el.dataset.aid};render();});
   document.querySelectorAll("[data-complete]").forEach(el=>el.onclick=()=>completeModule(el.dataset.complete,+el.dataset.aid));
   const cd=$("claimDaily"); if(cd) cd.onclick=claimDaily;
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
