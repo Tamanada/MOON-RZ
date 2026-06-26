@@ -124,21 +124,21 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 </style>
 <style>
   :root{
-    --bg:#0a0a14;
-    --bg-2:#11112099;
-    --panel:#15152a;
-    --panel-2:#1c1c38;
-    --line:#2a2a4a;
-    --txt:#e8e8f5;
-    --muted:#9494b8;
-    --moon:#a78bfa;
-    --moon-2:#7c5cf0;
-    --gold:#ffcc66;
-    --green:#34d399;
+    /* Variables historiques de l'app -> ALIAS vers les tokens de thème (source de vérité = #moonrz-themes).
+       --muted et --radius retirés exprès : possédés par le système de thèmes. */
+    --bg:var(--surface);
+    --bg-2:var(--surface);
+    --panel:var(--surface);
+    --panel-2:var(--surface);
+    --line:var(--border);
+    --txt:var(--text);
+    --moon:var(--accent);
+    --moon-2:var(--accent);
+    --gold:var(--accent);
+    --green:var(--pos);
     --red:#f87171;
     --blue:#60a5fa;
-    --radius:16px;
-    --shadow:0 10px 40px -10px #000a;
+    --shadow:var(--card-shadow);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -165,7 +165,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .nav .label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:14px 10px 6px}
   .nav button{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:transparent;border:0;color:var(--txt);padding:10px 12px;border-radius:11px;cursor:pointer;font-size:14px;transition:.15s;position:relative}
   .nav button:hover{background:#ffffff0a}
-  .nav button.active{background:linear-gradient(90deg,var(--moon-2)40,#ffffff08);box-shadow:inset 0 0 0 1px var(--moon-2)55}
+  .nav button.active{background:linear-gradient(90deg,var(--accent-soft),#ffffff08);box-shadow:inset 0 0 0 1px var(--accent-soft)}
   .nav button .ico{width:22px;text-align:center;font-size:16px}
   .nav button.locked{opacity:.4;cursor:not-allowed}
   .nav button .lk{margin-left:auto;font-size:12px}
@@ -181,10 +181,10 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .lvlwrap .top b{color:var(--txt)}
   .bar{height:8px;background:#ffffff12;border-radius:999px;overflow:hidden}
   .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--moon),var(--gold));transition:width .6s cubic-bezier(.2,.8,.2,1)}
-  .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--moon-2)55,#0000);border:1px solid var(--moon-2)55;font-weight:700}
+  .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--accent-soft),#0000);border:1px solid var(--accent-soft);font-weight:700}
   .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--user-accent,var(--moon));box-shadow:0 0 14px -2px var(--user-accent,var(--moon));transition:.15s;flex:none}
   .langsel{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer;max-width:140px}
-  .installbtn{background:linear-gradient(90deg,var(--moon),var(--moon-2));border:0;color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 6px 16px -6px var(--moon-2)}
+  .installbtn{background:linear-gradient(90deg,var(--moon),var(--moon-2));border:0;color:var(--on-accent);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 6px 16px -6px var(--moon-2)}
   .installbtn:hover{filter:brightness(1.08)}
   .langsel:focus{outline:none;border-color:var(--moon)}
   .langsel option{background:var(--panel)}
@@ -202,16 +202,16 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .picker .av:hover{border-color:var(--moon-2)}
   .picker .av.sel{border-color:var(--moon);box-shadow:0 0 12px -2px var(--moon)}
   .picker .col{width:34px;height:34px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:.13s}
-  .picker .col.sel{border-color:#fff}
+  .picker .col.sel{border-color:var(--text)}
 
   /* referral / partners */
   .reflink{display:flex;gap:8px;align-items:stretch;margin:14px 0}
   .reflink input{flex:1;background:#0a0a16;border:1px solid var(--line);color:var(--moon);padding:12px 14px;border-radius:11px;font-size:13px;font-weight:600;font-family:monospace}
-  .stepnum{width:26px;height:26px;border-radius:50%;background:var(--moon-2);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+  .stepnum{width:26px;height:26px;border-radius:50%;background:var(--moon-2);color:var(--on-accent);display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
   .step{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
   .step p{margin:0;padding-top:2px}
   .cexcard{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:.16s}
-  .cexcard:hover{border-color:var(--moon-2)80;transform:translateY(-2px)}
+  .cexcard:hover{border-color:var(--accent-soft);transform:translateY(-2px)}
   .cexlogo{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:20px;font-weight:800;color:#0a0a14;flex:none}
   .cexcard .info{flex:1;min-width:0}
   .cexcard .info b{font-size:15px}
@@ -231,7 +231,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 
   .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:.18s}
-  .card.hover:hover{transform:translateY(-3px);border-color:var(--moon-2)80;box-shadow:0 14px 34px -16px var(--moon-2)}
+  .card.hover:hover{transform:translateY(-3px);border-color:var(--accent-soft);box-shadow:0 14px 34px -16px var(--moon-2)}
   .card h3{font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:9px}
   .card .ico{font-size:20px}
   .card p{color:var(--muted);font-size:13.5px;line-height:1.5}
@@ -243,11 +243,11 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .section-title{display:flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin:30px 0 14px}
   .section-title::after{content:"";flex:1;height:1px;background:var(--line)}
 
-  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:#0a0a14;background:linear-gradient(90deg,var(--gold),#ffb84d);transition:.15s;box-shadow:0 6px 18px -6px var(--gold)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
   .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);box-shadow:none}
   .btn.ghost:hover{border-color:var(--moon-2);background:#ffffff06}
-  .btn.moon{background:linear-gradient(90deg,var(--moon),var(--moon-2));color:#fff;box-shadow:0 6px 18px -6px var(--moon-2)}
+  .btn.moon{background:linear-gradient(90deg,var(--moon),var(--moon-2));color:var(--on-accent);box-shadow:0 6px 18px -6px var(--moon-2)}
   .btn.sm{padding:7px 14px;font-size:13px}
   .btn.red{background:linear-gradient(90deg,#f87171,#dc2626);color:#fff;box-shadow:0 6px 18px -6px #dc2626}
   .btn.green{background:linear-gradient(90deg,#34d399,#059669);color:#06281d;box-shadow:0 6px 18px -6px #059669}
@@ -296,7 +296,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .quickrow button:hover{border-color:var(--moon);color:var(--txt)}
 
   .toast-wrap{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:10px;z-index:50}
-  .toast{background:var(--panel-2);border:1px solid var(--moon-2)66;border-radius:12px;padding:13px 18px;min-width:240px;box-shadow:var(--shadow);animation:slideIn .35s cubic-bezier(.2,.9,.3,1);font-size:14px}
+  .toast{background:var(--panel-2);border:1px solid var(--accent-soft);border-radius:12px;padding:13px 18px;min-width:240px;box-shadow:var(--shadow);animation:slideIn .35s cubic-bezier(.2,.9,.3,1);font-size:14px}
   .toast b{color:var(--gold)}
   @keyframes slideIn{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
   @keyframes pop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
@@ -311,7 +311,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .onboarding{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;
     background:radial-gradient(900px 600px at 50% -5%, #2a1a55, #0a0a14 72%)}
   .onboarding.show{display:flex}
-  .ob-card{width:440px;max-width:100%;background:linear-gradient(170deg,#1a1438,#10101f);border:1px solid var(--moon-2)55;
+  .ob-card{width:440px;max-width:100%;background:linear-gradient(170deg,#1a1438,#10101f);border:1px solid var(--accent-soft);
     border-radius:26px;padding:24px 26px 26px;box-shadow:0 30px 80px -20px #000,0 0 70px -30px var(--moon-2);position:relative;overflow:hidden}
   .ob-card::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
     background:radial-gradient(circle at 35% 35%,#fff,var(--moon) 55%,var(--moon-2));opacity:.12;filter:blur(6px)}
@@ -3686,7 +3686,7 @@ function viewReferral(){
    <div class="grid cols-3" style="margin-top:18px">
      <div class="card"><h3>${t("ref_invited")}</h3><p style="font-size:30px;color:var(--moon);font-weight:800">${S.ref.invited}</p></div>
      <div class="card"><h3>${t("ref_earned")}</h3><p style="font-size:30px;color:var(--gold);font-weight:800">${S.ref.invited*100}</p></div>
-     <div class="card"><h3>${t("ref_reward")}</h3><p style="font-size:30px;color:#fff;font-weight:800">+100</p><p>MOON-RZ</p></div>
+     <div class="card"><h3>${t("ref_reward")}</h3><p style="font-size:30px;color:var(--text);font-weight:800">+100</p><p>MOON-RZ</p></div>
    </div>
 
    <div class="section-title">${t("how_sec")}</div>
