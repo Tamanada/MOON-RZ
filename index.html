@@ -25,7 +25,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   settings:B+'settings.png',bell:B+'Cloche.png',
   lock:B+'cadenas.png',streak:B+'flalmme.png',
   invite:B+'inviteafriend.png',love:B+'peacelove.png',message:B+'sendamessage1.png',share:B+'mooncounter.png',referral:B+'referral.png',
-  heroJourney:B+'dream-card-bg.png',onboarding:B+'tothemoon.png',boost:B+'rocket.png',launch:B+'launch.png',
+  heroJourney:B+'dream-card-bg.png',onboarding:B+'tothemoon.png',boost:B+'rocket.png',launch:B+'launch.jpg',
   paths:{blockchain:B+'blockchain.png',defi:B+'Defi.png',trading:B+'Trading.png',nft:B+'NFT.png'}
 };})();
 </script>
@@ -3892,7 +3892,7 @@ window.addEventListener("appinstalled",()=>{ const b=$("installBtn"); if(b) b.st
 (function(){
   var l=$("launch"); if(!l) return;
   var img=$("launchImg");
-  if(img){ img.src=(window.MOONRZ_ASSETS&&MOONRZ_ASSETS.launch)||"assets/brand/launch.png";
+  if(img){ img.src=(window.MOONRZ_ASSETS&&MOONRZ_ASSETS.launch)||"assets/brand/launch.jpg";
     if(img.complete) img.classList.add("in"); else img.onload=()=>img.classList.add("in"); }
   let done=false;
   function hide(){ if(done)return; done=true; l.classList.add("hide"); setTimeout(()=>{l.style.display="none";},650); }
