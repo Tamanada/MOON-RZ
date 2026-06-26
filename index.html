@@ -281,7 +281,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 
   .quiz .q{margin-bottom:22px}
   .quiz .q h4{font-size:16px;margin-bottom:12px}
-  .opt{display:block;width:100%;text-align:left;background:var(--panel-2);border:1px solid var(--line);color:var(--txt);padding:13px 16px;border-radius:11px;margin-bottom:9px;cursor:pointer;transition:.13s;font-size:14px}
+  .opt{display:block;width:100%;text-align:left;background:var(--panel-2);border:1px solid var(--line);color:var(--txt);padding:11px 15px;border-radius:11px;margin-bottom:7px;cursor:pointer;transition:.13s;font-size:14px}
   .opt:hover{border-color:var(--moon-2)}
   .opt.sel{border-color:var(--moon);background:#a78bfa1a}
   .opt.correct{border-color:var(--green);background:#34d39918}
@@ -3483,48 +3483,67 @@ function viewLesson(id,aid){
 /* ---------- QUIZ ---------- */
 let quizState=null;
 function viewQuiz(aid){
-  const C=ac(aid), A=ACADEMIES.find(x=>x.id===aid);
-  quizState={aid,answers:Array(C.quiz.length).fill(null),submitted:false};
-  const qs=C.quiz.map((q,qi)=>`<div class="q" data-qi="${qi}"><h4>${qi+1}. ${q.q}</h4>${q.a.map((opt,oi)=>`<button class="opt" data-qi="${qi}" data-oi="${oi}">${opt}</button>`).join("")}</div>`).join("");
-  return `<button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">${t("quit")}</button>
-   <div class="hero"><span class="pill">${t("sec_exam").replace('🎓 ','')}</span><h1>🎓 <span class="acc">${A.title} — ${t("exam_word")}</span></h1><p>${C.quiz.length} ${t("exam_intro")}</p></div>
-   <div class="quiz card">${qs}<div id="quizResult"></div><button class="btn moon" id="submitQuiz" style="margin-top:10px">${t("submit_answers")}</button></div>`;
+  const C=ac(aid), A=ACADEMIES.find(x=>x.id===aid), total=C.quiz.length;
+  if(!quizState || quizState.aid!==aid){ quizState={aid,answers:Array(total).fill(null),submitted:false,cur:0}; }
+  if(quizState.submitted) return viewQuizResult(aid);
+  const i=quizState.cur, q=C.quiz[i], answeredCount=quizState.answers.filter(a=>a!==null).length;
+  return `<button class="btn ghost" data-goto="${aid}" style="margin-bottom:8px">${t("quit")}</button>
+   <div class="hero" style="padding:14px 20px 12px">
+     <span class="pill" style="margin-bottom:0">${A.title} — ${t("exam_word")}</span>
+     <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:8px">
+       <b class="mrz-display" style="color:var(--text);font-size:17px">Question ${i+1}/${total}</b>
+       <span class="mrz-mono" style="color:var(--muted);font-size:12px">${answeredCount}/${total} ✓</span>
+     </div>
+     <div class="bar" style="margin-top:8px"><span style="width:${Math.round((i+1)/total*100)}%"></span></div>
+   </div>
+   <div class="quiz card" style="padding:14px">
+     <div class="q"><h4 style="margin-bottom:10px">${q.q}</h4>${q.a.map((opt,oi)=>`<button class="opt ${quizState.answers[i]===oi?'sel':''}" data-oi="${oi}">${opt}</button>`).join("")}</div>
+     <div style="display:flex;gap:10px;margin-top:6px">
+       ${i>0?`<button class="btn ghost" id="qPrev" style="flex:0 0 58px">←</button>`:''}
+       ${i<total-1
+         ?`<button class="btn moon" id="qNext" style="flex:1">${t("ob_next")}</button>`
+         :`<button class="btn moon" id="submitQuiz" style="flex:1">${t("submit_answers")}</button>`}
+     </div>
+   </div>`;
+}
+function viewQuizResult(aid){
+  const total=ac(aid).quiz.length, score=quizState.score, pct=Math.round(score/total*100), pass=pct>=80;
+  return `<div class="mrz-card" style="padding:30px 22px;text-align:center;margin-bottom:16px">
+     <div style="font-size:46px">${pass?'🎉':'😬'}</div>
+     <h1 class="mrz-display" style="font-size:42px;color:${pass?'var(--pos)':'var(--text)'};margin-top:6px">${score}/${total}</h1>
+     <p class="mrz-mono" style="color:var(--muted);font-size:15px">${pct}%</p>
+     <p style="color:var(--text);font-weight:700;margin-top:12px">${pass?t("pass_msg"):t("fail_msg")}</p>
+   </div>
+   <div style="display:flex;gap:10px;justify-content:center">
+     ${pass?`<button class="btn" data-goto="${aid}">${t("back_academy")}</button>`
+           :`<button class="btn moon" data-action="quiz" data-aid="${aid}">${t("retry")}</button>`}
+   </div>`;
 }
 function bindQuiz(){
-  document.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{
-    if(quizState.submitted)return; const qi=+o.dataset.qi;
-    quizState.answers[qi]=+o.dataset.oi;
-    document.querySelectorAll(`.opt[data-qi="${qi}"]`).forEach(x=>x.classList.remove("sel")); o.classList.add("sel");
+  const total=quizState?ac(quizState.aid).quiz.length:0;
+  document.querySelectorAll(".quiz .opt").forEach(o=>o.onclick=()=>{
+    const i=quizState.cur;
+    quizState.answers[i]=+o.dataset.oi;
+    document.querySelectorAll(".quiz .opt").forEach(x=>x.classList.remove("sel")); o.classList.add("sel");
+    if(i<total-1){ setTimeout(()=>{ quizState.cur=i+1; render(); },260); } // auto-avance vers la question suivante
   });
-  const b=$("submitQuiz"); if(b) b.onclick=submitQuiz;
+  const nx=$("qNext"); if(nx) nx.onclick=()=>{ const i=quizState.cur; if(quizState.answers[i]===null){toast(t("answer_all"));return;} quizState.cur=i+1; render(); };
+  const pv=$("qPrev"); if(pv) pv.onclick=()=>{ quizState.cur=Math.max(0,quizState.cur-1); render(); };
+  const sb=$("submitQuiz"); if(sb) sb.onclick=submitQuiz;
 }
 function submitQuiz(){
-  if(quizState.answers.includes(null)){ toast(t("answer_all")); return; }
-  quizState.submitted=true;
-  const aid=quizState.aid, C=ac(aid); let score=0;
-  C.quiz.forEach((q,qi)=>{
-    const chosen=quizState.answers[qi];
-    document.querySelectorAll(`.opt[data-qi="${qi}"]`).forEach(o=>{
-      const oi=+o.dataset.oi;
-      if(oi===q.correct){o.classList.add("correct");o.innerHTML+='<span class="mk">✓</span>';}
-      else if(oi===chosen){o.classList.add("wrong");o.innerHTML+='<span class="mk">✗</span>';}
-      o.style.pointerEvents="none";
-    });
-    if(chosen===q.correct) score++;
-  });
-  const total=C.quiz.length, pct=Math.round(score/total*100), pass=pct>=80;
-  const res=$("quizResult");
-  res.innerHTML=`<div class="card" style="margin:18px 0;text-align:center;border-color:${pass?'#34d39955':'#f8717155'}"><h2 style="font-size:30px">${score}/${total} <span style="color:var(--muted);font-size:16px">(${pct}%)</span></h2><p style="margin-top:8px">${pass?t("pass_msg"):t("fail_msg")}</p></div>`;
-  $("submitQuiz").style.display="none";
+  const aid=quizState.aid, C=ac(aid), total=C.quiz.length;
+  const unanswered=quizState.answers.indexOf(null);
+  if(unanswered>=0){ quizState.cur=unanswered; toast(t("answer_all")); render(); return; }
+  let score=0; C.quiz.forEach((q,qi)=>{ if(quizState.answers[qi]===q.correct) score++; });
+  quizState.score=score; quizState.submitted=true;
+  const pass=Math.round(score/total*100)>=80;
   if(pass){
     const first=!isPassed(aid); S.passed[aid]=true; save();
     if(first){ award(120,80,`🏅 ${ACADEMIES.find(x=>x.id===aid).reward} !`); renderHUD(); }
-    else toast("✓ "+t("exam_passed")); // examen déjà validé : pas de récompense en plus (anti-farm)
-    res.innerHTML+=`<button class="btn" data-goto="${aid}" style="display:block;margin:0 auto">${t("back_academy")}</button>`;
-  } else {
-    res.innerHTML+=`<button class="btn moon" data-action="quiz" data-aid="${aid}" style="display:block;margin:10px auto 0">${t("retry")}</button>`;
+    else toast("✓ "+t("exam_passed")); // déjà validé : pas de récompense (anti-farm)
   }
-  setTimeout(bindContent,50);
+  render();
 }
 
 /* ============================================================ SIMULATEUR ============================================================ */
@@ -3772,7 +3791,7 @@ function bindContent(){
   document.querySelectorAll("[data-lesson]").forEach(el=>el.onclick=()=>{VIEW={name:"lesson",id:el.dataset.lesson,aid:+el.dataset.aid};render();});
   document.querySelectorAll("[data-goto]").forEach(el=>el.onclick=()=>go("academy",+el.dataset.goto));
   document.querySelectorAll("[data-gosim]").forEach(el=>el.onclick=()=>go("simulator"));
-  document.querySelectorAll("[data-action='quiz']").forEach(el=>el.onclick=()=>{stopSim();VIEW={name:"quiz",id:+el.dataset.aid};render();});
+  document.querySelectorAll("[data-action='quiz']").forEach(el=>el.onclick=()=>{stopSim();quizState=null;VIEW={name:"quiz",id:+el.dataset.aid};render();});
   document.querySelectorAll("[data-complete]").forEach(el=>el.onclick=()=>completeModule(el.dataset.complete,+el.dataset.aid));
   const cd=$("claimDaily"); if(cd) cd.onclick=claimDaily;
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
