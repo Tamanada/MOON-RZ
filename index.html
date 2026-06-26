@@ -3914,7 +3914,7 @@ window.addEventListener("appinstalled",()=>{ const b=$("installBtn"); if(b) b.st
     if(img.complete) img.classList.add("in"); else img.onload=()=>img.classList.add("in"); }
   let done=false;
   function hide(){ if(done)return; done=true; l.classList.add("hide"); setTimeout(()=>{l.style.display="none";},650); }
-  const tmr=setTimeout(hide,1800);
+  const tmr=setTimeout(hide,3000);
   l.addEventListener("click",()=>{clearTimeout(tmr);hide();});
 })();
 
