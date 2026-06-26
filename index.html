@@ -172,8 +172,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 
   .sidebar{background:linear-gradient(180deg,#12122500,#0d0d1a);border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
   .logo{display:flex;align-items:center;gap:10px;padding:0 8px 18px;font-weight:800;font-size:20px;letter-spacing:.5px}
-  .logo .moonball{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #fff, var(--moon) 55%, var(--moon-2));box-shadow:0 0 18px var(--moon-2);flex:none;position:relative}
-  .logo .moonball::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:#0006;top:8px;left:18px;box-shadow:6px 9px 0 -2px #0005,-2px 12px 0 -3px #0004}
+  .logo .logo-img{width:34px;height:34px;border-radius:10px;object-fit:cover;flex:none;box-shadow:var(--logo-glow,0 0 16px -2px var(--accent))}
   .logo b{background:linear-gradient(90deg,var(--moon),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
   .nav{display:flex;flex-direction:column;gap:4px;margin-top:8px}
   .nav .label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:14px 10px 6px}
@@ -396,7 +395,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 </div>
 <div class="app">
   <aside class="sidebar">
-    <div class="logo"><span class="moonball"></span> <span>MOON-RZ <b>Academy</b></span></div>
+    <div class="logo"><img class="logo-img" src="icon-192.png" alt="" /> <span>MOON-RZ <b>Academy</b></span></div>
     <nav class="nav" id="nav">
       <span class="label" data-t="parcours">Parcours</span>
       <span class="label" data-t="monespace">Mon espace</span>
