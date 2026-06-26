@@ -2,6 +2,37 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
+<!-- ===== MOON-RZ THEMES [C] : logique thème (tôt = anti-flash) ===== -->
+<script>
+(function(){
+  var KEY='moonrz-theme', DEF='mission', VALID=['mission','neon','bright','glass'];
+  function apply(t){var r=document.documentElement;r.setAttribute('data-theme',t);r.style.colorScheme=(t==='bright')?'light':'dark';}
+  function get(){try{var v=localStorage.getItem(KEY);return VALID.indexOf(v)>=0?v:DEF;}catch(e){return DEF;}}
+  function mark(t){var n=document.querySelectorAll('[data-theme-pick]');for(var i=0;i<n.length;i++){n[i].classList.toggle('on',n[i].getAttribute('data-theme-pick')===t);}}
+  function set(t){if(VALID.indexOf(t)<0)return;apply(t);try{localStorage.setItem(KEY,t);}catch(e){}mark(t);}
+  apply(get());
+  document.addEventListener('DOMContentLoaded',function(){
+    mark(get());
+    var n=document.querySelectorAll('[data-theme-pick]');
+    for(var i=0;i<n.length;i++){(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-theme-pick'));});})(n[i]);}
+  });
+  window.MoonRZTheme={get:get,set:set,mark:mark};
+})();
+window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
+  logo:B+'halosunmoon.png',emblem:B+'sunandmoon.png',sun:B+'sun.png',avatarDefault:B+'user1.png',
+  xp:B+'confirmationstar.png',star:B+'star.png',lessonDone:B+'milestonefinish.png',rank:B+'classement.png',
+  goal:B+'dream.png',token:B+'MRZ.png',flag:B+'flag.png',progression:B+'progression.png',
+  settings:B+'settings.png',bell:B+'Cloche.png',
+  lock:B+'cadenas.png',streak:B+'flalmme.png',
+  invite:B+'inviteafriend.png',love:B+'peacelove.png',message:B+'sendamessage1.png',share:B+'mooncounter.png',referral:B+'referral.png',
+  heroJourney:B+'dream-card-bg.png',onboarding:B+'tothemoon.png',boost:B+'rocket.png',
+  paths:{blockchain:B+'blockchain.png',defi:B+'Defi.png',trading:B+'Trading.png',nft:B+'NFT.png'}
+};})();
+</script>
+<!-- Google Fonts (polices des thèmes MOON-RZ) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Chakra+Petch:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>MOON-RZ Academy — Learn · Practice · Earn</title>
 <!-- PWA -->
@@ -13,6 +44,84 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="MOON-RZ" />
+<!-- ===== MOON-RZ THEMES [A] : tokens + utilitaires (SOURCE DE VÉRITÉ couleurs) ===== -->
+<style id="moonrz-themes">
+:root{ /* MISSION CONTROL (défaut) */
+  --stage-bg:radial-gradient(1200px 700px at 70% -10%,#1a2350,#0B1026 55%);
+  --star-opacity:.5;--blobs-opacity:.35;--blob1:#3b3a7e;--blob2:#1d6e8c;--blob3:#7a5cff;
+  --text:#EAF0FF;--muted:#8C99C9;--accent:#F2C46B;--accent-grad:linear-gradient(135deg,#F4CD7C,#E2A93F);
+  --accent-soft:rgba(242,196,107,.12);--on-accent:#1a1305;
+  --surface:rgba(20,27,58,.72);--border:rgba(255,255,255,.08);--track:rgba(255,255,255,.09);--pos:#5EE6C5;
+  --hero-scrim:#141B3A;--ring-hole:#141B3A;--medallion-tint:rgba(242,196,107,.18);--frame-ring:rgba(242,196,107,.45);
+  --avatar-bg:linear-gradient(135deg,#6C7BFF,#9b5cff);
+  --font-display:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-data:'JetBrains Mono',monospace;
+  --display-weight:700;--display-spacing:-.01em;--brand-spacing:.01em;
+  --radius:18px;--card-blur:blur(6px);--card-shadow:0 18px 40px -24px rgba(0,0,0,.8);
+  --logo-bg:rgba(255,255,255,.04);--logo-glow:0 6px 18px -6px rgba(242,196,107,.4);--logo-radius:13px;
+  --chip-bg:rgba(255,255,255,.05);--chip-border:rgba(255,255,255,.1);--hover-bg:rgba(255,255,255,.05);
+  --btn-radius:12px;--btn-transform:none;--btn-spacing:0;--btn-glow:0 10px 28px -10px rgba(242,196,107,.6);
+}
+:root[data-theme="neon"]{
+  --stage-bg:radial-gradient(900px 500px at 80% 0%,#1c0f33,#08070f 60%);
+  --star-opacity:.35;--blobs-opacity:.45;--blob1:#a855f7;--blob2:#22d3ee;--blob3:#bef264;
+  --text:#F5F0FF;--muted:#9C8FBE;--accent:#BEF264;--accent-grad:linear-gradient(135deg,#BEF264,#22d3ee);
+  --accent-soft:rgba(190,242,100,.1);--on-accent:#0a0a12;
+  --surface:rgba(21,16,31,.85);--border:rgba(168,85,247,.22);--track:rgba(255,255,255,.08);--pos:#BEF264;
+  --hero-scrim:#15101f;--ring-hole:#15101f;--medallion-tint:rgba(190,242,100,.18);--frame-ring:rgba(190,242,100,.4);
+  --avatar-bg:linear-gradient(135deg,#a855f7,#ec4899);
+  --font-display:'Chakra Petch',system-ui,sans-serif;--display-weight:700;--brand-spacing:.04em;
+  --radius:12px;--card-blur:blur(4px);--card-shadow:0 0 0 1px rgba(168,85,247,.06),0 20px 50px -30px rgba(168,85,247,.5);
+  --logo-bg:rgba(190,242,100,.06);--logo-glow:0 0 22px -4px rgba(190,242,100,.5);--logo-radius:10px;
+  --chip-bg:rgba(190,242,100,.08);--chip-border:rgba(190,242,100,.25);--hover-bg:rgba(168,85,247,.1);
+  --btn-radius:9px;--btn-transform:uppercase;--btn-spacing:.06em;--btn-glow:0 0 26px -6px rgba(190,242,100,.6);
+}
+:root[data-theme="bright"]{
+  --stage-bg:linear-gradient(160deg,#F6F2EA,#EFEAF6);--star-opacity:0;--blobs-opacity:0;
+  --text:#1C1730;--muted:#6E6780;--accent:#5B3FBF;--accent-grad:linear-gradient(135deg,#6E4FD6,#5B3FBF);
+  --accent-soft:rgba(91,63,191,.09);--on-accent:#ffffff;
+  --surface:#FFFFFF;--border:#ECE6DC;--track:#ECE7F4;--pos:#0E9E9E;
+  --hero-scrim:#F6F2EA;--ring-hole:#ffffff;--medallion-tint:rgba(91,63,191,.14);--frame-ring:rgba(91,63,191,.32);
+  --avatar-bg:linear-gradient(135deg,#0E9E9E,#5B3FBF);
+  --font-display:'Fraunces',Georgia,serif;--font-data:'Inter',system-ui,sans-serif;--display-weight:600;--display-spacing:-.015em;
+  --radius:22px;--card-blur:none;--card-shadow:0 14px 40px -26px rgba(40,30,80,.35);
+  --logo-bg:#ffffff;--logo-glow:0 8px 20px -8px rgba(91,63,191,.4);--logo-radius:13px;
+  --chip-bg:#ffffff;--chip-border:#ECE6DC;--hover-bg:rgba(91,63,191,.06);
+  --btn-radius:12px;--btn-glow:0 10px 26px -12px rgba(91,63,191,.5);
+}
+:root[data-theme="glass"]{
+  --stage-bg:linear-gradient(135deg,#4338CA,#7C3AED 45%,#DB2777);
+  --star-opacity:.25;--blobs-opacity:.85;--blob1:#f0abfc;--blob2:#38bdf8;--blob3:#fde68a;
+  --text:#ffffff;--muted:rgba(255,255,255,.75);--accent:#ffffff;--accent-grad:rgba(255,255,255,.92);
+  --accent-soft:rgba(255,255,255,.16);--on-accent:#6D28D9;
+  --surface:rgba(255,255,255,.1);--border:rgba(255,255,255,.22);--track:rgba(255,255,255,.2);--pos:#bbf7d0;
+  --hero-scrim:rgba(76,29,149,.55);--ring-hole:rgba(124,58,237,.45);--medallion-tint:rgba(255,255,255,.22);--frame-ring:rgba(255,255,255,.55);
+  --avatar-bg:rgba(255,255,255,.25);
+  --radius:24px;--card-blur:blur(22px);--card-shadow:0 14px 44px -20px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.3);
+  --logo-bg:rgba(255,255,255,.16);--logo-glow:inset 0 1px 0 rgba(255,255,255,.5);--logo-radius:14px;
+  --chip-bg:rgba(255,255,255,.14);--chip-border:rgba(255,255,255,.25);--hover-bg:rgba(255,255,255,.12);
+  --btn-radius:14px;--btn-glow:0 10px 30px -10px rgba(0,0,0,.3);
+}
+.mrz-stage{background:var(--stage-bg);color:var(--text);font-family:var(--font-body);min-height:100vh;transition:background .35s}
+.mrz-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);box-shadow:var(--card-shadow)}
+.mrz-btn{background:var(--accent-grad);color:var(--on-accent);border:none;cursor:pointer;border-radius:var(--btn-radius);box-shadow:var(--btn-glow);font-family:var(--font-body);font-weight:700;text-transform:var(--btn-transform);letter-spacing:var(--btn-spacing);padding:.8rem 1.4rem;transition:.18s}
+.mrz-btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);border-radius:var(--btn-radius);cursor:pointer;font-weight:700;padding:.8rem 1.4rem}
+.mrz-display{font-family:var(--font-display);font-weight:var(--display-weight);letter-spacing:var(--display-spacing)}
+.mrz-mono{font-family:var(--font-data)}
+.mrz-chip{background:var(--chip-bg);border:1px solid var(--chip-border);border-radius:30px}
+.mrz-focus:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.mrz-cover{position:relative;aspect-ratio:1/1;border-radius:12px;overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--frame-ring)}
+.mrz-cover>img{width:100%;height:100%;object-fit:cover;display:block}
+.mrz-picker{padding:14px}
+.mrz-picker .t{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text);margin-bottom:11px}
+.mrz-picker .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mrz-pk{display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:11px;border-radius:13px;min-height:66px;text-align:left;cursor:pointer;color:var(--text);background:var(--chip-bg);border:1.5px solid var(--chip-border);transition:.15s;-webkit-tap-highlight-color:transparent}
+.mrz-pk:active{transform:scale(.97)}
+.mrz-pk.on{background:var(--accent-soft);border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.mrz-pk .sw{display:flex}.mrz-pk .sw i{width:15px;height:15px;border-radius:50%;display:inline-block;border:1.5px solid rgba(255,255,255,.4);margin-right:-5px}
+.mrz-pk .nm{font-family:var(--font-display);font-size:12px;font-weight:700;line-height:1.1}
+.mrz-pk .tg{font-family:var(--font-data);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.mrz-pk.on .tg{color:var(--accent)}
+</style>
 <style>
   :root{
     --bg:#0a0a14;
@@ -73,7 +182,7 @@
   .bar{height:8px;background:#ffffff12;border-radius:999px;overflow:hidden}
   .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--moon),var(--gold));transition:width .6s cubic-bezier(.2,.8,.2,1)}
   .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--moon-2)55,#0000);border:1px solid var(--moon-2)55;font-weight:700}
-  .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--accent,var(--moon));box-shadow:0 0 14px -2px var(--accent,var(--moon));transition:.15s;flex:none}
+  .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--user-accent,var(--moon));box-shadow:0 0 14px -2px var(--user-accent,var(--moon));transition:.15s;flex:none}
   .langsel{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer;max-width:140px}
   .installbtn{background:linear-gradient(90deg,var(--moon),var(--moon-2));border:0;color:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 6px 16px -6px var(--moon-2)}
   .installbtn:hover{filter:brightness(1.08)}
@@ -3184,7 +3293,7 @@ function load(){
 function genRefCode(){ return "MOON-"+Math.random().toString(36).slice(2,7).toUpperCase(); }
 function displayName(){ return S.profile.name && S.profile.name.trim() ? S.profile.name.trim() : rankFor(levelFromXp(S.xp).lvl); }
 function refLink(){ return location.origin+location.pathname+"?ref="+S.ref.code; }
-function applyAccent(){ document.documentElement.style.setProperty('--accent',S.profile.accent); }
+function applyAccent(){ document.documentElement.style.setProperty('--user-accent',S.profile.accent); }
 function save(){ localStorage.setItem("moonrz",JSON.stringify(S)); }
 function doneList(aid){ return S.done[aid]||(S.done[aid]=[]); }
 function isPassed(aid){ return !!S.passed[aid]; }
@@ -3518,6 +3627,17 @@ function viewProfile(){
      <div class="field" style="margin-bottom:6px"><label>${t("lbl_accent")}</label><div class="picker" id="colPicker">${ACCENTS.map(c=>`<div class="col ${c===S.profile.accent?'sel':''}" data-col="${c}" style="background:${c}"></div>`).join("")}</div></div>
    </div>
 
+   <!-- ===== MOON-RZ THEMES [B] : sélecteur de thème ===== -->
+   <div class="mrz-card mrz-picker" style="margin-top:14px">
+     <div class="t">Choisis ton style</div>
+     <div class="grid">
+       <button class="mrz-pk mrz-focus" data-theme-pick="mission"><span class="sw"><i style="background:#0B1026"></i><i style="background:#F2C46B"></i><i style="background:#5EE6C5"></i></span><span class="nm">Mission Control</span><span class="tg">Défaut</span></button>
+       <button class="mrz-pk mrz-focus" data-theme-pick="neon"><span class="sw"><i style="background:#08070F"></i><i style="background:#BEF264"></i><i style="background:#22D3EE"></i></span><span class="nm">Neon Floor</span><span class="tg">Gamifié</span></button>
+       <button class="mrz-pk mrz-focus" data-theme-pick="bright"><span class="sw"><i style="background:#F6F2EA"></i><i style="background:#5B3FBF"></i><i style="background:#0E9E9E"></i></span><span class="nm">Editorial Bright</span><span class="tg">Clair</span></button>
+       <button class="mrz-pk mrz-focus" data-theme-pick="glass"><span class="sw"><i style="background:#7C3AED"></i><i style="background:#FFFFFF"></i><i style="background:#DB2777"></i></span><span class="nm">Glassmorphism</span><span class="tg">Verre</span></button>
+     </div>
+   </div>
+
    <div class="section-title">${t("prof_stats")}</div>
    <div class="grid cols-3">
      <div class="card"><h3>⭐ ${t("level")}</h3><p style="font-size:30px;color:#fff;font-weight:800">${L.lvl}<span style="font-size:14px;color:var(--muted)">/100</span></p></div>
@@ -3641,6 +3761,11 @@ function bindProfile(){
     document.querySelectorAll("#colPicker .col").forEach(x=>x.classList.remove("sel")); el.classList.add("sel");
     applyAccent(); renderHUD();
   });
+  // sélecteur de thème [B] (rendu dynamiquement) : câblage via l'API du script [C]
+  if(window.MoonRZTheme){
+    MoonRZTheme.mark(MoonRZTheme.get());
+    document.querySelectorAll("[data-theme-pick]").forEach(b=>b.onclick=()=>MoonRZTheme.set(b.dataset.themePick));
+  }
 }
 
 function copyText(txt,okMsg){
