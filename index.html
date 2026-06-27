@@ -101,7 +101,8 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   --chip-bg:rgba(255,255,255,.14);--chip-border:rgba(255,255,255,.25);--hover-bg:rgba(255,255,255,.12);
   --btn-radius:14px;--btn-glow:0 10px 30px -10px rgba(0,0,0,.3);
 }
-.mrz-stage{background:var(--stage-bg);color:var(--text);font-family:var(--font-body);min-height:100vh;transition:background .35s}
+.mrz-stage{color:var(--text);font-family:var(--font-body);min-height:100vh}
+.mrz-stage::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--stage-bg);transition:background .35s}
 .mrz-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);box-shadow:var(--card-shadow)}
 .mrz-btn{background:var(--accent-grad);color:var(--on-accent);border:none;cursor:pointer;border-radius:var(--btn-radius);box-shadow:var(--btn-glow);font-family:var(--font-body);font-weight:700;text-transform:var(--btn-transform);letter-spacing:var(--btn-spacing);padding:.8rem 1.4rem;transition:.18s}
 .mrz-btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);border-radius:var(--btn-radius);cursor:pointer;font-weight:700;padding:.8rem 1.4rem}
