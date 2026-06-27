@@ -7183,12 +7183,14 @@ function viewLocked(aid){
 /* ---------- LESSON ---------- */
 function viewLesson(id,aid){
   const C=ac(aid), i=C.modules.findIndex(m=>m.id===id), m=C.modules[i], d=doneList(aid).includes(m.id), next=C.modules[i+1];
+  const allDone=doneList(aid).length>=C.modules.length;
+  const examBtn=(d&&!next&&allDone)?`<button class="btn moon" data-action="quiz" data-aid="${aid}">${isPassed(aid)?t("retake_exam"):t("take_exam")}</button>`:'';
   return `
    <button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">${t("back_modules")}</button>
    <div class="lesson"><div class="lhead"><span class="pill">${t("module_word")} ${i+1}/${C.modules.length}</span><h1 style="font-size:24px">${m.icon} ${m.title}</h1></div>
      <div class="lbody">${m.body}</div>
      <div class="lfoot"><div>${d?`<span class="tag done">${t("module_done")}</span>`:`<span class="tag">${t("reward_word")} : +${m.xp} XP · +${m.coins} MOON-RZ</span>`}</div>
-       <div style="display:flex;gap:10px">${d&&next?`<button class="btn ghost" data-lesson="${next.id}" data-aid="${aid}">${t("next_module")}</button>`:''}${!d?`<button class="btn" data-complete="${m.id}" data-aid="${aid}">${t("got_it")}</button>`:''}</div></div></div>`;
+       <div style="display:flex;gap:10px">${d&&next?`<button class="btn ghost" data-lesson="${next.id}" data-aid="${aid}">${t("next_module")}</button>`:''}${examBtn}${!d?`<button class="btn" data-complete="${m.id}" data-aid="${aid}">${t("got_it")}</button>`:''}</div></div></div>`;
 }
 
 /* ---------- QUIZ ---------- */
