@@ -276,6 +276,11 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 
   .section-title{display:flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin:30px 0 14px}
   .section-title::after{content:"";flex:1;height:1px;background:var(--line)}
+  /* Volets déroulants (accordéon) : titres de section repliables */
+  .section-title.acc-h,.mrz-picker .t.acc-h{cursor:pointer;-webkit-user-select:none;user-select:none}
+  .acc-ar{display:inline-block;font-size:11px;opacity:.55;transition:transform .2s;flex:none}
+  .acc-collapsed .acc-ar{transform:rotate(-90deg)}
+  .acc-hidden{display:none!important}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -7451,6 +7456,34 @@ function bindProfile(){
     MoonRZTheme.mark(MoonRZTheme.get());
     document.querySelectorAll("[data-theme-pick]").forEach(b=>b.onclick=()=>MoonRZTheme.set(b.dataset.themePick));
   }
+  wireAccordions();
+}
+
+/* Volets déroulants : chaque titre de section (et la carte de thèmes) devient repliable.
+   L'état (ouvert/replié) est mémorisé par section dans localStorage. */
+function wireAccordions(){
+  const root=$("content"); if(!root) return;
+  function makeToggle(head, items, key){
+    if(head.classList.contains("acc-h")) return;
+    head.classList.add("acc-h");
+    const ar=document.createElement("span"); ar.className="acc-ar"; ar.textContent="▾";
+    head.insertBefore(ar, head.firstChild);
+    const set=c=>{ head.classList.toggle("acc-collapsed",c); items.forEach(el=>el&&el.classList.toggle("acc-hidden",c)); };
+    let saved=false; try{ saved=localStorage.getItem(key)==="1"; }catch(e){}
+    set(saved);
+    head.addEventListener("click",()=>{ const c=!head.classList.contains("acc-collapsed"); set(c); try{localStorage.setItem(key,c?"1":"0");}catch(e){} });
+  }
+  // 1) titres de section : replient tout jusqu'au titre suivant
+  root.querySelectorAll(".section-title").forEach(h=>{
+    const items=[]; let n=h.nextElementSibling;
+    while(n && !n.classList.contains("section-title")){ items.push(n); n=n.nextElementSibling; }
+    makeToggle(h, items, "mrz-acc:"+h.textContent.trim().replace(/\s+/g,"_"));
+  });
+  // 2) carte « Choisis ton style » : replie sa grille de thèmes
+  root.querySelectorAll(".mrz-picker > .t").forEach(t=>{
+    const grid=t.parentElement.querySelector(".grid");
+    makeToggle(t, [grid], "mrz-acc:theme");
+  });
 }
 
 function copyText(txt,okMsg){
