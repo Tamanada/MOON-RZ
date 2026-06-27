@@ -2,10 +2,11 @@
    Le document HTML est TOUJOURS rechargé depuis le réseau quand on est en ligne
    (cache: "reload" -> contourne le cache HTTP du navigateur), avec repli sur le
    cache hors-ligne. Les requêtes externes (API Binance) ne sont PAS interceptées. */
-const CACHE = "moonrz-v5";
+const CACHE = "moonrz-v6";
 const ASSETS = [
   "./",
   "./index.html",
+  "./qrcode.js",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",

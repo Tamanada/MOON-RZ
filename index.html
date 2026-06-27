@@ -187,6 +187,8 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .lvlroller .bar{height:8px;background:var(--track);border-radius:999px;overflow:hidden;margin:6px auto 3px;max-width:440px}
   .lvlroller .bar>span{display:block;height:100%;background:var(--accent-grad);border-radius:999px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
   .lr-xp{font-size:11px;color:var(--muted)}
+  .qrbox{width:200px;height:200px}
+  .qrbox svg{display:block;width:100%;height:100%}
   @media(max-width:880px){ .burger{display:grid} }
 
   .sidebar{background:var(--surface);-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);border-right:1px solid var(--border);padding:22px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
@@ -401,6 +403,8 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
     .hero h1{font-size:20px}
   }
 </style>
+<!-- Générateur de QR local (MIT, Kazuhiko Arase) : QR de parrainage dispo 100% du temps, même hors-ligne -->
+<script src="qrcode.js"></script>
 </head>
 <body class="mrz-stage">
 <!-- ===== Écran de lancement (splash à chaque ouverture) ===== -->
@@ -3332,6 +3336,11 @@ function load(){
 function genRefCode(){ return "MOON-"+Math.random().toString(36).slice(2,7).toUpperCase(); }
 function displayName(){ return S.profile.name && S.profile.name.trim() ? S.profile.name.trim() : rankFor(levelFromXp(S.xp).lvl); }
 function refLink(){ return location.origin+location.pathname+"?ref="+S.ref.code; }
+/* QR généré localement (offline, aucune dépendance réseau) -> SVG vectoriel net pour le scan */
+function qrSvg(text){
+  try{ var qr=qrcode(0,"M"); qr.addData(text); qr.make(); return qr.createSvgTag({cellSize:6,margin:1,scalable:true}); }
+  catch(e){ return '<div style="padding:24px;font-size:12px;color:#666">QR…</div>'; }
+}
 function applyAccent(){ document.documentElement.style.setProperty('--user-accent',S.profile.accent); }
 function save(){ localStorage.setItem("moonrz",JSON.stringify(S)); }
 function doneList(aid){ return S.done[aid]||(S.done[aid]=[]); }
@@ -3741,7 +3750,7 @@ function viewReferral(){
      <!-- QR du lien de parrainage (fond blanc fixe = scannable sur tous les thèmes) -->
      <div style="margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:8px">
        <div style="background:#fff;padding:12px;border-radius:16px;line-height:0;box-shadow:var(--card-shadow)">
-         <img width="200" height="200" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=6&data=${encodeURIComponent(refLink())}" style="display:block;width:200px;height:200px;border-radius:6px" />
+         <div class="qrbox" role="img" aria-label="QR">${qrSvg(refLink())}</div>
        </div>
        <span style="font-size:13px;color:var(--muted)">${t("qr_label")}</span>
      </div>
