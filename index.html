@@ -294,6 +294,12 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .ch-act .ch-now{font-family:var(--font-data,ui-monospace,monospace);font-weight:800;color:var(--text);font-size:16px}
   .ch-act .ch-now small{color:var(--muted);font-weight:600;font-size:12px}
   .ch-act .btns{display:flex;gap:8px}
+  /* Mot d'accueil au retour */
+  .wb{position:relative;background:var(--accent-soft);border:1px solid var(--border);border-radius:16px;padding:18px 44px 18px 20px;margin-bottom:18px}
+  .wb-x{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--muted);font-size:15px;cursor:pointer;line-height:1}
+  .wb-hi{font-size:20px;color:var(--text);margin-bottom:4px}
+  .wb-ask{color:var(--text);font-size:15px;margin:2px 0 8px}
+  .wb-scope{color:var(--muted);font-size:13px;line-height:1.55;margin:0 0 14px;max-width:660px}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -555,6 +561,10 @@ const T={
   profile:{en:"Profile & Rank",fr:"Profil & Rang",es:"Perfil y Rango",pt:"Perfil e Rank",de:"Profil & Rang",ru:"Профиль и ранг",tr:"Profil ve Rütbe",ar:"الملف والرتبة",zh:"个人资料和等级",ja:"プロフィール＆ランク",ko:"프로필 & 등급",hi:"प्रोफ़ाइल और रैंक",id:"Profil & Peringkat",vi:"Hồ sơ & Hạng",th:"โปรไฟล์ & อันดับ"},
   level:{en:"Level",fr:"Niveau",es:"Nivel",pt:"Nível",de:"Level",ru:"Уровень",tr:"Seviye",ar:"المستوى",zh:"等级",ja:"レベル",ko:"레벨",hi:"स्तर",id:"Level",vi:"Cấp",th:"เลเวล"},
   install:{en:"Install",fr:"Installer",es:"Instalar",pt:"Instalar",de:"Installieren",ru:"Установить",tr:"Yükle",ar:"تثبيت",zh:"安装",ja:"インストール",ko:"설치",hi:"इंस्टॉल",id:"Pasang",vi:"Cài đặt",th:"ติดตั้ง"},
+  wb_hi:{en:"Hi",fr:"Salut",es:"Hola",pt:"Olá",de:"Hallo",ru:"Привет",tr:"Selam",ar:"مرحباً",zh:"嗨",ja:"やあ",ko:"안녕",hi:"नमस्ते",id:"Hai",vi:"Chào",th:"สวัสดี"},
+  wb_ask:{en:"So, what are we doing today? Shall we keep going with Web3? 🚀",fr:"Alors, qu'est-ce qu'on fait aujourd'hui ? On continue le Web3 ? 🚀",es:"Entonces, ¿qué hacemos hoy? ¿Seguimos con el Web3? 🚀",pt:"Então, o que fazemos hoje? Continuamos com o Web3? 🚀",de:"Also, was machen wir heute? Weiter mit Web3? 🚀",ru:"Ну что, чем займёмся сегодня? Продолжим с Web3? 🚀",tr:"Peki, bugün ne yapıyoruz? Web3'e devam mı? 🚀",ar:"إذن، ماذا نفعل اليوم؟ هل نواصل مع Web3؟ 🚀",zh:"那么，今天做点什么？继续学 Web3 吗？🚀",ja:"さて、今日は何をする？Web3 を続ける？🚀",ko:"자, 오늘은 뭘 해볼까요? Web3 계속할까요? 🚀",hi:"तो, आज क्या करें? Web3 जारी रखें? 🚀",id:"Jadi, hari ini kita ngapain? Lanjut Web3? 🚀",vi:"Vậy hôm nay mình làm gì? Tiếp tục Web3 nhé? 🚀",th:"เอาล่ะ วันนี้เราจะทำอะไรดี? ไปต่อกับ Web3 ไหม? 🚀"},
+  wb_scope:{en:"Our program is broad: across the academies you'll cover the whole Web3 universe — blockchain, security, DeFi, NFTs, trading, AI… A magnificent opportunity to seize.",fr:"Notre programme est vaste : au fil des académies, tu couvriras tout l'univers Web3 — blockchain, sécurité, DeFi, NFT, trading, IA… Une magnifique opportunité à saisir.",es:"Nuestro programa es amplio: a lo largo de las academias cubrirás todo el universo Web3 — blockchain, seguridad, DeFi, NFT, trading, IA… Una magnífica oportunidad.",pt:"Nosso programa é amplo: ao longo das academias você cobrirá todo o universo Web3 — blockchain, segurança, DeFi, NFTs, trading, IA… Uma oportunidade magnífica.",de:"Unser Programm ist umfassend: über die Akademien deckst du das ganze Web3-Universum ab — Blockchain, Sicherheit, DeFi, NFTs, Trading, KI… Eine großartige Chance.",ru:"Наша программа обширна: проходя академии, ты охватишь всю вселенную Web3 — блокчейн, безопасность, DeFi, NFT, трейдинг, ИИ… Прекрасная возможность.",tr:"Programımız geniş: akademiler boyunca tüm Web3 evrenini kapsayacaksın — blok zinciri, güvenlik, DeFi, NFT, trading, yapay zekâ… Muhteşem bir fırsat.",ar:"برنامجنا واسع: عبر الأكاديميات ستغطّي عالم Web3 بأكمله — البلوكشين، الأمان، DeFi، NFT، التداول، الذكاء الاصطناعي… فرصة رائعة.",zh:"我们的课程很广：贯穿各学院，你将覆盖整个 Web3 世界——区块链、安全、DeFi、NFT、交易、AI……一个绝佳的机会。",ja:"カリキュラムは幅広い：アカデミーを通じて Web3 の世界すべてをカバーします——ブロックチェーン、セキュリティ、DeFi、NFT、トレード、AI…。素晴らしいチャンスです。",ko:"우리 커리큘럼은 넓습니다: 아카데미를 거치며 Web3 세계 전체를 다룹니다 — 블록체인, 보안, DeFi, NFT, 트레이딩, AI… 멋진 기회예요.",hi:"हमारा पाठ्यक्रम विशाल है: अकादमियों के दौरान आप पूरे Web3 ब्रह्मांड को कवर करेंगे — ब्लॉकचेन, सुरक्षा, DeFi, NFT, ट्रेडिंग, AI… एक शानदार अवसर।",id:"Program kami luas: melintasi akademi kamu akan mencakup seluruh dunia Web3 — blockchain, keamanan, DeFi, NFT, trading, AI… Peluang luar biasa.",vi:"Chương trình của chúng ta rất rộng: qua các học viện, bạn sẽ bao quát cả thế giới Web3 — blockchain, bảo mật, DeFi, NFT, trading, AI… Một cơ hội tuyệt vời.",th:"หลักสูตรของเรากว้างมาก: ตลอดสถาบันต่าง ๆ คุณจะครอบคลุมทั้งจักรวาล Web3 — บล็อกเชน ความปลอดภัย DeFi NFT เทรด AI… โอกาสที่ยอดเยี่ยม"},
+  wb_resume:{en:"Resume",fr:"Reprendre",es:"Continuar",pt:"Retomar",de:"Fortsetzen",ru:"Продолжить",tr:"Devam et",ar:"استئناف",zh:"继续",ja:"再開",ko:"이어서",hi:"जारी रखें",id:"Lanjutkan",vi:"Tiếp tục",th:"ไปต่อ"},
   cont_next:{en:"Continue to",fr:"Continuer vers",es:"Continuar a",pt:"Continuar para",de:"Weiter zu",ru:"Перейти к",tr:"Devam et",ar:"المتابعة إلى",zh:"继续前往",ja:"次へ進む",ko:"계속하기",hi:"आगे बढ़ें",id:"Lanjut ke",vi:"Tiếp tục đến",th:"ไปต่อที่"},
   /* onboarding */
   ob_skip:{en:"Skip",fr:"Passer",es:"Saltar",pt:"Pular",de:"Überspringen",ru:"Пропустить",tr:"Atla",ar:"تخطّي",zh:"跳过",ja:"スキップ",ko:"건너뛰기",hi:"छोड़ें",id:"Lewati",vi:"Bỏ qua",th:"ข้าม"},
@@ -664,6 +674,7 @@ const T={
 /* ===== Birman (my) : fusionné dans T (parité avec les 15 autres langues) ===== */
 const T_MY={
   parcours:"သင်ယူရန်", monespace:"ကျွန်ုပ်နေရာ", sim:"ကုန်သွယ်ရေး စမ်းသပ်စနစ်", missions:"နေ့စဉ် မစ်ရှင်များ", referral:"မိတ်ဆက်ခြင်း", partners:"အလဲအလှယ်များ (CEX)", profile:"ပရိုဖိုင်နှင့် အဆင့်", level:"အဆင့်", install:"ထည့်သွင်းရန်", cont_next:"ဆက်သွားရန်",
+  wb_hi:"မင်္ဂလာပါ", wb_ask:"ဒါဆို ဒီနေ့ ဘာလုပ်ကြမလဲ? Web3 ဆက်မလား? 🚀", wb_scope:"ကျွန်ုပ်တို့သင်ရိုးသည် ကျယ်ပြန့်သည် — အကယ်ဒမီများတစ်လျှောက် Web3 လောကတစ်ခုလုံးကို လေ့လာရမည် — ဘလော့ချိန်း၊ လုံခြုံရေး၊ DeFi၊ NFT၊ ရောင်းဝယ်ရေး၊ AI… အလွန်ကောင်းသော အခွင့်အလမ်း။", wb_resume:"ဆက်လုပ်",
   ob_skip:"ကျော်မည်", ob_next:"နောက်တစ်ခု →", ob_start:"စတင်မယ် 🚀", ob_replay:"🎬 မိတ်ဆက် ပြန်ကြည့်ရန်",
   ob1_t:"MOON-RZ မှ ကြိုဆိုပါတယ် 🌙", ob1_d:"သင်ယူမှုအတွက် ဆုချသော Web3 အကယ်ဒမီ။ သီအိုရီ အလွန်အကျွံ မရှိ — သင်ယူ၊ လေ့ကျင့်၊ ဆုရယူ။",
   ob2_t:"ဘယ်လို အလုပ်လုပ်လဲ", ob2a_t:"📚 သင်ယူ", ob2a_d:"Bitcoin မှ ကုန်သွယ်ရေးအထိ အကယ်ဒမီ ၁၀ ခု။ အသုံးမဝင်သော ဝေါဟာရ မရှိ။",
@@ -7136,6 +7147,20 @@ function render(){
 }
 
 /* ---------- ACADEMY OVERVIEW ---------- */
+let welcomed=false;
+/* Mot d'accueil au retour : affiché une fois par ouverture de l'app (pas juste après l'intro). */
+function welcomeBanner(){
+  if(welcomed||!S.onboarded) return '';
+  welcomed=true;
+  const rid=resumeAcademy(), ra=ACADEMIES.find(a=>a.id===rid);
+  return `<div class="wb" id="welcomeBack">
+     <button class="wb-x" onclick="this.parentNode.remove()" aria-label="fermer">✕</button>
+     <div class="wb-hi mrz-display">${t("wb_hi")} ${displayName()} 👋</div>
+     <p class="wb-ask">${t("wb_ask")}</p>
+     <p class="wb-scope">${t("wb_scope")}</p>
+     <button class="btn moon sm" data-goto="${rid}">${t("wb_resume")} → ${ra.icon} ${rid}</button>
+   </div>`;
+}
 function viewAcademy(aid){
   const A=ACADEMIES.find(x=>x.id===aid), C=ac(aid);
   if(!C) return viewComingSoon(A);
@@ -7148,7 +7173,7 @@ function viewAcademy(aid){
       <div class="meta"><span class="tag">+${m.xp} XP</span><span class="tag gold">+${m.coins} MOON-RZ</span>${d?`<span class="tag done">${t("done_tag")}</span>`:''}</div>
     </div>`;
   }).join("");
-  return `
+  return `${welcomeBanner()}
    <div class="hero"><span class="pill">Academy ${aid}</span>
      <h1>${A.icon} <span class="acc">${A.title}</span></h1>
      <p>${aintro(aid)}</p>
@@ -7713,7 +7738,7 @@ function handleIncomingRef(){
 let obStep=0;
 function showOnboarding(){ obStep=0; renderOnboarding(); $("onboarding").classList.add("show"); }
 function closeOnboarding(){ $("onboarding").classList.remove("show"); if(!S.onboarded){ S.onboarded=true; save(); } }
-function obFinish(){ closeOnboarding(); go("academy",1); }
+function obFinish(){ welcomed=true; closeOnboarding(); go("academy",1); }
 function renderOnboarding(){
   const langOpts=LANGS.map(l=>`<option value="${l.c}" ${l.c===S.lang?'selected':''}>${l.f} ${l.n}</option>`).join("");
   let body="";
