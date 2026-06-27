@@ -7035,6 +7035,8 @@ function xpForLevel(l){ return Math.round(100*Math.pow(l,1.35)); }
 function levelFromXp(t){ let l=1,acc=0; while(l<100){const n=xpForLevel(l); if(t<acc+n)break; acc+=n; l++;} return {lvl:l,into:t-acc,need:xpForLevel(l)}; }
 function rankFor(l){ let r=RANKS[0]; for(const x of RANKS) if(l>=x.lvl) r=x; return r.name; }
 function academyUnlocked(aid){ return aid===1 || isPassed(aid-1); }
+/* Académie où reprendre : la 1re non réussie (= là où l'utilisateur s'est arrêté). */
+function resumeAcademy(){ for(let a=1;a<=ACADEMIES.length;a++){ if(!isPassed(a)) return a; } return ACADEMIES.length; }
 
 function award(xp,coins,msg){
   const before=levelFromXp(S.xp).lvl;
@@ -7588,9 +7590,10 @@ function viewPartners(){
 function todayKey(){ return new Date().toISOString().slice(0,10); }
 function viewMissions(){
   const claimed=S.lastDay===todayKey();
+  const rid=resumeAcademy(), ra=ACADEMIES.find(a=>a.id===rid);
   return `<div class="hero"><span class="pill">${t("daily")}</span><h1>🎯 <span class="acc">${t("missions")}</span></h1><p>${t("missions_sub")}</p></div>
    <div class="grid cols-2">
-     <div class="card"><h3>${t("m_learn_t")}</h3><p>${t("m_learn_d")}</p><div class="meta"><span class="tag">+10 XP</span><span class="tag gold">+5 MOON-RZ</span></div><button class="btn ghost" style="margin-top:14px" data-goto="1">${t("goto_modules")}</button></div>
+     <div class="card"><h3>${t("m_learn_t")}</h3><p>${t("m_learn_d")}</p><div class="meta"><span class="tag">+10 XP</span><span class="tag gold">+5 MOON-RZ</span></div><button class="btn ghost" style="margin-top:14px" data-goto="${rid}">${t("goto_modules")} ${ra.icon} ${rid}</button></div>
      <div class="card"><h3>${t("m_trade_t")}</h3><p>${t("m_trade_d")}</p><div class="meta"><span class="tag">+10 XP</span><span class="tag gold">+8 MOON-RZ</span></div><button class="btn ghost" style="margin-top:14px" data-gosim="1">${t("open_sim")}</button></div>
      <div class="card"><h3>${t("m_daily_t")}</h3><p>${claimed?t("m_daily_done"):t("m_daily_get")}</p><div class="meta"><span class="tag">+15 XP</span><span class="tag gold">+25 MOON-RZ</span></div><button class="btn" style="margin-top:14px" id="claimDaily" ${claimed?'disabled':''}>${claimed?t("claimed_btn"):t("claim_btn")}</button></div>
    </div>
