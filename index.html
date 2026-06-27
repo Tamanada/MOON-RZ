@@ -3366,6 +3366,399 @@ const CONTENT_I18N={
     {q:"Правильная роль ИИ для крипто-мастера?",a:["Решать и торговать за него","Помогать решению, которое остаётся человеческим","Хранить приватные ключи","Гарантировать прибыль"],correct:1},
     {q:"По сути, истинное мастерство Web3 — это…",a:["Иметь самый большой портфель","Быть автономным, управлять риском и продолжать учиться","Следовать за всеми инфлюенсерами","Покупать каждый новый токен"],correct:1}
   ]}
+ },
+ tr:{
+  1:{ modules:{
+    crypto:{title:"Kriptografi nedir?",body:`
+      <p>Kriptolardan çok önce, <b>kriptografi</b> zaten vardı: bu, <b>bilgiyi koruma</b> sanatıdır. Jül Sezar'dan (harfleri kaydıran) 2. Dünya Savaşı'nın Enigma makinesine kadar, insanlar her zaman mesajları gizlemek istedi.</p>
+      <h4>Blok zincirini çalıştıran iki araç</h4>
+      <ul><li><b>Hash</b> — bir metnin "parmak izi". En küçük değişiklik bile tamamen farklı bir iz verir ve geri döndürülemez. Blokları birbirine bağlayan şey budur.</li><li><b>Açık / özel anahtarlar</b> — bir çift matematiksel anahtar. Özel olan imzalar (senin olduğunu kanıtlar), açık olan doğrular. Cüzdanının kalbidir.</li></ul>
+      <div class="callout">💡 "Kripto" Yunanca <i>kryptós</i> = gizli kelimesinden gelir. Kripto para, kriptografi ile güvence altına alınmış paradır.</div>`},
+    cypher:{title:"Bitcoin'den önce: cypherpunk'lar",body:`
+      <p>1980-90'larda bir grup tutkulu insan — <b>cypherpunk'lar</b> — dijital çağda mahremiyeti savundu. Sloganları: "<i>kod özgürlüktür</i>".</p>
+      <h4>Öncüler (neredeyse başaranlar)</h4>
+      <ul><li><b>DigiCash</b> (David Chaum, 1989) — ilk anonim dijital para. 1998'de iflas etti.</li><li><b>Hashcash</b> (Adam Back, 1997) — Bitcoin'in sonradan kullanacağı <b>iş ispatını</b> icat etti.</li><li><b>b-money</b> (Wei Dai) & <b>Bit Gold</b> (Nick Szabo) — merkeziyetsiz bir paranın taslakları.</li></ul>
+      <p>Hepsi tek bir noktada başarısız oldu: aynı parayı merkezi bir otorite olmadan iki kez harcamayı engellemek.</p>
+      <div class="callout">2008'de <b>Satoshi Nakamoto</b> adında biri, bunu NİHAYET çözen 9 sayfalık bir belge yayımladı. Bitcoin doğdu.</div>`},
+    firsts:{title:"İlk kripto paralar",body:`
+      <p>Bitcoin başladıktan sonra bir proje dalgası geldi. İşte <b>köken zaman çizelgesi</b>:</p>
+      <ul><li><b>2009 — Bitcoin (BTC)</b>: en ilki. Bankasız para.</li><li><b>2011 — Litecoin (LTC)</b>: Bitcoin "altın"ın "gümüşü", daha hızlı.</li><li><b>2012 — XRP (Ripple)</b>: özellikle bankalar için neredeyse anlık, çok ucuz <b>sınır ötesi ödemeler</b> için tasarlandı. BTC gibi madenle çıkarılmaz.</li><li><b>2015 — Ethereum (ETH)</b>: DeFi, NFT ve DAO'ları açan <b>akıllı sözleşme</b> devrimi.</li></ul>
+      <div class="callout">⚡ Her "ilk" yeni bir fikir getirdi: değer saklama (BTC), hız (LTC), ödemeler (XRP), programlama (ETH).</div>`},
+    moments:{title:"Kriptonun dönüm noktaları",body:`
+      <p>Kripto tarihi yükselişler, düşüşler ve derslerle doludur. Bilinmesi gereken dönüm noktaları:</p>
+      <ul><li><b>2014 — Mt. Gox çöküşü</b>: dönemin en büyük borsası 850.000 BTC kaybetti. Ders: "<i>not your keys, not your coins</i>".</li><li><b>2016 — DAO hack'i</b>: bir hata bir projeden milyonları boşaltır. Ethereum ikiye bölünür (ETH / ETC).</li><li><b>Halving</b> (~her 4 yılda bir): yeni BTC üretimi yarıya iner. Programlanmış kıtlık.</li><li><b>2020-21 — DeFi & NFT</b>: merkeziyetsiz kullanım patlaması.</li><li><b>2024 — Spot Bitcoin ETF'leri</b>: Wall Street sonunda BTC'yi benimser. Kripto büyükler ligine katılır.</li></ul>
+      <div class="callout warn">📉 Piyasa döngüler hâlinde iner çıkar. Tarih sabrı… ve güvenliği öğretir.</div>`},
+    bc:{title:"Blok zinciri nedir?",body:`
+      <p>Bir <b>blok zinciri</b>, dünyadaki binlerce bilgisayar tarafından paylaşılan dev bir defterdir. Kimse sahibi değildir, herkes doğrulayabilir.</p>
+      <h4>Temel fikir</h4>
+      <p>İşlemler <b>bloklar</b> hâlinde gruplanır. Her blok bir kriptografik parmak izi (<code>hash</code>) ile öncekine bağlanır. Adı buradan gelir: bir <i>blok zinciri</i>.</p>
+      <ul><li><b>Merkeziyetsiz</b> — banka yok, merkezi sunucu yok.</li><li><b>Değişmez</b> — bir kez yazıldığında geçmiş değiştirilemez.</li><li><b>Şeffaf</b> — herkes her şeyi doğrulayabilir.</li></ul>
+      <div class="callout">💡 Benzetme: binlerce kişinin aynı anda kopyaladığı herkese açık bir Google Doküman. Biri kopyasında hile yaparsa, diğerleri otomatik reddeder.</div>`},
+    btc:{title:"Bitcoin — dijital altın",body:`
+      <p><b>Bitcoin (BTC)</b>, 2009'da Satoshi Nakamoto tarafından oluşturulan ilk blok zinciridir. Amacı: bankasız, taklit edilemez dijital para.</p>
+      <h4>Neden "dijital altın"?</h4>
+      <ul><li>Arz <b>21 milyon</b> BTC ile sınırlı. Asla daha fazla değil.</li><li><b>İş ispatı</b> (madencilik) ile güvence altında.</li><li>Çoğunlukla <b>değer saklama</b> aracı olarak kullanılır.</li></ul>
+      <div class="callout">Bitcoin'in en küçük parçası bir <code>satoshi</code>: 1 BTC = 100.000.000 satoshi.</div>`},
+    eth:{title:"Ethereum — dünya bilgisayarı",body:`
+      <p><b>Ethereum (ETH)</b> yalnızca para göndermekle ilgili değildir: <b>akıllı sözleşmeler</b> çalıştıran bir platformdur.</p>
+      <p>Üzerinde merkeziyetsiz uygulamalar (<code>dApp</code>) inşa edilir: DeFi, NFT, DAO, Web3 oyunları.</p>
+      <ul><li>Yerel coin: <b>Ether (ETH)</b>.</li><li>Ücretlere <b>gas</b> denir.</li><li>2022'den beri <b>hisse ispatı</b> kullanır, çok daha çevreci.</li></ul>`},
+    bnb:{title:"BNB Chain — hızlı ve ucuz",body:`
+      <p><b>BNB Chain</b>, Ethereum uyumludur, <b>çok düşük ücretler</b> ve hızlı işlemler sunar.</p>
+      <ul><li>Yerel coin: <b>BNB</b>.</li><li><b>EVM</b> uyumlu: Ethereum ile aynı cüzdan ve araçlar.</li><li>Yeni başlayanlar arasında çok popüler.</li></ul>
+      <div class="callout warn">⚠️ Düşük ücretler aynı zamanda bol dolandırıcılık ve sahte token demektir. (Akademi 2)</div>`},
+    sc:{title:"Akıllı sözleşmeler",body:`
+      <p>Bir <b>akıllı sözleşme</b>, koşulları sağlandığında kendiliğinden çalışan, blok zincirindeki bir programdır. Aracı yok.</p>
+      <h4>Örnek</h4><p>« <i>1 ETH alırsam, bu NFT'yi alıcıya gönderirim.</i> » Kanun koddur: <code>code is law</code>.</p>
+      <div class="callout">Otomatik ve kurcalanamaz, ama kodda bir hata varsa müşteri hizmeti yoktur. Bu yüzden <b>denetimler</b>.</div>`},
+    wallet:{title:"Cüzdanlar",body:`
+      <p>Bir <b>cüzdan</b> kriptolarını "tutmaz" (onlar blok zincirinde yaşar). Senin <b>anahtarlarını</b> tutar.</p>
+      <ul><li><b>Açık adres</b> — almak için, bir IBAN gibi.</li><li><b>Özel anahtar</b> — asla paylaşılmayan nihai şifre.</li><li><b>Seed cümlesi</b> (12/24 kelime) — cüzdanının yedeği.</li></ul>
+      <div class="callout warn">🔒 "Not your keys, not your coins." Seed cümleni kâğıda yaz, asla fotoğraf veya bulutta saklama.</div>`}
+  }, quiz:[
+    {q:"Bir blok zincirini « değişmez » yapan nedir?",a:["Onu bir merkez bankası korur","Her blok bir hash ile öncekine bağlıdır","Bir yönetici şifresi","Tek bir sunucuda olması"],correct:1},
+    {q:"Bitcoin'in maksimum arzı nedir?",a:["100 milyon","Sınırsız","21 milyon","1 milyar"],correct:2},
+    {q:"Para göndermenin ötesinde Ethereum ne işe yarar?",a:["Bitcoin madenciliği","Akıllı sözleşmeler ve dApp'ler çalıştırma","Dosya saklama","Merkez bankalarının yerini alma"],correct:1},
+    {q:"ASLA neyi paylaşmamalısın?",a:["Açık adresini","Takma adını","Seed cümleni / özel anahtarını","Blok zincirinin adını"],correct:2},
+    {q:"Ethereum'daki ücretlere ne denir?",a:["Gas","Satoshi","Staking","Hash"],correct:0},
+    {q:"« Not your keys, not your coins » ne demek?",a:["Kriptoyu borsada tut","Anahtarları tutan, fonları kontrol eder","Anahtarlar ücretsizdir","Kripto kaybedilemez"],correct:1}
+  ]},
+  2:{ modules:{
+    scam:{title:"Kripto dolandırıcılıkları: genel bakış",body:`
+      <p>Kriptoda aracı yoktur: <b>hiçbir banka bir işlemi geri alamaz</b>. Bu özgürlüktür… ama aynı zamanda dolandırıcılar için bir oyun alanı. En iyi korumanı <b>sensin</b>.</p>
+      <h4>Ana türler</h4>
+      <ul><li><b>Phishing</b> — erişimini çalan sahte site/mesajlar.</li><li><b>Rug pull</b> — proje ekibi fonlarla kaybolur.</li><li><b>Cüzdan boşaltıcı</b> — cüzdanını boşaltan tuzaklı bir imza.</li><li><b>Sahte airdrop / sahte token</b> — seni imzalatmak için yem.</li></ul>
+      <div class="callout warn">🚩 Kural #1: gerçek olamayacak kadar iyiyse (garantili ×10, "ETH'ni ikiye katla"), bu bir dolandırıcılıktır. Her zaman.</div>`},
+    phish:{title:"Phishing",body:`
+      <p><b>Phishing</b>, seed cümleni çalmak veya seni imzalatmak için bildiğin bir siteyi/servisi taklit eder.</p>
+      <h4>Nasıl fark edilir</h4>
+      <ul><li>URL'yi <b>harf harf</b> kontrol et: <code>binance.com</code> ≠ <code>binqnce.com</code>.</li><li>Sonuçların başındaki <b>Google reklamlarına</b> dikkat — çoğu sahtedir.</li><li><b>Hiçbir</b> meşru destek asla seed cümleni istemez.</li><li>Gerçek siteleri yer imine ekle ve hep oradan gir.</li></ul>
+      <div class="callout warn">⚠️ 12/24 kelimeni isteyen site = %100 dolandırıcılık. İstisnasız.</div>`},
+    rug:{title:"Rug Pull'lar",body:`
+      <p>Bir <b>rug pull</b>: bir ekip token oluşturur, alıcı çeker, sonra <b>tüm likiditeyi çeker</b> ve kaybolur. Fiyat sıfıra çakılır.</p>
+      <h4>Uyarı işaretleri</h4>
+      <ul><li><b>Anonim</b>, geçmişi olmayan ekip.</li><li><b>Likidite kilitli değil</b>.</li><li>Birkaç cüzdan token'ların <b>çoğunu</b> tutuyor.</li><li>Büyük hype, kâr vaatleri, gerçek ürün yok.</li></ul>
+      <div class="callout">🔎 Araçlar: bir blok gezgini (Etherscan/BscScan) + sahip dağılımını görmek için sözleşme tarayıcıları.</div>`},
+    drain:{title:"Cüzdan boşaltıcılar & izinler",body:`
+      <p>Boşaltılmak için özel anahtarını vermene gerek yok: tuzaklı bir <b>izni</b> (approval) imzalaman yeter.</p>
+      <h4>Klasik tuzak</h4>
+      <p>Sahte bir "mint" veya "claim" sana, saldırganın token'larını harcamasına izin veren bir <code>approve</code> imzalatır. Sonra her şeyi boşaltırlar.</p>
+      <ul><li><b>Neyi imzaladığını</b> oku: "set approval for all" mesajı tehlikelidir.</li><li>Kullanılmayan izinleri iptal et (örn. <code>revoke.cash</code>).</li><li>Riskli mint'ler için <b>burner cüzdan</b> kullan.</li></ul>
+      <div class="callout warn">🖊️ Bir imza, sızdırılmış bir seed cümlesi kadar pahalıya mal olabilir. "Confirm"e basmadan yavaşla.</div>`},
+    fake:{title:"Sahte airdrop'lar & sahte token'lar",body:`
+      <p>Cüzdanına "ücretsiz" tuhaf bir token gelir. Bu bir <b>yemdir</b>.</p>
+      <ul><li>Sebepsiz gelen bilinmeyen bir token'la <b>asla</b> etkileşme.</li><li>Şüpheli bir sitede <b>cüzdanını bağlamanı ve imzalamanı</b> isteyen "airdrop'lar" = boşaltıcı.</li><li>Token'ın resmi adresini projenin <b>gerçek</b> sitesinde/Twitter'ında doğrula.</li></ul>
+      <div class="callout">🎁 Gerçek bir airdrop, ödülünü "açmak için" asla fon göndermeni istemez.</div>`},
+    audit:{title:"Güvenlik kontrol listen",body:`
+      <p>Bir projeye dokunmadan önce bu <b>hızlı denetim listesini</b> uygula:</p>
+      <ul><li>✅ URL doğrulandı + yer imine eklendi</li><li>✅ Tanımlanabilir ekip / itibar</li><li>✅ Denetlenmiş sözleşme, kilitli likidite</li><li>✅ Sağlıklı sahip dağılımı</li><li>✅ Neyi imzaladığımı anlıyorum</li><li>✅ Riskli işlemler için burner cüzdan</li><li>✅ Seed cümlesi çevrimdışı, asla çevrimiçi yazılmaz</li></ul>
+      <div class="callout">🛡️ Crypto Guardian mantrası: <b>"Yavaşla, doğrula, sonra imzala."</b> Acele, hırsızın en iyi dostudur.</div>`}
+  }, quiz:[
+    {q:"Bir site 12 seed kelimeni istiyor. Ne yaparsın?",a:["Yazarım, bu destek","Çıkarım: hiçbir meşru servis bunları istemez","Sadece ilk 6'sını veririm","Bir arkadaşa sorarım"],correct:1},
+    {q:"Rug pull nedir?",a:["Bir ağ güncellemesi","Ekip likiditeyi çeker ve kaybolur","Bir staking türü","Bir donanım cüzdanı"],correct:1},
+    {q:"Bir boşaltıcı özel anahtarın olmadan cüzdanı nasıl boşaltır?",a:["Şifreni tahmin ederek","Tuzaklı bir imza/izin yoluyla","Coin'lerini madenle çıkararak","E-posta ile"],correct:1},
+    {q:"Güçlü bir rug pull sinyali nedir?",a:["Kilitli likidite","Anonim ekip + kilitsiz likidite","Denetlenmiş sözleşme","Çok sayıda dağınık sahip"],correct:1},
+    {q:"Bilinmeyen bir token ücretsiz geliyor. En iyi tepki?",a:["Hızlı sat","Onunla etkileşme","Siteyi görmek için tıkla","Geri gönder"],correct:1},
+    {q:"Bir işlemi imzalamadan önceki doğru refleks?",a:["Fiyat kaçmadan hızlı imzala","Neyi imzaladığımı oku ve URL'yi kontrol et","Antivirüsümü kapat","Ekranımı paylaş"],correct:1}
+  ]},
+  3:{ modules:{
+    dex:{title:"DEX ve CEX",body:`
+      <p>Kripto al-satın iki yolu vardır:</p>
+      <h4>CEX — merkezi borsa</h4>
+      <p>Binance, Coinbase gibi. Bir şirket fonlarını senin yerine tutar. Pratik ama <b>"not your keys, not your coins"</b>: ona bağımlısın.</p>
+      <h4>DEX — merkeziyetsiz borsa</h4>
+      <p>Uniswap, PancakeSwap gibi. <b>Doğrudan cüzdanından</b> al-sat yaparsın, aracı yok. Bir akıllı sözleşme takası yürütür.</p>
+      <ul><li>CEX = basit, hızlı, ama merkezi ve KYC.</li><li>DEX = kendi saklaman, 7/24 açık, ama tüm sorumluluk sende.</li></ul>
+      <div class="callout">💡 DeFi (merkeziyetsiz finans), akıllı sözleşmeler üzerinde çalışan, bankasız tüm finansal hizmetler dünyasıdır.</div>`},
+    lp:{title:"Likidite havuzları & AMM",body:`
+      <p>Bir DEX'te klasik emir defteri yoktur: <b>likidite havuzları</b> takasları mümkün kılar.</p>
+      <h4>Nasıl çalışır</h4>
+      <p>Kullanıcılar (<b>LP'ler, likidite sağlayıcılar</b>) eşit değerde iki varlık yatırır, örn. ETH + USDC. <b>AMM</b> denen bir algoritma fiyatı <code>x · y = k</code> formülüyle belirler.</p>
+      <ul><li>Likidite sağlarsın → <b>işlem ücretleri</b> kazanırsın.</li><li>Karşılığında havuzdaki payını temsil eden bir <b>LP token</b> alırsın.</li></ul>
+      <div class="callout">Bir havuzda ne kadar çok likidite olursa, işlem başına fiyat o kadar az oynar (düşük <i>slippage</i>).</div>`},
+    yield:{title:"Yield Farming",body:`
+      <p><b>Yield farming</b>, kriptonu getiri üretmek için çalıştırmaktır, sıklıkla birkaç protokolü üst üste koyarak.</p>
+      <ul><li>Likidite sağlarsın → LP token alırsın.</li><li>Bu LP token'ları stake edersin → ödül token'ları alırsın.</li><li>Getiriler <b>APR / APY</b> (yıllık oran) ile ölçülür.</li></ul>
+      <div class="callout warn">⚠️ %1000 APY'ler vardır… ama neredeyse her zaman sürdürülemez. Yüksek getiri = yüksek risk. Her zaman "bu getiri nereden geliyor?" diye sor.</div>`},
+    stake:{title:"Staking",body:`
+      <p><b>Staking</b>, bir <b>hisse ispatı</b> ağını güvence altına almaya yardım etmek için token'larını kilitlemek ve karşılığında ödül kazanmaktır.</p>
+      <ul><li>Token kilitlersin (örn. ETH, SOL) → istikrarlı bir getiri kazanırsın.</li><li>Yield farming'den daha stabil ve daha basit.</li><li><b>Unbonding sürelerine</b> dikkat: fonların birkaç gün kilitli kalabilir.</li></ul>
+      <div class="callout">Staking ≈ "faiz getiren para", anahtarlarının kontrolünü korurken.</div>`},
+    lend:{title:"Borç verme & borç alma",body:`
+      <p>Aave gibi protokoller kriptonu <b>ödünç vermene</b> (ve faiz kazanmana) ya da <b>ödünç almana</b> (teminat karşılığı) izin verir.</p>
+      <h4>Temel kavram: aşırı teminatlandırma</h4>
+      <p>100$ ödünç almak için 100$'dan fazla teminat yatırmalısın (örn. 150$). Teminatın çok düşerse otomatik olarak <b>tasfiye</b> edilirsin.</p>
+      <ul><li>Borç veren → kriptonda pasif gelir.</li><li>Borç alan → varlıklarını satmadan likidite.</li></ul>
+      <div class="callout warn">⚠️ Tasfiye, borç almanın 1 numaralı tehlikesidir. Her zaman rahat bir güvenlik marjı bırak.</div>`},
+    derisk:{title:"DeFi riskleri",body:`
+      <p>DeFi güçlüdür ama kendi riskleri vardır. Onları bilmek işin yarısıdır.</p>
+      <ul><li><b>Impermanent loss</b> — likidite sağlarken fiyatlar ıraksarsa, sadece tutmaktan daha az değerle kalabilirsin.</li><li><b>Akıllı sözleşme riski</b> — bir hata ya da hack bir protokolü boşaltabilir.</li><li><b>Rug pull / sahte protokoller</b> — bkz. Akademi 2.</li><li><b>Tasfiye riski</b> — borç almada.</li></ul>
+      <div class="callout">🧠 DeFi Builder kuralı: bir protokole kaybetmeyi göze alabileceğinden fazlasını koyma ve köklü, denetlenmiş protokolleri tercih et.</div>`}
+  }, quiz:[
+    {q:"Bir CEX ile bir DEX arasındaki temel fark?",a:["DEX daha pahalıdır","DEX'te cüzdanından al-sat yaparsın, aracı yok","CEX'in ücreti yoktur","Fark yok"],correct:1},
+    {q:"Uniswap gibi bir DEX'te fiyatı ne belirler?",a:["Bir insan tüccar","Matematik formülüyle bir AMM","Merkez bankası","Rastgele şans"],correct:1},
+    {q:"Bir havuza likidite sağlayarak ne kazanırsın?",a:["Hiçbir şey","İşlem ücretleri ve bir LP token","Bir kredi kartı","Garantili bir NFT"],correct:1},
+    {q:"Bir protokol %1500 APY gösteriyor. Sağlıklı tepki?",a:["Her şeyi yatır, bedava","Temkinli ol: çok yüksek getiri = çok yüksek risk","Kesin dolandırıcılıktır, yok say","Olduğu gibi kabul et"],correct:1},
+    {q:"Borç vermede tasfiye nedir?",a:["Bir sadakat bonusu","Çok düşerse teminatının zorla satılması","Faizini çekmek","Bir ağ güncellemesi"],correct:1},
+    {q:"Impermanent loss en çok kimi etkiler?",a:["Borç alanları","Fiyatlar ıraksadığında likidite sağlayıcıları","Bitcoin stake edenleri","Hiç kimseyi"],correct:1}
+  ]},
+  4:{ modules:{
+    nftbasic:{title:"NFT temelleri",body:`
+      <p>Bir <b>NFT</b> (Non-Fungible Token), bir blok zincirine kaydedilmiş <b>benzersiz</b>, kurcalanamaz bir token'dır. "Non-fungible" = takas edilemez, herhangi bir 1$'a eşit olan 1$'ın aksine.</p>
+      <ul><li>Dijital (veya fiziksel) bir varlığın <b>sahipliğini</b> ve <b>gerçekliğini</b> kanıtlar.</li><li>Her NFT'nin benzersiz bir kimliği ve herkese açık bir geçmişi vardır.</li></ul>
+      <div class="callout warn">⚠️ Yaygın efsane: "bir NFT sadece bir görseldir". Hayır — blok zincirinde bir <b>sahiplik sertifikasıdır</b>. Görsel olası kullanımlardan sadece biridir.</div>`},
+    collec:{title:"Koleksiyonlar & standartlar",body:`
+      <p>Çoğu NFT <b>koleksiyonlar</b> hâlinde gruplanır (örn. bir temayı paylaşan 10.000 parça).</p>
+      <h4>Teknik standartlar</h4>
+      <ul><li><b>ERC-721</b> — her token benzersizdir (1 eser = 1 token).</li><li><b>ERC-1155</b> — yarı-takas edilebilirliğe izin verir (örn. aynı oyun eşyasından 100 kopya).</li></ul>
+      <p><b>Nadirlik</b> (nadir özellikler) bir koleksiyon içindeki algılanan değeri güçlü biçimde belirler.</p>
+      <div class="callout"><b>Metadata</b> (görsel, özellikler) merkeziyetsiz ve kalıcı kalmak için sıklıkla IPFS'te saklanır.</div>`},
+    utility:{title:"Fayda NFT'leri",body:`
+      <p>Bir <b>fayda NFT'si</b> bir şeye erişim sağlar: görselin ötesindeki gerçek değeri budur.</p>
+      <ul><li><b>Erişim / üyelik</b> — bir topluluğa, bir etkinliğe, premium içeriğe giriş (MOON-RZ Academy NFT'leri gibi 😉).</li><li><b>Ayrıcalıklar</b> — indirimler, airdrop'lar, oy hakları.</li><li><b>Sertifikalar</b> — doğrulanabilir bir diploma veya rozet.</li></ul>
+      <div class="callout">💡 Satın almadan önce sorulacak soru: "bu NFT gerçekte ne yapıyor?". Sadece spekülasyon içinse risk yüksektir.</div>`},
+    gaming:{title:"Oyun NFT'leri",body:`
+      <p>Web3 oyunlarında eşyalar (karakterler, silahlar, arazi) <b>gerçekten sahip olduğun</b> ve yeniden satabileceğin NFT'ler olabilir.</p>
+      <ul><li><b>Play-to-earn</b> — oynayarak token/NFT kazan.</li><li><b>Birlikte çalışabilirlik</b> — bir eşyayı birden çok oyunda kullanma (hâlâ genç) fikri.</li></ul>
+      <div class="callout warn">⚠️ Birçok P2E oyunu çöktü çünkü ekonomileri sürekli yeni oyuncu akışına dayanıyordu. Her zaman oyunun <b>ekonomik sürdürülebilirliğini</b> değerlendir.</div>`},
+    rwa:{title:"Gerçek Dünya Varlıkları (RWA)",body:`
+      <p><b>RWA'lar</b> gerçek dünya varlıklarını token'laştırır: gayrimenkul, sanat, tahvil, altın… blok zincirinde bir token ile temsil edilir.</p>
+      <ul><li><b>Kısmi sahipliğe</b> olanak tanır (bir dairenin %1'ine sahip olmak).</li><li>Genelde satması zor varlıklar için daha fazla likidite.</li><li>Hızla büyüyen bir sektör, ama büyük ölçüde <b>düzenlemeye</b> bağlı.</li></ul>
+      <div class="callout">Diğer projelerinden biri (STAYLO) tam olarak gerçek varlıkları token'laştırmakla ilgili — tam da bu modülün konusu.</div>`},
+    mint:{title:"Bir NFT oluştur & listele",body:`
+      <p>Fikirden satıştaki NFT'ye adımlar:</p>
+      <ul><li><b>1. Oluştur</b> görseli / içeriği ve metadata'sını.</li><li><b>2. Mint</b> — NFT'yi blok zincirine kaydet (bir pazar yeri veya sözleşme aracılığıyla).</li><li><b>3. Listele</b> — bir pazar yerinde (OpenSea, Magic Eden…) satışa koy (sabit fiyat veya açık artırma).</li><li><b>4. Telif</b> — her gelecek satıştan kazanacağın bir % belirle.</li></ul>
+      <div class="callout">🎨 NFT Architect ipucu: bir koleksiyonun değerinin %80'i <b>topluluk ve faydadır</b>, %20'si sanat. İkisini de inşa et.</div>`}
+  }, quiz:[
+    {q:"« Non-fungible » ne demek?",a:["Değersiz","Benzersiz ve takas edilemez","Ücretsiz","Çevrimdışı saklanan"],correct:1},
+    {q:"Bir NFT temelde…",a:["Sadece bir JPEG görseli","Blok zincirinde bir sahiplik sertifikası","Bitcoin gibi bir coin","Bir şifre"],correct:1},
+    {q:"Yarı-takas edilebilir oyun eşyaları için hangi standart kullanılır?",a:["ERC-20","ERC-721","ERC-1155","BTC-1"],correct:2},
+    {q:"Bir « fayda NFT'si » ne sağlar?",a:["Görselin ötesinde hiçbir şey","Somut bir erişim veya ayrıcalık","Garantili kâr","Daha düşük Binance ücretleri"],correct:1},
+    {q:"RWA'lar nedir?",a:["Ticaret botları","Gerçek dünya varlıklarının token'laştırılması","Bir cüzdan türü","Gas ücretleri"],correct:1},
+    {q:"NFT telifleri ne işe yarar?",a:["Gas ödemek için","Her gelecek satıştan bir % kazanmak için","Ücretsiz mint için","NFT'yi silmek için"],correct:1}
+  ]},
+  5:{ modules:{
+    brand:{title:"Web3 markalaşması",body:`
+      <p>Web3'te <b>markan</b>, bir proje okyanusunda insanların sana güvenmesini sağlayan şeydir. Teknolojiden önce <b>hikâye</b> gelir.</p>
+      <ul><li><b>Net misyon</b> — hangi sorunu, kimin için çözüyorsun.</li><li><b>Görsel kimlik</b> — logo, renkler, ton (MOON-RZ'nin ay evreni gibi).</li><li><b>Tutarlılık</b> — her yerde aynı mesaj (site, X, Discord).</li></ul>
+      <div class="callout">💡 İnsanlar bir token satın almaz, bir <b>vizyona</b> katılır. Ait olmak isteyecekleri bir hikâye anlat.</div>`},
+    community:{title:"Topluluk inşası",body:`
+      <p>Kriptoda <b>topluluk üründür</b>. Topluluğu olmayan bir proje, harika teknolojiye sahip olsa bile ölüdür.</p>
+      <ul><li><b>Discord / Telegram</b> — günlük karargâh.</li><li><b>X (Twitter)</b> — vitrin ve edinim.</li><li><b>Gerçek etkileşim</b> — yanıtla, dinle, aktif üyeleri ödüllendir.</li></ul>
+      <div class="callout warn">⚠️ Gösteriş metriklerine dikkat: 50.000 satın alınmış takipçi, 500 gerçek ve etkileşimli hayrandan daha az değerlidir. Gürültüyü değil kaliteyi hedefle.</div>`},
+    marketing:{title:"Kripto pazarlaması",body:`
+      <p>Web3 pazarlaması klasikleri ekosisteme özgü kaldıraçlarla harmanlar.</p>
+      <ul><li><b>Eğitici içerik</b> — satmadan önce değer ver.</li><li><b>Ortaklıklar & KOL'ler</b> — kripto influencer'ları (onları araştır, çok sahte var).</li><li><b>Airdrop'lar & görevler</b> — topluluğu başlatmak için eylemi ödüllendir (Learn→Earn modeli).</li></ul>
+      <div class="callout">En iyi kripto pazarlaması hâlâ çalışan bir ürün + kendiliğinden konuşan kullanıcılardır.</div>`},
+    dao:{title:"DAO'lar",body:`
+      <p>Bir <b>DAO</b> (Merkeziyetsiz Otonom Organizasyon), bir patron yerine topluluğu tarafından blok zinciri üzerinden yönetilen bir organizasyondur.</p>
+      <ul><li><b>Yönetişim token'ları</b> — token'a sahip olmak = oy hakkı.</li><li><b>Öneriler & oylar</b> — topluluk değişikliklere ve hazineye karar verir.</li><li><b>Şeffaflık</b> — kararlar ve fonlar zincir üzerinde görünür.</li></ul>
+      <div class="callout">⚖️ Temel zorluk: birkaç büyük sahibin ("balinaların") tüm oyları kontrol etmesini önlemek. Yönetişim tasarımı teknoloji kadar önemlidir.</div>`},
+    tokenomics:{title:"Tokenomics",body:`
+      <p><b>Tokenomics</b>, token'ının ekonomisidir: zamanla değer koruyup korumayacağını belirleyen şey.</p>
+      <ul><li><b>Arz</b> — toplam, dolaşımdaki, enflasyon/deflasyon.</li><li><b>Dağıtım</b> — ekip, topluluk, yatırımcılar ve <b>vesting</b> (kademeli kilit açma).</li><li><b>Fayda</b> — token'ı neden tutmalı? (gas, yönetişim, erişim, ödüller…).</li><li><b>Arz vs talep</b> — faydalı ve kıt bir token değer kazanır.</li></ul>
+      <div class="callout">🧮 MOON-RZ token'ı bu mantığı izler: eylemle kazanılır (Learn→Earn) ve içerik, NFT ve yarışmaların kilidini açmak için harcanır.</div>`},
+    launch:{title:"Projeni başlat",body:`
+      <p>Fikirden başlatmaya geçmek için parçaları bir araya getirmek:</p>
+      <ul><li><b>1. Vizyon & whitepaper</b> — ne, neden, nasıl.</li><li><b>2. Topluluk</b> — başlatmadan ÖNCE inşa et.</li><li><b>3. Tokenomics</b> — sağlıklı ve şeffaf.</li><li><b>4. Ürün / MVP</b> — çalıştığını göster (bu uygulama gibi!).</li><li><b>5. Başlatma & likidite</b> — sonra toplulukla yinele.</li></ul>
+      <div class="callout">🏗️ Web3 Founder mantrası: "Önce topluluk, sonra hype." Başarılı bir lansman aylar önceden hazırlanır.</div>`}
+  }, quiz:[
+    {q:"Kriptoda insanlar gerçekte ne satın alır?",a:["İzole bir token","Bir vizyon ve bir topluluk","Logo","Gas"],correct:1},
+    {q:"Neden bir anda 50.000 takipçiden şüphe etmeli?",a:["Her zaman iyi bir işarettir","Bir gösteriş metriği olabilir (sahte etkileşim)","Token fiyatını düşürür","Gas'ı artırır"],correct:1},
+    {q:"DAO nedir?",a:["Bir donanım cüzdanı","Topluluğu tarafından zincir üzerinde yönetilen bir organizasyon","Bir NFT türü","Merkezi bir borsa"],correct:1},
+    {q:"Tokenomics'te vesting ne işe yarar?",a:["Token yakmak","Token'ları kademeli olarak açmak (ekip, yatırımcılar)","Gas ödemek","NFT oluşturmak"],correct:0},
+    {q:"DAO yönetişimini hangi risk tehdit eder?",a:["Çok fazla şeffaflık","Oyların birkaç balinada toplanması","Ücretsiz oylar","Çok fazla üye"],correct:1},
+    {q:"Bir lansman öncesi doğru öncelik?",a:["Hemen maksimum hype","Topluluğu ve çalışan bir ürünü inşa etmek","Takipçi satın almak","Whitepaper'sız başlatmak"],correct:1}
+  ]},
+  6:{ modules:{
+    candles:{title:"Grafik okuma: mumlar",body:`
+      <p><b>Japon mum</b> grafiği, tüccarın evrensel dilidir. Her mum, bir dönemdeki alıcı/satıcı savaşını özetler.</p>
+      <h4>Bir mum = 4 fiyat</h4>
+      <ul><li><b>Açılış</b> ve <b>kapanış</b> (mum gövdesi).</li><li><b>En yüksek</b> ve <b>en düşük</b> (fitiller).</li><li><b>Yeşil</b> gövde = kapanış açılışın üstünde (yükseliş). <b>Kırmızı</b> = düşüş.</li></ul>
+      <p><b>Zaman dilimi</b> her şeyi değiştirir: 1 dakikalık mum ≠ 1 günlük mum.</p>
+      <div class="callout">💡 <b>Simülatörünü</b> yanında aç: gerçek fiyatların hareketini izleyeceksin. Trading, kitaplarda değil gözün piyasada öğrenilir.</div>`},
+    sr:{title:"Destek & Direnç",body:`
+      <p>Bunlar tespit edilecek en önemli fiyat seviyeleridir.</p>
+      <h4>Destek</h4>
+      <p>Alıcıların devralıp fiyatı sektirdiği bir <b>taban</b>. Fiyat bu seviyenin altına "düşmekte zorlanır".</p>
+      <h4>Direnç</h4>
+      <p>Satıcıların devraldığı bir <b>tavan</b>. Fiyat bunun üstüne "çıkmakta zorlanır".</p>
+      <ul><li>Bir seviye ne kadar test edilirse o kadar önemlidir.</li><li>Kırılan bir destek genelde dirence dönüşür (ve tersi).</li></ul>
+      <div class="callout warn">⚠️ Bu seviyeler piksel kesinliğinde çizgiler değil, <b>bölgelerdir</b>. Aşırı kesinlikten kaçın.</div>`},
+    trend:{title:"Trendler",body:`
+      <p>"<b>Trend dostundur</b>": bir tüccarın ilk sorusu hep "piyasa hangi yöne gidiyor?".</p>
+      <ul><li><b>Yükseliş trendi</b> — daha yüksek tepeler ve daha yüksek dipler.</li><li><b>Düşüş trendi</b> — daha düşük tepeler ve daha düşük dipler.</li><li><b>Yatay (range)</b> — fiyat yana salınır, yön yok.</li></ul>
+      <div class="callout">📐 Bir <b>trend çizgisi</b> dipleri (yükselişte) ya da tepeleri (düşüşte) birleştirir. Kırılması yön değişimine işaret edebilir.</div>`},
+    volume:{title:"Hacim",body:`
+      <p><b>Hacim</b> = bir dönemde işlem gören miktar. Bir fiyat hareketinin arkasındaki <b>yakıttır</b>.</p>
+      <ul><li><b>Yüksek hacimde</b> bir yükseliş = güvenilir, desteklenen hareket.</li><li><b>Düşük hacimde</b> bir yükseliş = şüpheli, hareket sönebilir.</li><li>Bir hacim sıçraması genelde dönüşlere veya kırılmalara eşlik eder.</li></ul>
+      <div class="callout">🔎 Basit kural: hacim fiyatı <b>doğrular</b>. Hacimsiz bir direnç kırılması şüphelidir.</div>`},
+    liquidity:{title:"Likidite",body:`
+      <p><b>Likidite</b>, fiyatı oynatmadan alıp satabilme kolaylığıdır. Her iki tarafta da çok emir = likit bir piyasa.</p>
+      <ul><li><b>Likit</b> varlık (BTC, ETH) → düşük <b>slippage</b>, gösterilen fiyata yakın gerçekleşme.</li><li><b>Likit olmayan</b> varlık (küçük token) → tek büyük emir fiyatı oynatır, manipülasyon zemini.</li></ul>
+      <div class="callout warn">⚠️ Birçok tuzak (pump &amp; dump) sadece likit olmayan varlıklarda mümkündür. Başlarken derin piyasaları tercih et.</div>`},
+    analyse:{title:"Pratiğe dökmek",body:`
+      <p>İlk yapılandırılmış <b>piyasa analizin</b> için hepsini bir araya getir:</p>
+      <ul><li><b>1. Trend</b> — yükseliş, düşüş ya da yatay mı?</li><li><b>2. Seviyeler</b> — kilit destek ve dirençler nerede?</li><li><b>3. Hacim</b> — mevcut hareketi doğruluyor mu?</li><li><b>4. Likidite</b> — varlık yeterince derin mi?</li><li><b>5. Plan</b> — nereden girerim, yanılırsam nerede keserim (bu Akademi 7).</li></ul>
+      <div class="callout">🏋️ Market Analyst egzersizi: <b>Simülatörü</b> aç, BTC ya da ETH seç ve "Al"a tıklamadan önce bu 5 adımı yüksek sesle uygula. ETH, BNB, SOL, XRP üzerinde tekrarla.</div>`}
+  }, quiz:[
+    {q:"Bir mumun gövdesi neyi temsil eder?",a:["En yüksek ve en düşüğü","Açılış ve kapanışı","Hacmi","Ücretleri"],correct:1},
+    {q:"Destek nedir?",a:["Bir fiyat tavanı","Alıcıların fiyatı sektirdiği bir taban","Bir token türü","Kırmızı bir mum"],correct:1},
+    {q:"Yükseliş trendi…",a:["Daha yüksek tepeler ve daha yüksek dipler","Düz bir fiyat","Daha düşük dipler","Her zaman düşük hacim"],correct:0},
+    {q:"Hacim ne işe yarar?",a:["Ücret hesaplamak","Bir fiyat hareketinin güvenilirliğini doğrulamak","NFT oluşturmak","Cüzdanı güvence altına almak"],correct:1},
+    {q:"Likit olmayan bir varlık tehlikelidir çünkü…",a:["Çok fazla hacmi var","Tek büyük emir fiyatı oynatabilir (manipülasyon)","Çok pahalı","Grafiği yok"],correct:1},
+    {q:"Trading öncesi ilk soru?",a:["Projenin logosu ne?","Trend hangi yöne gidiyor?","CEO kim?","Kaç takipçi var?"],correct:1}
+  ]},
+  7:{ modules:{
+    mtf:{title:"Çoklu zaman dilimi analizi",body:`
+      <p>İyi bir tüccar harekete geçmeden önce <b>birkaç zaman dilimine</b> bakar. Tek bir tanesi, anahtar deliğinden bakmaktır.</p>
+      <h4>Yukarıdan aşağıya yöntem</h4>
+      <ul><li><b>Yüksek ZD</b> (gün/hafta) → ana trend, arka plan.</li><li><b>Orta ZD</b> (4s/1s) → ilgi bölgeleri.</li><li><b>Düşük ZD</b> (15dk/5dk) → kesin giriş noktası.</li></ul>
+      <p>Altın kural: <b>yüksek trend yönünde işlem yap</b> ve girişi düşük dilimde inceleştir.</p>
+      <div class="callout warn">⚠️ Klasik acemi hatası: günlük trende karşı giden 5 dakikalık bir sinyal almak. Bu, akıntıya karşı yüzmektir.</div>`},
+    risk:{title:"Risk yönetimi",body:`
+      <p>Acemilere kimsenin söylemediği gerçek: <b>trading önce riski yönetmektir, fiyatı tahmin etmek değil.</b> Kazanmadan önce hayatta kalırsın.</p>
+      <h4>%1 kuralı</h4>
+      <p>Tek bir işlemde sermayenin <b>%1-2'sinden fazlasını</b> asla riske atma. %1 riskte, seni silmek için üst üste 100 kayıp işlem gerekir — neredeyse imkânsız.</p>
+      <ul><li>%50 kayıp, başa baş gelmek için <b>%100</b> kazanç gerektirir. Sermayeyi korumak matematiktir.</li><li><b>Stop-loss</b> isteğe bağlı değildir: senin emniyet kemerindir.</li></ul>
+      <div class="callout">🧮 Simülatörde uygula: almadan ÖNCE ne kadar kaybetmeyi kabul ettiğine karar ver ve buna sadık kal.</div>`},
+    sizing:{title:"Pozisyon büyüklüğü",body:`
+      <p><b>Pozisyon büyüklüğü</b>, "ne kadar alırım?" sorusunu yanıtlar. Bu, heyecanından değil riskinden çıkar.</p>
+      <h4>Formül</h4>
+      <p><code>Büyüklük = (Sermaye × % risk) ÷ stop-loss'a uzaklık</code></p>
+      <p>Örnek: 10.000$ sermaye, %1 risk (100$), stop -%5 → bu işlemde <b>2.000$</b> kullanabilirsin (çünkü 2000'in %5'i = 100).</p>
+      <div class="callout warn">⚠️ "Bu coin'i sevdim, hepsini koyarım" değildir. Pozisyon büyüklüğü bir <b>hesaplamadır</b>, yanılırsan nerede keseceğinle tanımlanır.</div>`},
+    rr:{title:"Stop-loss, Take-profit & R:R",body:`
+      <p>Her işlemin, girmeden <b>önce</b> bir çıkış planı olmalı.</p>
+      <ul><li><b>Stop-loss (SL)</b> — yanıldığını kabul edip kestiğin fiyat.</li><li><b>Take-profit (TP)</b> — kâr aldığın fiyat.</li><li><b>Risk/Ödül oranı (R:R)</b> — riske ettiğine karşı hedeflediğin.</li></ul>
+      <p><b>1:3</b> R:R, 300$ hedeflemek için 100$ riske atmak demektir. Böyle bir oranla, doğruyu yapmaktan daha sık yanılıp yine de <b>kârlı</b> olabilirsin.</p>
+      <div class="callout">📐 En az 1:2 hedefle. Bunun altında, en küçük kayıp serisi seni batırır.</div>`},
+    journal:{title:"Günlük & Psikoloji",body:`
+      <p>Trading'deki en büyük düşmanın piyasa değil: <b>sensin</b> (korku, açgözlülük, intikam).</p>
+      <h4>Trading günlüğü</h4>
+      <p>Her işlemi kaydet: giriş, çıkış, sebep, hissedilen duygu, sonuç. Tekrar eden hataları böyle fark edip gerçekten gelişirsin.</p>
+      <ul><li><b>FOMO</b> — kaçırma korkusuyla almak = çok geç girmek.</li><li><b>İntikam trading'i</b> — bir kayıptan sonra "geri kazanmaya" çalışmak = felaket.</li><li><b>Disiplin > motivasyon</b> — soğukkanlılıkla izlenen bir plan içgüdüyü yener.</li></ul>
+      <div class="callout">🧠 Professional Trader mantrası: "Plan the trade, trade the plan." Sakince karar ver, duygusuz uygula.</div>`},
+    strategy:{title:"Stratejini kur",body:`
+      <p>Strateji, doğaçlama yapmadan izlediğin bir dizi <b>yazılı kuraldır</b>. Üç ana stil:</p>
+      <ul><li><b>Scalping</b> — çok kısa, çok sayıda işlem (dakikalar). Yoğun, zorlayıcı.</li><li><b>Swing</b> — bir trend üzerinde birkaç gün/hafta pozisyon tutmak.</li><li><b>Yatırım (DCA)</b> — uzun vade için düzenli almak, zamanlama yok.</li></ul>
+      <h4>Stratejin şunları tanımlamalı</h4>
+      <p>Hangi piyasa · hangi ZD · giriş koşulu · stop-loss · take-profit · pozisyon büyüklüğü · duygu yönetimi kuralı.</p>
+      <div class="callout">🏋️ Professional Trader egzersizi: BİR strateji yaz (swing tarzı), sonra her kurala uyarak Simülatörde 10 işlemde test et. Her şeyi günlüğüne kaydet.</div>`}
+  }, quiz:[
+    {q:"Çoklu zaman dilimi analizinde nasıl işlem yaparsın?",a:["Yüksek trende karşı","Yüksek trendle, giriş düşük ZD'de inceleştirilir","Sadece 1 dakikada","Rastgele"],correct:1},
+    {q:"%1 kuralı şunu söyler…",a:["Günde garantili %1 kazan","İşlem başına sermayenin %1-2'sinden fazlasını asla riske atma","%1'ini Bitcoin'e yatır","%1 ücret öde"],correct:1},
+    {q:"Pozisyon büyüklüğü esas olarak neye bağlıdır?",a:["Coin'e duyduğun heyecana","Kabul ettiğin risk ve stop-loss'a uzaklık","Projenin takipçi sayısına","Mum rengine"],correct:1},
+    {q:"1:3 Risk/Ödül ne demek?",a:["100 kazanmak için 300 riske at","300 hedeflemek için 100 riske at","Günde üç işlem","%30 ücret"],correct:1},
+    {q:"İntikam trading'i nedir?",a:["Kazanan bir strateji","Bir kaybı geri kazanmaya çalışmak, genelde felaket","Bir emir türü","Gece işlem yapmak"],correct:1},
+    {q:"Trading günlüğü ne işe yarar?",a:["Hiçbir şeye","Tekrar eden hataları fark edip gelişmeye","Daha az vergi ödemeye","Coin madenciliğine"],correct:1}
+  ]},
+  8:{ modules:{
+    copilot:{title:"YZ, kripto yardımcı pilotun",body:`
+      <p>YZ (Claude, ChatGPT…) beynini değil; araştırma, analiz ve öğrenmede büyük zaman kazandıran bir <b>yardımcı pilottur</b>.</p>
+      <ul><li>Karmaşık bir kavramı senin seviyende <b>açıklar</b>.</li><li>40 sayfalık bir whitepaper'ı 10 satırda <b>özetler</b>.</li><li>Bir strateji ya da proje için <b>beyin fırtınası</b> yapar.</li><li>Bir betik, bot, basit bir akıllı sözleşme <b>kodlar</b>.</li></ul>
+      <div class="callout">💡 Bu MOON-RZ Academy uygulaması bile YZ ile inşa edildi. YZ, tek kişilik bir yaratıcı için güç çarpanıdır.</div>`},
+    prompt:{title:"İyi prompt yaz",body:`
+      <p>Cevabın kalitesi sorunun kalitesine bağlıdır. İyi bir <b>prompt</b>, bağlam ve net bir hedef verir.</p>
+      <h4>R-B-G tarifi</h4>
+      <ul><li><b>Rol</b> — "Uzman bir kripto analisti gibi davran."</li><li><b>Bağlam</b> — veriler, seviyen, kısıt.</li><li><b>Görev</b> — tam olarak ne istediğin ve çıktı biçimi.</li></ul>
+      <div class="callout warn">⚠️ Spesifik ol: "BTC'yi analiz et" belirsizdir. "BTC'nin H4'teki desteğini, direncini ve trendini 5 madde hâlinde ver" uygulanabilirdir.</div>`},
+    analyst:{title:"Bir YZ kripto analisti kur",body:`
+      <p>Sabit talimatlarla bir YZ'yi yeniden kullanılabilir bir <b>analiz asistanına</b> dönüştürebilirsin.</p>
+      <h4>Örnek talimat</h4>
+      <p>"Sen benim analistimsin. Verdiğim her varlık için hep şunlarla yanıt ver: trend, kilit seviyeler, hacim, risk seviyesi /10 ve tek cümlelik bir plan. Asla finansal tavsiye değil, sadece analiz."</p>
+      <div class="callout">🎯 YZ düşünceni yapılandırır ve seni Akademi 6 yöntemini izlemeye zorlar. Son karar yine SEN.</div>`},
+    scanner:{title:"YZ piyasa tarayıcısı",body:`
+      <p>Bir <b>tarayıcı</b>, bilgiyi önemli olana indirger ve YZ bu süzmeyi hızlandırır.</p>
+      <ul><li>Günün haberlerini ve piyasa duyarlılığını özetle.</li><li>Birkaç projeyi sabit kriterlerde karşılaştır (ekip, tokenomics, likidite…).</li><li>Derinleşilecek sinyalleri fark et — <b>asla</b> körü körüne uygulamak için değil.</li></ul>
+      <div class="callout warn">⚠️ Bir YZ sinyali bir <b>ipucudur</b>, bir emir değil. Harekete geçmeden önce veriyi her zaman kendin doğrula.</div>`},
+    agents:{title:"YZ ajanları & otomasyon",body:`
+      <p>Bir <b>YZ ajanı</b>, bir hedefe doğru eylemleri zincirleyebilen bir YZ'dir (araştır, analiz et, yaz, bazen araçlarla uygula).</p>
+      <ul><li>Günlük bir takibi otomatikleştir.</li><li>Düzenli raporlar üret.</li><li>Yaratımı destekle (içerik, kod, tasarım).</li></ul>
+      <div class="callout warn">⚠️ Gerçek tehlike: bir cüzdana ya da borsaya bağlı bir ajan, kötü tanımlanırsa zarar verebilir. Salt-okunur / simülatörde başla.</div>`},
+    ailimits:{title:"YZ sınırları & güvenlik",body:`
+      <p>YZ güçlüdür ama yanılabilir. Sınırları bilmek = onu akıllıca kullanmak.</p>
+      <ul><li><b>Halüsinasyonlar</b> — YZ özgüvenle gerçek uydurabilir. Sayıları ve sözleşmeleri doğrula.</li><li><b>Eski veri</b> — güncel fiyatları bilmeyebilir.</li><li><b>Güvenlik</b> — seed cümleni veya özel anahtarlarını ASLA bir YZ'ye ya da herhangi bir siteye verme.</li></ul>
+      <div class="callout">🧠 AI Trader kuralı: YZ kararına <b>yardım eder</b>, onun <b>yerini almaz</b>. Her zaman kontrolü ve eleştirel düşünceyi koru.</div>`}
+  }, quiz:[
+    {q:"Kriptoda YZ'nin doğru rolü nedir?",a:["Senin yerine karar vermek","Araştırma ve analizi hızlandıran bir yardımcı pilot","Özel anahtarlarını tutmak","Kâr garanti etmek"],correct:1},
+    {q:"İyi bir prompt ideal olarak şunları içerir…",a:["Tek belirsiz bir kelime","Rol, bağlam ve biçimiyle net bir görev","Sadece emojiler","Seed cümleni"],correct:1},
+    {q:"Bir YZ tarayıcısından gelen sinyal…",a:["Körü körüne uygulanacak bir emir","Kendin doğrulayacağın bir ipucu","Kâr garantisi","Bir akıllı sözleşme"],correct:1},
+    {q:"Bir cüzdana bağlı YZ ajanının riski nedir?",a:["Hiçbiri","Kötü tanımlanırsa zarar verebilir","Daha hızlı madencilik yapar","Gas'ı düşürür"],correct:1},
+    {q:"YZ halüsinasyonu nedir?",a:["Bir görüntü hatası","YZ'nin özgüvenle gerçek uydurması","Bir NFT türü","Bir ağ kesintisi"],correct:1},
+    {q:"Sana yardım etmesi için seed cümleni bir YZ'ye verebilir misin?",a:["Tanınmışsa evet","Asla, kimseye ve hiçbir araca","İlk 12 kelimeyi evet","Sadece hafta sonları"],correct:1}
+  ]},
+  9:{ modules:{
+    standards:{title:"Token standartları",body:`
+      <p>Bir token oluşturmak, cüzdan ve borsalarla uyumlu olması için tanınmış bir <b>standardı</b> izlemektir.</p>
+      <ul><li><b>ERC-20</b> (Ethereum) — takas edilebilir token'ların standardı.</li><li><b>BEP-20</b> (BNB Chain) — eşdeğeri, daha düşük ücretler.</li><li>Solana'da <b>SPL Token</b> programıdır.</li></ul>
+      <p>Bir token şunlarla tanımlanır: bir <b>ad</b>, bir <b>sembol</b> (örn. MOON), bir <b>toplam arz</b> ve bir <b>ondalık</b> sayısı.</p>
+      <div class="callout">💡 Teknik olarak temel bir token oluşturmak basittir. Zor olan — ve önemli olan — etrafındaki her şeydir (fayda, likidite, güven).</div>`},
+    contract:{title:"Token akıllı sözleşmesi",body:`
+      <p>Token, kurallarını tanımlayan bir <b>akıllı sözleşmede</b> yaşar: kim mint, burn yapabilir ve hangi sınırlarla.</p>
+      <ul><li><b>Mint</b> — yeni token oluştur.</li><li><b>Burn</b> — bir kısmını yok et (arzı azaltır, deflasyonist).</li><li><b>Sahip / izinler</b> — neyi kim kontrol eder.</li></ul>
+      <div class="callout warn">⚠️ Kötü yazılmış bir sözleşme = hack ve rug pull'lara açık bir kapı. Gerçek bir lansman için profesyonel bir <b>denetim</b> şarttır.</div>`},
+    liquidity9:{title:"Likidite & lansman",body:`
+      <p><b>Likiditesi</b> olmayan bir token değersizdir: kimse alıp satamaz.</p>
+      <h4>Bir piyasa oluşturmak</h4>
+      <p>Bir DEX'te bir <b>likidite havuzu</b> oluşturursun (örn. token'ın + USDC). Yatırılan oran başlangıç fiyatını belirler.</p>
+      <ul><li><b>Likiditeyi kilitlemek</b> insanlara güven verir: ekip hepsini çekemez.</li><li>Sahte token'lardan kaçınmak için resmi sözleşmeyi duyur (bkz. Akademi 2).</li></ul>
+      <div class="callout">🔒 Kilitli likidite + denetlenmiş sözleşme = bilinçli bir yatırımcının aradığı iki ciddiyet işareti.</div>`},
+    vesting:{title:"Vesting",body:`
+      <p><b>Vesting</b>, her şeyi bir kerede serbest bırakmak yerine token'ları zamanla <b>kademeli</b> açar.</p>
+      <ul><li>Ekip ve erken yatırımcıların lansmanda hepsini satmasını ("dump") engeller.</li><li>Teşvikleri <b>uzun vade</b> için hizalar.</li><li>Genelde bir token serbest bırakma takviminde gösterilir.</li></ul>
+      <div class="callout warn">⚠️ Bir projeye yatırım yapmadan önce vesting'i kontrol et: yakında büyük miktarlar açılacaksa fiyat düşebilir.</div>`},
+    governance:{title:"Yönetişim",body:`
+      <p>Bir token <b>karar gücü</b> verebilir: bu yönetişimdir (DAO'lara bağlı, Akademi 5).</p>
+      <ul><li>Token'a sahip olmak = projenin gelişimi üzerine oy vermek.</li><li>Kararlar ve hazine şeffafça, zincir üzerinde yönetilir.</li><li>Zorluk: <b>balina</b> egemenliğini tüm oylarda önlemek.</li></ul>
+      <div class="callout">⚖️ İyi yönetişim tasarımı gücü dağıtır ve topluluk katılımını teşvik eder.</div>`},
+    launch9:{title:"Bir token'ı sorumlu biçimde başlat",body:`
+      <p>Bir dolandırıcılığın tersi, <b>ciddi</b> bir lansmanın özeti:</p>
+      <ul><li><b>1.</b> Net fayda — token gerçekte ne için.</li><li><b>2.</b> Denetlenmiş sözleşme, sağlıklı izinler.</li><li><b>3.</b> Şeffaf tokenomics (arz, dağıtım, vesting).</li><li><b>4.</b> Sağlanmış ve kilitli likidite.</li><li><b>5.</b> Bilgilendirilmiş topluluk, resmi sözleşme yayımlandı.</li></ul>
+      <div class="callout">🪙 Token Engineer mantrası: "Bir token, ancak onunla yapabildiklerinle değer kazanır." Fiyattan önce kullanımı inşa et. Bu tam da MOON-RZ token mantığıdır.</div>`}
+  }, quiz:[
+    {q:"Ethereum'da takas edilebilir token standardı nedir?",a:["ERC-721","ERC-20","SPL","BTC-1"],correct:1},
+    {q:"« Burn » işlemi ne yapar?",a:["Token oluşturur","Token yok eder ve arzı azaltır","Likiditeyi kilitler","Bir NFT mint eder"],correct:1},
+    {q:"Likiditeyi neden kilitlemeli?",a:["Daha az gas ödemek için","Güven vermek için: ekip hepsini çekemez","Ondalıkları artırmak için","Madencilik için"],correct:1},
+    {q:"Vesting ne işe yarar?",a:["Token'ları kademeli açıp dump'ları önlemek","Bir NFT oluşturmak","Kodu denetlemek","Ücret ödemek"],correct:0},
+    {q:"Bir yönetişim token'ı şunu sağlar…",a:["Projenin gelişimine oy vermek","Daha düşük Binance ücretleri","Bitcoin madenciliği","Seed cümlesini saklamak"],correct:0},
+    {q:"Bir token'a kalıcı değeri ne verir?",a:["Logosu","Gerçek faydası","Ondalık sayısı","Rengi"],correct:1}
+  ]},
+  10:{ modules:{
+    m_wallet:{title:"Kontrol noktası 1 — Cüzdan & güvenlik",body:`
+      <p>Son akademiye hoş geldin. Burada artık keşfetmiyorsun: <b>her şeyi bağlıyor</b> ve ustalığını kanıtlıyorsun.</p>
+      <h4>Artık ustalaştıkların</h4>
+      <ul><li>Bir cüzdan oluştur ve güvence altına al, seed cümleni koru.</li><li>Phishing, rug pull, boşaltıcıları tanı (Akademi 2).</li><li>Refleks: "Yavaşla, doğrula, sonra imzala."</li></ul>
+      <div class="callout">🌙 Gerçek bir Web3 ustası fonlarını düşünmeden, <b>alışkanlıkla</b> korur. Güvenlik senin temelindir.</div>`},
+    m_defi:{title:"Kontrol noktası 2 — DeFi & getiri",body:`
+      <p>Artık varlıklarını <b>riskleri anlayarak</b> çalıştırmayı biliyorsun.</p>
+      <ul><li>Bir DEX'te takas et, likidite sağla, bir APY oku.</li><li>Staking, lending ve tasfiye tehlikesi.</li><li>Impermanent loss ve akıllı sözleşme riski.</li></ul>
+      <div class="callout">🧠 Ustalık = kaynağını açıklayamadığın bir getirinin asla peşine düşmemek.</div>`},
+    m_nft:{title:"Kontrol noktası 3 — NFT & yaratım",body:`
+      <p>NFT'yi olduğu gibi görüyorsun: bir <b>sahiplik sertifikası</b> ve bir fayda taşıyıcısı.</p>
+      <ul><li>Koleksiyonları, standartları, nadirliği anla.</li><li>Almadan önce gerçek faydayı değerlendir.</li><li>Oluşturmayı, listelemeyi ve telif ayarlamayı bil.</li></ul>
+      <div class="callout">🎯 MOON-RZ rozetlerin kendileri birer fayda NFT'sidir: öğrendiklerini kanıtlarlar.</div>`},
+    m_trade:{title:"Kontrol noktası 4 — Trading & risk",body:`
+      <p>Bir piyasayı okuyup duygularınla değil, bir <b>planla</b> hareket ediyorsun.</p>
+      <ul><li>Trend, destek/dirençler, hacim, likidite.</li><li>%1 kuralı, pozisyon büyüklüğü, R:R ≥ 1:2.</li><li>Trading günlüğü ve FOMO'ya karşı disiplin.</li></ul>
+      <div class="callout">🏋️ Eylemle kanıt: <b>Simülatörde</b>, giriş planından stop-loss'a kadar tam bir strateji uygula.</div>`},
+    m_build:{title:"Kontrol noktası 5 — İnşa et & token'laştır",body:`
+      <p>Sıradan kullanıcıdan ekosistem <b>kurucusuna</b> geçebilirsin.</p>
+      <ul><li>Vizyon, markalaşma, önce topluluk.</li><li>Sağlıklı tokenomics: arz, dağıtım, vesting, fayda.</li><li>Yönetişim ve kilitli likiditeyle sorumlu bir token başlat.</li></ul>
+      <div class="callout">🏗️ "Önce topluluk, sonra hype." Artık ciddi bir projeyi tanıyabilir — ve inşa edebilirsin.</div>`},
+    m_master:{title:"Son kontrol noktası — MOON-RZ Master",body:`
+      <p>Son düzlük. 10 akademinin hepsinden geçtin: blok zinciri, güvenlik, DeFi, NFT, girişimcilik, trading, YZ, token'laştırma.</p>
+      <h4>MOON-RZ Master profili</h4>
+      <ul><li>🛡️ Web3'te bağımsız ve güvende.</li><li>💹 Bir piyasayı analiz edip riski yönetebilir.</li><li>🏗️ Bir projeyi anlayabilir, değerlendirebilir ve inşa edebilir.</li><li>🧠 Eleştirel düşünce: hiçbir kolay para vaadi seni tuzağa düşürmez.</li></ul>
+      <div class="callout">🏆 <b>MOON-RZ MASTER NFT</b>'sini kazanmak ve nihai rütbeye ulaşmak için son sınavı geç: <b>MOON-RZ Legend</b>. Gerçek ustalık öğrenmeye devam etmektir. 🚀</div>`}
+  }, quiz:[
+    {q:"Bir Web3 ustasının nihai güvenlik refleksi?",a:["Hızlı imzala","Yavaşla, doğrula, sonra imzala; seed'ini asla verme","Fonları borsada tut","Antivirüsünü kapat"],correct:1},
+    {q:"Yüksek bir DeFi getirisinin peşine düşmeden önce…",a:["Hızlıca her şeyi yatır","Getirinin nereden geldiğini ve riskini açıklayabilmek","Ücretleri yok say","Gösterilen APY'ye güven"],correct:1},
+    {q:"Trading'de sermayeni hangi kural korur?",a:["Hepsini tek coin'e yatır","İşlem başına max %1-2 risk, bir stop-loss ile","Plansız işlem yap","Her kayıptan sonra ikiye katla"],correct:1},
+    {q:"Bir token'a/NFT'ye kalıcı değeri ne verir?",a:["Tek başına hype","Gerçek faydası ve topluluğu","Ondalık sayısı","Logo rengi"],correct:1},
+    {q:"Bir kripto ustası için YZ'nin doğru rolü?",a:["Onun yerine karar verip işlem yapmak","İnsanın elinde kalan kararı desteklemek","Özel anahtarları tutmak","Kâr garanti etmek"],correct:1},
+    {q:"Nihayetinde gerçek Web3 ustalığı…",a:["En büyük portföye sahip olmak","Bağımsız olmak, riski yönetmek ve öğrenmeye devam etmek","Her influencer'ı takip etmek","Her yeni token'ı almak"],correct:1}
+  ]}
  }
 };
 function ac(aid){
