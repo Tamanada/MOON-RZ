@@ -699,6 +699,25 @@ function setLang(c){ S.lang=c; save(); applyLang(); render(); }
 /* ---------- CONTENU (modules + quiz) par académie ---------- */
 const CONTENT={
   1:{ modules:[
+    {id:"crypto",icon:"🔐",title:"Qu'est-ce que la cryptographie ?",xp:30,coins:15,body:`
+      <p>Bien avant les cryptos, la <b>cryptographie</b> existait déjà : c'est l'art de <b>protéger l'information</b>. De Jules César (qui décalait les lettres) à la machine Enigma de la 2ᵈ Guerre mondiale, on a toujours voulu cacher des messages.</p>
+      <h4>Deux outils qui font tourner la blockchain</h4>
+      <ul><li><b>Le hash</b> — une « empreinte digitale » d'un texte. Le moindre changement donne une empreinte totalement différente, et on ne peut pas revenir en arrière. C'est ce qui relie les blocs entre eux.</li><li><b>Les clés publique / privée</b> — une paire de clés mathématiques. La privée signe (prouve que c'est toi), la publique vérifie. C'est le cœur de ton wallet.</li></ul>
+      <div class="callout">💡 « Crypto » vient du grec <i>kryptós</i> = caché. La crypto-monnaie, c'est de la monnaie sécurisée par la cryptographie.</div>`},
+    {id:"cypher",icon:"🕶️",title:"Avant Bitcoin : les cypherpunks",xp:30,coins:15,body:`
+      <p>Dans les années 1980-90, un groupe de passionnés — les <b>cypherpunks</b> — défend la vie privée à l'ère numérique. Leur devise : « <i>le code, c'est la liberté</i> ».</p>
+      <h4>Les pionniers (qui ont presque réussi)</h4>
+      <ul><li><b>DigiCash</b> (David Chaum, 1989) — la première monnaie numérique anonyme. Faillite en 1998.</li><li><b>Hashcash</b> (Adam Back, 1997) — invente la <b>preuve de travail</b> que Bitcoin reprendra.</li><li><b>b-money</b> (Wei Dai) & <b>Bit Gold</b> (Nick Szabo) — les plans d'une monnaie décentralisée.</li></ul>
+      <p>Tous ont échoué sur un point : empêcher de dépenser deux fois le même argent, sans autorité centrale.</p>
+      <div class="callout">En 2008, un certain <b>Satoshi Nakamoto</b> publie un document de 9 pages qui résout ENFIN ce problème. Bitcoin est né.</div>`},
+    {id:"firsts",icon:"🌅",title:"Les premières cryptos",xp:30,coins:15,body:`
+      <p>Une fois Bitcoin lancé, une vague de projets suit. Voici la <b>frise des origines</b> :</p>
+      <ul><li><b>2009 — Bitcoin (BTC)</b> : la toute première. Une monnaie sans banque.</li><li><b>2011 — Litecoin (LTC)</b> : « l'argent » du Bitcoin « or », plus rapide.</li><li><b>2012 — XRP (Ripple)</b> : pensé pour des <b>paiements internationaux</b> quasi instantanés et très bon marché, surtout pour les banques. Pas miné comme BTC.</li><li><b>2015 — Ethereum (ETH)</b> : la révolution des <b>smart contracts</b>, qui ouvre la DeFi, les NFT, les DAO.</li></ul>
+      <div class="callout">⚡ Chaque « première » a apporté une idée neuve : réserve de valeur (BTC), vitesse (LTC), paiements (XRP), programmation (ETH).</div>`},
+    {id:"moments",icon:"🏛️",title:"Les grands moments de la crypto",xp:35,coins:18,body:`
+      <p>L'histoire crypto est faite de hauts, de bas et de leçons. Les tournants à connaître :</p>
+      <ul><li><b>2014 — Chute de Mt. Gox</b> : la plus grosse plateforme de l'époque perd 850 000 BTC. La leçon : « <i>not your keys, not your coins</i> ».</li><li><b>2016 — Le hack du DAO</b> : un bug vide un projet de millions. Ethereum se scinde en deux (ETH / ETC).</li><li><b>Le halving</b> (~tous les 4 ans) : la création de nouveaux BTC est divisée par deux. Rareté programmée.</li><li><b>2020-21 — DeFi & NFT</b> : explosion des usages décentralisés.</li><li><b>2024 — ETF Bitcoin au comptant</b> : Wall Street adopte enfin le BTC. La crypto entre dans la cour des grands.</li></ul>
+      <div class="callout warn">📉 Le marché monte et descend en cycles. L'histoire enseigne la patience… et la sécurité.</div>`},
     {id:"bc",icon:"⛓️",title:"Qu'est-ce qu'une blockchain ?",xp:30,coins:15,body:`
       <p>Une <b>blockchain</b> est un grand registre partagé par des milliers d'ordinateurs dans le monde. Personne ne le possède, tout le monde peut le vérifier.</p>
       <h4>L'idée clé</h4>
@@ -1087,6 +1106,25 @@ const CONTENT={
 const CONTENT_I18N={
  en:{
   1:{ modules:{
+    crypto:{title:"What is cryptography?",body:`
+      <p>Long before crypto, <b>cryptography</b> already existed: it's the art of <b>protecting information</b>. From Julius Caesar (who shifted letters) to the WWII Enigma machine, people have always wanted to hide messages.</p>
+      <h4>Two tools that power the blockchain</h4>
+      <ul><li><b>The hash</b> — a "fingerprint" of a text. The tiniest change gives a totally different fingerprint, and you can't reverse it. That's what links blocks together.</li><li><b>Public / private keys</b> — a pair of mathematical keys. The private one signs (proves it's you), the public one verifies. It's the heart of your wallet.</li></ul>
+      <div class="callout">💡 "Crypto" comes from the Greek <i>kryptós</i> = hidden. A cryptocurrency is money secured by cryptography.</div>`},
+    cypher:{title:"Before Bitcoin: the cypherpunks",body:`
+      <p>In the 1980s-90s, a group of enthusiasts — the <b>cypherpunks</b> — championed privacy in the digital age. Their motto: "<i>code is freedom</i>".</p>
+      <h4>The pioneers (who nearly made it)</h4>
+      <ul><li><b>DigiCash</b> (David Chaum, 1989) — the first anonymous digital money. Bankrupt in 1998.</li><li><b>Hashcash</b> (Adam Back, 1997) — invented the <b>proof of work</b> Bitcoin would later reuse.</li><li><b>b-money</b> (Wei Dai) & <b>Bit Gold</b> (Nick Szabo) — the blueprints for a decentralized currency.</li></ul>
+      <p>All failed on one point: stopping the same money from being spent twice, without a central authority.</p>
+      <div class="callout">In 2008, someone called <b>Satoshi Nakamoto</b> published a 9-page paper that FINALLY solved it. Bitcoin was born.</div>`},
+    firsts:{title:"The first cryptos",body:`
+      <p>Once Bitcoin launched, a wave of projects followed. Here's the <b>origins timeline</b>:</p>
+      <ul><li><b>2009 — Bitcoin (BTC)</b>: the very first. Money without a bank.</li><li><b>2011 — Litecoin (LTC)</b>: the "silver" to Bitcoin's "gold", faster.</li><li><b>2012 — XRP (Ripple)</b>: built for near-instant, very cheap <b>cross-border payments</b>, especially for banks. Not mined like BTC.</li><li><b>2015 — Ethereum (ETH)</b>: the <b>smart contract</b> revolution, opening up DeFi, NFTs, DAOs.</li></ul>
+      <div class="callout">⚡ Each "first" brought a new idea: store of value (BTC), speed (LTC), payments (XRP), programming (ETH).</div>`},
+    moments:{title:"Crypto's defining moments",body:`
+      <p>Crypto history is made of highs, lows and lessons. The turning points to know:</p>
+      <ul><li><b>2014 — Mt. Gox collapse</b>: the biggest exchange of the time loses 850,000 BTC. The lesson: "<i>not your keys, not your coins</i>".</li><li><b>2016 — The DAO hack</b>: a bug drains millions from a project. Ethereum splits in two (ETH / ETC).</li><li><b>The halving</b> (~every 4 years): the creation of new BTC is cut in half. Programmed scarcity.</li><li><b>2020-21 — DeFi & NFTs</b>: decentralized use cases explode.</li><li><b>2024 — Spot Bitcoin ETFs</b>: Wall Street finally adopts BTC. Crypto joins the big leagues.</li></ul>
+      <div class="callout warn">📉 The market rises and falls in cycles. History teaches patience… and security.</div>`},
     bc:{title:"What is a blockchain?",body:`
       <p>A <b>blockchain</b> is a giant ledger shared by thousands of computers around the world. Nobody owns it, and anybody can verify it.</p>
       <h4>The key idea</h4>
