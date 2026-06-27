@@ -169,9 +169,27 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   a{color:var(--moon);text-decoration:none}
 
   .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
-  @media(max-width:880px){.app{grid-template-columns:1fr}.sidebar{display:none}}
+  @media(max-width:880px){
+    .app{grid-template-columns:1fr}
+    .app .sidebar{position:fixed;top:0;left:0;height:100vh;width:286px;max-width:84%;z-index:96;transform:translateX(-100%);transition:transform .28s cubic-bezier(.2,.8,.2,1);box-shadow:0 20px 60px -16px rgba(0,0,0,.6)}
+    body.drawer-open .app .sidebar{transform:translateX(0)}
+  }
+  /* Menu burger + voile + rouleau de niveau */
+  .burger{display:none;background:var(--chip-bg);border:1px solid var(--border);color:var(--text);width:40px;height:40px;border-radius:11px;font-size:18px;cursor:pointer;flex:none;place-items:center}
+  .drawer-scrim{display:none;position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+  body.drawer-open .drawer-scrim{display:block}
+  .lvlroller{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:9px 16px 11px;text-align:center;border-bottom:1px solid var(--border);background:var(--surface);-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);position:sticky;top:0;z-index:4}
+  .lr-side{font-family:var(--font-data);font-size:12px;color:var(--muted);opacity:.4;line-height:1.3;letter-spacing:.02em}
+  .lr-cur{width:100%;max-width:440px}
+  .lr-line{display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap}
+  .lr-num{font-size:21px;color:var(--text)}
+  .lr-rank{font-size:13px;color:var(--accent);font-weight:700}
+  .lvlroller .bar{height:8px;background:var(--track);border-radius:999px;overflow:hidden;margin:6px auto 3px;max-width:440px}
+  .lvlroller .bar>span{display:block;height:100%;background:var(--accent-grad);border-radius:999px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+  .lr-xp{font-size:11px;color:var(--muted)}
+  @media(max-width:880px){ .burger{display:grid} }
 
-  .sidebar{background:linear-gradient(180deg,#12122500,#0d0d1a);border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .sidebar{background:var(--surface);-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);border-right:1px solid var(--border);padding:22px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
   .logo{display:flex;align-items:center;gap:10px;padding:0 8px 18px;font-weight:800;font-size:20px;letter-spacing:.5px}
   .logo .logo-img{width:34px;height:34px;border-radius:10px;object-fit:cover;flex:none;box-shadow:var(--logo-glow,0 0 16px -2px var(--accent))}
   .logo b{background:linear-gradient(90deg,var(--moon),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -397,6 +415,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 <div class="app">
   <aside class="sidebar">
     <div class="logo"><img class="logo-img" src="icon-192.png" alt="" /> <span>MOON-RZ <b>Academy</b></span></div>
+    <select id="langSel" class="langsel" title="Langue / Language" style="width:100%;max-width:none;margin:4px 0 8px"></select>
     <nav class="nav" id="nav">
       <span class="label" data-t="parcours">Parcours</span>
       <span class="label" data-t="monespace">Mon espace</span>
@@ -410,23 +429,19 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 
   <div class="main">
     <header class="topbar">
+      <button class="burger" id="burgerBtn" aria-label="Menu" title="Menu">☰</button>
       <div class="avatarchip" id="avatarChip" title="Mon profil">🧑‍🚀</div>
-      <div class="rankchip" id="rankChip">Crypto Explorer</div>
-      <div class="lvlwrap">
-        <div class="top"><span>Niveau <b id="lvlNum">1</b></span><span><b id="xpNow">0</b> / <span id="xpNext">100</span> XP</span></div>
-        <div class="bar"><span id="xpBar"></span></div>
-      </div>
       <div class="spacer"></div>
       <div class="stat token"><span class="coin"></span> <b id="tokenBal">0</b> MOON-RZ</div>
       <div class="stat">🔥 <b id="streak">0</b>j</div>
-      <select id="langSel" class="langsel" title="Langue / Language"></select>
       <button id="installBtn" class="installbtn" style="display:none">📲 <span data-t="install">Installer</span></button>
     </header>
-
-    <div class="mobtab" id="mobtab"></div>
+    <div class="lvlroller" id="lvlRoller"></div>
     <main class="content" id="content"></main>
   </div>
 </div>
+
+<div class="drawer-scrim" id="drawerScrim"></div>
 
 <div class="onboarding" id="onboarding"><div class="ob-card" id="obCard"></div></div>
 
@@ -648,7 +663,7 @@ function applyLang(){
   document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent=t(el.dataset.t); });
   const sel=$("langSel"); if(sel) sel.value=S.lang;
 }
-function setLang(c){ S.lang=c; save(); applyLang(); buildMobtab(); render(); }
+function setLang(c){ S.lang=c; save(); applyLang(); render(); }
 
 /* ---------- CONTENU (modules + quiz) par académie ---------- */
 const CONTENT={
@@ -3340,13 +3355,20 @@ function levelUp(l){ document.getElementById("luLvl").textContent=l; document.ge
 
 function renderHUD(){
   const L=levelFromXp(S.xp);
-  lvlNum.textContent=L.lvl; xpNow.textContent=L.into; xpNext.textContent=L.need;
-  xpBar.style.width=Math.min(100,(L.into/L.need)*100)+"%";
-  tokenBal.textContent=S.coins; streak.textContent=S.streak; rankChip.textContent=rankFor(L.lvl);
+  tokenBal.textContent=S.coins; streak.textContent=S.streak;
   avatarChip.textContent=S.profile.avatar; applyAccent();
+  const lw=t("level"), pct=Math.min(100,(L.into/L.need)*100);
+  $("lvlRoller").innerHTML=
+    `<div class="lr-side lr-prev">${L.lvl>1?lw+" "+(L.lvl-1):"&nbsp;"}</div>`+
+    `<div class="lr-cur">`+
+      `<div class="lr-line"><span class="lr-num mrz-display">${lw} ${L.lvl}</span><span class="lr-rank">${rankFor(L.lvl)}</span></div>`+
+      `<div class="bar"><span style="width:${pct}%"></span></div>`+
+      `<div class="lr-xp mrz-mono">${L.into} / ${L.need} XP</div>`+
+    `</div>`+
+    `<div class="lr-side lr-next">${L.lvl<100?lw+" "+(L.lvl+1):"&nbsp;"}</div>`;
 }
 const $=id=>document.getElementById(id);
-['lvlNum','xpNow','xpNext','xpBar','tokenBal','streak','rankChip','avatarChip'].forEach(k=>window[k]=$(k));
+['tokenBal','streak','avatarChip'].forEach(k=>window[k]=$(k));
 avatarChip.onclick=()=>go("profile");
 
 function toast(html){
@@ -3381,19 +3403,12 @@ function buildNav(){
   sel.innerHTML=LANGS.map(l=>`<option value="${l.c}">${l.f} ${l.n}</option>`).join("");
   sel.value=S.lang; sel.onchange=()=>setLang(sel.value);
 
-  buildMobtab();
+  // menu burger : la sidebar sert de tiroir sur mobile
+  $("burgerBtn").onclick=openDrawer;
+  $("drawerScrim").onclick=closeDrawer;
 }
-function buildMobtab(){
-  const mt=$("mobtab"); mt.innerHTML="";
-  const items=[];
-  ACADEMIES.forEach(a=>{ const lock=!academyUnlocked(a.id); items.push({k:"academy:"+a.id,label:a.icon+" "+a.id+(lock?' 🔒':isPassed(a.id)?' 🏅':'')}); });
-  [["simulator","📈 "+t("sim")],["referral","🤝 "+t("referral")],["partners","🏦 CEX"],["missions","🎯 "+t("missions")],["profile","🧑‍🚀 "+t("profile")]].forEach(([k,label])=>items.push({k,label}));
-  items.forEach(it=>{
-    const b=document.createElement("button"); b.textContent=it.label; b.dataset.k=it.k;
-    b.onclick=()=>{ const [n,id]=it.k.split(":"); if(n==="academy"&&!academyUnlocked(+id)){ toast("🔒 Termine l'académie précédente pour débloquer !"); return; } go(n,id?+id:null); };
-    mt.appendChild(b);
-  });
-}
+function openDrawer(){ setActiveNav(); document.body.classList.add("drawer-open"); }
+function closeDrawer(){ document.body.classList.remove("drawer-open"); }
 function refreshNavLocks(){
   document.querySelectorAll('#nav button[data-view="academy"]').forEach(b=>{
     const id=+b.dataset.id, a=ACADEMIES.find(x=>x.id===id), lock=!academyUnlocked(id);
@@ -3404,14 +3419,13 @@ function refreshNavLocks(){
 }
 function setActiveNav(){
   refreshNavLocks();
-  buildMobtab();
   document.querySelectorAll("#nav button:not([data-view='academy'])").forEach(b=>b.classList.toggle("active",b.dataset.view===VIEW.name));
-  document.querySelectorAll("#mobtab button").forEach(b=>{const [n,id]=b.dataset.k.split(":");b.classList.toggle("active",n===VIEW.name&&(!id||+id===VIEW.id));});
 }
-function go(name,id){ stopSim(); VIEW={name,id:id||1}; render(); }
+function go(name,id){ stopSim(); closeDrawer(); VIEW={name,id:id||1}; render(); }
 
 function render(){
   setActiveNav();
+  renderHUD();
   const c=$("content");
   if(VIEW.name==="academy") c.innerHTML = academyUnlocked(VIEW.id)?viewAcademy(VIEW.id):viewLocked(VIEW.id);
   else if(VIEW.name==="lesson") c.innerHTML=viewLesson(VIEW.id,VIEW.aid);
