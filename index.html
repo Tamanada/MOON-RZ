@@ -591,6 +591,7 @@ const T={
   ref_link_t:{en:"🔗 Your referral link",fr:"🔗 Ton lien de parrainage",es:"🔗 Tu enlace de referido",pt:"🔗 Seu link de indicação",de:"🔗 Dein Empfehlungslink",ru:"🔗 Твоя реферальная ссылка",tr:"🔗 Davet bağlantın",ar:"🔗 رابط الإحالة الخاص بك",zh:"🔗 你的邀请链接",ja:"🔗 あなたの紹介リンク",ko:"🔗 내 추천 링크",hi:"🔗 आपका रेफ़रल लिंक",id:"🔗 Tautan referralmu",vi:"🔗 Liên kết giới thiệu của bạn",th:"🔗 ลิงก์แนะนำของคุณ"},
   ref_link_d:{en:"Share this link: your friend gets a welcome bonus, and you get a reward when they progress.",fr:"Partage ce lien : ton ami reçoit un bonus de bienvenue, et toi une récompense quand il progresse.",es:"Comparte este enlace: tu amigo recibe un bono de bienvenida, y tú una recompensa cuando progresa.",pt:"Compartilhe este link: seu amigo ganha um bônus de boas-vindas, e você uma recompensa quando ele progride.",de:"Teile diesen Link: dein Freund erhält einen Willkommensbonus und du eine Belohnung, wenn er Fortschritte macht.",ru:"Поделись ссылкой: друг получит бонус за регистрацию, а ты — награду за его прогресс.",tr:"Bu bağlantıyı paylaş: arkadaşın hoş geldin bonusu alır, sen de o ilerledikçe ödül.",ar:"شارك هذا الرابط: يحصل صديقك على مكافأة ترحيب، وأنت على مكافأة عند تقدّمه.",zh:"分享此链接：你的好友获得欢迎奖励，他进步时你也获得奖励。",ja:"このリンクを共有：友だちは歓迎ボーナス、あなたは友だちの成長で報酬。",ko:"이 링크를 공유하세요: 친구는 환영 보너스를, 친구가 성장하면 당신은 보상을 받습니다.",hi:"यह लिंक शेयर करें: आपके दोस्त को स्वागत बोनस मिलता है, और उसके आगे बढ़ने पर आपको इनाम।",id:"Bagikan tautan ini: temanmu dapat bonus selamat datang, dan kamu dapat hadiah saat dia maju.",vi:"Chia sẻ liên kết này: bạn của bạn nhận thưởng chào mừng, còn bạn nhận thưởng khi họ tiến bộ.",th:"แชร์ลิงก์นี้: เพื่อนได้โบนัสต้อนรับ และคุณได้รางวัลเมื่อเพื่อนก้าวหน้า"},
   copy_btn:{en:"📋 Copy",fr:"📋 Copier",es:"📋 Copiar",pt:"📋 Copiar",de:"📋 Kopieren",ru:"📋 Копировать",tr:"📋 Kopyala",ar:"📋 نسخ",zh:"📋 复制",ja:"📋 コピー",ko:"📋 복사",hi:"📋 कॉपी",id:"📋 Salin",vi:"📋 Sao chép",th:"📋 คัดลอก"},
+  qr_label:{en:"📷 Scan to join me",fr:"📷 Scanne pour me rejoindre",es:"📷 Escanea para unirte",pt:"📷 Escaneie para entrar",de:"📷 Scanne, um beizutreten",ru:"📷 Сканируй, чтобы присоединиться",tr:"📷 Katılmak için tara",ar:"📷 امسح للانضمام",zh:"📷 扫码加入我",ja:"📷 スキャンして参加",ko:"📷 스캔해서 참여",hi:"📷 जुड़ने के लिए स्कैन करें",id:"📷 Pindai untuk bergabung",vi:"📷 Quét để tham gia",th:"📷 สแกนเพื่อเข้าร่วม"},
   ref_code_lbl:{en:"Your code:",fr:"Ton code :",es:"Tu código:",pt:"Seu código:",de:"Dein Code:",ru:"Твой код:",tr:"Kodun:",ar:"رمزك:",zh:"你的代码：",ja:"あなたのコード：",ko:"내 코드:",hi:"आपका कोड:",id:"Kodemu:",vi:"Mã của bạn:",th:"โค้ดของคุณ:"},
   ref_invited:{en:"👥 Friends invited",fr:"👥 Amis invités",es:"👥 Amigos invitados",pt:"👥 Amigos convidados",de:"👥 Eingeladene Freunde",ru:"👥 Приглашено друзей",tr:"👥 Davet edilen arkadaşlar",ar:"👥 الأصدقاء المدعوون",zh:"👥 已邀请好友",ja:"👥 招待した友だち",ko:"👥 초대한 친구",hi:"👥 आमंत्रित दोस्त",id:"👥 Teman diundang",vi:"👥 Bạn đã mời",th:"👥 เพื่อนที่เชิญ"},
   ref_earned:{en:"🪙 Earned via referral",fr:"🪙 Gagné via parrainage",es:"🪙 Ganado por referidos",pt:"🪙 Ganho por indicação",de:"🪙 Über Empfehlungen verdient",ru:"🪙 Заработано за рефералов",tr:"🪙 Davetten kazanılan",ar:"🪙 المكتسب من الإحالة",zh:"🪙 邀请所得",ja:"🪙 紹介で獲得",ko:"🪙 추천으로 획득",hi:"🪙 रेफ़रल से कमाया",id:"🪙 Dari referral",vi:"🪙 Kiếm từ giới thiệu",th:"🪙 ได้จากการแนะนำ"},
@@ -3723,6 +3724,13 @@ function viewReferral(){
        <button class="btn ghost sm" id="shareNative">📤 ${t("copy_btn").replace('📋 ','')}…</button>
      </div>
      <p style="margin-top:12px;font-size:12.5px;color:var(--muted)">${t("ref_code_lbl")} <b style="color:var(--moon);font-family:monospace">${S.ref.code}</b></p>
+     <!-- QR du lien de parrainage (fond blanc fixe = scannable sur tous les thèmes) -->
+     <div style="margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:8px">
+       <div style="background:#fff;padding:12px;border-radius:16px;line-height:0;box-shadow:var(--card-shadow)">
+         <img width="200" height="200" alt="QR" src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=6&data=${encodeURIComponent(refLink())}" style="display:block;width:200px;height:200px;border-radius:6px" />
+       </div>
+       <span style="font-size:13px;color:var(--muted)">${t("qr_label")}</span>
+     </div>
    </div>
 
    <div class="grid cols-3" style="margin-top:18px">
