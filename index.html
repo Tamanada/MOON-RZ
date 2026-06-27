@@ -7084,6 +7084,7 @@ function render(){
   else if(VIEW.name==="referral") c.innerHTML=viewReferral();
   else if(VIEW.name==="partners") c.innerHTML=viewPartners();
   bindContent();
+  if(VIEW.name==="academy"||VIEW.name==="referral") wireAccordions(); // volets déroulants (profil câblé dans bindProfile)
   window.scrollTo(0,0); // toujours remonter en haut à chaque transition de page
 }
 
