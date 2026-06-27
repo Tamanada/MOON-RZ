@@ -4152,6 +4152,399 @@ const CONTENT_I18N={
     {q:"Peran AI yang benar bagi master kripto?",a:["Memutuskan dan trading untuknya","Membantu keputusan, yang tetap manusiawi","Memegang kunci privat","Menjamin keuntungan"],correct:1},
     {q:"Pada akhirnya, penguasaan Web3 sejati adalah…",a:["Punya portofolio terbesar","Mandiri, mengelola risiko, dan terus belajar","Mengikuti tiap influencer","Membeli tiap token baru"],correct:1}
   ]}
+ },
+ vi:{
+  1:{ modules:{
+    crypto:{title:"Mật mã học là gì?",body:`
+      <p>Từ rất lâu trước khi có crypto, <b>mật mã học</b> đã tồn tại: đó là nghệ thuật <b>bảo vệ thông tin</b>. Từ Julius Caesar (người dịch chuyển các chữ cái) đến máy Enigma trong Thế chiến II, con người luôn muốn giấu thông điệp.</p>
+      <h4>Hai công cụ vận hành blockchain</h4>
+      <ul><li><b>Hàm băm (hash)</b> — "dấu vân tay" của một đoạn văn bản. Thay đổi nhỏ nhất cũng cho dấu vân tay hoàn toàn khác, và không thể đảo ngược. Đây là thứ liên kết các khối với nhau.</li><li><b>Khóa công khai / khóa riêng</b> — một cặp khóa toán học. Khóa riêng ký (chứng minh là bạn), khóa công khai xác minh. Đó là trái tim của ví.</li></ul>
+      <div class="callout">💡 "Crypto" bắt nguồn từ tiếng Hy Lạp <i>kryptós</i> = ẩn giấu. Tiền mã hóa là tiền được bảo vệ bằng mật mã học.</div>`},
+    cypher:{title:"Trước Bitcoin: những cypherpunk",body:`
+      <p>Vào thập niên 1980-90, một nhóm người đam mê — các <b>cypherpunk</b> — bảo vệ quyền riêng tư trong thời đại số. Phương châm của họ: "<i>mã nguồn là tự do</i>".</p>
+      <h4>Những người tiên phong (suýt thành công)</h4>
+      <ul><li><b>DigiCash</b> (David Chaum, 1989) — tiền số ẩn danh đầu tiên. Phá sản năm 1998.</li><li><b>Hashcash</b> (Adam Back, 1997) — phát minh <b>bằng chứng công việc</b> mà Bitcoin sau này dùng lại.</li><li><b>b-money</b> (Wei Dai) & <b>Bit Gold</b> (Nick Szabo) — bản thiết kế cho một đồng tiền phi tập trung.</li></ul>
+      <p>Tất cả đều thất bại ở một điểm: ngăn cùng một số tiền bị tiêu hai lần mà không cần cơ quan trung ương.</p>
+      <div class="callout">Năm 2008, một người tên <b>Satoshi Nakamoto</b> công bố tài liệu 9 trang CUỐI CÙNG đã giải được nó. Bitcoin ra đời.</div>`},
+    firsts:{title:"Những đồng crypto đầu tiên",body:`
+      <p>Khi Bitcoin ra mắt, một làn sóng dự án nối tiếp. Đây là <b>dòng thời gian khởi nguyên</b>:</p>
+      <ul><li><b>2009 — Bitcoin (BTC)</b>: đồng đầu tiên. Tiền không cần ngân hàng.</li><li><b>2011 — Litecoin (LTC)</b>: "bạc" so với "vàng" Bitcoin, nhanh hơn.</li><li><b>2012 — XRP (Ripple)</b>: tạo ra cho <b>thanh toán xuyên biên giới</b> gần như tức thì và rất rẻ, nhất là cho ngân hàng. Không đào như BTC.</li><li><b>2015 — Ethereum (ETH)</b>: cuộc cách mạng <b>hợp đồng thông minh</b>, mở ra DeFi, NFT, DAO.</li></ul>
+      <div class="callout">⚡ Mỗi "đồng đầu tiên" mang đến một ý tưởng mới: lưu trữ giá trị (BTC), tốc độ (LTC), thanh toán (XRP), lập trình (ETH).</div>`},
+    moments:{title:"Những dấu mốc của crypto",body:`
+      <p>Lịch sử crypto là chuỗi thăng trầm và bài học. Những bước ngoặt cần biết:</p>
+      <ul><li><b>2014 — Sụp đổ Mt. Gox</b>: sàn lớn nhất thời đó mất 850.000 BTC. Bài học: "<i>not your keys, not your coins</i>".</li><li><b>2016 — Vụ hack The DAO</b>: một lỗi rút cạn hàng triệu từ một dự án. Ethereum tách làm hai (ETH / ETC).</li><li><b>Halving</b> (~mỗi 4 năm): lượng BTC mới được tạo ra bị chia đôi. Khan hiếm theo lập trình.</li><li><b>2020-21 — DeFi & NFT</b>: bùng nổ các ứng dụng phi tập trung.</li><li><b>2024 — ETF Bitcoin giao ngay</b>: Phố Wall cuối cùng chấp nhận BTC. Crypto bước vào sân chơi lớn.</li></ul>
+      <div class="callout warn">📉 Thị trường lên xuống theo chu kỳ. Lịch sử dạy sự kiên nhẫn… và sự an toàn.</div>`},
+    bc:{title:"Blockchain là gì?",body:`
+      <p>Một <b>blockchain</b> là sổ cái khổng lồ được chia sẻ bởi hàng nghìn máy tính trên thế giới. Không ai sở hữu nó, và bất kỳ ai cũng có thể xác minh.</p>
+      <h4>Ý tưởng cốt lõi</h4>
+      <p>Giao dịch được gom thành các <b>khối</b>. Mỗi khối liên kết với khối trước bằng một dấu vân tay mật mã (<code>hash</code>). Vì thế có tên: <i>chuỗi các khối</i>.</p>
+      <ul><li><b>Phi tập trung</b> — không ngân hàng, không máy chủ trung tâm.</li><li><b>Bất biến</b> — đã ghi thì không thể sửa quá khứ.</li><li><b>Minh bạch</b> — ai cũng có thể xác minh mọi thứ.</li></ul>
+      <div class="callout">💡 Ví von: một Google Doc công khai mà hàng nghìn người cùng sao chép. Nếu ai đó gian lận bản của mình, những người khác tự động từ chối.</div>`},
+    btc:{title:"Bitcoin — vàng kỹ thuật số",body:`
+      <p><b>Bitcoin (BTC)</b> là blockchain đầu tiên, được Satoshi Nakamoto tạo ra năm 2009. Mục tiêu: tiền số không ngân hàng, không thể làm giả.</p>
+      <h4>Vì sao là "vàng kỹ thuật số"?</h4>
+      <ul><li>Nguồn cung <b>giới hạn 21 triệu</b> BTC. Không bao giờ hơn.</li><li>Được bảo vệ bằng <b>Bằng chứng công việc</b> (đào coin).</li><li>Chủ yếu dùng làm <b>nơi lưu trữ giá trị</b>.</li></ul>
+      <div class="callout">Phần nhỏ nhất của Bitcoin là một <code>satoshi</code>: 1 BTC = 100.000.000 satoshi.</div>`},
+    eth:{title:"Ethereum — máy tính toàn cầu",body:`
+      <p><b>Ethereum (ETH)</b> không chỉ để gửi tiền: đó là nền tảng chạy các <b>hợp đồng thông minh</b>.</p>
+      <p>Trên đó người ta xây dựng ứng dụng phi tập trung (<code>dApp</code>): DeFi, NFT, DAO, game Web3.</p>
+      <ul><li>Đồng coin gốc: <b>Ether (ETH)</b>.</li><li>Phí được gọi là <b>gas</b>.</li><li>Từ 2022 dùng <b>Bằng chứng cổ phần</b>, thân thiện môi trường hơn nhiều.</li></ul>`},
+    bnb:{title:"BNB Chain — nhanh và rẻ",body:`
+      <p><b>BNB Chain</b> tương thích Ethereum, với <b>phí rất thấp</b> và giao dịch nhanh.</p>
+      <ul><li>Đồng coin gốc: <b>BNB</b>.</li><li>Tương thích <b>EVM</b>: cùng ví và công cụ với Ethereum.</li><li>Rất phổ biến với người mới.</li></ul>
+      <div class="callout warn">⚠️ Phí thấp cũng đồng nghĩa nhiều lừa đảo và token giả. (Học viện 2)</div>`},
+    sc:{title:"Hợp đồng thông minh",body:`
+      <p>Một <b>hợp đồng thông minh</b> là chương trình trên blockchain tự chạy khi điều kiện được thỏa mãn. Không qua trung gian.</p>
+      <h4>Ví dụ</h4><p>« <i>Nếu tôi nhận 1 ETH, tôi gửi NFT này cho người mua.</i> » Mã nguồn là luật: <code>code is law</code>.</p>
+      <div class="callout">Tự động và không thể giả mạo, nhưng nếu mã có lỗi thì không có chăm sóc khách hàng. Vì thế cần <b>kiểm toán</b>.</div>`},
+    wallet:{title:"Ví (wallet)",body:`
+      <p>Một <b>ví</b> không "chứa" crypto của bạn (chúng nằm trên blockchain). Nó giữ <b>khóa</b> của bạn.</p>
+      <ul><li><b>Địa chỉ công khai</b> — như số tài khoản, để nhận.</li><li><b>Khóa riêng</b> — mật khẩu tối thượng, không bao giờ chia sẻ.</li><li><b>Cụm từ khôi phục (seed phrase)</b> (12/24 từ) — bản sao lưu của ví.</li></ul>
+      <div class="callout warn">🔒 "Not your keys, not your coins." Ghi seed phrase ra giấy, đừng bao giờ chụp ảnh hay lưu trên đám mây.</div>`}
+  }, quiz:[
+    {q:"Điều gì khiến blockchain « bất biến »?",a:["Một ngân hàng trung ương bảo vệ nó","Mỗi khối liên kết với khối trước bằng hash","Một mật khẩu admin","Nó nằm trên một máy chủ duy nhất"],correct:1},
+    {q:"Nguồn cung tối đa của Bitcoin là bao nhiêu?",a:["100 triệu","Không giới hạn","21 triệu","1 tỷ"],correct:2},
+    {q:"Ngoài gửi tiền, Ethereum dùng để làm gì?",a:["Đào Bitcoin","Chạy hợp đồng thông minh và dApp","Lưu trữ tệp","Thay thế ngân hàng trung ương"],correct:1},
+    {q:"Bạn KHÔNG BAO GIỜ được chia sẻ điều gì?",a:["Địa chỉ công khai","Biệt danh","Seed phrase / khóa riêng","Tên blockchain của bạn"],correct:2},
+    {q:"Phí trên Ethereum được gọi là…",a:["Gas","Satoshi","Staking","Hash"],correct:0},
+    {q:"« Not your keys, not your coins » nghĩa là…",a:["Giữ crypto trên sàn","Ai giữ khóa thì kiểm soát tiền","Khóa là miễn phí","Không thể mất crypto"],correct:1}
+  ]},
+  2:{ modules:{
+    scam:{title:"Lừa đảo crypto: tổng quan",body:`
+      <p>Crypto không có trung gian: <b>không ngân hàng nào có thể đảo ngược</b> một giao dịch. Đó là tự do… nhưng cũng là sân chơi cho kẻ lừa đảo. Lá chắn tốt nhất của bạn là <b>chính bạn</b>.</p>
+      <h4>Các nhóm chính</h4>
+      <ul><li><b>Phishing</b> — trang/tin nhắn giả đánh cắp quyền truy cập của bạn.</li><li><b>Rug pull</b> — đội ngũ dự án biến mất cùng tiền.</li><li><b>Kẻ rút ví (wallet drainer)</b> — một chữ ký gài bẫy làm cạn ví bạn.</li><li><b>Airdrop giả / token giả</b> — mồi nhử để bạn ký.</li></ul>
+      <div class="callout warn">🚩 Quy tắc #1: nếu nó tốt đến mức khó tin (×10 đảm bảo, "nhân đôi ETH của bạn"), đó là lừa đảo. Luôn luôn.</div>`},
+    phish:{title:"Phishing",body:`
+      <p><b>Phishing</b> bắt chước một trang/dịch vụ bạn biết để đánh cắp seed phrase hoặc lừa bạn ký.</p>
+      <h4>Cách nhận biết</h4>
+      <ul><li>Kiểm tra <b>URL từng ký tự</b>: <code>binance.com</code> ≠ <code>binqnce.com</code>.</li><li>Cảnh giác <b>quảng cáo Google</b> ở đầu kết quả — thường giả.</li><li><b>Không</b> bộ phận hỗ trợ chính thức nào hỏi seed phrase của bạn.</li><li>Đánh dấu (bookmark) trang thật và luôn vào qua đó.</li></ul>
+      <div class="callout warn">⚠️ Trang hỏi 12/24 từ của bạn = lừa đảo 100%. Không ngoại lệ.</div>`},
+    rug:{title:"Rug Pull",body:`
+      <p>Một <b>rug pull</b>: một đội tạo token, thu hút người mua, rồi <b>rút sạch thanh khoản</b> và biến mất. Giá lao về không.</p>
+      <h4>Dấu hiệu cảnh báo</h4>
+      <ul><li>Đội ngũ <b>ẩn danh</b> không có thành tích.</li><li><b>Thanh khoản không bị khóa</b>.</li><li>Vài ví nắm <b>phần lớn</b> token.</li><li>Hype lớn, hứa hẹn lợi nhuận, không có sản phẩm thật.</li></ul>
+      <div class="callout">🔎 Công cụ: trình khám phá khối (Etherscan/BscScan) + trình quét hợp đồng để xem phân bổ người nắm giữ.</div>`},
+    drain:{title:"Kẻ rút ví & quyền phê duyệt",body:`
+      <p>Bạn không cần đưa khóa riêng để bị rút cạn: chỉ cần ký một <b>phê duyệt (approval)</b> gài bẫy là đủ.</p>
+      <h4>Cái bẫy kinh điển</h4>
+      <p>Một "mint" hoặc "claim" giả khiến bạn ký một <code>approve</code> cho phép kẻ tấn công tiêu token của bạn. Sau đó chúng rút sạch.</p>
+      <ul><li>Đọc <b>thứ bạn ký</b>: thông báo "set approval for all" rất nguy hiểm.</li><li>Thu hồi các phê duyệt không dùng (vd. <code>revoke.cash</code>).</li><li>Dùng <b>ví dùng một lần (burner)</b> cho các mint rủi ro.</li></ul>
+      <div class="callout warn">🖊️ Một chữ ký có thể khiến bạn mất nhiều như khi lộ seed phrase. Hãy chậm lại trước khi bấm "Confirm".</div>`},
+    fake:{title:"Airdrop giả & token giả",body:`
+      <p>Bạn nhận một token lạ "miễn phí" trong ví. Đó là <b>mồi nhử</b>.</p>
+      <ul><li><b>Không bao giờ</b> tương tác với token lạ nhận được không lý do.</li><li>"Airdrop" yêu cầu bạn <b>kết nối ví và ký</b> trên một trang đáng ngờ = kẻ rút ví.</li><li>Xác minh địa chỉ chính thức của token trên trang/Twitter <b>thật</b> của dự án.</li></ul>
+      <div class="callout">🎁 Airdrop thật không bao giờ bắt bạn gửi tiền "để mở khóa" phần thưởng.</div>`},
+    audit:{title:"Danh sách kiểm tra an toàn của bạn",body:`
+      <p>Trước khi chạm vào một dự án, hãy chạy <b>danh sách kiểm tra nhanh</b> này:</p>
+      <ul><li>✅ URL đã xác minh + bookmark</li><li>✅ Đội ngũ nhận diện được / có uy tín</li><li>✅ Hợp đồng đã kiểm toán, thanh khoản bị khóa</li><li>✅ Phân bổ người nắm giữ lành mạnh</li><li>✅ Tôi hiểu thứ mình đang ký</li><li>✅ Ví burner cho hành động rủi ro</li><li>✅ Seed phrase ngoại tuyến, không bao giờ gõ trực tuyến</li></ul>
+      <div class="callout">🛡️ Câu thần chú Crypto Guardian: <b>"Chậm lại, xác minh, rồi mới ký."</b> Vội vàng là bạn thân nhất của kẻ trộm.</div>`}
+  }, quiz:[
+    {q:"Một trang hỏi 12 từ seed của bạn. Bạn làm gì?",a:["Gõ vào, đó là hỗ trợ","Rời đi: không dịch vụ hợp pháp nào hỏi","Chỉ đưa 6 từ đầu","Hỏi bạn bè"],correct:1},
+    {q:"Rug pull là gì?",a:["Một bản nâng cấp mạng","Đội rút thanh khoản và biến mất","Một loại staking","Một ví phần cứng"],correct:1},
+    {q:"Kẻ rút ví làm cạn ví thế nào mà không cần khóa riêng?",a:["Đoán mật khẩu","Qua một chữ ký/phê duyệt gài bẫy","Đào coin của bạn","Qua email"],correct:1},
+    {q:"Dấu hiệu mạnh của rug pull là gì?",a:["Thanh khoản bị khóa","Đội ẩn danh + thanh khoản không khóa","Hợp đồng đã kiểm toán","Nhiều người nắm giữ phân tán"],correct:1},
+    {q:"Bạn nhận token lạ miễn phí. Phản ứng tốt nhất?",a:["Bán nhanh","Đừng tương tác với nó","Bấm xem trang web","Gửi trả lại"],correct:1},
+    {q:"Phản xạ đúng trước khi ký một giao dịch?",a:["Ký nhanh trước khi giá chạy","Đọc thứ tôi ký và kiểm tra URL","Tắt phần mềm diệt virus","Chia sẻ màn hình"],correct:1}
+  ]},
+  3:{ modules:{
+    dex:{title:"DEX và CEX",body:`
+      <p>Có hai cách giao dịch crypto:</p>
+      <h4>CEX — sàn tập trung</h4>
+      <p>Như Binance, Coinbase. Một công ty giữ tiền hộ bạn. Tiện, nhưng <b>"not your keys, not your coins"</b>: bạn phụ thuộc vào nó.</p>
+      <h4>DEX — sàn phi tập trung</h4>
+      <p>Như Uniswap, PancakeSwap. Bạn giao dịch <b>trực tiếp từ ví</b>, không trung gian. Một hợp đồng thông minh xử lý việc hoán đổi.</p>
+      <ul><li>CEX = đơn giản, nhanh, nhưng tập trung và KYC.</li><li>DEX = tự quản, mở 24/7, nhưng bạn chịu mọi trách nhiệm.</li></ul>
+      <div class="callout">💡 DeFi (tài chính phi tập trung) là cả thế giới dịch vụ tài chính chạy trên hợp đồng thông minh, không ngân hàng.</div>`},
+    lp:{title:"Pool thanh khoản & AMM",body:`
+      <p>Trên DEX không có sổ lệnh cổ điển: <b>các pool thanh khoản</b> làm cho việc hoán đổi khả thi.</p>
+      <h4>Cách hoạt động</h4>
+      <p>Người dùng (các <b>LP, nhà cung cấp thanh khoản</b>) gửi hai tài sản có giá trị bằng nhau, vd. ETH + USDC. Một thuật toán gọi là <b>AMM</b> đặt giá qua công thức <code>x · y = k</code>.</p>
+      <ul><li>Bạn cung cấp thanh khoản → bạn kiếm <b>phí giao dịch</b>.</li><li>Đổi lại bạn nhận một <b>LP token</b> đại diện phần của bạn trong pool.</li></ul>
+      <div class="callout">Pool càng nhiều thanh khoản, giá càng ít dịch chuyển mỗi giao dịch (<i>slippage</i> thấp).</div>`},
+    yield:{title:"Yield Farming",body:`
+      <p><b>Yield farming</b> là đưa crypto của bạn vào làm việc để sinh lời, thường xếp chồng nhiều giao thức.</p>
+      <ul><li>Bạn cung cấp thanh khoản → nhận LP token.</li><li>Bạn stake các LP token đó → nhận token thưởng.</li><li>Lợi nhuận đo bằng <b>APR / APY</b> (lãi suất năm).</li></ul>
+      <div class="callout warn">⚠️ APY 1000% có tồn tại… nhưng gần như luôn không bền vững. Lợi nhuận cao = rủi ro cao. Luôn hỏi "lợi nhuận này từ đâu ra?".</div>`},
+    stake:{title:"Staking",body:`
+      <p><b>Staking</b> là khóa token của bạn để giúp bảo mật một mạng <b>Bằng chứng cổ phần</b>, và nhận thưởng đổi lại.</p>
+      <ul><li>Bạn khóa token (vd. ETH, SOL) → kiếm lợi nhuận ổn định.</li><li>Ổn định và đơn giản hơn yield farming.</li><li>Coi chừng <b>thời gian hủy khóa (unbonding)</b>: tiền của bạn có thể bị khóa vài ngày.</li></ul>
+      <div class="callout">Staking ≈ "tiền sinh lãi", trong khi vẫn giữ quyền kiểm soát khóa của bạn.</div>`},
+    lend:{title:"Cho vay & đi vay",body:`
+      <p>Các giao thức như Aave cho bạn <b>cho vay</b> crypto (và nhận lãi) hoặc <b>vay</b> (thế chấp tài sản).</p>
+      <h4>Khái niệm cốt lõi: thế chấp vượt mức</h4>
+      <p>Để vay 100$ bạn phải gửi hơn 100$ tài sản thế chấp (vd. 150$). Nếu thế chấp tụt quá nhiều, bạn bị <b>thanh lý</b> tự động.</p>
+      <ul><li>Người cho vay → thu nhập thụ động trên crypto của bạn.</li><li>Người vay → có thanh khoản mà không phải bán tài sản.</li></ul>
+      <div class="callout warn">⚠️ Thanh lý là nguy hiểm số 1 của việc vay. Luôn giữ biên an toàn thoải mái.</div>`},
+    derisk:{title:"Rủi ro DeFi",body:`
+      <p>DeFi mạnh mẽ nhưng có rủi ro riêng. Biết chúng là một nửa công việc.</p>
+      <ul><li><b>Tổn thất tạm thời (impermanent loss)</b> — khi cung cấp thanh khoản, nếu giá phân kỳ bạn có thể còn ít giá trị hơn so với chỉ giữ.</li><li><b>Rủi ro hợp đồng thông minh</b> — một lỗi hay vụ hack có thể rút cạn một giao thức.</li><li><b>Rug pull / giao thức giả</b> — xem Học viện 2.</li><li><b>Rủi ro thanh lý</b> — khi đi vay.</li></ul>
+      <div class="callout">🧠 Quy tắc DeFi Builder: đừng bao giờ bỏ vào một giao thức nhiều hơn mức bạn chấp nhận mất, và ưu tiên giao thức lâu đời, đã kiểm toán.</div>`}
+  }, quiz:[
+    {q:"Khác biệt chính giữa CEX và DEX?",a:["DEX đắt hơn","Trên DEX bạn giao dịch từ ví, không trung gian","CEX không có phí","Không khác biệt"],correct:1},
+    {q:"Điều gì đặt giá trên DEX như Uniswap?",a:["Một trader con người","Một AMM qua công thức toán học","Ngân hàng trung ương","May rủi"],correct:1},
+    {q:"Bạn nhận được gì khi cung cấp thanh khoản cho pool?",a:["Không gì cả","Phí giao dịch và một LP token","Một thẻ tín dụng","Một NFT đảm bảo"],correct:1},
+    {q:"Một giao thức hiển thị APY 1500%. Phản ứng lành mạnh?",a:["Đầu tư hết, miễn phí mà","Cảnh giác: lợi nhuận rất cao = rủi ro rất cao","Chắc chắn lừa đảo, bỏ qua","Tin như vậy"],correct:1},
+    {q:"Thanh lý trong cho vay là gì?",a:["Một phần thưởng trung thành","Bán cưỡng bức tài sản thế chấp nếu tụt quá nhiều","Rút lãi của bạn","Một bản nâng cấp mạng"],correct:1},
+    {q:"Tổn thất tạm thời chủ yếu ảnh hưởng…",a:["Người đi vay","Nhà cung cấp thanh khoản khi giá phân kỳ","Người stake Bitcoin","Không ai cả"],correct:1}
+  ]},
+  4:{ modules:{
+    nftbasic:{title:"Cơ bản về NFT",body:`
+      <p>Một <b>NFT</b> (Token Không Thể Thay Thế) là token <b>độc nhất</b>, không thể giả mạo, ghi trên blockchain. "Không thể thay thế" = không hoán đổi được, khác với 1$ vốn bằng bất kỳ 1$ nào.</p>
+      <ul><li>Chứng minh <b>quyền sở hữu</b> và <b>tính xác thực</b> của một tài sản số (hoặc vật lý).</li><li>Mỗi NFT có một ID độc nhất và lịch sử công khai.</li></ul>
+      <div class="callout warn">⚠️ Lầm tưởng phổ biến: "NFT chỉ là một bức ảnh". Không — đó là <b>giấy chứng nhận sở hữu</b> trên blockchain. Bức ảnh chỉ là một công dụng.</div>`},
+    collec:{title:"Bộ sưu tập & tiêu chuẩn",body:`
+      <p>Phần lớn NFT được gom thành <b>bộ sưu tập</b> (vd. 10.000 tác phẩm cùng chủ đề).</p>
+      <h4>Tiêu chuẩn kỹ thuật</h4>
+      <ul><li><b>ERC-721</b> — mỗi token độc nhất (1 tác phẩm = 1 token).</li><li><b>ERC-1155</b> — cho phép bán-thay-thế (vd. 100 bản của cùng vật phẩm game).</li></ul>
+      <p><b>Độ hiếm</b> (đặc điểm hiếm) ảnh hưởng mạnh đến giá trị cảm nhận trong một bộ sưu tập.</p>
+      <div class="callout"><b>Metadata</b> (ảnh, thuộc tính) thường lưu trên IPFS để giữ tính phi tập trung và lâu bền.</div>`},
+    utility:{title:"NFT tiện ích",body:`
+      <p>Một <b>NFT tiện ích</b> cấp quyền truy cập vào điều gì đó: đó là giá trị thật của nó, ngoài bức ảnh.</p>
+      <ul><li><b>Truy cập / thành viên</b> — vào một cộng đồng, sự kiện, nội dung cao cấp (như NFT MOON-RZ Academy 😉).</li><li><b>Đặc quyền</b> — giảm giá, airdrop, quyền bỏ phiếu.</li><li><b>Chứng nhận</b> — bằng cấp hay huy hiệu có thể xác minh.</li></ul>
+      <div class="callout">💡 Câu hỏi trước khi mua: "NFT này thực sự làm được gì?". Nếu chỉ để đầu cơ, rủi ro cao.</div>`},
+    gaming:{title:"NFT game",body:`
+      <p>Trong game Web3, vật phẩm (nhân vật, vũ khí, đất) có thể là NFT mà bạn <b>thực sự sở hữu</b> và bán lại được.</p>
+      <ul><li><b>Play-to-earn</b> — kiếm token/NFT bằng cách chơi.</li><li><b>Khả năng liên thông</b> — ý tưởng (còn non trẻ) dùng một vật phẩm qua nhiều game.</li></ul>
+      <div class="callout warn">⚠️ Nhiều game P2E sụp đổ vì kinh tế của chúng dựa vào dòng người chơi mới liên tục. Luôn đánh giá <b>tính bền vững kinh tế</b> của game.</div>`},
+    rwa:{title:"Tài sản thế giới thực (RWA)",body:`
+      <p><b>RWA</b> token hóa tài sản thế giới thực: bất động sản, nghệ thuật, trái phiếu, vàng… được đại diện bằng một token trên blockchain.</p>
+      <ul><li>Cho phép <b>sở hữu phân mảnh</b> (sở hữu 1% một căn hộ).</li><li>Nhiều thanh khoản hơn cho tài sản thường khó bán.</li><li>Lĩnh vực tăng trưởng nhanh, nhưng gắn chặt với <b>quy định</b>.</li></ul>
+      <div class="callout">Một dự án khác của bạn (STAYLO) chính là về token hóa tài sản thực — đúng điều module này nói tới.</div>`},
+    mint:{title:"Tạo & rao bán một NFT",body:`
+      <p>Các bước từ ý tưởng đến NFT rao bán:</p>
+      <ul><li><b>1. Tạo</b> hình ảnh / nội dung và metadata.</li><li><b>2. Mint</b> — ghi NFT lên blockchain (qua marketplace hoặc hợp đồng).</li><li><b>3. Rao bán (list)</b> — đăng bán (giá cố định hoặc đấu giá) trên marketplace (OpenSea, Magic Eden…).</li><li><b>4. Phí bản quyền</b> — đặt một % bạn nhận mỗi lần bán lại sau này.</li></ul>
+      <div class="callout">🎨 Mẹo NFT Architect: giá trị một bộ sưu tập 80% là <b>cộng đồng và tiện ích</b>, 20% là nghệ thuật. Xây cả hai.</div>`}
+  }, quiz:[
+    {q:"« Không thể thay thế » nghĩa là gì?",a:["Vô giá trị","Độc nhất và không hoán đổi được","Miễn phí","Lưu ngoại tuyến"],correct:1},
+    {q:"Về cơ bản NFT là…",a:["Chỉ một ảnh JPEG","Giấy chứng nhận sở hữu trên blockchain","Một đồng coin như Bitcoin","Một mật khẩu"],correct:1},
+    {q:"Tiêu chuẩn nào dùng cho vật phẩm game bán-thay-thế?",a:["ERC-20","ERC-721","ERC-1155","BTC-1"],correct:2},
+    {q:"Một « NFT tiện ích » mang lại gì?",a:["Không gì ngoài bức ảnh","Quyền truy cập cụ thể hoặc một đặc quyền","Lợi nhuận đảm bảo","Phí Binance thấp hơn"],correct:1},
+    {q:"RWA là gì?",a:["Bot giao dịch","Token hóa tài sản thế giới thực","Một loại ví","Phí gas"],correct:1},
+    {q:"Phí bản quyền NFT dùng để làm gì?",a:["Trả gas","Nhận một % mỗi lần bán lại","Mint miễn phí","Xóa NFT"],correct:1}
+  ]},
+  5:{ modules:{
+    brand:{title:"Xây dựng thương hiệu Web3",body:`
+      <p>Trong Web3, <b>thương hiệu</b> của bạn là thứ khiến người ta tin bạn giữa biển dự án. Trước công nghệ là <b>câu chuyện</b>.</p>
+      <ul><li><b>Sứ mệnh rõ ràng</b> — bạn giải quyết vấn đề gì, cho ai.</li><li><b>Bản sắc thị giác</b> — logo, màu sắc, giọng điệu (như vũ trụ mặt trăng của MOON-RZ).</li><li><b>Nhất quán</b> — cùng một thông điệp khắp nơi (web, X, Discord).</li></ul>
+      <div class="callout">💡 Người ta không mua một token, họ gia nhập một <b>tầm nhìn</b>. Hãy kể một câu chuyện họ muốn thuộc về.</div>`},
+    community:{title:"Xây dựng cộng đồng",body:`
+      <p>Trong crypto, <b>cộng đồng là sản phẩm</b>. Một dự án không cộng đồng là dự án chết, dù công nghệ tuyệt vời.</p>
+      <ul><li><b>Discord / Telegram</b> — tổng hành dinh hằng ngày.</li><li><b>X (Twitter)</b> — mặt tiền và thu hút người dùng.</li><li><b>Tương tác thật</b> — trả lời, lắng nghe, thưởng cho thành viên tích cực.</li></ul>
+      <div class="callout warn">⚠️ Cảnh giác chỉ số phù phiếm: 50.000 follower mua kém giá trị hơn 500 fan thật sự gắn bó. Nhắm tới chất lượng, không phải tiếng ồn.</div>`},
+    marketing:{title:"Marketing crypto",body:`
+      <p>Marketing Web3 pha trộn cái cổ điển với những đòn bẩy riêng của hệ sinh thái.</p>
+      <ul><li><b>Nội dung giáo dục</b> — trao giá trị trước khi bán.</li><li><b>Hợp tác & KOL</b> — người ảnh hưởng crypto (kiểm tra kỹ, nhiều người giả).</li><li><b>Airdrop & nhiệm vụ</b> — thưởng cho hành động để khởi tạo cộng đồng (mô hình Learn→Earn).</li></ul>
+      <div class="callout">Marketing crypto tốt nhất vẫn là một sản phẩm chạy được + người dùng tự nói về nó.</div>`},
+    dao:{title:"DAO",body:`
+      <p>Một <b>DAO</b> (Tổ chức Tự trị Phi tập trung) là tổ chức được quản trị bởi cộng đồng qua blockchain, thay vì một ông chủ.</p>
+      <ul><li><b>Token quản trị</b> — nắm token = quyền bỏ phiếu.</li><li><b>Đề xuất & bỏ phiếu</b> — cộng đồng quyết định các thay đổi và ngân quỹ.</li><li><b>Minh bạch</b> — quyết định và tiền hiển thị on-chain.</li></ul>
+      <div class="callout">⚖️ Thách thức chính: ngăn vài người nắm giữ lớn ("cá voi") kiểm soát toàn bộ phiếu. Thiết kế quản trị quan trọng ngang công nghệ.</div>`},
+    tokenomics:{title:"Tokenomics",body:`
+      <p><b>Tokenomics</b> là nền kinh tế của token: thứ quyết định nó có giữ giá trị theo thời gian hay không.</p>
+      <ul><li><b>Nguồn cung</b> — tổng, lưu hành, lạm phát/giảm phát.</li><li><b>Phân phối</b> — đội ngũ, cộng đồng, nhà đầu tư, và <b>vesting</b> (mở khóa dần).</li><li><b>Tiện ích</b> — tại sao giữ token? (gas, quản trị, truy cập, thưởng…).</li><li><b>Cung vs cầu</b> — token hữu ích và khan hiếm thì tăng giá.</li></ul>
+      <div class="callout">🧮 Token MOON-RZ theo logic này: kiếm bằng hành động (Learn→Earn) và tiêu để mở khóa nội dung, NFT và cuộc thi.</div>`},
+    launch:{title:"Ra mắt dự án của bạn",body:`
+      <p>Ghép các mảnh lại để đi từ ý tưởng đến ra mắt:</p>
+      <ul><li><b>1. Tầm nhìn & whitepaper</b> — cái gì, tại sao, thế nào.</li><li><b>2. Cộng đồng</b> — xây TRƯỚC khi ra mắt.</li><li><b>3. Tokenomics</b> — lành mạnh và minh bạch.</li><li><b>4. Sản phẩm / MVP</b> — chứng minh nó chạy (như ứng dụng này!).</li><li><b>5. Ra mắt & thanh khoản</b> — rồi lặp lại cùng cộng đồng.</li></ul>
+      <div class="callout">🏗️ Câu thần chú Web3 Founder: "Cộng đồng trước, hype sau." Một lần ra mắt thành công được chuẩn bị trước nhiều tháng.</div>`}
+  }, quiz:[
+    {q:"Trong crypto, người ta thực sự mua gì?",a:["Một token đơn lẻ","Một tầm nhìn và một cộng đồng","Logo","Gas"],correct:1},
+    {q:"Vì sao cảnh giác với 50.000 follower cùng lúc?",a:["Luôn là dấu hiệu tốt","Có thể là chỉ số phù phiếm (tương tác giả)","Nó hạ giá token","Nó tăng gas"],correct:1},
+    {q:"DAO là gì?",a:["Một ví phần cứng","Một tổ chức được cộng đồng quản trị on-chain","Một loại NFT","Một sàn tập trung"],correct:1},
+    {q:"Vesting trong tokenomics dùng để làm gì?",a:["Đốt token","Mở khóa token dần (đội ngũ, nhà đầu tư)","Trả gas","Tạo NFT"],correct:0},
+    {q:"Rủi ro nào đe dọa quản trị DAO?",a:["Quá minh bạch","Phiếu bị tập trung vào vài cá voi","Phiếu miễn phí","Quá nhiều thành viên"],correct:1},
+    {q:"Ưu tiên đúng trước khi ra mắt?",a:["Hype tối đa ngay","Xây cộng đồng và một sản phẩm chạy được","Mua follower","Ra mắt không whitepaper"],correct:1}
+  ]},
+  6:{ modules:{
+    candles:{title:"Đọc biểu đồ: nến",body:`
+      <p>Biểu đồ <b>nến Nhật</b> là ngôn ngữ chung của trader. Mỗi cây nến tóm tắt cuộc chiến mua/bán trong một khoảng thời gian.</p>
+      <h4>Một cây nến = 4 mức giá</h4>
+      <ul><li><b>Mở</b> và <b>đóng</b> (thân nến).</li><li><b>Cao nhất</b> và <b>thấp nhất</b> (bóng nến).</li><li>Thân <b>xanh</b> = đóng trên mở (tăng). <b>Đỏ</b> = giảm.</li></ul>
+      <p><b>Khung thời gian</b> thay đổi mọi thứ: nến 1 phút ≠ nến 1 ngày.</p>
+      <div class="callout">💡 Mở <b>Trình mô phỏng</b> bên cạnh: bạn sẽ thấy giá thật chuyển động. Trading được học bằng mắt nhìn thị trường, không phải qua sách.</div>`},
+    sr:{title:"Hỗ trợ & Kháng cự",body:`
+      <p>Đây là những mức giá quan trọng nhất cần nhận ra.</p>
+      <h4>Hỗ trợ</h4>
+      <p>Một <b>vùng sàn</b> nơi người mua tiếp quản và bật giá lên. Giá "khó rơi" xuống dưới mức này.</p>
+      <h4>Kháng cự</h4>
+      <p>Một <b>vùng trần</b> nơi người bán tiếp quản. Giá "khó vượt" lên trên.</p>
+      <ul><li>Một mức càng được kiểm tra nhiều, càng quan trọng.</li><li>Một hỗ trợ bị phá thường trở thành kháng cự (và ngược lại).</li></ul>
+      <div class="callout warn">⚠️ Các mức này là <b>vùng</b>, không phải đường chính xác từng pixel. Đừng quá chi li.</div>`},
+    trend:{title:"Xu hướng",body:`
+      <p>"<b>The trend is your friend</b>": câu hỏi đầu tiên của trader luôn là "thị trường đi hướng nào?".</p>
+      <ul><li><b>Xu hướng tăng</b> — đỉnh cao hơn và đáy cao hơn.</li><li><b>Xu hướng giảm</b> — đỉnh thấp hơn và đáy thấp hơn.</li><li><b>Đi ngang (range)</b> — giá dao động ngang, không hướng.</li></ul>
+      <div class="callout">📐 Một <b>đường xu hướng</b> nối các đáy (trong xu hướng tăng) hoặc các đỉnh (trong xu hướng giảm). Việc phá vỡ nó có thể báo hiệu đổi hướng.</div>`},
+    volume:{title:"Khối lượng",body:`
+      <p><b>Khối lượng</b> = lượng giao dịch trong một khoảng thời gian. Đó là <b>nhiên liệu</b> phía sau một cú dịch chuyển giá.</p>
+      <ul><li>Một cú tăng với <b>khối lượng cao</b> = chuyển động đáng tin, có hậu thuẫn.</li><li>Một cú tăng với <b>khối lượng thấp</b> = đáng ngờ, cú này có thể tắt ngấm.</li><li>Một cú nhảy khối lượng thường đi kèm đảo chiều hoặc breakout.</li></ul>
+      <div class="callout">🔎 Quy tắc đơn giản: khối lượng <b>xác nhận</b> giá. Phá kháng cự mà không có khối lượng là đáng ngờ.</div>`},
+    liquidity:{title:"Thanh khoản",body:`
+      <p><b>Thanh khoản</b> là độ dễ mua hoặc bán mà không làm dịch chuyển giá. Nhiều lệnh ở cả hai phía = thị trường thanh khoản tốt.</p>
+      <ul><li>Tài sản <b>thanh khoản</b> (BTC, ETH) → <b>slippage</b> thấp, khớp gần giá hiển thị.</li><li>Tài sản <b>kém thanh khoản</b> (token nhỏ) → một lệnh lớn làm dịch giá, mảnh đất cho thao túng.</li></ul>
+      <div class="callout warn">⚠️ Nhiều cái bẫy (pump &amp; dump) chỉ khả thi trên tài sản kém thanh khoản. Ưu tiên thị trường sâu khi mới bắt đầu.</div>`},
+    analyse:{title:"Đưa vào thực hành",body:`
+      <p>Kết hợp tất cả cho <b>phân tích thị trường</b> có cấu trúc đầu tiên của bạn:</p>
+      <ul><li><b>1. Xu hướng</b> — tăng, giảm hay đi ngang?</li><li><b>2. Các mức</b> — hỗ trợ và kháng cự then chốt ở đâu?</li><li><b>3. Khối lượng</b> — nó có xác nhận chuyển động hiện tại không?</li><li><b>4. Thanh khoản</b> — tài sản có đủ sâu không?</li><li><b>5. Kế hoạch</b> — vào ở đâu, cắt ở đâu nếu sai (đó là Học viện 7).</li></ul>
+      <div class="callout">🏋️ Bài tập Market Analyst: mở <b>Trình mô phỏng</b>, chọn BTC hoặc ETH, và chạy 5 bước này thành tiếng trước khi bấm "Mua". Lặp lại với ETH, BNB, SOL, XRP.</div>`}
+  }, quiz:[
+    {q:"Thân một cây nến biểu thị gì?",a:["Giá cao nhất và thấp nhất","Giá mở và đóng","Khối lượng","Phí"],correct:1},
+    {q:"Hỗ trợ là gì?",a:["Một trần giá","Một sàn nơi người mua bật giá lên","Một loại token","Một cây nến đỏ"],correct:1},
+    {q:"Xu hướng tăng là…",a:["Đỉnh cao hơn và đáy cao hơn","Giá phẳng","Đáy thấp hơn","Luôn khối lượng thấp"],correct:0},
+    {q:"Khối lượng dùng để làm gì?",a:["Tính phí","Xác nhận độ tin cậy của một cú dịch giá","Tạo NFT","Bảo mật ví"],correct:1},
+    {q:"Tài sản kém thanh khoản nguy hiểm vì…",a:["Khối lượng quá nhiều","Một lệnh lớn có thể dịch giá (thao túng)","Quá đắt","Không có biểu đồ"],correct:1},
+    {q:"Câu hỏi đầu tiên trước khi trading?",a:["Logo dự án là gì?","Xu hướng đang đi hướng nào?","CEO là ai?","Bao nhiêu follower?"],correct:1}
+  ]},
+  7:{ modules:{
+    mtf:{title:"Phân tích đa khung thời gian",body:`
+      <p>Một trader giỏi nhìn <b>nhiều khung thời gian</b> trước khi hành động. Chỉ một khung là nhìn qua lỗ khóa.</p>
+      <h4>Phương pháp từ trên xuống</h4>
+      <ul><li><b>Khung cao</b> (ngày/tuần) → xu hướng nền, bối cảnh.</li><li><b>Khung trung</b> (4h/1h) → các vùng đáng chú ý.</li><li><b>Khung thấp</b> (15m/5m) → điểm vào chính xác.</li></ul>
+      <p>Quy tắc vàng: <b>giao dịch theo hướng xu hướng cao hơn</b>, và tinh chỉnh điểm vào ở khung thấp hơn.</p>
+      <div class="callout warn">⚠️ Lỗi kinh điển của người mới: lấy một tín hiệu 5 phút đi ngược xu hướng ngày. Đó là bơi ngược dòng.</div>`},
+    risk:{title:"Quản trị rủi ro",body:`
+      <p>Sự thật không ai nói với người mới: <b>trading trước hết là quản trị rủi ro, không phải dự đoán giá.</b> Bạn sống sót trước rồi mới thắng.</p>
+      <h4>Quy tắc 1%</h4>
+      <p>Đừng bao giờ mạo hiểm <b>quá 1 đến 2%</b> vốn trên một lệnh. Ở mức rủi ro 1%, phải 100 lệnh thua liên tiếp mới quét sạch bạn — gần như bất khả.</p>
+      <ul><li>Lỗ 50% rồi cần lời <b>100%</b> chỉ để hòa vốn. Bảo vệ vốn là toán học.</li><li><b>Cắt lỗ (stop-loss)</b> không phải tùy chọn: đó là dây an toàn của bạn.</li></ul>
+      <div class="callout">🧮 Luyện trong Trình mô phỏng: quyết định TRƯỚC khi mua bạn chấp nhận mất bao nhiêu, và tuân thủ.</div>`},
+    sizing:{title:"Xác định cỡ vị thế",body:`
+      <p><b>Cỡ vị thế</b> trả lời "tôi mua bao nhiêu?". Nó xuất phát từ rủi ro của bạn, không phải sự hào hứng.</p>
+      <h4>Công thức</h4>
+      <p><code>Cỡ = (Vốn × % rủi ro) ÷ khoảng cách đến cắt lỗ</code></p>
+      <p>Ví dụ: vốn 10.000$, rủi ro 1% (100$), cắt lỗ ở -5% → bạn có thể triển khai <b>2.000$</b> cho lệnh này (vì 5% của 2000 = 100).</p>
+      <div class="callout warn">⚠️ Không phải "tôi thích đồng này nên bỏ hết vào". Cỡ vị thế là một <b>phép tính</b>, xác định bởi nơi bạn cắt nếu sai.</div>`},
+    rr:{title:"Cắt lỗ, Chốt lời & R:R",body:`
+      <p>Mỗi lệnh phải có kế hoạch thoát <b>trước</b> khi bạn vào.</p>
+      <ul><li><b>Cắt lỗ (SL)</b> — mức giá bạn thừa nhận mình sai và cắt.</li><li><b>Chốt lời (TP)</b> — mức giá bạn chốt lãi.</li><li><b>Tỷ lệ Rủi ro/Phần thưởng (R:R)</b> — bao nhiêu bạn nhắm tới so với bao nhiêu bạn mạo hiểm.</li></ul>
+      <p>R:R <b>1:3</b> nghĩa là mạo hiểm 100$ để nhắm 300$. Với tỷ lệ đó bạn có thể sai nhiều hơn đúng mà vẫn <b>có lời</b>.</p>
+      <div class="callout">📐 Nhắm ít nhất 1:2. Dưới mức đó, chuỗi thua nhỏ nhất cũng nhấn chìm bạn.</div>`},
+    journal:{title:"Nhật ký & Tâm lý",body:`
+      <p>Kẻ thù tệ nhất của bạn trong trading không phải thị trường: đó là <b>chính bạn</b> (sợ hãi, tham lam, trả thù).</p>
+      <h4>Nhật ký giao dịch</h4>
+      <p>Ghi lại mỗi lệnh: vào, ra, lý do, cảm xúc, kết quả. Đó là cách bạn nhận ra lỗi lặp lại và thực sự tiến bộ.</p>
+      <ul><li><b>FOMO</b> — mua vì sợ bỏ lỡ = vào quá trễ.</li><li><b>Giao dịch trả thù</b> — cố "gỡ lại" sau một cú thua = thảm họa.</li><li><b>Kỷ luật > động lực</b> — một kế hoạch tuân thủ lạnh lùng thắng bản năng.</li></ul>
+      <div class="callout">🧠 Câu thần chú Professional Trader: "Plan the trade, trade the plan." Quyết định bình tĩnh, thực thi không cảm xúc.</div>`},
+    strategy:{title:"Xây chiến lược của bạn",body:`
+      <p>Chiến lược là một bộ <b>quy tắc viết ra</b> mà bạn tuân theo không ngẫu hứng. Ba phong cách chính:</p>
+      <ul><li><b>Scalping</b> — nhiều lệnh rất ngắn (vài phút). Căng thẳng, đòi hỏi.</li><li><b>Swing</b> — giữ vị thế vài ngày/tuần theo một xu hướng.</li><li><b>Đầu tư (DCA)</b> — mua đều cho dài hạn, không canh thời điểm.</li></ul>
+      <h4>Chiến lược của bạn phải định nghĩa</h4>
+      <p>Thị trường nào · khung nào · điều kiện vào · cắt lỗ · chốt lời · cỡ vị thế · quy tắc quản lý cảm xúc.</p>
+      <div class="callout">🏋️ Bài tập Professional Trader: viết MỘT chiến lược (kiểu swing), rồi kiểm thử qua 10 lệnh trong Trình mô phỏng, tôn trọng mọi quy tắc. Ghi tất cả vào nhật ký.</div>`}
+  }, quiz:[
+    {q:"Trong phân tích đa khung, bạn giao dịch…",a:["Ngược xu hướng cao hơn","Theo xu hướng cao hơn, vào lệnh tinh chỉnh ở khung thấp","Chỉ ở 1 phút","Ngẫu nhiên"],correct:1},
+    {q:"Quy tắc 1% nói rằng hãy…",a:["Lời 1% đảm bảo mỗi ngày","Đừng bao giờ mạo hiểm quá 1-2% vốn mỗi lệnh","Đầu tư 1% vào Bitcoin","Trả phí 1%"],correct:1},
+    {q:"Cỡ vị thế chủ yếu phụ thuộc vào…",a:["Sự hào hứng của bạn với đồng coin","Rủi ro bạn chấp nhận và khoảng cách đến cắt lỗ","Số follower của dự án","Màu cây nến"],correct:1},
+    {q:"Rủi ro/Phần thưởng 1:3 nghĩa là…",a:["Mạo hiểm 300 để được 100","Mạo hiểm 100 để nhắm 300","Ba lệnh mỗi ngày","Phí 30%"],correct:1},
+    {q:"Giao dịch trả thù là gì?",a:["Một chiến lược thắng","Cố gỡ lại một cú thua, thường thảm họa","Một loại lệnh","Giao dịch ban đêm"],correct:1},
+    {q:"Nhật ký giao dịch dùng để làm gì?",a:["Chẳng để làm gì","Nhận ra lỗi lặp lại và tiến bộ","Đóng thuế ít hơn","Đào coin"],correct:1}
+  ]},
+  8:{ modules:{
+    copilot:{title:"AI, phi công phụ crypto của bạn",body:`
+      <p>AI (Claude, ChatGPT…) không thay thế bộ não bạn: đó là <b>phi công phụ</b> giúp tiết kiệm nhiều thời gian nghiên cứu, phân tích và học.</p>
+      <ul><li><b>Giải thích</b> một khái niệm phức tạp ở trình độ của bạn.</li><li><b>Tóm tắt</b> một whitepaper 40 trang trong 10 dòng.</li><li><b>Động não</b> một chiến lược hay dự án.</li><li><b>Viết mã</b> một script, một bot, một hợp đồng thông minh đơn giản.</li></ul>
+      <div class="callout">💡 Ứng dụng MOON-RZ Academy này cũng được xây bằng AI. AI là cấp số nhân sức mạnh cho một nhà sáng tạo đơn lẻ.</div>`},
+    prompt:{title:"Viết prompt tốt",body:`
+      <p>Chất lượng câu trả lời phụ thuộc chất lượng câu hỏi. Một <b>prompt</b> tốt cho ngữ cảnh và mục tiêu rõ ràng.</p>
+      <h4>Công thức V-N-T</h4>
+      <ul><li><b>Vai trò</b> — "Hãy đóng vai một nhà phân tích crypto chuyên gia."</li><li><b>Ngữ cảnh</b> — dữ liệu, trình độ của bạn, ràng buộc.</li><li><b>Tác vụ</b> — chính xác điều bạn muốn, và định dạng đầu ra.</li></ul>
+      <div class="callout warn">⚠️ Hãy cụ thể: "phân tích BTC" thì mơ hồ. "Cho tôi hỗ trợ, kháng cự và xu hướng của BTC trên H4, trong 5 gạch đầu dòng" thì hành động được.</div>`},
+    analyst:{title:"Xây một nhà phân tích crypto AI",body:`
+      <p>Bạn có thể biến AI thành một <b>trợ lý phân tích</b> tái sử dụng được với chỉ dẫn cố định.</p>
+      <h4>Ví dụ chỉ dẫn</h4>
+      <p>"Bạn là nhà phân tích của tôi. Với mỗi tài sản tôi đưa, luôn trả lời: xu hướng, các mức then chốt, khối lượng, mức rủi ro /10, và một kế hoạch một câu. Không bao giờ là lời khuyên tài chính, chỉ là phân tích."</p>
+      <div class="callout">🎯 AI cấu trúc hóa suy nghĩ của bạn và buộc bạn theo phương pháp Học viện 6. Quyết định cuối cùng vẫn là BẠN.</div>`},
+    scanner:{title:"Máy quét thị trường AI",body:`
+      <p>Một <b>máy quét</b> lọc thông tin xuống còn điều quan trọng, và AI tăng tốc việc lọc đó.</p>
+      <ul><li>Tóm tắt tin tức trong ngày và tâm lý thị trường.</li><li>So sánh nhiều dự án theo tiêu chí cố định (đội ngũ, tokenomics, thanh khoản…).</li><li>Phát hiện tín hiệu để đào sâu — <b>không bao giờ</b> để thực thi mù quáng.</li></ul>
+      <div class="callout warn">⚠️ Một tín hiệu AI là một <b>manh mối</b>, không phải một lệnh. Luôn tự xác minh dữ liệu trước khi hành động.</div>`},
+    agents:{title:"Tác nhân AI & tự động hóa",body:`
+      <p>Một <b>tác nhân AI</b> là một AI có thể nối chuỗi hành động hướng tới mục tiêu (tìm, phân tích, viết, đôi khi thực thi qua công cụ).</p>
+      <ul><li>Tự động hóa việc theo dõi hằng ngày.</li><li>Tạo báo cáo định kỳ.</li><li>Hỗ trợ sáng tạo (nội dung, mã, thiết kế).</li></ul>
+      <div class="callout warn">⚠️ Nguy hiểm thật: một tác nhân kết nối với ví hay sàn có thể gây hại nếu phạm vi kém. Hãy bắt đầu chỉ-đọc / trong trình mô phỏng.</div>`},
+    ailimits:{title:"Giới hạn & an toàn của AI",body:`
+      <p>AI mạnh mẽ nhưng có thể sai. Biết giới hạn = dùng nó khôn ngoan.</p>
+      <ul><li><b>Ảo giác</b> — AI có thể bịa ra sự thật một cách tự tin. Hãy xác minh con số và hợp đồng.</li><li><b>Dữ liệu cũ</b> — nó có thể không biết giá hiện tại.</li><li><b>An toàn</b> — ĐỪNG BAO GIỜ đưa seed phrase hay khóa riêng cho AI hoặc bất kỳ trang nào.</li></ul>
+      <div class="callout">🧠 Quy tắc AI Trader: AI <b>hỗ trợ</b> quyết định của bạn, không <b>thay thế</b> nó. Luôn giữ quyền kiểm soát và tư duy phản biện.</div>`}
+  }, quiz:[
+    {q:"Vai trò đúng của AI trong crypto là gì?",a:["Quyết định thay bạn","Một phi công phụ tăng tốc nghiên cứu và phân tích","Giữ khóa riêng của bạn","Đảm bảo lợi nhuận"],correct:1},
+    {q:"Một prompt tốt lý tưởng chứa…",a:["Một từ mơ hồ duy nhất","Vai trò, ngữ cảnh và một tác vụ rõ với định dạng","Chỉ emoji","Seed phrase của bạn"],correct:1},
+    {q:"Một tín hiệu từ máy quét AI là…",a:["Một lệnh để thực thi mù quáng","Một manh mối để bạn tự xác minh","Một bảo đảm lợi nhuận","Một hợp đồng thông minh"],correct:1},
+    {q:"Rủi ro của một tác nhân AI kết nối với ví?",a:["Không có","Có thể gây hại nếu phạm vi kém","Nó đào nhanh hơn","Nó hạ gas"],correct:1},
+    {q:"Ảo giác AI là gì?",a:["Một lỗi hiển thị","Khi AI bịa ra sự thật một cách tự tin","Một loại NFT","Một sự cố mạng"],correct:1},
+    {q:"Bạn có thể đưa seed phrase cho AI để nó giúp không?",a:["Có nếu nó nổi tiếng","Không bao giờ, với bất kỳ ai và công cụ nào","Có 12 từ đầu","Chỉ cuối tuần"],correct:1}
+  ]},
+  9:{ modules:{
+    standards:{title:"Tiêu chuẩn token",body:`
+      <p>Tạo một token nghĩa là theo một <b>tiêu chuẩn</b> được công nhận để tương thích với ví và sàn.</p>
+      <ul><li><b>ERC-20</b> (Ethereum) — tiêu chuẩn cho token thay thế được.</li><li><b>BEP-20</b> (BNB Chain) — tương đương, phí thấp hơn.</li><li>Trên Solana là chương trình <b>SPL Token</b>.</li></ul>
+      <p>Một token được định nghĩa bởi: một <b>tên</b>, một <b>ký hiệu</b> (vd. MOON), một <b>tổng cung</b> và một số <b>chữ số thập phân</b>.</p>
+      <div class="callout">💡 Về kỹ thuật, tạo một token cơ bản thì đơn giản. Cái khó — và cái quan trọng — là mọi thứ xung quanh (tiện ích, thanh khoản, niềm tin).</div>`},
+    contract:{title:"Hợp đồng thông minh của token",body:`
+      <p>Token sống trong một <b>hợp đồng thông minh</b> định nghĩa các quy tắc: ai có thể mint, burn, và với giới hạn nào.</p>
+      <ul><li><b>Mint</b> — tạo token mới.</li><li><b>Burn</b> — hủy một phần (giảm cung, giảm phát).</li><li><b>Chủ sở hữu / quyền</b> — ai kiểm soát cái gì.</li></ul>
+      <div class="callout warn">⚠️ Một hợp đồng viết tệ = cánh cửa mở cho hack và rug pull. Để ra mắt thật, một cuộc <b>kiểm toán</b> chuyên nghiệp là bắt buộc.</div>`},
+    liquidity9:{title:"Thanh khoản & ra mắt",body:`
+      <p>Một token không <b>thanh khoản</b> thì vô giá trị: không ai mua hay bán được.</p>
+      <h4>Tạo một thị trường</h4>
+      <p>Bạn tạo một <b>pool thanh khoản</b> trên một DEX (vd. token của bạn + USDC). Tỷ lệ gửi vào đặt giá khởi điểm.</p>
+      <ul><li><b>Khóa thanh khoản</b> trấn an mọi người: đội ngũ không thể rút sạch.</li><li>Công bố hợp đồng chính thức để tránh token giả (xem Học viện 2).</li></ul>
+      <div class="callout">🔒 Thanh khoản bị khóa + hợp đồng đã kiểm toán = hai dấu hiệu nghiêm túc mà nhà đầu tư tinh ý tìm kiếm.</div>`},
+    vesting:{title:"Vesting",body:`
+      <p><b>Vesting</b> mở khóa token <b>dần dần</b> theo thời gian, thay vì phát hành tất cả cùng lúc.</p>
+      <ul><li>Ngăn đội ngũ và nhà đầu tư sớm bán hết khi ra mắt (một cú "dump").</li><li>Căn chỉnh động lực cho <b>dài hạn</b>.</li><li>Thường được thể hiện trong lịch phát hành token.</li></ul>
+      <div class="callout warn">⚠️ Trước khi đầu tư một dự án, kiểm tra vesting: nếu lượng lớn sắp mở khóa, giá có thể giảm.</div>`},
+    governance:{title:"Quản trị",body:`
+      <p>Một token có thể trao <b>quyền quyết định</b>: đó là quản trị (gắn với DAO, Học viện 5).</p>
+      <ul><li>Nắm token = bỏ phiếu cho sự phát triển của dự án.</li><li>Quyết định và ngân quỹ được quản lý minh bạch, on-chain.</li><li>Thách thức: tránh <b>cá voi</b> thống trị toàn bộ phiếu.</li></ul>
+      <div class="callout">⚖️ Thiết kế quản trị tốt phân tán quyền lực và khuyến khích cộng đồng tham gia.</div>`},
+    launch9:{title:"Ra mắt token một cách có trách nhiệm",body:`
+      <p>Tóm tắt một lần ra mắt <b>nghiêm túc</b>, ngược với lừa đảo:</p>
+      <ul><li><b>1.</b> Tiện ích rõ ràng — token thực sự dùng để làm gì.</li><li><b>2.</b> Hợp đồng đã kiểm toán, quyền lành mạnh.</li><li><b>3.</b> Tokenomics minh bạch (cung, phân phối, vesting).</li><li><b>4.</b> Thanh khoản được cung cấp và khóa.</li><li><b>5.</b> Cộng đồng được thông tin, hợp đồng chính thức được công bố.</li></ul>
+      <div class="callout">🪙 Câu thần chú Token Engineer: "Một token chỉ có giá trị nhờ những gì bạn có thể làm với nó." Xây công dụng trước giá. Đó chính là logic của token MOON-RZ.</div>`}
+  }, quiz:[
+    {q:"Tiêu chuẩn cho token thay thế được trên Ethereum là gì?",a:["ERC-721","ERC-20","SPL","BTC-1"],correct:1},
+    {q:"Thao tác « burn » làm gì?",a:["Tạo token","Hủy token và giảm cung","Khóa thanh khoản","Mint một NFT"],correct:1},
+    {q:"Vì sao khóa thanh khoản?",a:["Để trả ít gas hơn","Để trấn an: đội ngũ không thể rút sạch","Để tăng chữ số thập phân","Để đào"],correct:1},
+    {q:"Vesting dùng để làm gì?",a:["Mở khóa token dần và tránh dump","Tạo một NFT","Kiểm toán mã","Trả phí"],correct:0},
+    {q:"Một token quản trị cho phép bạn…",a:["Bỏ phiếu cho sự phát triển dự án","Phí Binance thấp hơn","Đào Bitcoin","Lưu seed phrase"],correct:0},
+    {q:"Điều gì cho token giá trị bền vững?",a:["Logo của nó","Tiện ích thật của nó","Số chữ số thập phân","Màu của nó"],correct:1}
+  ]},
+  10:{ modules:{
+    m_wallet:{title:"Cột mốc 1 — Ví & an toàn",body:`
+      <p>Chào mừng đến học viện cuối. Ở đây bạn không còn khám phá: bạn <b>kết nối mọi thứ</b> và chứng minh sự thành thạo.</p>
+      <h4>Điều bạn giờ đã làm chủ</h4>
+      <ul><li>Tạo và bảo mật một ví, bảo vệ seed phrase.</li><li>Nhận ra phishing, rug pull, kẻ rút ví (Học viện 2).</li><li>Phản xạ: "Chậm lại, xác minh, rồi mới ký."</li></ul>
+      <div class="callout">🌙 Một bậc thầy Web3 thật sự bảo vệ tiền của mình <b>theo thói quen</b>, không cần nghĩ. An toàn là nền tảng của bạn.</div>`},
+    m_defi:{title:"Cột mốc 2 — DeFi & lợi nhuận",body:`
+      <p>Giờ bạn biết cách đưa tài sản vào làm việc <b>trong khi hiểu rủi ro</b>.</p>
+      <ul><li>Hoán đổi trên DEX, cung cấp thanh khoản, đọc một APY.</li><li>Staking, cho vay, và nguy hiểm của thanh lý.</li><li>Tổn thất tạm thời và rủi ro hợp đồng thông minh.</li></ul>
+      <div class="callout">🧠 Thành thạo = không bao giờ chạy theo một lợi nhuận mà bạn không giải thích được nguồn gốc.</div>`},
+    m_nft:{title:"Cột mốc 3 — NFT & sáng tạo",body:`
+      <p>Bạn nhìn NFT đúng bản chất: một <b>giấy chứng nhận sở hữu</b> và một vật mang tiện ích.</p>
+      <ul><li>Hiểu bộ sưu tập, tiêu chuẩn, độ hiếm.</li><li>Đánh giá tiện ích thật trước khi mua.</li><li>Biết cách tạo, rao bán, và đặt phí bản quyền.</li></ul>
+      <div class="callout">🎯 Các huy hiệu MOON-RZ của bạn chính là NFT tiện ích: chúng chứng minh điều bạn đã học.</div>`},
+    m_trade:{title:"Cột mốc 4 — Trading & rủi ro",body:`
+      <p>Bạn đọc một thị trường và hành động bằng một <b>kế hoạch</b>, không phải cảm xúc.</p>
+      <ul><li>Xu hướng, hỗ trợ/kháng cự, khối lượng, thanh khoản.</li><li>Quy tắc 1%, cỡ vị thế, R:R ≥ 1:2.</li><li>Nhật ký giao dịch và kỷ luật chống FOMO.</li></ul>
+      <div class="callout">🏋️ Chứng minh bằng hành động: áp dụng một chiến lược đầy đủ trong <b>Trình mô phỏng</b>, từ kế hoạch vào lệnh đến cắt lỗ.</div>`},
+    m_build:{title:"Cột mốc 5 — Xây dựng & token hóa",body:`
+      <p>Bạn có thể đi từ người dùng đơn thuần thành <b>người xây dựng</b> hệ sinh thái.</p>
+      <ul><li>Tầm nhìn, thương hiệu, cộng đồng trước.</li><li>Tokenomics lành mạnh: cung, phân phối, vesting, tiện ích.</li><li>Ra mắt một token có trách nhiệm, với quản trị và thanh khoản bị khóa.</li></ul>
+      <div class="callout">🏗️ "Cộng đồng trước, hype sau." Giờ bạn có thể nhận ra — và xây dựng — một dự án nghiêm túc.</div>`},
+    m_master:{title:"Cột mốc cuối — MOON-RZ Master",body:`
+      <p>Chặng cuối. Bạn đã đi qua cả 10 học viện: blockchain, an toàn, DeFi, NFT, khởi nghiệp, trading, AI, token hóa.</p>
+      <h4>Hồ sơ MOON-RZ Master</h4>
+      <ul><li>🛡️ Tự chủ và an toàn trong Web3.</li><li>💹 Có thể phân tích một thị trường và quản trị rủi ro.</li><li>🏗️ Có thể hiểu, đánh giá và xây dựng một dự án.</li><li>🧠 Tư duy phản biện: không lời hứa tiền dễ nào bẫy được bạn.</li></ul>
+      <div class="callout">🏆 Vượt qua kỳ thi cuối để giành <b>NFT MOON-RZ MASTER</b> và đạt cấp bậc tối thượng: <b>MOON-RZ Legend</b>. Thành thạo thật sự là tiếp tục học. 🚀</div>`}
+  }, quiz:[
+    {q:"Phản xạ an toàn tối thượng của một bậc thầy Web3?",a:["Ký nhanh","Chậm lại, xác minh, rồi mới ký; không bao giờ đưa seed","Giữ tiền trên sàn","Tắt phần mềm diệt virus"],correct:1},
+    {q:"Trước khi chạy theo một lợi nhuận DeFi cao, bạn phải…",a:["Đầu tư hết thật nhanh","Giải thích được lợi nhuận từ đâu và rủi ro của nó","Bỏ qua phí","Tin APY hiển thị"],correct:1},
+    {q:"Quy tắc nào bảo vệ vốn của bạn trong trading?",a:["Đặt cược tất cả vào một đồng coin","Mạo hiểm tối đa 1-2% mỗi lệnh với một cắt lỗ","Giao dịch không kế hoạch","Gấp đôi sau mỗi lần thua"],correct:1},
+    {q:"Điều gì cho token/NFT giá trị bền vững?",a:["Chỉ hype","Tiện ích thật và cộng đồng của nó","Số chữ số thập phân","Màu logo"],correct:1},
+    {q:"Vai trò đúng của AI cho một bậc thầy crypto?",a:["Quyết định và giao dịch thay họ","Hỗ trợ quyết định, vốn vẫn là của con người","Giữ khóa riêng","Đảm bảo lợi nhuận"],correct:1},
+    {q:"Rốt cuộc, sự thành thạo Web3 thật sự là…",a:["Có danh mục lớn nhất","Tự chủ, quản trị rủi ro và tiếp tục học","Theo dõi mọi người ảnh hưởng","Mua mọi token mới"],correct:1}
+  ]}
  }
 };
 function ac(aid){
