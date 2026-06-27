@@ -3759,6 +3759,399 @@ const CONTENT_I18N={
     {q:"Bir kripto ustası için YZ'nin doğru rolü?",a:["Onun yerine karar verip işlem yapmak","İnsanın elinde kalan kararı desteklemek","Özel anahtarları tutmak","Kâr garanti etmek"],correct:1},
     {q:"Nihayetinde gerçek Web3 ustalığı…",a:["En büyük portföye sahip olmak","Bağımsız olmak, riski yönetmek ve öğrenmeye devam etmek","Her influencer'ı takip etmek","Her yeni token'ı almak"],correct:1}
   ]}
+ },
+ id:{
+  1:{ modules:{
+    crypto:{title:"Apa itu kriptografi?",body:`
+      <p>Jauh sebelum kripto, <b>kriptografi</b> sudah ada: ini adalah seni <b>melindungi informasi</b>. Dari Julius Caesar (yang menggeser huruf) sampai mesin Enigma Perang Dunia II, orang selalu ingin menyembunyikan pesan.</p>
+      <h4>Dua alat yang menggerakkan blockchain</h4>
+      <ul><li><b>Hash</b> — "sidik jari" dari sebuah teks. Perubahan terkecil pun memberi sidik jari yang sama sekali berbeda, dan tak bisa dibalik. Inilah yang menautkan blok satu sama lain.</li><li><b>Kunci publik / privat</b> — sepasang kunci matematis. Yang privat menandatangani (membuktikan itu kamu), yang publik memverifikasi. Inilah inti dompetmu.</li></ul>
+      <div class="callout">💡 "Kripto" berasal dari bahasa Yunani <i>kryptós</i> = tersembunyi. Mata uang kripto adalah uang yang diamankan oleh kriptografi.</div>`},
+    cypher:{title:"Sebelum Bitcoin: para cypherpunk",body:`
+      <p>Pada 1980-90an, sekelompok penggemar — para <b>cypherpunk</b> — memperjuangkan privasi di era digital. Moto mereka: "<i>kode adalah kebebasan</i>".</p>
+      <h4>Para pelopor (yang nyaris berhasil)</h4>
+      <ul><li><b>DigiCash</b> (David Chaum, 1989) — uang digital anonim pertama. Bangkrut pada 1998.</li><li><b>Hashcash</b> (Adam Back, 1997) — menciptakan <b>proof of work</b> yang kelak dipakai Bitcoin.</li><li><b>b-money</b> (Wei Dai) & <b>Bit Gold</b> (Nick Szabo) — cetak biru mata uang terdesentralisasi.</li></ul>
+      <p>Semua gagal pada satu titik: mencegah uang yang sama dibelanjakan dua kali tanpa otoritas pusat.</p>
+      <div class="callout">Pada 2008, seseorang bernama <b>Satoshi Nakamoto</b> menerbitkan makalah 9 halaman yang AKHIRNYA memecahkannya. Bitcoin pun lahir.</div>`},
+    firsts:{title:"Kripto-kripto pertama",body:`
+      <p>Begitu Bitcoin diluncurkan, gelombang proyek menyusul. Inilah <b>linimasa asal-usulnya</b>:</p>
+      <ul><li><b>2009 — Bitcoin (BTC)</b>: yang paling pertama. Uang tanpa bank.</li><li><b>2011 — Litecoin (LTC)</b>: "perak"-nya Bitcoin "emas", lebih cepat.</li><li><b>2012 — XRP (Ripple)</b>: dibuat untuk <b>pembayaran lintas negara</b> nyaris instan dan sangat murah, terutama bagi bank. Tidak ditambang seperti BTC.</li><li><b>2015 — Ethereum (ETH)</b>: revolusi <b>smart contract</b>, membuka DeFi, NFT, DAO.</li></ul>
+      <div class="callout">⚡ Setiap "yang pertama" membawa ide baru: penyimpan nilai (BTC), kecepatan (LTC), pembayaran (XRP), pemrograman (ETH).</div>`},
+    moments:{title:"Momen-momen penting kripto",body:`
+      <p>Sejarah kripto penuh naik-turun dan pelajaran. Titik balik yang perlu diketahui:</p>
+      <ul><li><b>2014 — Runtuhnya Mt. Gox</b>: bursa terbesar saat itu kehilangan 850.000 BTC. Pelajarannya: "<i>not your keys, not your coins</i>".</li><li><b>2016 — Peretasan The DAO</b>: sebuah bug menguras jutaan dari satu proyek. Ethereum terbelah dua (ETH / ETC).</li><li><b>Halving</b> (~tiap 4 tahun): penciptaan BTC baru dipotong setengah. Kelangkaan terprogram.</li><li><b>2020-21 — DeFi & NFT</b>: ledakan pemakaian terdesentralisasi.</li><li><b>2024 — ETF Bitcoin spot</b>: Wall Street akhirnya mengadopsi BTC. Kripto masuk liga besar.</li></ul>
+      <div class="callout warn">📉 Pasar naik dan turun dalam siklus. Sejarah mengajarkan kesabaran… dan keamanan.</div>`},
+    bc:{title:"Apa itu blockchain?",body:`
+      <p>Sebuah <b>blockchain</b> adalah buku besar raksasa yang dibagikan ke ribuan komputer di seluruh dunia. Tak seorang pun memilikinya, dan siapa saja bisa memverifikasinya.</p>
+      <h4>Ide kuncinya</h4>
+      <p>Transaksi dikelompokkan menjadi <b>blok</b>. Tiap blok ditautkan ke blok sebelumnya oleh sidik jari kriptografis (<code>hash</code>). Karena itu namanya: <i>rantai blok</i>.</p>
+      <ul><li><b>Terdesentralisasi</b> — tanpa bank, tanpa server pusat.</li><li><b>Tak dapat diubah</b> — sekali tertulis, masa lalu tak bisa diubah.</li><li><b>Transparan</b> — siapa pun bisa memverifikasi segalanya.</li></ul>
+      <div class="callout">💡 Analogi: dokumen Google publik yang disalin ribuan orang bersamaan. Jika seseorang curang pada salinannya, yang lain menolaknya secara otomatis.</div>`},
+    btc:{title:"Bitcoin — emas digital",body:`
+      <p><b>Bitcoin (BTC)</b> adalah blockchain pertama, diciptakan pada 2009 oleh Satoshi Nakamoto. Tujuannya: uang digital tanpa bank, mustahil dipalsukan.</p>
+      <h4>Mengapa "emas digital"?</h4>
+      <ul><li>Pasokan <b>dibatasi 21 juta</b> BTC. Tak akan lebih.</li><li>Diamankan oleh <b>Proof of Work</b> (penambangan).</li><li>Umumnya dipakai sebagai <b>penyimpan nilai</b>.</li></ul>
+      <div class="callout">Bagian terkecil Bitcoin adalah <code>satoshi</code>: 1 BTC = 100.000.000 satoshi.</div>`},
+    eth:{title:"Ethereum — komputer dunia",body:`
+      <p><b>Ethereum (ETH)</b> bukan sekadar mengirim uang: ia adalah platform yang menjalankan <b>smart contract</b>.</p>
+      <p>Di atasnya orang membangun aplikasi terdesentralisasi (<code>dApp</code>): DeFi, NFT, DAO, game Web3.</p>
+      <ul><li>Koin asli: <b>Ether (ETH)</b>.</li><li>Biayanya disebut <b>gas</b>.</li><li>Sejak 2022 memakai <b>Proof of Stake</b>, jauh lebih ramah lingkungan.</li></ul>`},
+    bnb:{title:"BNB Chain — cepat dan murah",body:`
+      <p><b>BNB Chain</b> kompatibel dengan Ethereum, dengan <b>biaya sangat rendah</b> dan transaksi cepat.</p>
+      <ul><li>Koin asli: <b>BNB</b>.</li><li>Kompatibel <b>EVM</b>: dompet dan alat yang sama dengan Ethereum.</li><li>Sangat populer di kalangan pemula.</li></ul>
+      <div class="callout warn">⚠️ Biaya rendah juga berarti banyak penipuan dan token palsu. (Akademi 2)</div>`},
+    sc:{title:"Smart Contract",body:`
+      <p>Sebuah <b>smart contract</b> adalah program di blockchain yang berjalan sendiri saat syaratnya terpenuhi. Tanpa perantara.</p>
+      <h4>Contoh</h4><p>« <i>Jika saya menerima 1 ETH, saya kirim NFT ini ke pembeli.</i> » Kode adalah hukum: <code>code is law</code>.</p>
+      <div class="callout">Otomatis dan anti-rusak, tapi jika kodenya ada bug tak ada layanan pelanggan. Maka dari itu ada <b>audit</b>.</div>`},
+    wallet:{title:"Dompet (wallet)",body:`
+      <p>Sebuah <b>dompet</b> tidak "menyimpan" kriptomu (itu ada di blockchain). Ia menyimpan <b>kunci</b>-mu.</p>
+      <ul><li><b>Alamat publik</b> — seperti nomor rekening, untuk menerima.</li><li><b>Kunci privat</b> — kata sandi tertinggi, tak pernah dibagikan.</li><li><b>Seed phrase</b> (12/24 kata) — cadangan dompetmu.</li></ul>
+      <div class="callout warn">🔒 "Not your keys, not your coins." Tulis seed phrase-mu di kertas, jangan pernah sebagai foto atau di cloud.</div>`}
+  }, quiz:[
+    {q:"Apa yang membuat blockchain « tak dapat diubah »?",a:["Dilindungi bank sentral","Tiap blok ditautkan ke blok sebelumnya oleh hash","Kata sandi admin","Berada di satu server"],correct:1},
+    {q:"Berapa pasokan maksimum Bitcoin?",a:["100 juta","Tak terbatas","21 juta","1 miliar"],correct:2},
+    {q:"Selain mengirim uang, untuk apa Ethereum?",a:["Menambang Bitcoin","Menjalankan smart contract dan dApp","Menyimpan file","Menggantikan bank sentral"],correct:1},
+    {q:"Apa yang TIDAK BOLEH kamu bagikan?",a:["Alamat publikmu","Nama panggilanmu","Seed phrase / kunci privatmu","Nama blockchain-mu"],correct:2},
+    {q:"Biaya di Ethereum disebut…",a:["Gas","Satoshi","Staking","Hash"],correct:0},
+    {q:"« Not your keys, not your coins » berarti…",a:["Simpan kripto di bursa","Siapa yang memegang kunci mengendalikan dana","Kunci itu gratis","Kripto tak bisa hilang"],correct:1}
+  ]},
+  2:{ modules:{
+    scam:{title:"Penipuan kripto: gambaran umum",body:`
+      <p>Kripto tak punya perantara: <b>tak ada bank yang bisa membatalkan</b> transaksi. Itu kebebasan… tapi juga lahan bermain penipu. Pelindung terbaikmu adalah <b>dirimu</b>.</p>
+      <h4>Jenis-jenis utama</h4>
+      <ul><li><b>Phishing</b> — situs/pesan palsu yang mencuri aksesmu.</li><li><b>Rug pull</b> — tim proyek lenyap dengan dana.</li><li><b>Wallet drainer</b> — tanda tangan jebakan yang menguras dompetmu.</li><li><b>Airdrop palsu / token palsu</b> — umpan agar kamu menandatangani.</li></ul>
+      <div class="callout warn">🚩 Aturan #1: kalau terlalu indah untuk jadi nyata (×10 dijamin, "gandakan ETH-mu"), itu penipuan. Selalu.</div>`},
+    phish:{title:"Phishing",body:`
+      <p><b>Phishing</b> meniru situs/layanan yang kamu kenal untuk mencuri seed phrase atau menjebakmu menandatangani.</p>
+      <h4>Cara mengenalinya</h4>
+      <ul><li>Periksa <b>URL huruf demi huruf</b>: <code>binance.com</code> ≠ <code>binqnce.com</code>.</li><li>Waspadai <b>iklan Google</b> di atas hasil — sering palsu.</li><li><b>Tak ada</b> dukungan resmi yang pernah meminta seed phrase-mu.</li><li>Bookmark situs asli dan selalu lewat situ.</li></ul>
+      <div class="callout warn">⚠️ Situs yang meminta 12/24 katamu = 100% penipuan. Tanpa kecuali.</div>`},
+    rug:{title:"Rug Pull",body:`
+      <p>Sebuah <b>rug pull</b>: sebuah tim membuat token, menarik pembeli, lalu <b>menarik semua likuiditas</b> dan menghilang. Harga jatuh ke nol.</p>
+      <h4>Tanda peringatan</h4>
+      <ul><li>Tim <b>anonim</b> tanpa rekam jejak.</li><li><b>Likuiditas tidak dikunci</b>.</li><li>Beberapa dompet memegang <b>sebagian besar</b> token.</li><li>Hype besar, janji untung, tanpa produk nyata.</li></ul>
+      <div class="callout">🔎 Alat: penjelajah blok (Etherscan/BscScan) + pemindai kontrak untuk melihat distribusi pemegang.</div>`},
+    drain:{title:"Wallet drainer & approval",body:`
+      <p>Kamu tak perlu memberi kunci privat untuk dikuras: cukup menandatangani sebuah <b>approval</b> jebakan saja.</p>
+      <h4>Jebakan klasik</h4>
+      <p>Sebuah "mint" atau "claim" palsu membuatmu menandatangani <code>approve</code> yang membiarkan penyerang membelanjakan token-mu. Lalu mereka menguras semuanya.</p>
+      <ul><li>Baca <b>apa yang kamu tanda tangani</b>: pesan "set approval for all" itu berbahaya.</li><li>Cabut approval yang tak terpakai (mis. <code>revoke.cash</code>).</li><li>Pakai <b>burner wallet</b> untuk mint berisiko.</li></ul>
+      <div class="callout warn">🖊️ Sebuah tanda tangan bisa semahal seed phrase yang bocor. Pelan-pelan sebelum klik "Confirm".</div>`},
+    fake:{title:"Airdrop palsu & token palsu",body:`
+      <p>Kamu menerima token aneh "gratis" di dompetmu. Itu <b>umpan</b>.</p>
+      <ul><li><b>Jangan pernah</b> berinteraksi dengan token tak dikenal yang datang tanpa alasan.</li><li>"Airdrop" yang memintamu <b>menghubungkan dompet dan menandatangani</b> di situs mencurigakan = drainer.</li><li>Verifikasi alamat resmi token di situs/Twitter <b>asli</b> proyek.</li></ul>
+      <div class="callout">🎁 Airdrop asli tak pernah memintamu mengirim dana "untuk membuka" hadiahmu.</div>`},
+    audit:{title:"Daftar periksa keamananmu",body:`
+      <p>Sebelum menyentuh sebuah proyek, jalankan <b>daftar audit cepat</b> ini:</p>
+      <ul><li>✅ URL diverifikasi + di-bookmark</li><li>✅ Tim teridentifikasi / reputasi</li><li>✅ Kontrak teraudit, likuiditas terkunci</li><li>✅ Distribusi pemegang sehat</li><li>✅ Aku paham apa yang kutandatangani</li><li>✅ Burner wallet untuk aksi berisiko</li><li>✅ Seed phrase offline, tak pernah diketik online</li></ul>
+      <div class="callout">🛡️ Mantra Crypto Guardian: <b>"Pelan-pelan, verifikasi, baru tanda tangani."</b> Tergesa-gesa adalah sahabat terbaik pencuri.</div>`}
+  }, quiz:[
+    {q:"Sebuah situs meminta 12 kata seed-mu. Apa yang kamu lakukan?",a:["Mengetiknya, itu dukungan","Pergi: tak ada layanan sah yang memintanya","Beri 6 yang pertama saja","Tanya teman"],correct:1},
+    {q:"Apa itu rug pull?",a:["Pemutakhiran jaringan","Tim menarik likuiditas dan menghilang","Sejenis staking","Dompet perangkat keras"],correct:1},
+    {q:"Bagaimana drainer menguras dompet tanpa kunci privatmu?",a:["Menebak kata sandimu","Lewat tanda tangan/approval jebakan","Menambang koinmu","Lewat email"],correct:1},
+    {q:"Apa sinyal kuat rug pull?",a:["Likuiditas terkunci","Tim anonim + likuiditas tak terkunci","Kontrak teraudit","Banyak pemegang tersebar"],correct:1},
+    {q:"Kamu dapat token tak dikenal gratis. Reaksi terbaik?",a:["Jual cepat","Jangan berinteraksi dengannya","Klik untuk lihat situsnya","Kirim balik"],correct:1},
+    {q:"Refleks yang benar sebelum menandatangani transaksi?",a:["Tanda tangani cepat sebelum harga bergerak","Baca apa yang kutandatangani dan periksa URL","Matikan antivirus","Bagikan layarku"],correct:1}
+  ]},
+  3:{ modules:{
+    dex:{title:"DEX vs CEX",body:`
+      <p>Ada dua cara memperdagangkan kripto:</p>
+      <h4>CEX — bursa terpusat</h4>
+      <p>Seperti Binance, Coinbase. Sebuah perusahaan menyimpan danamu. Praktis, tapi <b>"not your keys, not your coins"</b>: kamu bergantung padanya.</p>
+      <h4>DEX — bursa terdesentralisasi</h4>
+      <p>Seperti Uniswap, PancakeSwap. Kamu berdagang <b>langsung dari dompetmu</b>, tanpa perantara. Smart contract menangani swap.</p>
+      <ul><li>CEX = sederhana, cepat, tapi terpusat dan KYC.</li><li>DEX = swakelola, buka 24/7, tapi tanggung jawab sepenuhnya padamu.</li></ul>
+      <div class="callout">💡 DeFi (keuangan terdesentralisasi) adalah seluruh dunia layanan keuangan yang berjalan di smart contract, tanpa bank.</div>`},
+    lp:{title:"Liquidity Pool & AMM",body:`
+      <p>Di DEX tak ada buku order klasik: <b>liquidity pool</b> yang memungkinkan swap.</p>
+      <h4>Cara kerjanya</h4>
+      <p>Pengguna (para <b>LP, penyedia likuiditas</b>) menyetor dua aset bernilai sama, mis. ETH + USDC. Algoritma bernama <b>AMM</b> menetapkan harga lewat rumus <code>x · y = k</code>.</p>
+      <ul><li>Kamu menyediakan likuiditas → kamu mendapat <b>biaya perdagangan</b>.</li><li>Sebagai gantinya kamu menerima <b>LP token</b> yang mewakili bagianmu di pool.</li></ul>
+      <div class="callout">Makin banyak likuiditas di pool, makin sedikit harga bergerak tiap perdagangan (<i>slippage</i> rendah).</div>`},
+    yield:{title:"Yield Farming",body:`
+      <p><b>Yield farming</b> berarti memutar kriptomu untuk menghasilkan imbal hasil, sering dengan menumpuk beberapa protokol.</p>
+      <ul><li>Kamu sediakan likuiditas → dapat LP token.</li><li>Kamu stake LP token itu → menerima token hadiah.</li><li>Imbal hasil diukur dalam <b>APR / APY</b> (laju tahunan).</li></ul>
+      <div class="callout warn">⚠️ APY 1000% ada… tapi hampir selalu tak berkelanjutan. Imbal hasil tinggi = risiko tinggi. Selalu tanya "imbal hasil ini dari mana?".</div>`},
+    stake:{title:"Staking",body:`
+      <p><b>Staking</b> berarti mengunci token-mu untuk membantu mengamankan jaringan <b>Proof of Stake</b>, dan mendapat hadiah sebagai gantinya.</p>
+      <ul><li>Kamu mengunci token (mis. ETH, SOL) → dapat imbal hasil stabil.</li><li>Lebih stabil dan lebih sederhana dari yield farming.</li><li>Awas <b>masa unbonding</b>: danamu bisa terkunci beberapa hari.</li></ul>
+      <div class="callout">Staking ≈ "uang yang berbunga", sambil tetap memegang kendali kuncimu.</div>`},
+    lend:{title:"Pinjam-meminjam",body:`
+      <p>Protokol seperti Aave membuatmu bisa <b>meminjamkan</b> kriptomu (dan dapat bunga) atau <b>meminjam</b> (dengan jaminan).</p>
+      <h4>Konsep kunci: over-kolateralisasi</h4>
+      <p>Untuk meminjam $100 kamu harus menyetor lebih dari $100 jaminan (mis. $150). Jika jaminanmu turun terlalu jauh, kamu <b>dilikuidasi</b> otomatis.</p>
+      <ul><li>Pemberi pinjaman → pendapatan pasif atas kriptomu.</li><li>Peminjam → likuiditas tanpa menjual asetmu.</li></ul>
+      <div class="callout warn">⚠️ Likuidasi adalah bahaya #1 meminjam. Selalu jaga margin keamanan yang nyaman.</div>`},
+    derisk:{title:"Risiko DeFi",body:`
+      <p>DeFi itu ampuh tapi punya risiko sendiri. Mengetahuinya adalah separuh pekerjaan.</p>
+      <ul><li><b>Impermanent loss</b> — saat menyediakan likuiditas, jika harga berpencar kamu bisa berakhir dengan nilai lebih kecil daripada sekadar hold.</li><li><b>Risiko smart contract</b> — bug atau peretasan bisa menguras protokol.</li><li><b>Rug pull / protokol palsu</b> — lihat Akademi 2.</li><li><b>Risiko likuidasi</b> — saat meminjam.</li></ul>
+      <div class="callout">🧠 Aturan DeFi Builder: jangan pernah menaruh di protokol lebih dari yang sanggup kamu relakan, dan utamakan protokol mapan yang teraudit.</div>`}
+  }, quiz:[
+    {q:"Perbedaan utama CEX dan DEX?",a:["DEX lebih mahal","Di DEX kamu berdagang dari dompetmu, tanpa perantara","CEX tanpa biaya","Tak ada bedanya"],correct:1},
+    {q:"Apa yang menetapkan harga di DEX seperti Uniswap?",a:["Seorang trader manusia","Sebuah AMM lewat rumus matematika","Bank sentral","Kebetulan acak"],correct:1},
+    {q:"Apa yang kamu dapat dengan menyediakan likuiditas ke pool?",a:["Tak ada","Biaya perdagangan dan LP token","Kartu kredit","NFT terjamin"],correct:1},
+    {q:"Sebuah protokol menampilkan APY 1500%. Reaksi sehat?",a:["Investasikan semua, gratis","Waspada: imbal hasil sangat tinggi = risiko sangat tinggi","Pasti penipuan, abaikan","Terima apa adanya"],correct:1},
+    {q:"Apa itu likuidasi dalam pinjam-meminjam?",a:["Bonus loyalitas","Penjualan paksa jaminanmu jika turun terlalu jauh","Menarik bungamu","Pemutakhiran jaringan"],correct:1},
+    {q:"Impermanent loss terutama memengaruhi…",a:["Peminjam","Penyedia likuiditas saat harga berpencar","Staker Bitcoin","Tak seorang pun"],correct:1}
+  ]},
+  4:{ modules:{
+    nftbasic:{title:"Dasar-dasar NFT",body:`
+      <p>Sebuah <b>NFT</b> (Non-Fungible Token) adalah token <b>unik</b>, anti-rusak, yang tercatat di blockchain. "Non-fungible" = tak dapat dipertukarkan, beda dengan $1 yang setara dengan $1 mana pun.</p>
+      <ul><li>Membuktikan <b>kepemilikan</b> dan <b>keaslian</b> sebuah aset digital (atau fisik).</li><li>Tiap NFT punya ID unik dan riwayat publik.</li></ul>
+      <div class="callout warn">⚠️ Mitos umum: "NFT cuma gambar". Bukan — ia adalah <b>sertifikat kepemilikan</b> di blockchain. Gambar hanyalah salah satu penggunaan.</div>`},
+    collec:{title:"Koleksi & standar",body:`
+      <p>Sebagian besar NFT dikelompokkan menjadi <b>koleksi</b> (mis. 10.000 karya bertema sama).</p>
+      <h4>Standar teknis</h4>
+      <ul><li><b>ERC-721</b> — tiap token unik (1 karya = 1 token).</li><li><b>ERC-1155</b> — memungkinkan semi-fungible (mis. 100 salinan item game yang sama).</li></ul>
+      <p><b>Kelangkaan</b> (sifat langka) sangat mendorong nilai yang dirasa dalam sebuah koleksi.</p>
+      <div class="callout"><b>Metadata</b> (gambar, atribut) sering disimpan di IPFS agar tetap terdesentralisasi dan permanen.</div>`},
+    utility:{title:"NFT utilitas",body:`
+      <p>Sebuah <b>NFT utilitas</b> memberi akses ke sesuatu: itulah nilai sejatinya, di luar gambar.</p>
+      <ul><li><b>Akses / keanggotaan</b> — masuk ke komunitas, acara, konten premium (seperti NFT MOON-RZ Academy 😉).</li><li><b>Keistimewaan</b> — diskon, airdrop, hak suara.</li><li><b>Sertifikasi</b> — ijazah atau lencana yang dapat diverifikasi.</li></ul>
+      <div class="callout">💡 Pertanyaan sebelum membeli: "apa sebenarnya fungsi NFT ini?". Jika hanya untuk spekulasi, risikonya tinggi.</div>`},
+    gaming:{title:"NFT gaming",body:`
+      <p>Dalam game Web3, item (karakter, senjata, tanah) bisa berupa NFT yang <b>benar-benar kamu miliki</b> dan bisa dijual kembali.</p>
+      <ul><li><b>Play-to-earn</b> — dapat token/NFT dengan bermain.</li><li><b>Interoperabilitas</b> — gagasan (yang masih muda) memakai satu item di banyak game.</li></ul>
+      <div class="callout warn">⚠️ Banyak game P2E runtuh karena ekonominya bergantung pada aliran pemain baru yang konstan. Selalu nilai <b>keberlanjutan ekonomi</b> game itu.</div>`},
+    rwa:{title:"Real World Assets (RWA)",body:`
+      <p><b>RWA</b> men-tokenisasi aset dunia nyata: properti, seni, obligasi, emas… diwakili oleh token di blockchain.</p>
+      <ul><li>Memungkinkan <b>kepemilikan pecahan</b> (memiliki 1% sebuah apartemen).</li><li>Lebih banyak likuiditas untuk aset yang biasanya sulit dijual.</li><li>Sektor yang tumbuh pesat, tapi sangat terikat <b>regulasi</b>.</li></ul>
+      <div class="callout">Salah satu proyekmu yang lain (STAYLO) justru soal tokenisasi aset nyata — persis yang dibahas modul ini.</div>`},
+    mint:{title:"Buat & jual sebuah NFT",body:`
+      <p>Langkah dari ide ke NFT yang dijual:</p>
+      <ul><li><b>1. Buat</b> visual / konten dan metadata-nya.</li><li><b>2. Mint</b> — catat NFT di blockchain (lewat marketplace atau kontrak).</li><li><b>3. Daftar (list)</b> — jual (harga tetap atau lelang) di marketplace (OpenSea, Magic Eden…).</li><li><b>4. Royalti</b> — tetapkan % yang kamu peroleh tiap penjualan ulang.</li></ul>
+      <div class="callout">🎨 Tip NFT Architect: nilai sebuah koleksi 80% <b>komunitas dan utilitas</b>, 20% seni. Bangun keduanya.</div>`}
+  }, quiz:[
+    {q:"Apa arti « non-fungible »?",a:["Tak bernilai","Unik dan tak dapat dipertukarkan","Gratis","Disimpan offline"],correct:1},
+    {q:"Pada dasarnya NFT adalah…",a:["Sekadar gambar JPEG","Sertifikat kepemilikan di blockchain","Koin seperti Bitcoin","Kata sandi"],correct:1},
+    {q:"Standar mana untuk item game semi-fungible?",a:["ERC-20","ERC-721","ERC-1155","BTC-1"],correct:2},
+    {q:"Apa yang diberikan « NFT utilitas »?",a:["Tak ada selain gambar","Akses nyata atau keistimewaan","Untung terjamin","Biaya Binance lebih rendah"],correct:1},
+    {q:"Apa itu RWA?",a:["Bot trading","Tokenisasi aset dunia nyata","Sejenis dompet","Biaya gas"],correct:1},
+    {q:"Untuk apa royalti NFT?",a:["Membayar gas","Mendapat % tiap penjualan ulang","Mint gratis","Menghapus NFT"],correct:1}
+  ]},
+  5:{ modules:{
+    brand:{title:"Branding Web3",body:`
+      <p>Di Web3, <b>merek</b>-mu adalah yang membuat orang mempercayaimu di lautan proyek. Sebelum teknologi, ada <b>cerita</b>.</p>
+      <ul><li><b>Misi jelas</b> — masalah apa yang kamu pecahkan, untuk siapa.</li><li><b>Identitas visual</b> — logo, warna, nada (seperti dunia rembulan MOON-RZ).</li><li><b>Konsistensi</b> — pesan yang sama di mana-mana (situs, X, Discord).</li></ul>
+      <div class="callout">💡 Orang tak membeli token, mereka bergabung dengan sebuah <b>visi</b>. Ceritakan kisah yang ingin mereka ikuti.</div>`},
+    community:{title:"Membangun komunitas",body:`
+      <p>Dalam kripto, <b>komunitas adalah produknya</b>. Proyek tanpa komunitas itu mati, bahkan dengan teknologi hebat.</p>
+      <ul><li><b>Discord / Telegram</b> — markas harian.</li><li><b>X (Twitter)</b> — etalase dan akuisisi.</li><li><b>Keterlibatan nyata</b> — balas, dengarkan, hargai anggota aktif.</li></ul>
+      <div class="callout warn">⚠️ Waspadai metrik kesombongan: 50.000 pengikut beli kalah berharga dibanding 500 penggemar nyata yang terlibat. Targetkan kualitas, bukan kebisingan.</div>`},
+    marketing:{title:"Pemasaran kripto",body:`
+      <p>Pemasaran Web3 memadukan yang klasik dengan tuas khas ekosistem.</p>
+      <ul><li><b>Konten edukatif</b> — beri nilai sebelum menjual.</li><li><b>Kemitraan & KOL</b> — influencer kripto (selidiki mereka, banyak yang palsu).</li><li><b>Airdrop & misi</b> — hargai aksi untuk merintis komunitas (model Learn→Earn).</li></ul>
+      <div class="callout">Pemasaran kripto terbaik tetaplah produk yang berfungsi + pengguna yang membicarakannya sendiri.</div>`},
+    dao:{title:"DAO",body:`
+      <p>Sebuah <b>DAO</b> (Decentralized Autonomous Organization) adalah organisasi yang dikelola komunitasnya lewat blockchain, alih-alih seorang bos.</p>
+      <ul><li><b>Token tata kelola</b> — memegang token = hak suara.</li><li><b>Proposal & pemungutan suara</b> — komunitas memutuskan perubahan dan kas.</li><li><b>Transparansi</b> — keputusan dan dana terlihat on-chain.</li></ul>
+      <div class="callout">⚖️ Tantangan utama: mencegah segelintir pemegang besar ("paus") mengendalikan semua suara. Desain tata kelola sama pentingnya dengan teknologi.</div>`},
+    tokenomics:{title:"Tokenomics",body:`
+      <p><b>Tokenomics</b> adalah ekonomi token-mu: yang menentukan apakah ia menahan nilai dari waktu ke waktu.</p>
+      <ul><li><b>Pasokan</b> — total, beredar, inflasi/deflasi.</li><li><b>Distribusi</b> — tim, komunitas, investor, dan <b>vesting</b> (pembukaan bertahap).</li><li><b>Utilitas</b> — kenapa memegang token? (gas, tata kelola, akses, hadiah…).</li><li><b>Pasokan vs permintaan</b> — token yang berguna dan langka naik nilainya.</li></ul>
+      <div class="callout">🧮 Token MOON-RZ mengikuti logika ini: didapat lewat aksi (Learn→Earn) dan dibelanjakan untuk membuka konten, NFT, dan kompetisi.</div>`},
+    launch:{title:"Luncurkan proyekmu",body:`
+      <p>Menyatukan kepingan untuk beralih dari ide ke peluncuran:</p>
+      <ul><li><b>1. Visi & whitepaper</b> — apa, kenapa, bagaimana.</li><li><b>2. Komunitas</b> — bangun SEBELUM peluncuran.</li><li><b>3. Tokenomics</b> — sehat dan transparan.</li><li><b>4. Produk / MVP</b> — tunjukkan ia berfungsi (seperti aplikasi ini!).</li><li><b>5. Peluncuran & likuiditas</b> — lalu iterasi bersama komunitas.</li></ul>
+      <div class="callout">🏗️ Mantra Web3 Founder: "Komunitas dulu, hype kemudian." Peluncuran sukses disiapkan berbulan-bulan sebelumnya.</div>`}
+  }, quiz:[
+    {q:"Dalam kripto, apa yang sebenarnya orang beli?",a:["Token yang terisolasi","Sebuah visi dan komunitas","Logo","Gas"],correct:1},
+    {q:"Kenapa waspada pada 50.000 pengikut sekaligus?",a:["Selalu tanda baik","Bisa jadi metrik kesombongan (keterlibatan palsu)","Menurunkan harga token","Menaikkan gas"],correct:1},
+    {q:"Apa itu DAO?",a:["Dompet perangkat keras","Organisasi yang dikelola komunitasnya on-chain","Sejenis NFT","Bursa terpusat"],correct:1},
+    {q:"Untuk apa vesting dalam tokenomics?",a:["Membakar token","Membuka token bertahap (tim, investor)","Membayar gas","Membuat NFT"],correct:0},
+    {q:"Risiko apa yang mengancam tata kelola DAO?",a:["Terlalu transparan","Pemusatan suara pada segelintir paus","Suara gratis","Terlalu banyak anggota"],correct:1},
+    {q:"Prioritas yang benar sebelum peluncuran?",a:["Hype maksimum langsung","Bangun komunitas dan produk yang berfungsi","Beli pengikut","Luncurkan tanpa whitepaper"],correct:1}
+  ]},
+  6:{ modules:{
+    candles:{title:"Membaca grafik: candle",body:`
+      <p>Grafik <b>candlestick Jepang</b> adalah bahasa universal trader. Tiap candle merangkum pertempuran pembeli/penjual selama satu periode.</p>
+      <h4>Satu candle = 4 harga</h4>
+      <ul><li><b>Open</b> dan <b>close</b> (badan candle).</li><li><b>High</b> dan <b>low</b> (sumbu).</li><li>Badan <b>hijau</b> = close di atas open (naik). <b>Merah</b> = turun.</li></ul>
+      <p><b>Timeframe</b> mengubah segalanya: candle 1 menit ≠ candle 1 hari.</p>
+      <div class="callout">💡 Buka <b>Simulator</b>-mu di samping: kamu akan melihat harga nyata bergerak. Trading dipelajari dengan mata di pasar, bukan dari buku.</div>`},
+    sr:{title:"Support & Resistance",body:`
+      <p>Ini adalah level harga terpenting untuk dikenali.</p>
+      <h4>Support</h4>
+      <p>Sebuah <b>lantai</b> tempat pembeli mengambil alih dan memantulkan harga. Harga "sulit turun" di bawah level ini.</p>
+      <h4>Resistance</h4>
+      <p>Sebuah <b>langit-langit</b> tempat penjual mengambil alih. Harga "sulit naik" di atasnya.</p>
+      <ul><li>Makin sering sebuah level diuji, makin penting ia.</li><li>Support yang tertembus sering menjadi resistance (dan sebaliknya).</li></ul>
+      <div class="callout warn">⚠️ Level-level ini adalah <b>zona</b>, bukan garis seakurat piksel. Jangan terlalu presisi.</div>`},
+    trend:{title:"Tren",body:`
+      <p>"<b>The trend is your friend</b>": pertanyaan pertama trader selalu "ke mana arah pasar?".</p>
+      <ul><li><b>Uptrend</b> — high lebih tinggi dan low lebih tinggi.</li><li><b>Downtrend</b> — high lebih rendah dan low lebih rendah.</li><li><b>Range</b> — harga berayun menyamping, tanpa arah.</li></ul>
+      <div class="callout">📐 Sebuah <b>trendline</b> menghubungkan low (saat uptrend) atau high (saat downtrend). Tembusnya bisa menandai perubahan arah.</div>`},
+    volume:{title:"Volume",body:`
+      <p><b>Volume</b> = jumlah yang diperdagangkan dalam satu periode. Ia adalah <b>bahan bakar</b> di balik gerakan harga.</p>
+      <ul><li>Kenaikan dengan <b>volume tinggi</b> = gerakan kredibel, didukung.</li><li>Kenaikan dengan <b>volume rendah</b> = mencurigakan, gerakan bisa kandas.</li><li>Lonjakan volume sering menyertai pembalikan atau breakout.</li></ul>
+      <div class="callout">🔎 Aturan sederhana: volume <b>mengonfirmasi</b> harga. Tembus resistance tanpa volume itu mencurigakan.</div>`},
+    liquidity:{title:"Likuiditas",body:`
+      <p><b>Likuiditas</b> adalah kemudahan membeli atau menjual tanpa menggerakkan harga. Banyak order di kedua sisi = pasar likuid.</p>
+      <ul><li>Aset <b>likuid</b> (BTC, ETH) → <b>slippage</b> rendah, eksekusi dekat harga tampil.</li><li>Aset <b>tidak likuid</b> (token kecil) → satu order besar menggerakkan harga, lahan manipulasi.</li></ul>
+      <div class="callout warn">⚠️ Banyak jebakan (pump &amp; dump) hanya mungkin pada aset tidak likuid. Utamakan pasar dalam saat pemula.</div>`},
+    analyse:{title:"Mempraktikkannya",body:`
+      <p>Satukan semuanya untuk <b>analisis pasar</b> terstrukturmu yang pertama:</p>
+      <ul><li><b>1. Tren</b> — naik, turun atau range?</li><li><b>2. Level</b> — di mana support dan resistance kunci?</li><li><b>3. Volume</b> — apakah mengonfirmasi gerakan saat ini?</li><li><b>4. Likuiditas</b> — apakah asetnya cukup dalam?</li><li><b>5. Rencana</b> — di mana aku masuk, di mana aku potong jika salah (itu Akademi 7).</li></ul>
+      <div class="callout">🏋️ Latihan Market Analyst: buka <b>Simulator</b>, pilih BTC atau ETH, dan jalankan 5 langkah ini dengan lantang sebelum klik "Buy". Ulangi pada ETH, BNB, SOL, XRP.</div>`}
+  }, quiz:[
+    {q:"Apa yang diwakili badan sebuah candle?",a:["High dan low","Open dan close","Volume","Biaya"],correct:1},
+    {q:"Apa itu support?",a:["Langit-langit harga","Lantai tempat pembeli memantulkan harga","Sejenis token","Candle merah"],correct:1},
+    {q:"Uptrend adalah…",a:["High lebih tinggi dan low lebih tinggi","Harga datar","Low lebih rendah","Selalu volume rendah"],correct:0},
+    {q:"Untuk apa volume?",a:["Menghitung biaya","Mengonfirmasi kredibilitas gerakan harga","Membuat NFT","Mengamankan dompet"],correct:1},
+    {q:"Aset tidak likuid berbahaya karena…",a:["Volumenya terlalu banyak","Satu order besar bisa menggerakkan harga (manipulasi)","Terlalu mahal","Tak ada grafiknya"],correct:1},
+    {q:"Pertanyaan pertama sebelum trading?",a:["Apa logo proyeknya?","Ke mana arah trennya?","Siapa CEO-nya?","Berapa pengikutnya?"],correct:1}
+  ]},
+  7:{ modules:{
+    mtf:{title:"Analisis Multi Time Frame",body:`
+      <p>Trader yang baik melihat <b>beberapa timeframe</b> sebelum bertindak. Hanya satu sama saja mengintip lewat lubang kunci.</p>
+      <h4>Metode top-down</h4>
+      <ul><li><b>TF lebih tinggi</b> (hari/minggu) → tren mendasar, latar belakang.</li><li><b>TF menengah</b> (4j/1j) → zona menarik.</li><li><b>TF lebih rendah</b> (15m/5m) → titik masuk presisi.</li></ul>
+      <p>Aturan emas: <b>trading searah tren yang lebih tinggi</b>, dan perhalus entry pada yang lebih rendah.</p>
+      <div class="callout warn">⚠️ Kesalahan pemula klasik: mengambil sinyal 5 menit yang melawan tren harian. Itu berenang melawan arus.</div>`},
+    risk:{title:"Manajemen Risiko",body:`
+      <p>Kebenaran yang tak dikatakan ke pemula: <b>trading itu pertama-tama mengelola risiko, bukan memprediksi harga.</b> Kamu bertahan dulu baru menang.</p>
+      <h4>Aturan 1%</h4>
+      <p>Jangan pernah risikokan <b>lebih dari 1 sampai 2%</b> modalmu pada satu perdagangan. Pada risiko 1%, butuh 100 perdagangan rugi berturut-turut untuk menghapusmu — nyaris mustahil.</p>
+      <ul><li>Rugi 50% lalu butuh untung <b>100%</b> hanya untuk balik modal. Melindungi modal itu matematika.</li><li><b>Stop-loss</b> bukan opsional: itu sabuk pengamanmu.</li></ul>
+      <div class="callout">🧮 Latih di Simulator: putuskan SEBELUM membeli berapa yang kamu terima untuk rugi, dan patuhi itu.</div>`},
+    sizing:{title:"Position Sizing",body:`
+      <p><b>Position sizing</b> menjawab "berapa yang kubeli?". Ia mengalir dari risikomu, bukan antusiasmemu.</p>
+      <h4>Rumusnya</h4>
+      <p><code>Ukuran = (Modal × % risiko) ÷ jarak ke stop-loss</code></p>
+      <p>Contoh: modal $10.000, risiko 1% ($100), stop di -5% → kamu bisa mengerahkan <b>$2.000</b> pada perdagangan ini (karena 5% dari 2000 = 100).</p>
+      <div class="callout warn">⚠️ Bukan "aku suka koin ini jadi kumasukkan semua". Ukuran posisi adalah <b>perhitungan</b>, ditentukan oleh di mana kamu potong jika salah.</div>`},
+    rr:{title:"Stop-loss, Take-profit & R:R",body:`
+      <p>Tiap perdagangan harus punya rencana keluar <b>sebelum</b> kamu masuk.</p>
+      <ul><li><b>Stop-loss (SL)</b> — harga saat kamu mengakui salah dan memotong.</li><li><b>Take-profit (TP)</b> — harga saat kamu mengambil untung.</li><li><b>Rasio Risk/Reward (R:R)</b> — berapa yang kamu incar vs berapa yang kamu risikokan.</li></ul>
+      <p>R:R <b>1:3</b> berarti merisikokan $100 untuk mengincar $300. Dengan rasio begitu kamu bisa lebih sering salah daripada benar dan tetap <b>untung</b>.</p>
+      <div class="callout">📐 Incar minimal 1:2. Di bawah itu, rentetan rugi terkecil pun menenggelamkanmu.</div>`},
+    journal:{title:"Jurnal & Psikologi",body:`
+      <p>Musuh terburukmu dalam trading bukan pasar: itu <b>kamu</b> (takut, serakah, balas dendam).</p>
+      <h4>Jurnal trading</h4>
+      <p>Catat tiap perdagangan: entry, exit, alasan, emosi yang dirasa, hasil. Begitulah kamu mengenali kesalahan berulang dan benar-benar membaik.</p>
+      <ul><li><b>FOMO</b> — membeli karena takut ketinggalan = masuk terlalu telat.</li><li><b>Revenge trading</b> — mencoba "balas" setelah rugi = bencana.</li><li><b>Disiplin > motivasi</b> — rencana yang diikuti dingin mengalahkan insting.</li></ul>
+      <div class="callout">🧠 Mantra Professional Trader: "Plan the trade, trade the plan." Putuskan dengan tenang, jalankan tanpa emosi.</div>`},
+    strategy:{title:"Bangun strategimu",body:`
+      <p>Strategi adalah seperangkat <b>aturan tertulis</b> yang kamu ikuti tanpa improvisasi. Tiga gaya utama:</p>
+      <ul><li><b>Scalping</b> — banyak perdagangan sangat singkat (menit). Intens, menuntut.</li><li><b>Swing</b> — menahan posisi beberapa hari/minggu mengikuti tren.</li><li><b>Investing (DCA)</b> — membeli rutin untuk jangka panjang, tanpa timing.</li></ul>
+      <h4>Strategimu harus menetapkan</h4>
+      <p>Pasar mana · TF mana · syarat entry · stop-loss · take-profit · ukuran posisi · aturan kelola emosi.</p>
+      <div class="callout">🏋️ Latihan Professional Trader: tulis SATU strategi (gaya swing), lalu uji pada 10 perdagangan di Simulator, patuhi tiap aturan. Catat semua di jurnalmu.</div>`}
+  }, quiz:[
+    {q:"Dalam analisis multi-timeframe, kamu trading…",a:["Melawan tren yang lebih tinggi","Searah tren lebih tinggi, entry diperhalus di TF lebih rendah","Hanya di 1 menit","Acak"],correct:1},
+    {q:"Aturan 1% mengatakan untuk…",a:["Untung 1% terjamin per hari","Jangan pernah risikokan lebih dari 1-2% modal per perdagangan","Investasikan 1% di Bitcoin","Bayar biaya 1%"],correct:1},
+    {q:"Position sizing terutama bergantung pada…",a:["Antusiasmemu pada koin","Risiko yang kamu terima dan jarak ke stop-loss","Jumlah pengikut proyek","Warna candle"],correct:1},
+    {q:"Risk/Reward 1:3 berarti…",a:["Risikokan 300 untuk dapat 100","Risikokan 100 untuk mengincar 300","Tiga perdagangan sehari","Biaya 30%"],correct:1},
+    {q:"Apa itu revenge trading?",a:["Strategi yang menang","Mencoba membalas kerugian, sering berakibat fatal","Sejenis order","Trading malam hari"],correct:1},
+    {q:"Untuk apa jurnal trading?",a:["Tak ada gunanya","Mengenali kesalahan berulang dan membaik","Membayar pajak lebih sedikit","Menambang koin"],correct:1}
+  ]},
+  8:{ modules:{
+    copilot:{title:"AI, kopilot kriptomu",body:`
+      <p>AI (Claude, ChatGPT…) tak menggantikan otakmu: ia <b>kopilot</b> yang menghemat banyak waktu riset, analisis, dan belajar.</p>
+      <ul><li><b>Menjelaskan</b> konsep rumit di levelmu.</li><li><b>Merangkum</b> whitepaper 40 halaman dalam 10 baris.</li><li><b>Brainstorm</b> sebuah strategi atau proyek.</li><li><b>Mengodekan</b> sebuah skrip, bot, smart contract sederhana.</li></ul>
+      <div class="callout">💡 Aplikasi MOON-RZ Academy ini sendiri dibangun dengan AI. AI adalah pelipat ganda kekuatan bagi kreator solo.</div>`},
+    prompt:{title:"Menulis prompt yang baik",body:`
+      <p>Kualitas jawaban bergantung pada kualitas pertanyaanmu. <b>Prompt</b> yang baik memberi konteks dan tujuan jelas.</p>
+      <h4>Resep R-K-T</h4>
+      <ul><li><b>Role (Peran)</b> — "Bertindaklah sebagai analis kripto ahli."</li><li><b>Konteks</b> — datanya, levelmu, kendalanya.</li><li><b>Task (Tugas)</b> — persis yang kamu mau, dan format keluarannya.</li></ul>
+      <div class="callout warn">⚠️ Spesifiklah: "analisis BTC" itu kabur. "Beri support, resistance, dan tren BTC di H4, dalam 5 poin" itu bisa ditindaklanjuti.</div>`},
+    analyst:{title:"Bangun analis kripto AI",body:`
+      <p>Kamu bisa mengubah AI menjadi <b>asisten analisis</b> yang dapat dipakai ulang dengan instruksi tetap.</p>
+      <h4>Contoh instruksi</h4>
+      <p>"Kamu analisku. Untuk tiap aset yang kuberi, selalu jawab dengan: tren, level kunci, volume, tingkat risiko /10, dan rencana satu kalimat. Jangan pernah saran finansial, hanya analisis."</p>
+      <div class="callout">🎯 AI menstrukturkan pikiranmu dan memaksamu mengikuti metode Akademi 6. Keputusan akhir tetap KAMU.</div>`},
+    scanner:{title:"Pemindai pasar AI",body:`
+      <p>Sebuah <b>pemindai</b> menyaring informasi ke yang penting, dan AI mempercepat penyaringan itu.</p>
+      <ul><li>Rangkum berita hari ini dan sentimen pasar.</li><li>Bandingkan beberapa proyek pada kriteria tetap (tim, tokenomics, likuiditas…).</li><li>Kenali sinyal untuk digali — <b>jangan pernah</b> untuk dieksekusi membabi buta.</li></ul>
+      <div class="callout warn">⚠️ Sinyal AI adalah <b>petunjuk</b>, bukan perintah. Selalu verifikasi datanya sendiri sebelum bertindak.</div>`},
+    agents:{title:"Agen AI & otomatisasi",body:`
+      <p>Sebuah <b>agen AI</b> adalah AI yang bisa merangkai aksi menuju tujuan (mencari, menganalisis, menulis, kadang mengeksekusi lewat alat).</p>
+      <ul><li>Mengotomatiskan pemantauan harian.</li><li>Menghasilkan laporan rutin.</li><li>Membantu kreasi (konten, kode, desain).</li></ul>
+      <div class="callout warn">⚠️ Bahaya nyata: agen yang terhubung ke dompet atau bursa bisa merusak jika lingkupnya buruk. Mulai read-only / di simulator.</div>`},
+    ailimits:{title:"Batas & keamanan AI",body:`
+      <p>AI itu ampuh tapi bisa keliru. Mengetahui batasnya = memakainya dengan bijak.</p>
+      <ul><li><b>Halusinasi</b> — AI bisa mengarang fakta dengan percaya diri. Verifikasi angka dan kontrak.</li><li><b>Data usang</b> — ia bisa tak tahu harga terkini.</li><li><b>Keamanan</b> — JANGAN PERNAH beri seed phrase atau kunci privatmu ke AI atau situs mana pun.</li></ul>
+      <div class="callout">🧠 Aturan AI Trader: AI <b>membantu</b> keputusanmu, bukan <b>menggantikannya</b>. Selalu jaga kendali dan nalar kritis.</div>`}
+  }, quiz:[
+    {q:"Apa peran AI yang benar dalam kripto?",a:["Memutuskan untukmu","Kopilot yang mempercepat riset dan analisis","Memegang kunci privatmu","Menjamin keuntungan"],correct:1},
+    {q:"Prompt yang baik idealnya berisi…",a:["Satu kata kabur","Peran, konteks, dan tugas jelas dengan format","Hanya emoji","Seed phrase-mu"],correct:1},
+    {q:"Sinyal dari pemindai AI adalah…",a:["Perintah untuk dieksekusi membabi buta","Petunjuk untuk kamu verifikasi sendiri","Jaminan untung","Sebuah smart contract"],correct:1},
+    {q:"Apa risiko agen AI yang terhubung ke dompet?",a:["Tak ada","Bisa merusak jika lingkupnya buruk","Menambang lebih cepat","Menurunkan gas"],correct:1},
+    {q:"Apa itu halusinasi AI?",a:["Bug tampilan","Saat AI mengarang fakta dengan percaya diri","Sejenis NFT","Pemadaman jaringan"],correct:1},
+    {q:"Bolehkah memberi seed phrase ke AI untuk membantu?",a:["Boleh jika terkenal","Tak pernah, ke siapa pun dan alat apa pun","Boleh 12 kata pertama","Hanya akhir pekan"],correct:1}
+  ]},
+  9:{ modules:{
+    standards:{title:"Standar token",body:`
+      <p>Membuat token berarti mengikuti <b>standar</b> yang diakui agar kompatibel dengan dompet dan bursa.</p>
+      <ul><li><b>ERC-20</b> (Ethereum) — standar untuk token fungible.</li><li><b>BEP-20</b> (BNB Chain) — setara, biaya lebih rendah.</li><li>Di Solana ada program <b>SPL Token</b>.</li></ul>
+      <p>Sebuah token ditentukan oleh: <b>nama</b>, <b>simbol</b> (mis. MOON), <b>total pasokan</b>, dan jumlah <b>desimal</b>.</p>
+      <div class="callout">💡 Secara teknis, membuat token dasar itu sederhana. Yang sulit — dan yang penting — adalah segala sesuatu di sekitarnya (utilitas, likuiditas, kepercayaan).</div>`},
+    contract:{title:"Smart contract token",body:`
+      <p>Token hidup dalam sebuah <b>smart contract</b> yang menetapkan aturannya: siapa bisa mint, burn, dan dengan batas apa.</p>
+      <ul><li><b>Mint</b> — menciptakan token baru.</li><li><b>Burn</b> — memusnahkan sebagian (mengurangi pasokan, deflasioner).</li><li><b>Owner / izin</b> — siapa mengendalikan apa.</li></ul>
+      <div class="callout warn">⚠️ Kontrak yang ditulis buruk = pintu terbuka bagi peretasan dan rug pull. Untuk peluncuran nyata, <b>audit</b> profesional itu wajib.</div>`},
+    liquidity9:{title:"Likuiditas & peluncuran",body:`
+      <p>Token tanpa <b>likuiditas</b> tak bernilai: tak seorang pun bisa membeli atau menjualnya.</p>
+      <h4>Menciptakan pasar</h4>
+      <p>Kamu membuat <b>liquidity pool</b> di DEX (mis. token-mu + USDC). Rasio yang disetor menetapkan harga awal.</p>
+      <ul><li><b>Mengunci likuiditas</b> menenangkan orang: tim tak bisa menariknya semua.</li><li>Umumkan kontrak resmi untuk menghindari token palsu (lihat Akademi 2).</li></ul>
+      <div class="callout">🔒 Likuiditas terkunci + kontrak teraudit = dua tanda keseriusan yang dicari investor cerdas.</div>`},
+    vesting:{title:"Vesting",body:`
+      <p><b>Vesting</b> membuka token secara <b>bertahap</b> dari waktu ke waktu, alih-alih melepas semua sekaligus.</p>
+      <ul><li>Mencegah tim dan investor awal menjual semua saat peluncuran (sebuah "dump").</li><li>Menyelaraskan insentif untuk <b>jangka panjang</b>.</li><li>Sering ditampilkan dalam jadwal rilis token.</li></ul>
+      <div class="callout warn">⚠️ Sebelum berinvestasi di sebuah proyek, periksa vesting: jika jumlah besar segera terbuka, harga bisa turun.</div>`},
+    governance:{title:"Tata kelola",body:`
+      <p>Sebuah token bisa memberi <b>kuasa keputusan</b>: itulah tata kelola (terkait DAO, Akademi 5).</p>
+      <ul><li>Memegang token = memberi suara atas evolusi proyek.</li><li>Keputusan dan kas dikelola transparan, on-chain.</li><li>Tantangannya: menghindari dominasi <b>paus</b> atas semua suara.</li></ul>
+      <div class="callout">⚖️ Desain tata kelola yang baik menyebar kuasa dan mendorong partisipasi komunitas.</div>`},
+    launch9:{title:"Luncurkan token secara bertanggung jawab",body:`
+      <p>Ringkasan peluncuran yang <b>serius</b>, kebalikan dari penipuan:</p>
+      <ul><li><b>1.</b> Utilitas jelas — token sebenarnya untuk apa.</li><li><b>2.</b> Kontrak teraudit, izin sehat.</li><li><b>3.</b> Tokenomics transparan (pasokan, distribusi, vesting).</li><li><b>4.</b> Likuiditas disediakan dan dikunci.</li><li><b>5.</b> Komunitas terinformasi, kontrak resmi dipublikasikan.</li></ul>
+      <div class="callout">🪙 Mantra Token Engineer: "Token hanya bernilai lewat apa yang bisa kamu lakukan dengannya." Bangun kegunaan sebelum harga. Itulah persis logika token MOON-RZ.</div>`}
+  }, quiz:[
+    {q:"Apa standar untuk token fungible di Ethereum?",a:["ERC-721","ERC-20","SPL","BTC-1"],correct:1},
+    {q:"Apa fungsi operasi « burn »?",a:["Menciptakan token","Memusnahkan token dan mengurangi pasokan","Mengunci likuiditas","Mint NFT"],correct:1},
+    {q:"Mengapa mengunci likuiditas?",a:["Untuk bayar gas lebih sedikit","Untuk menenangkan: tim tak bisa menariknya semua","Untuk menambah desimal","Untuk menambang"],correct:1},
+    {q:"Untuk apa vesting?",a:["Membuka token bertahap dan menghindari dump","Membuat NFT","Mengaudit kode","Membayar biaya"],correct:0},
+    {q:"Token tata kelola memungkinkanmu…",a:["Memberi suara atas evolusi proyek","Biaya Binance lebih rendah","Menambang Bitcoin","Menyimpan seed phrase"],correct:0},
+    {q:"Apa yang memberi token nilai bertahan?",a:["Logonya","Utilitas nyatanya","Jumlah desimal","Warnanya"],correct:1}
+  ]},
+  10:{ modules:{
+    m_wallet:{title:"Checkpoint 1 — Dompet & keamanan",body:`
+      <p>Selamat datang di akademi terakhir. Di sini kamu tak lagi menemukan: kamu <b>menghubungkan semuanya</b> dan membuktikan penguasaanmu.</p>
+      <h4>Yang kini kamu kuasai</h4>
+      <ul><li>Membuat dan mengamankan dompet, melindungi seed phrase.</li><li>Mengenali phishing, rug pull, drainer (Akademi 2).</li><li>Refleksnya: "Pelan-pelan, verifikasi, baru tanda tangani."</li></ul>
+      <div class="callout">🌙 Master Web3 sejati melindungi dananya <b>secara kebiasaan</b>, tanpa berpikir. Keamanan adalah fondasimu.</div>`},
+    m_defi:{title:"Checkpoint 2 — DeFi & imbal hasil",body:`
+      <p>Kini kamu tahu cara memutar asetmu <b>sambil memahami risikonya</b>.</p>
+      <ul><li>Swap di DEX, sediakan likuiditas, baca APY.</li><li>Staking, lending, dan bahaya likuidasi.</li><li>Impermanent loss dan risiko smart contract.</li></ul>
+      <div class="callout">🧠 Penguasaan = tak pernah mengejar imbal hasil yang tak bisa kamu jelaskan sumbernya.</div>`},
+    m_nft:{title:"Checkpoint 3 — NFT & kreasi",body:`
+      <p>Kamu melihat NFT apa adanya: sebuah <b>sertifikat kepemilikan</b> dan pembawa utilitas.</p>
+      <ul><li>Memahami koleksi, standar, kelangkaan.</li><li>Menilai utilitas nyata sebelum membeli.</li><li>Tahu cara membuat, men-list, dan menetapkan royalti.</li></ul>
+      <div class="callout">🎯 Lencana MOON-RZ-mu sendiri adalah NFT utilitas: mereka membuktikan apa yang telah kamu pelajari.</div>`},
+    m_trade:{title:"Checkpoint 4 — Trading & risiko",body:`
+      <p>Kamu membaca pasar dan bertindak dengan <b>rencana</b>, bukan emosimu.</p>
+      <ul><li>Tren, support/resistance, volume, likuiditas.</li><li>Aturan 1%, position sizing, R:R ≥ 1:2.</li><li>Jurnal trading dan disiplin melawan FOMO.</li></ul>
+      <div class="callout">🏋️ Bukti lewat aksi: terapkan strategi penuh di <b>Simulator</b>, dari rencana entry sampai stop-loss.</div>`},
+    m_build:{title:"Checkpoint 5 — Bangun & tokenisasi",body:`
+      <p>Kamu bisa beralih dari sekadar pengguna menjadi <b>pembangun</b> ekosistem.</p>
+      <ul><li>Visi, branding, komunitas dulu.</li><li>Tokenomics sehat: pasokan, distribusi, vesting, utilitas.</li><li>Luncurkan token yang bertanggung jawab, dengan tata kelola dan likuiditas terkunci.</li></ul>
+      <div class="callout">🏗️ "Komunitas dulu, hype kemudian." Kini kamu bisa mengenali — dan membangun — proyek yang serius.</div>`},
+    m_master:{title:"Checkpoint akhir — MOON-RZ Master",body:`
+      <p>Tahap akhir. Kamu telah melewati 10 akademi: blockchain, keamanan, DeFi, NFT, kewirausahaan, trading, AI, tokenisasi.</p>
+      <h4>Profil MOON-RZ Master</h4>
+      <ul><li>🛡️ Mandiri dan aman di Web3.</li><li>💹 Mampu menganalisis pasar dan mengelola risiko.</li><li>🏗️ Mampu memahami, menilai, dan membangun proyek.</li><li>🧠 Nalar kritis: tak ada janji uang mudah yang menjebakmu.</li></ul>
+      <div class="callout">🏆 Lulus ujian akhir untuk meraih <b>NFT MOON-RZ MASTER</b> dan mencapai pangkat tertinggi: <b>MOON-RZ Legend</b>. Penguasaan sejati adalah terus belajar. 🚀</div>`}
+  }, quiz:[
+    {q:"Refleks keamanan tertinggi seorang master Web3?",a:["Tanda tangani cepat","Pelan-pelan, verifikasi, baru tanda tangani; jangan pernah beri seed-mu","Simpan dana di bursa","Matikan antivirusmu"],correct:1},
+    {q:"Sebelum mengejar imbal hasil DeFi tinggi, kamu harus…",a:["Investasikan semua cepat","Bisa menjelaskan dari mana imbal hasil datang dan risikonya","Abaikan biaya","Percaya APY yang ditampilkan"],correct:1},
+    {q:"Aturan mana yang melindungi modalmu dalam trading?",a:["Pertaruhkan semua pada satu koin","Risiko maks 1-2% per perdagangan dengan stop-loss","Trading tanpa rencana","Gandakan setelah tiap rugi"],correct:1},
+    {q:"Apa yang memberi token/NFT nilai bertahan?",a:["Hype semata","Utilitas nyata dan komunitasnya","Jumlah desimal","Warna logo"],correct:1},
+    {q:"Peran AI yang benar bagi master kripto?",a:["Memutuskan dan trading untuknya","Membantu keputusan, yang tetap manusiawi","Memegang kunci privat","Menjamin keuntungan"],correct:1},
+    {q:"Pada akhirnya, penguasaan Web3 sejati adalah…",a:["Punya portofolio terbesar","Mandiri, mengelola risiko, dan terus belajar","Mengikuti tiap influencer","Membeli tiap token baru"],correct:1}
+  ]}
  }
 };
 function ac(aid){
