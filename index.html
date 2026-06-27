@@ -290,6 +290,10 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .chart-wrap{position:relative;height:260px;width:100%}
   .chart-wrap canvas{display:block;width:100%;height:100%}
   .ch-msg{position:absolute;top:8px;left:10px;font-size:11px;color:var(--muted);pointer-events:none;background:var(--surface);padding:1px 6px;border-radius:6px}
+  .ch-act{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .ch-act .ch-now{font-family:var(--font-data,ui-monospace,monospace);font-weight:800;color:var(--text);font-size:16px}
+  .ch-act .ch-now small{color:var(--muted);font-weight:600;font-size:12px}
+  .ch-act .btns{display:flex;gap:8px}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -7302,6 +7306,7 @@ function viewSim(){
    <div class="card" style="padding:12px">
      <div class="ch-bar"><div class="ch-coins" id="chCoins"></div><div class="ch-tfs" id="chTfs"></div></div>
      <div class="chart-wrap"><canvas id="simChart"></canvas><div class="ch-msg" id="chMsg"></div></div>
+     <div class="ch-act" id="chAct"></div>
    </div>
    <div class="section-title">💹 Marché <span id="liveDot" style="color:var(--muted);font-size:11px;letter-spacing:0;text-transform:none">· connexion…</span></div>
    <div class="card" style="padding:6px"><div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="ticktable" style="min-width:440px"><thead><tr><th>Actif</th><th style="text-align:right">Prix</th><th style="text-align:right">24h</th><th style="text-align:right">Ma position</th><th></th></tr></thead><tbody id="tickBody"></tbody></table></div></div>
@@ -7336,6 +7341,7 @@ function updateSimDOM(live){
     last.c=p; if(p>last.h)last.h=p; if(p<last.l)last.l=p;
     drawChart();
   }
+  updateChartAct();
 }
 
 /* ---------- Graphique en chandeliers (canvas vanilla, thémé) ---------- */
@@ -7347,7 +7353,19 @@ function buildChart(){
   const tf=$("chTfs"); tf.innerHTML=TFS.map(([lab,v])=>`<button data-chtf="${v}" class="${v===kline.tf?'on':''}">${lab}</button>`).join("");
   cc.querySelectorAll("[data-chc]").forEach(b=>b.onclick=()=>{ kline.sym=b.dataset.chc; buildChart(); loadChart(); });
   tf.querySelectorAll("[data-chtf]").forEach(b=>b.onclick=()=>{ kline.tf=b.dataset.chtf; buildChart(); loadChart(); });
-  const ct=$("chTit"), c=COINS.find(x=>x.sym===kline.sym); if(ct&&c) ct.textContent="· "+c.t+" "+kline.tf;
+  const c=COINS.find(x=>x.sym===kline.sym);
+  const ct=$("chTit"); if(ct&&c) ct.innerHTML="· "+c.t+" "+kline.tf+' · <span style="color:var(--accent)">MA20</span>';
+  const a=$("chAct"); if(a&&c){
+    a.innerHTML=`<span class="ch-now" id="chNow">$—</span><div class="btns"><button class="btn green sm" id="chBuy">Acheter ${c.t}</button> <button class="btn red sm" id="chSell">Vendre ${c.t}</button></div>`;
+    $("chBuy").onclick=()=>openTrade(kline.sym,"buy");
+    $("chSell").onclick=()=>openTrade(kline.sym,"sell");
+    updateChartAct();
+  }
+}
+function updateChartAct(){
+  const c=COINS.find(x=>x.sym===kline.sym); if(!c) return;
+  const now=$("chNow"); if(now) now.innerHTML="$"+chFmt(priceOf(kline.sym))+" <small>"+c.t+"</small>";
+  const sell=$("chSell"); if(sell) sell.disabled=!((S.sim.qty[kline.sym]||0)>0);
 }
 function setChMsg(m){ const e=$("chMsg"); if(e) e.textContent=m||""; }
 function synthSeries(base){ const out=[]; let p=base*0.97; for(let i=0;i<60;i++){ const o=p, ch=(Math.random()-0.48)*base*0.012, c=Math.max(o+ch,base*0.4), h=Math.max(o,c)*(1+Math.random()*0.004), l=Math.min(o,c)*(1-Math.random()*0.004); out.push({o,h,l,c}); p=c; } return out; }
@@ -7375,7 +7393,8 @@ function drawChart(){
   const css=getComputedStyle(document.documentElement);
   const cv2=k=>css.getPropertyValue(k).trim();
   const colPos=cv2("--pos")||"#22c55e", colNeg=cv2("--red")||"#f87171",
-        colGrid=cv2("--border")||"rgba(255,255,255,.12)", colTxt=cv2("--muted")||"#8a8aa0";
+        colGrid=cv2("--border")||"rgba(255,255,255,.12)", colTxt=cv2("--muted")||"#8a8aa0",
+        colMA=cv2("--accent")||"#F2C46B";
   const padL=6, padR=60, padT=8, padB=6, cw=W-padL-padR, chh=H-padT-padB;
   let lo=Infinity, hi=-Infinity; data.forEach(d=>{ if(d.l<lo)lo=d.l; if(d.h>hi)hi=d.h; });
   const m=(hi-lo)*0.08||hi*0.02; lo-=m; hi+=m; const span=hi-lo||1;
@@ -7391,6 +7410,14 @@ function drawChart(){
     ctx.strokeStyle=col; ctx.fillStyle=col; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(x,y(d.h)); ctx.lineTo(x,y(d.l)); ctx.stroke();
     const yo=y(d.o), yc=y(d.c); ctx.fillRect(x-bw/2,Math.min(yo,yc),bw,Math.max(1.5,Math.abs(yc-yo))); });
+  // moyenne mobile MA20 (illustre la tendance — Académie 6)
+  const P=20;
+  if(n>=P){
+    ctx.strokeStyle=colMA; ctx.lineWidth=1.8; ctx.globalAlpha=.95; ctx.beginPath();
+    for(let i=P-1;i<n;i++){ let s=0; for(let j=i-P+1;j<=i;j++) s+=data[j].c; const ma=s/P, x=padL+i*step+step/2, yy=y(ma);
+      if(i===P-1) ctx.moveTo(x,yy); else ctx.lineTo(x,yy); }
+    ctx.stroke(); ctx.globalAlpha=1;
+  }
   // ligne du dernier prix
   const last=data[data.length-1].c, ly=y(last);
   ctx.strokeStyle=colTxt; ctx.globalAlpha=.55; ctx.setLineDash([4,4]); ctx.beginPath(); ctx.moveTo(padL,ly); ctx.lineTo(padL+cw,ly); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha=1;
