@@ -300,6 +300,12 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .wb-hi{font-size:20px;color:var(--text);margin-bottom:4px}
   .wb-ask{color:var(--text);font-size:15px;margin:2px 0 8px}
   .wb-scope{color:var(--muted);font-size:13px;line-height:1.55;margin:0 0 14px;max-width:660px}
+  /* Galerie des figures chartistes */
+  .pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:16px}
+  .pat{margin:0;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .pat img{display:block;width:100%;height:auto;background:#fff}
+  .pat figcaption{padding:8px 11px;font-size:13px;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .pat-tag{font-size:13px;color:var(--muted);white-space:nowrap}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -965,6 +971,7 @@ const CONTENT={
       <p>La <b>liquidité</b>, c'est la facilité d'acheter ou vendre sans faire bouger le prix. Beaucoup d'ordres des deux côtés = marché liquide.</p>
       <ul><li>Actif <b>liquide</b> (BTC, ETH) → faible <b>slippage</b>, exécution proche du prix affiché.</li><li>Actif <b>illiquide</b> (petit token) → un seul gros ordre fait déraper le prix, terrain des manipulations.</li></ul>
       <div class="callout warn">⚠️ Beaucoup de pièges (pump &amp; dump) ne sont possibles que sur des actifs peu liquides. Privilégie les marchés profonds quand tu débutes.</div>`},
+    {id:"chartpat",icon:"📐",title:"Figures chartistes",xp:35,coins:18,body:`<p>Les <b>figures chartistes</b> sont des formes récurrentes du prix qui aident à anticiper la suite. 🔄 = retournement · ➡️ = continuation · 🟢 haussier / 🔴 baissier.</p><div data-patterns></div>`},
     {id:"analyse",icon:"🎯",title:"Mettre en pratique",xp:45,coins:30,body:`
       <p>Assemble tout pour faire ta première <b>analyse de marché</b> structurée :</p>
       <ul><li><b>1. Tendance</b> — haussière, baissière ou range ?</li><li><b>2. Niveaux</b> — où sont les supports et résistances clés ?</li><li><b>3. Volume</b> — confirme-t-il le mouvement actuel ?</li><li><b>4. Liquidité</b> — l'actif est-il assez profond ?</li><li><b>5. Plan</b> — où j'entre, où je coupe si j'ai tort (ça, c'est l'Academy 7).</li></ul>
@@ -1371,6 +1378,7 @@ const CONTENT_I18N={
       <p><b>Liquidity</b> is the ease of buying or selling without moving the price. Lots of orders on both sides = a liquid market.</p>
       <ul><li><b>Liquid</b> asset (BTC, ETH) → low <b>slippage</b>, execution near the shown price.</li><li><b>Illiquid</b> asset (small token) → one big order moves the price, ground for manipulation.</li></ul>
       <div class="callout warn">⚠️ Many traps (pump &amp; dump) are only possible on illiquid assets. Favor deep markets when starting out.</div>`},
+    chartpat:{title:"Chart patterns",body:`<p><b>Chart patterns</b> are recurring price shapes that help anticipate what comes next. 🔄 = reversal · ➡️ = continuation · 🟢 bullish / 🔴 bearish.</p><div data-patterns></div>`},
     analyse:{title:"Putting it into practice",body:`
       <p>Bring it all together for your first structured <b>market analysis</b>:</p>
       <ul><li><b>1. Trend</b> — up, down or range?</li><li><b>2. Levels</b> — where are the key supports and resistances?</li><li><b>3. Volume</b> — does it confirm the current move?</li><li><b>4. Liquidity</b> — is the asset deep enough?</li><li><b>5. Plan</b> — where I enter, where I cut if I'm wrong (that's Academy 7).</li></ul>
@@ -1749,6 +1757,7 @@ const CONTENT_I18N={
       <p>La <b>liquidez</b> es la facilidad para comprar o vender sin mover el precio. Muchas órdenes en ambos lados = mercado líquido.</p>
       <ul><li>Activo <b>líquido</b> (BTC, ETH) → bajo <b>slippage</b>, ejecución cerca del precio mostrado.</li><li>Activo <b>ilíquido</b> (token pequeño) → una sola orden grande mueve el precio, terreno de manipulación.</li></ul>
       <div class="callout warn">⚠️ Muchas trampas (pump &amp; dump) solo son posibles en activos ilíquidos. Prioriza mercados profundos al empezar.</div>`},
+    chartpat:{title:"Patrones gráficos",body:`<p>Los <b>patrones gráficos</b> son formas recurrentes del precio que ayudan a anticipar lo que viene. 🔄 = reversión · ➡️ = continuación · 🟢 alcista / 🔴 bajista.</p><div data-patterns></div>`},
     analyse:{title:"Ponerlo en práctica",body:`
       <p>Junta todo para tu primer <b>análisis de mercado</b> estructurado:</p>
       <ul><li><b>1. Tendencia</b> — ¿alcista, bajista o rango?</li><li><b>2. Niveles</b> — ¿dónde están los soportes y resistencias clave?</li><li><b>3. Volumen</b> — ¿confirma el movimiento actual?</li><li><b>4. Liquidez</b> — ¿el activo es suficientemente profundo?</li><li><b>5. Plan</b> — dónde entro, dónde corto si me equivoco (eso es la Academia 7).</li></ul>
@@ -2127,6 +2136,7 @@ const CONTENT_I18N={
       <p><b>สภาพคล่อง</b> คือความง่ายในการซื้อหรือขายโดยไม่ขยับราคา มีคำสั่งทั้งสองฝั่งเยอะ = ตลาดสภาพคล่องสูง</p>
       <ul><li>สินทรัพย์ <b>สภาพคล่องสูง</b> (BTC, ETH) → <b>slippage</b> ต่ำ ดำเนินใกล้ราคาที่แสดง</li><li>สินทรัพย์ <b>สภาพคล่องต่ำ</b> (โทเคนเล็ก) → คำสั่งใหญ่เดียวขยับราคา เป็นแดนปั่น</li></ul>
       <div class="callout warn">⚠️ กับดักหลายอย่าง (pump &amp; dump) ทำได้เฉพาะสินทรัพย์สภาพคล่องต่ำ เลือกตลาดลึกเมื่อเริ่มต้น</div>`},
+    chartpat:{title:"รูปแบบกราฟ",body:`<p><b>รูปแบบกราฟ</b> คือรูปทรงราคาที่เกิดซ้ำ ช่วยคาดการณ์สิ่งที่จะตามมา 🔄 = กลับตัว · ➡️ = ต่อเนื่อง · 🟢 ขาขึ้น / 🔴 ขาลง</p><div data-patterns></div>`},
     analyse:{title:"ลงมือปฏิบัติ",body:`
       <p>รวมทุกอย่างเพื่อ <b>วิเคราะห์ตลาด</b> อย่างมีโครงสร้างครั้งแรก:</p>
       <ul><li><b>1. เทรนด์</b> — ขึ้น ลง หรือไซด์เวย์?</li><li><b>2. ระดับ</b> — แนวรับแนวต้านสำคัญอยู่ไหน?</li><li><b>3. ปริมาณ</b> — ยืนยันการเคลื่อนปัจจุบันไหม?</li><li><b>4. สภาพคล่อง</b> — สินทรัพย์ลึกพอไหม?</li><li><b>5. แผน</b> — เข้าตรงไหน ตัดตรงไหนถ้าผิด (นั่นคือ Academy 7)</li></ul>
@@ -2505,6 +2515,7 @@ const CONTENT_I18N={
       <p>A <b>liquidez</b> é a facilidade de comprar ou vender sem mover o preço. Muitas ordens dos dois lados = mercado líquido.</p>
       <ul><li>Ativo <b>líquido</b> (BTC, ETH) → <b>slippage</b> baixo, execução perto do preço mostrado.</li><li>Ativo <b>ilíquido</b> (token pequeno) → uma ordem grande move o preço, terreno de manipulação.</li></ul>
       <div class="callout warn">⚠️ Muitas armadilhas (pump &amp; dump) só são possíveis em ativos ilíquidos. Prefira mercados profundos ao começar.</div>`},
+    chartpat:{title:"Padrões gráficos",body:`<p>Os <b>padrões gráficos</b> são formas recorrentes do preço que ajudam a antecipar o que vem. 🔄 = reversão · ➡️ = continuação · 🟢 alta / 🔴 baixa.</p><div data-patterns></div>`},
     analyse:{title:"Pôr em prática",body:`
       <p>Junte tudo para sua primeira <b>análise de mercado</b> estruturada:</p>
       <ul><li><b>1. Tendência</b> — alta, baixa ou range?</li><li><b>2. Níveis</b> — onde estão os suportes e resistências-chave?</li><li><b>3. Volume</b> — confirma o movimento atual?</li><li><b>4. Liquidez</b> — o ativo é profundo o bastante?</li><li><b>5. Plano</b> — onde entro, onde corto se estiver errado (isso é a Academia 7).</li></ul>
@@ -2883,6 +2894,7 @@ const CONTENT_I18N={
       <p>Die <b>Liquidität</b> ist die Leichtigkeit, zu kaufen oder zu verkaufen, ohne den Preis zu bewegen. Viele Orders auf beiden Seiten = liquider Markt.</p>
       <ul><li><b>Liquides</b> Asset (BTC, ETH) → geringes <b>Slippage</b>, Ausführung nahe am gezeigten Preis.</li><li><b>Illiquides</b> Asset (kleiner Token) → eine große Order bewegt den Preis, Boden für Manipulation.</li></ul>
       <div class="callout warn">⚠️ Viele Fallen (Pump &amp; Dump) sind nur bei illiquiden Assets möglich. Bevorzuge tiefe Märkte am Anfang.</div>`},
+    chartpat:{title:"Chartmuster",body:`<p><b>Chartmuster</b> sind wiederkehrende Kursformen, die helfen, das Kommende vorherzusehen. 🔄 = Umkehr · ➡️ = Fortsetzung · 🟢 bullisch / 🔴 bärisch.</p><div data-patterns></div>`},
     analyse:{title:"In die Praxis umsetzen",body:`
       <p>Bring alles zusammen für deine erste strukturierte <b>Marktanalyse</b>:</p>
       <ul><li><b>1. Trend</b> — aufwärts, abwärts oder Range?</li><li><b>2. Niveaus</b> — wo sind die wichtigen Unterstützungen und Widerstände?</li><li><b>3. Volumen</b> — bestätigt es die aktuelle Bewegung?</li><li><b>4. Liquidität</b> — ist das Asset tief genug?</li><li><b>5. Plan</b> — wo steige ich ein, wo schneide ich, wenn ich falsch liege (das ist Academy 7).</li></ul>
@@ -3261,6 +3273,7 @@ const CONTENT_I18N={
       <p><b>Ликвидность</b> — лёгкость купить или продать, не двигая цену. Много заявок с обеих сторон = ликвидный рынок.</p>
       <ul><li><b>Ликвидный</b> актив (BTC, ETH) → низкий <b>slippage</b>, исполнение близко к показанной цене.</li><li><b>Неликвидный</b> актив (мелкий токен) → одна крупная заявка двигает цену, почва для манипуляций.</li></ul>
       <div class="callout warn">⚠️ Многие ловушки (pump &amp; dump) возможны только на неликвидных активах. На старте предпочитай глубокие рынки.</div>`},
+    chartpat:{title:"Графические паттерны",body:`<p><b>Графические паттерны</b> — повторяющиеся формы цены, помогающие предвидеть дальнейшее. 🔄 = разворот · ➡️ = продолжение · 🟢 рост / 🔴 падение.</p><div data-patterns></div>`},
     analyse:{title:"Применить на практике",body:`
       <p>Собери всё для первого структурированного <b>анализа рынка</b>:</p>
       <ul><li><b>1. Тренд</b> — вверх, вниз или боковик?</li><li><b>2. Уровни</b> — где ключевые поддержки и сопротивления?</li><li><b>3. Объём</b> — подтверждает ли он текущее движение?</li><li><b>4. Ликвидность</b> — достаточно ли глубок актив?</li><li><b>5. План</b> — где вхожу, где режу, если ошибся (это Academy 7).</li></ul>
@@ -3658,6 +3671,7 @@ const CONTENT_I18N={
       <p><b>Likidite</b>, fiyatı oynatmadan alıp satabilme kolaylığıdır. Her iki tarafta da çok emir = likit bir piyasa.</p>
       <ul><li><b>Likit</b> varlık (BTC, ETH) → düşük <b>slippage</b>, gösterilen fiyata yakın gerçekleşme.</li><li><b>Likit olmayan</b> varlık (küçük token) → tek büyük emir fiyatı oynatır, manipülasyon zemini.</li></ul>
       <div class="callout warn">⚠️ Birçok tuzak (pump &amp; dump) sadece likit olmayan varlıklarda mümkündür. Başlarken derin piyasaları tercih et.</div>`},
+    chartpat:{title:"Grafik formasyonları",body:`<p><b>Grafik formasyonları</b>, sonrasını öngörmeye yardımcı olan tekrar eden fiyat şekilleridir. 🔄 = dönüş · ➡️ = devam · 🟢 yükseliş / 🔴 düşüş.</p><div data-patterns></div>`},
     analyse:{title:"Pratiğe dökmek",body:`
       <p>İlk yapılandırılmış <b>piyasa analizin</b> için hepsini bir araya getir:</p>
       <ul><li><b>1. Trend</b> — yükseliş, düşüş ya da yatay mı?</li><li><b>2. Seviyeler</b> — kilit destek ve dirençler nerede?</li><li><b>3. Hacim</b> — mevcut hareketi doğruluyor mu?</li><li><b>4. Likidite</b> — varlık yeterince derin mi?</li><li><b>5. Plan</b> — nereden girerim, yanılırsam nerede keserim (bu Akademi 7).</li></ul>
@@ -4055,6 +4069,7 @@ const CONTENT_I18N={
       <p><b>Likuiditas</b> adalah kemudahan membeli atau menjual tanpa menggerakkan harga. Banyak order di kedua sisi = pasar likuid.</p>
       <ul><li>Aset <b>likuid</b> (BTC, ETH) → <b>slippage</b> rendah, eksekusi dekat harga tampil.</li><li>Aset <b>tidak likuid</b> (token kecil) → satu order besar menggerakkan harga, lahan manipulasi.</li></ul>
       <div class="callout warn">⚠️ Banyak jebakan (pump &amp; dump) hanya mungkin pada aset tidak likuid. Utamakan pasar dalam saat pemula.</div>`},
+    chartpat:{title:"Pola grafik",body:`<p><b>Pola grafik</b> adalah bentuk harga berulang yang membantu memprediksi kelanjutannya. 🔄 = pembalikan · ➡️ = kelanjutan · 🟢 naik / 🔴 turun.</p><div data-patterns></div>`},
     analyse:{title:"Mempraktikkannya",body:`
       <p>Satukan semuanya untuk <b>analisis pasar</b> terstrukturmu yang pertama:</p>
       <ul><li><b>1. Tren</b> — naik, turun atau range?</li><li><b>2. Level</b> — di mana support dan resistance kunci?</li><li><b>3. Volume</b> — apakah mengonfirmasi gerakan saat ini?</li><li><b>4. Likuiditas</b> — apakah asetnya cukup dalam?</li><li><b>5. Rencana</b> — di mana aku masuk, di mana aku potong jika salah (itu Akademi 7).</li></ul>
@@ -4452,6 +4467,7 @@ const CONTENT_I18N={
       <p><b>Thanh khoản</b> là độ dễ mua hoặc bán mà không làm dịch chuyển giá. Nhiều lệnh ở cả hai phía = thị trường thanh khoản tốt.</p>
       <ul><li>Tài sản <b>thanh khoản</b> (BTC, ETH) → <b>slippage</b> thấp, khớp gần giá hiển thị.</li><li>Tài sản <b>kém thanh khoản</b> (token nhỏ) → một lệnh lớn làm dịch giá, mảnh đất cho thao túng.</li></ul>
       <div class="callout warn">⚠️ Nhiều cái bẫy (pump &amp; dump) chỉ khả thi trên tài sản kém thanh khoản. Ưu tiên thị trường sâu khi mới bắt đầu.</div>`},
+    chartpat:{title:"Mẫu hình biểu đồ",body:`<p><b>Mẫu hình biểu đồ</b> là những hình dạng giá lặp lại giúp dự đoán diễn biến tiếp theo. 🔄 = đảo chiều · ➡️ = tiếp diễn · 🟢 tăng / 🔴 giảm.</p><div data-patterns></div>`},
     analyse:{title:"Đưa vào thực hành",body:`
       <p>Kết hợp tất cả cho <b>phân tích thị trường</b> có cấu trúc đầu tiên của bạn:</p>
       <ul><li><b>1. Xu hướng</b> — tăng, giảm hay đi ngang?</li><li><b>2. Các mức</b> — hỗ trợ và kháng cự then chốt ở đâu?</li><li><b>3. Khối lượng</b> — nó có xác nhận chuyển động hiện tại không?</li><li><b>4. Thanh khoản</b> — tài sản có đủ sâu không?</li><li><b>5. Kế hoạch</b> — vào ở đâu, cắt ở đâu nếu sai (đó là Học viện 7).</li></ul>
@@ -4849,6 +4865,7 @@ const CONTENT_I18N={
       <p><b>流动性</b>是在不推动价格的情况下买卖的容易程度。两侧都有大量挂单 = 流动性好的市场。</p>
       <ul><li><b>流动性高</b>的资产（BTC、ETH）→ <b>滑点</b>低，成交接近显示价。</li><li><b>流动性差</b>的资产（小代币）→ 一笔大单就推动价格，是操纵的温床。</li></ul>
       <div class="callout warn">⚠️ 许多陷阱（pump &amp; dump）只在流动性差的资产上才可能。新手请优先深度市场。</div>`},
+    chartpat:{title:"图表形态",body:`<p><b>图表形态</b>是反复出现的价格形状，帮助预判后市。🔄 = 反转 · ➡️ = 持续 · 🟢 看涨 / 🔴 看跌。</p><div data-patterns></div>`},
     analyse:{title:"付诸实践",body:`
       <p>把一切结合起来，做你的第一次结构化<b>市场分析</b>：</p>
       <ul><li><b>1. 趋势</b> — 上、下还是区间？</li><li><b>2. 关键位</b> — 关键支撑和阻力在哪？</li><li><b>3. 成交量</b> — 它确认当前走势吗？</li><li><b>4. 流动性</b> — 资产够深吗？</li><li><b>5. 计划</b> — 我在哪进场，错了在哪止损（那是学院 7）。</li></ul>
@@ -5246,6 +5263,7 @@ const CONTENT_I18N={
       <p><b>流動性</b>は、価格を動かさずに売買できる容易さです。両側に多くの注文 = 流動性の高い市場。</p>
       <ul><li><b>流動性の高い</b>資産（BTC、ETH）→ <b>スリッページ</b>が低く、表示価格に近く約定。</li><li><b>流動性の低い</b>資産（小さなトークン）→ 大口注文一つで価格が動き、操作の温床。</li></ul>
       <div class="callout warn">⚠️ 多くの罠（pump &amp; dump）は流動性の低い資産でのみ可能です。始めは深い市場を優先しましょう。</div>`},
+    chartpat:{title:"チャートパターン",body:`<p><b>チャートパターン</b>は繰り返し現れる価格の形で、この先を予測する助けになります。🔄 = 反転 · ➡️ = 継続 · 🟢 強気 / 🔴 弱気。</p><div data-patterns></div>`},
     analyse:{title:"実践に移す",body:`
       <p>すべてを組み合わせ、最初の体系的な<b>市場分析</b>を：</p>
       <ul><li><b>1. トレンド</b> — 上昇、下降、レンジ？</li><li><b>2. 水準</b> — 重要なサポートとレジスタンスはどこ？</li><li><b>3. 出来高</b> — 今の動きを確認している？</li><li><b>4. 流動性</b> — 資産は十分に深い？</li><li><b>5. 計画</b> — どこで入り、間違えたらどこで切る（アカデミー7）。</li></ul>
@@ -5643,6 +5661,7 @@ const CONTENT_I18N={
       <p><b>유동성</b>은 가격을 움직이지 않고 사고팔 수 있는 용이함입니다. 양쪽에 주문이 많음 = 유동적인 시장.</p>
       <ul><li><b>유동적</b> 자산(BTC, ETH) → 낮은 <b>슬리피지</b>, 표시 가격 근처 체결.</li><li><b>비유동적</b> 자산(작은 토큰) → 큰 주문 하나가 가격을 움직임, 조작의 온상.</li></ul>
       <div class="callout warn">⚠️ 많은 함정(pump &amp; dump)은 비유동적 자산에서만 가능합니다. 처음엔 깊은 시장을 우선하세요.</div>`},
+    chartpat:{title:"차트 패턴",body:`<p><b>차트 패턴</b>은 반복되는 가격 모양으로, 다음 움직임을 예측하는 데 도움이 됩니다. 🔄 = 반전 · ➡️ = 지속 · 🟢 상승 / 🔴 하락.</p><div data-patterns></div>`},
     analyse:{title:"실전에 옮기기",body:`
       <p>모든 것을 합쳐 첫 체계적 <b>시장 분석</b>을:</p>
       <ul><li><b>1. 추세</b> — 상승, 하락, 횡보?</li><li><b>2. 수준</b> — 핵심 지지와 저항은 어디?</li><li><b>3. 거래량</b> — 현재 움직임을 확인하나?</li><li><b>4. 유동성</b> — 자산이 충분히 깊은가?</li><li><b>5. 계획</b> — 어디서 들어가고, 틀리면 어디서 자르나(아카데미 7).</li></ul>
@@ -6040,6 +6059,7 @@ const CONTENT_I18N={
       <p><b>السيولة</b> هي سهولة البيع أو الشراء دون تحريك السعر. أوامر كثيرة على الجانبين = سوق سائل.</p>
       <ul><li>أصل <b>سائل</b> (BTC، ETH) → <b>انزلاق</b> منخفض، تنفيذ قرب السعر المعروض.</li><li>أصل <b>غير سائل</b> (رمز صغير) → أمر كبير واحد يحرّك السعر، أرض خصبة للتلاعب.</li></ul>
       <div class="callout warn">⚠️ كثير من الفخاخ (pump &amp; dump) ممكنة فقط على الأصول غير السائلة. فضّل الأسواق العميقة عند البداية.</div>`},
+    chartpat:{title:"أنماط الرسم البياني",body:`<p><b>أنماط الرسم البياني</b> أشكال سعرية متكرّرة تساعد على توقّع ما يأتي. 🔄 = انعكاس · ➡️ = استمرار · 🟢 صعودي / 🔴 هبوطي.</p><div data-patterns></div>`},
     analyse:{title:"التطبيق العملي",body:`
       <p>اجمع كل شيء لأول <b>تحليل سوق</b> منظَّم لك:</p>
       <ul><li><b>1. الاتجاه</b> — صاعد، هابط، أم نطاق؟</li><li><b>2. المستويات</b> — أين الدعوم والمقاومات الرئيسية؟</li><li><b>3. الحجم</b> — هل يؤكّد الحركة الحالية؟</li><li><b>4. السيولة</b> — هل الأصل عميق كفاية؟</li><li><b>5. الخطة</b> — أين أدخل، وأين أقطع إن أخطأت (تلك الأكاديمية 7).</li></ul>
@@ -6437,6 +6457,7 @@ const CONTENT_I18N={
       <p><b>तरलता</b> क़ीमत हिलाए बिना ख़रीदने या बेचने की आसानी है। दोनों तरफ़ ढेरों ऑर्डर = तरल बाज़ार।</p>
       <ul><li><b>तरल</b> संपत्ति (BTC, ETH) → कम <b>स्लिपेज</b>, दिखाई क़ीमत के पास निष्पादन।</li><li><b>अतरल</b> संपत्ति (छोटा टोकन) → एक बड़ा ऑर्डर क़ीमत हिला देता है, हेरफेर की ज़मीन।</li></ul>
       <div class="callout warn">⚠️ कई जाल (pump &amp; dump) केवल अतरल संपत्तियों पर ही संभव हैं। शुरुआत में गहरे बाज़ार चुनें।</div>`},
+    chartpat:{title:"चार्ट पैटर्न",body:`<p><b>चार्ट पैटर्न</b> कीमत के दोहराए जाने वाले आकार हैं जो आगे का अनुमान लगाने में मदद करते हैं। 🔄 = उलटाव · ➡️ = निरंतरता · 🟢 तेज़ी / 🔴 मंदी।</p><div data-patterns></div>`},
     analyse:{title:"व्यवहार में लाना",body:`
       <p>अपने पहले संरचित <b>बाज़ार विश्लेषण</b> के लिए सब जोड़ें:</p>
       <ul><li><b>1. रुझान</b> — तेज़ी, मंदी या रेंज?</li><li><b>2. स्तर</b> — मुख्य सपोर्ट और रेज़िस्टेंस कहाँ हैं?</li><li><b>3. वॉल्यूम</b> — क्या यह मौजूदा चाल की पुष्टि करता है?</li><li><b>4. तरलता</b> — क्या संपत्ति पर्याप्त गहरी है?</li><li><b>5. योजना</b> — कहाँ घुसूँ, ग़लत होने पर कहाँ काटूँ (वह अकादमी 7)।</li></ul>
@@ -6834,6 +6855,7 @@ const CONTENT_I18N={
       <p><b>Liquidity</b> သည် ဈေးမရွေ့စေဘဲ ဝယ်/ရောင်းနိုင်သော လွယ်ကူမှု။ နှစ်ဘက်စလုံး အော်ဒါများ = လည်ပတ်ကောင်းသောဈေးကွက်။</p>
       <ul><li><b>လည်ပတ်ကောင်း</b> ပိုင်ဆိုင်မှု (BTC, ETH) → <b>slippage</b> နိမ့်၊ ပြသဈေးအနီး အကောင်အထည်ဖော်။</li><li><b>လည်ပတ်ညံ့</b> ပိုင်ဆိုင်မှု (တိုကင်သေး) → အော်ဒါကြီးတစ်ခုက ဈေးရွှေ့၊ ကိုင်တွယ်လှည့်စားရာ မြေ။</li></ul>
       <div class="callout warn">⚠️ ထောင်ချောက်များ (pump &amp; dump) သည် လည်ပတ်ညံ့ပိုင်ဆိုင်မှုများတွင်သာ ဖြစ်နိုင်။ စတင်စဉ် နက်ရှိုင်းသောဈေးကွက် ဦးစားပေး။</div>`},
+    chartpat:{title:"ဇယားပုံစံများ",body:`<p><b>ဇယားပုံစံများ</b> သည် ထပ်ခါတလဲလဲ ပေါ်လာသော ဈေးပုံသဏ္ဌာန်များဖြစ်ပြီး နောက်ဆက်တွဲကို ကြိုတွက်ရန် ကူညီသည်။ 🔄 = ပြောင်းပြန် · ➡️ = ဆက်လက် · 🟢 အတက် / 🔴 အကျ။</p><div data-patterns></div>`},
     analyse:{title:"လက်တွေ့ကျင့်သုံးခြင်း",body:`
       <p>သင့်ပထမဆုံး ဖွဲ့စည်းထား <b>ဈေးကွက်ခွဲခြမ်းစိတ်ဖြာမှု</b> အတွက် အားလုံးပေါင်း:</p>
       <ul><li><b>၁. လမ်းကြောင်း</b> — တက်၊ ကျ၊ range?</li><li><b>၂. အဆင့်များ</b> — အဓိက support နှင့် resistance ဘယ်မှာ?</li><li><b>၃. Volume</b> — လက်ရှိရွေ့လျားမှု အတည်ပြုသလား?</li><li><b>၄. Liquidity</b> — ပိုင်ဆိုင်မှု နက်လောက်သလား?</li><li><b>၅. အစီအစဉ်</b> — ဘယ်မှာဝင်၊ မှားရင်ဘယ်မှာဖြတ် (အကယ်ဒမီ ၇)။</li></ul>
@@ -7649,7 +7671,23 @@ function bindContent(){
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
   const rob=$("replayOb"); if(rob) rob.onclick=showOnboarding;
   bindProfile(); bindReferral();
+  const pg=document.querySelector("[data-patterns]"); if(pg) pg.innerHTML=patternsGalleryHTML();
   if(VIEW.name==="quiz") bindQuiz();
+}
+/* Galerie des figures chartistes (16 patterns). Images universelles, légende dans l'intro du module. */
+const PATTERNS=[
+  ["ascending-triangle","Ascending Triangle","cont","up"],["descending-triangle","Descending Triangle","cont","down"],
+  ["symmetric-triangle","Symmetric Triangle","cont","neutral"],["bump-run-reversal","Bump & Run Reversal","rev","down"],
+  ["cup-handle","Cup & Handle","cont","up"],["double-top","Double Top","rev","down"],
+  ["double-bottom","Double Bottom","rev","up"],["falling-wedge","Falling Wedge","rev","up"],
+  ["flag","Flag","cont","neutral"],["pennant","Pennant","cont","neutral"],
+  ["head-shoulders","Head & Shoulders","rev","down"],["inverse-head-shoulders","Inverse H&S","rev","up"],
+  ["price-channel","Price Channel","cont","neutral"],["rounding-bottom","Rounding Bottom","rev","up"],
+  ["triple-bottom","Triple Bottom","rev","up"],["triple-top","Triple Top","rev","down"]
+];
+function patternsGalleryHTML(){
+  const bias={up:"🟢",down:"🔴",neutral:"⚪"};
+  return `<div class="pat-grid">`+PATTERNS.map(p=>`<figure class="pat"><img loading="lazy" src="assets/patterns/${p[0]}.jpg" alt="${p[1]}"/><figcaption><b>${p[1]}</b> <span class="pat-tag">${p[2]==='rev'?'🔄':'➡️'} ${bias[p[3]]}</span></figcaption></figure>`).join("")+`</div>`;
 }
 
 function bindProfile(){

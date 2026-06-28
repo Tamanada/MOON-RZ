@@ -12,3 +12,7 @@ dist/
 
 # Outils locaux
 .vscode/
+
+# Sources lourdes (non versionnees : versions optimisees dans assets/)
+17 patterns/
+STOCK IMAGES/
