@@ -7079,7 +7079,7 @@ function ac(aid){
 const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lastSeen:null,lang:"fr",onboarded:false,
   sim:{cash:10000,qty:{},started:false},
   profile:{name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},
-  ref:{code:"",invited:0},referredBy:null};
+  ref:{code:"",invited:0},referredBy:null,refSynced:false};
 let S=load();
 
 function load(){
@@ -7893,9 +7893,12 @@ function handleIncomingRef(){
   const params=new URLSearchParams(location.search);
   const ref=params.get("ref");
   if(ref && !S.referredBy && ref!==S.ref.code){
-    S.referredBy=ref; S.coins+=50; save();
+    S.referredBy=ref; S.coins+=50; S.refSynced=true; save();
     sbRpc("register_referral",{p_referee:S.ref.code,p_referrer:ref}); // enregistre côté serveur (parrain crédité)
     setTimeout(()=>{ toast(`🎉 Invité par <b>${ref}</b> !<br><b>+50 MOON-RZ</b> de bienvenue`); renderHUD(); },800);
+  } else if(S.referredBy && !S.refSynced){
+    // rattrapage : utilisateurs parrainés AVANT le backend -> on enregistre au prochain lancement
+    sbRpc("register_referral",{p_referee:S.ref.code,p_referrer:S.referredBy}).then(r=>{ if(r!==null){ S.refSynced=true; save(); } });
   }
   // nettoie l'URL pour éviter de re-créditer au refresh
   if(ref && history.replaceState){ history.replaceState(null,"",location.pathname); }
