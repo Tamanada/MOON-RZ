@@ -306,6 +306,17 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pat img{display:block;width:100%;height:auto;background:#fff}
   .pat figcaption{padding:8px 11px;font-size:13px;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:8px}
   .pat-tag{font-size:13px;color:var(--muted);white-space:nowrap}
+  /* Entraînement reconnais la figure */
+  .pg{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;max-width:520px}
+  .pg-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;color:var(--text);margin-bottom:10px}
+  .pg-score{font-family:var(--font-data,ui-monospace,monospace);color:var(--accent);font-size:14px;white-space:nowrap}
+  .pg-img{display:block;width:100%;height:auto;background:#fff;border-radius:10px;border:1px solid var(--border)}
+  .pg-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .pg-opt{background:var(--chip-bg);border:1px solid var(--border);color:var(--text);padding:10px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:.12s}
+  .pg-opt:hover:not(:disabled){border-color:var(--accent)}
+  .pg-opt.ok{background:var(--pos);border-color:var(--pos);color:#04210f}
+  .pg-opt.no{background:var(--red);border-color:var(--red);color:#2a0707}
+  .pg-feed{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px;min-height:10px;font-weight:600}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -571,6 +582,11 @@ const T={
   wb_ask:{en:"So, what are we doing today? Shall we keep going with Web3? 🚀",fr:"Alors, qu'est-ce qu'on fait aujourd'hui ? On continue le Web3 ? 🚀",es:"Entonces, ¿qué hacemos hoy? ¿Seguimos con el Web3? 🚀",pt:"Então, o que fazemos hoje? Continuamos com o Web3? 🚀",de:"Also, was machen wir heute? Weiter mit Web3? 🚀",ru:"Ну что, чем займёмся сегодня? Продолжим с Web3? 🚀",tr:"Peki, bugün ne yapıyoruz? Web3'e devam mı? 🚀",ar:"إذن، ماذا نفعل اليوم؟ هل نواصل مع Web3؟ 🚀",zh:"那么，今天做点什么？继续学 Web3 吗？🚀",ja:"さて、今日は何をする？Web3 を続ける？🚀",ko:"자, 오늘은 뭘 해볼까요? Web3 계속할까요? 🚀",hi:"तो, आज क्या करें? Web3 जारी रखें? 🚀",id:"Jadi, hari ini kita ngapain? Lanjut Web3? 🚀",vi:"Vậy hôm nay mình làm gì? Tiếp tục Web3 nhé? 🚀",th:"เอาล่ะ วันนี้เราจะทำอะไรดี? ไปต่อกับ Web3 ไหม? 🚀"},
   wb_scope:{en:"Our program is broad: across the academies you'll cover the whole Web3 universe — blockchain, security, DeFi, NFTs, trading, AI… A magnificent opportunity to seize.",fr:"Notre programme est vaste : au fil des académies, tu couvriras tout l'univers Web3 — blockchain, sécurité, DeFi, NFT, trading, IA… Une magnifique opportunité à saisir.",es:"Nuestro programa es amplio: a lo largo de las academias cubrirás todo el universo Web3 — blockchain, seguridad, DeFi, NFT, trading, IA… Una magnífica oportunidad.",pt:"Nosso programa é amplo: ao longo das academias você cobrirá todo o universo Web3 — blockchain, segurança, DeFi, NFTs, trading, IA… Uma oportunidade magnífica.",de:"Unser Programm ist umfassend: über die Akademien deckst du das ganze Web3-Universum ab — Blockchain, Sicherheit, DeFi, NFTs, Trading, KI… Eine großartige Chance.",ru:"Наша программа обширна: проходя академии, ты охватишь всю вселенную Web3 — блокчейн, безопасность, DeFi, NFT, трейдинг, ИИ… Прекрасная возможность.",tr:"Programımız geniş: akademiler boyunca tüm Web3 evrenini kapsayacaksın — blok zinciri, güvenlik, DeFi, NFT, trading, yapay zekâ… Muhteşem bir fırsat.",ar:"برنامجنا واسع: عبر الأكاديميات ستغطّي عالم Web3 بأكمله — البلوكشين، الأمان، DeFi، NFT، التداول، الذكاء الاصطناعي… فرصة رائعة.",zh:"我们的课程很广：贯穿各学院，你将覆盖整个 Web3 世界——区块链、安全、DeFi、NFT、交易、AI……一个绝佳的机会。",ja:"カリキュラムは幅広い：アカデミーを通じて Web3 の世界すべてをカバーします——ブロックチェーン、セキュリティ、DeFi、NFT、トレード、AI…。素晴らしいチャンスです。",ko:"우리 커리큘럼은 넓습니다: 아카데미를 거치며 Web3 세계 전체를 다룹니다 — 블록체인, 보안, DeFi, NFT, 트레이딩, AI… 멋진 기회예요.",hi:"हमारा पाठ्यक्रम विशाल है: अकादमियों के दौरान आप पूरे Web3 ब्रह्मांड को कवर करेंगे — ब्लॉकचेन, सुरक्षा, DeFi, NFT, ट्रेडिंग, AI… एक शानदार अवसर।",id:"Program kami luas: melintasi akademi kamu akan mencakup seluruh dunia Web3 — blockchain, keamanan, DeFi, NFT, trading, AI… Peluang luar biasa.",vi:"Chương trình của chúng ta rất rộng: qua các học viện, bạn sẽ bao quát cả thế giới Web3 — blockchain, bảo mật, DeFi, NFT, trading, AI… Một cơ hội tuyệt vời.",th:"หลักสูตรของเรากว้างมาก: ตลอดสถาบันต่าง ๆ คุณจะครอบคลุมทั้งจักรวาล Web3 — บล็อกเชน ความปลอดภัย DeFi NFT เทรด AI… โอกาสที่ยอดเยี่ยม"},
   wb_resume:{en:"Resume",fr:"Reprendre",es:"Continuar",pt:"Retomar",de:"Fortsetzen",ru:"Продолжить",tr:"Devam et",ar:"استئناف",zh:"继续",ja:"再開",ko:"이어서",hi:"जारी रखें",id:"Lanjutkan",vi:"Tiếp tục",th:"ไปต่อ"},
+  pat_train:{en:"🎯 Practice: name the pattern",fr:"🎯 Entraîne-toi : reconnais la figure",es:"🎯 Practica: reconoce el patrón",pt:"🎯 Pratique: reconheça o padrão",de:"🎯 Übung: Muster erkennen",ru:"🎯 Тренировка: угадай паттерн",tr:"🎯 Alıştırma: formasyonu tanı",ar:"🎯 تدرّب: تعرّف على النمط",zh:"🎯 练习：识别形态",ja:"🎯 練習：パターンを当てよう",ko:"🎯 연습: 패턴 맞히기",hi:"🎯 अभ्यास: पैटर्न पहचानें",id:"🎯 Latihan: kenali pola",vi:"🎯 Luyện tập: nhận diện mẫu hình",th:"🎯 ฝึก: ทายรูปแบบ"},
+  pat_q:{en:"Which pattern is this?",fr:"Quelle est cette figure ?",es:"¿Qué patrón es este?",pt:"Que padrão é este?",de:"Welches Muster ist das?",ru:"Какой это паттерн?",tr:"Bu hangi formasyon?",ar:"ما هذا النمط؟",zh:"这是什么形态？",ja:"これはどのパターン？",ko:"이건 어떤 패턴일까요?",hi:"यह कौन-सा पैटर्न है?",id:"Ini pola apa?",vi:"Đây là mẫu hình gì?",th:"นี่คือรูปแบบอะไร?"},
+  pat_ok:{en:"Correct!",fr:"Bravo !",es:"¡Correcto!",pt:"Correto!",de:"Richtig!",ru:"Верно!",tr:"Doğru!",ar:"صحيح!",zh:"答对了！",ja:"正解！",ko:"정답!",hi:"सही!",id:"Benar!",vi:"Chính xác!",th:"ถูกต้อง!"},
+  pat_no:{en:"Missed — it was:",fr:"Raté — c'était :",es:"Fallaste — era:",pt:"Errou — era:",de:"Daneben — es war:",ru:"Мимо — это был:",tr:"Yanlış — doğrusu:",ar:"خطأ — كان:",zh:"答错了——正确是：",ja:"残念——正解は：",ko:"틀렸어요 — 정답:",hi:"चूक गए — यह था:",id:"Salah — yang benar:",vi:"Sai rồi — đáp án:",th:"ผิด — คำตอบคือ:"},
+  pat_next:{en:"Next →",fr:"Suivante →",es:"Siguiente →",pt:"Próxima →",de:"Weiter →",ru:"Дальше →",tr:"Sıradaki →",ar:"التالي →",zh:"下一个 →",ja:"次へ →",ko:"다음 →",hi:"अगला →",id:"Berikutnya →",vi:"Tiếp →",th:"ถัดไป →"},
   cont_next:{en:"Continue to",fr:"Continuer vers",es:"Continuar a",pt:"Continuar para",de:"Weiter zu",ru:"Перейти к",tr:"Devam et",ar:"المتابعة إلى",zh:"继续前往",ja:"次へ進む",ko:"계속하기",hi:"आगे बढ़ें",id:"Lanjut ke",vi:"Tiếp tục đến",th:"ไปต่อที่"},
   /* onboarding */
   ob_skip:{en:"Skip",fr:"Passer",es:"Saltar",pt:"Pular",de:"Überspringen",ru:"Пропустить",tr:"Atla",ar:"تخطّي",zh:"跳过",ja:"スキップ",ko:"건너뛰기",hi:"छोड़ें",id:"Lewati",vi:"Bỏ qua",th:"ข้าม"},
@@ -680,7 +696,7 @@ const T={
 /* ===== Birman (my) : fusionné dans T (parité avec les 15 autres langues) ===== */
 const T_MY={
   parcours:"သင်ယူရန်", monespace:"ကျွန်ုပ်နေရာ", sim:"ကုန်သွယ်ရေး စမ်းသပ်စနစ်", missions:"နေ့စဉ် မစ်ရှင်များ", referral:"မိတ်ဆက်ခြင်း", partners:"အလဲအလှယ်များ (CEX)", profile:"ပရိုဖိုင်နှင့် အဆင့်", level:"အဆင့်", install:"ထည့်သွင်းရန်", cont_next:"ဆက်သွားရန်",
-  wb_hi:"မင်္ဂလာပါ", wb_ask:"ဒါဆို ဒီနေ့ ဘာလုပ်ကြမလဲ? Web3 ဆက်မလား? 🚀", wb_scope:"ကျွန်ုပ်တို့သင်ရိုးသည် ကျယ်ပြန့်သည် — အကယ်ဒမီများတစ်လျှောက် Web3 လောကတစ်ခုလုံးကို လေ့လာရမည် — ဘလော့ချိန်း၊ လုံခြုံရေး၊ DeFi၊ NFT၊ ရောင်းဝယ်ရေး၊ AI… အလွန်ကောင်းသော အခွင့်အလမ်း။", wb_resume:"ဆက်လုပ်",
+  wb_hi:"မင်္ဂလာပါ", wb_ask:"ဒါဆို ဒီနေ့ ဘာလုပ်ကြမလဲ? Web3 ဆက်မလား? 🚀", wb_scope:"ကျွန်ုပ်တို့သင်ရိုးသည် ကျယ်ပြန့်သည် — အကယ်ဒမီများတစ်လျှောက် Web3 လောကတစ်ခုလုံးကို လေ့လာရမည် — ဘလော့ချိန်း၊ လုံခြုံရေး၊ DeFi၊ NFT၊ ရောင်းဝယ်ရေး၊ AI… အလွန်ကောင်းသော အခွင့်အလမ်း။", wb_resume:"ဆက်လုပ်", pat_train:"🎯 လေ့ကျင့်: ပုံစံကို မှန်းပါ", pat_q:"ဒါ ဘယ်ပုံစံလဲ?", pat_ok:"မှန်ပါတယ်!", pat_no:"လွဲသွားပြီ — အဖြေက:", pat_next:"နောက်တစ်ခု →",
   ob_skip:"ကျော်မည်", ob_next:"နောက်တစ်ခု →", ob_start:"စတင်မယ် 🚀", ob_replay:"🎬 မိတ်ဆက် ပြန်ကြည့်ရန်",
   ob1_t:"MOON-RZ မှ ကြိုဆိုပါတယ် 🌙", ob1_d:"သင်ယူမှုအတွက် ဆုချသော Web3 အကယ်ဒမီ။ သီအိုရီ အလွန်အကျွံ မရှိ — သင်ယူ၊ လေ့ကျင့်၊ ဆုရယူ။",
   ob2_t:"ဘယ်လို အလုပ်လုပ်လဲ", ob2a_t:"📚 သင်ယူ", ob2a_d:"Bitcoin မှ ကုန်သွယ်ရေးအထိ အကယ်ဒမီ ၁၀ ခု။ အသုံးမဝင်သော ဝေါဟာရ မရှိ။",
@@ -7671,7 +7687,7 @@ function bindContent(){
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
   const rob=$("replayOb"); if(rob) rob.onclick=showOnboarding;
   bindProfile(); bindReferral();
-  const pg=document.querySelector("[data-patterns]"); if(pg) pg.innerHTML=patternsGalleryHTML();
+  const pg=document.querySelector("[data-patterns]"); if(pg){ pg.innerHTML=patternsGalleryHTML(); const g=pg.querySelector("[data-patgame]"); if(g) patNewRound(g); }
   if(VIEW.name==="quiz") bindQuiz();
 }
 /* Galerie des figures chartistes (16 patterns). Images universelles, légende dans l'intro du module. */
@@ -7687,7 +7703,28 @@ const PATTERNS=[
 ];
 function patternsGalleryHTML(){
   const bias={up:"🟢",down:"🔴",neutral:"⚪"};
-  return `<div class="pat-grid">`+PATTERNS.map(p=>`<figure class="pat"><img loading="lazy" src="assets/patterns/${p[0]}.jpg" alt="${p[1]}"/><figcaption><b>${p[1]}</b> <span class="pat-tag">${p[2]==='rev'?'🔄':'➡️'} ${bias[p[3]]}</span></figcaption></figure>`).join("")+`</div>`;
+  return `<div class="pat-grid">`+PATTERNS.map(p=>`<figure class="pat"><img loading="lazy" src="assets/patterns/${p[0]}.jpg" alt="${p[1]}"/><figcaption><b>${p[1]}</b> <span class="pat-tag">${p[2]==='rev'?'🔄':'➡️'} ${bias[p[3]]}</span></figcaption></figure>`).join("")+`</div>
+    <div class="section-title">${t("pat_train")}</div>
+    <div class="pg" data-patgame></div>`;
+}
+/* Entraînement : reconnais la figure (mode pratique, score seul, pas d'XP farmable) */
+let patScore=0, patRounds=0;
+function patNewRound(el){
+  el.dataset.done="";
+  const ans=PATTERNS[Math.floor(Math.random()*PATTERNS.length)];
+  const opts=PATTERNS.filter(p=>p[0]!==ans[0]).sort(()=>Math.random()-0.5).slice(0,3).concat([ans]).sort(()=>Math.random()-0.5);
+  el.innerHTML=`<div class="pg-top"><span>${t("pat_q")}</span><span class="pg-score">✓ ${patScore}/${patRounds}</span></div>
+    <img class="pg-img" src="assets/patterns/${ans[0]}.jpg" alt=""/>
+    <div class="pg-opts">${opts.map(o=>`<button class="pg-opt" data-slug="${o[0]}">${o[1]}</button>`).join("")}</div>
+    <div class="pg-feed"></div>`;
+  el.querySelectorAll(".pg-opt").forEach(b=>b.onclick=()=>{
+    if(el.dataset.done) return; el.dataset.done="1"; patRounds++;
+    const ok=b.dataset.slug===ans[0]; if(ok) patScore++;
+    el.querySelectorAll(".pg-opt").forEach(x=>{ x.disabled=true; if(x.dataset.slug===ans[0]) x.classList.add("ok"); else if(x===b) x.classList.add("no"); });
+    el.querySelector(".pg-score").textContent=`✓ ${patScore}/${patRounds}`;
+    el.querySelector(".pg-feed").innerHTML=(ok?`<span class="up">✓ ${t("pat_ok")}</span>`:`<span class="down">✗ ${t("pat_no")} <b>${ans[1]}</b></span>`)+` <button class="btn sm pg-next">${t("pat_next")}</button>`;
+    el.querySelector(".pg-next").onclick=()=>patNewRound(el);
+  });
 }
 
 function bindProfile(){
