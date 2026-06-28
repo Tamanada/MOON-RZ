@@ -7076,7 +7076,7 @@ function ac(aid){
 }
 
 /* ---------- ÉTAT JOUEUR ---------- */
-const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lang:"fr",onboarded:false,
+const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lastSeen:null,lang:"fr",onboarded:false,
   sim:{cash:10000,qty:{},started:false},
   profile:{name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},
   ref:{code:"",invited:0},referredBy:null};
@@ -7698,11 +7698,17 @@ function viewMissions(){
      <div class="card"><h3>${t("soon_comm_t")}</h3><p>${t("soon_comm_d")}</p></div>
    </div>`;
 }
+/* Streak = jours consécutifs d'ouverture de l'app (automatique, appelé au boot). */
+function updateStreak(){
+  const t=todayKey(); if(S.lastSeen===t) return; // déjà compté aujourd'hui
+  const y=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  S.streak=(S.lastSeen===y)?(S.streak||1)+1:1; // hier → +1, sinon repart à 1
+  S.lastSeen=t; save();
+}
 function claimDaily(){
   const t=todayKey(); if(S.lastDay===t){ toast("Déjà récupérée aujourd’hui !"); return; }
-  const y=new Date(Date.now()-86400000).toISOString().slice(0,10);
-  S.streak=(S.lastDay===y)?S.streak+1:1; S.lastDay=t; save();
-  award(15,25,`🔥 Streak : ${S.streak} jour${S.streak>1?'s':''} !`); render();
+  S.lastDay=t; save();
+  award(15,25,`🎁 Bonus du jour récupéré ! 🔥 ${S.streak} j`); render();
 }
 
 /* ============================================================ BIND ============================================================ */
@@ -7964,6 +7970,7 @@ const PHRASES_I18N={
 
 /* ---------- BOOT ---------- */
 handleIncomingRef();
+updateStreak();
 buildNav(); applyLang(); renderHUD(); render();
 if(!S.onboarded) showOnboarding();
 </script>
