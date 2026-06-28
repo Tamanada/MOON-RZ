@@ -306,6 +306,13 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pat img{display:block;width:100%;height:auto;background:#fff}
   .pat figcaption{padding:8px 11px;font-size:13px;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:8px}
   .pat-tag{font-size:13px;color:var(--muted);white-space:nowrap}
+  .pat{cursor:pointer}
+  .pat-chev{display:inline-block;transition:transform .2s;opacity:.6;font-size:11px}
+  .pat.open .pat-chev{transform:rotate(90deg)}
+  .pat-detail{border-top:1px solid var(--border);padding:4px 11px 10px}
+  .pat-steps{margin:0;padding-left:20px;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .pat-steps li{margin:7px 0}
+  .pat-steps b{color:var(--text);display:block;font-size:12px}
   /* Entraînement reconnais la figure */
   .pg{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;max-width:520px}
   .pg-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;color:var(--text);margin-bottom:10px}
@@ -587,6 +594,9 @@ const T={
   pat_ok:{en:"Correct!",fr:"Bravo !",es:"¡Correcto!",pt:"Correto!",de:"Richtig!",ru:"Верно!",tr:"Doğru!",ar:"صحيح!",zh:"答对了！",ja:"正解！",ko:"정답!",hi:"सही!",id:"Benar!",vi:"Chính xác!",th:"ถูกต้อง!"},
   pat_no:{en:"Missed — it was:",fr:"Raté — c'était :",es:"Fallaste — era:",pt:"Errou — era:",de:"Daneben — es war:",ru:"Мимо — это был:",tr:"Yanlış — doğrusu:",ar:"خطأ — كان:",zh:"答错了——正确是：",ja:"残念——正解は：",ko:"틀렸어요 — 정답:",hi:"चूक गए — यह था:",id:"Salah — yang benar:",vi:"Sai rồi — đáp án:",th:"ผิด — คำตอบคือ:"},
   pat_next:{en:"Next →",fr:"Suivante →",es:"Siguiente →",pt:"Próxima →",de:"Weiter →",ru:"Дальше →",tr:"Sıradaki →",ar:"التالي →",zh:"下一个 →",ja:"次へ →",ko:"다음 →",hi:"अगला →",id:"Berikutnya →",vi:"Tiếp →",th:"ถัดไป →"},
+  pat_build:{en:"📐 The lines",fr:"📐 Le tracé",es:"📐 El trazado",pt:"📐 O traçado",de:"📐 Die Linien",ru:"📐 Построение",tr:"📐 Çizim",ar:"📐 الرسم",zh:"📐 画线",ja:"📐 ライン",ko:"📐 선 그리기",hi:"📐 रेखाएँ",id:"📐 Garis",vi:"📐 Cách vẽ",th:"📐 การวาดเส้น"},
+  pat_signal:{en:"🎯 The signal",fr:"🎯 Le signal",es:"🎯 La señal",pt:"🎯 O sinal",de:"🎯 Das Signal",ru:"🎯 Сигнал",tr:"🎯 Sinyal",ar:"🎯 الإشارة",zh:"🎯 信号",ja:"🎯 シグナル",ko:"🎯 신호",hi:"🎯 संकेत",id:"🎯 Sinyal",vi:"🎯 Tín hiệu",th:"🎯 สัญญาณ"},
+  pat_trade:{en:"💰 The trade",fr:"💰 Le trade",es:"💰 El trade",pt:"💰 O trade",de:"💰 Der Trade",ru:"💰 Сделка",tr:"💰 İşlem",ar:"💰 الصفقة",zh:"💰 交易",ja:"💰 トレード",ko:"💰 매매",hi:"💰 ट्रेड",id:"💰 Trade",vi:"💰 Giao dịch",th:"💰 การเทรด"},
   cont_next:{en:"Continue to",fr:"Continuer vers",es:"Continuar a",pt:"Continuar para",de:"Weiter zu",ru:"Перейти к",tr:"Devam et",ar:"المتابعة إلى",zh:"继续前往",ja:"次へ進む",ko:"계속하기",hi:"आगे बढ़ें",id:"Lanjut ke",vi:"Tiếp tục đến",th:"ไปต่อที่"},
   /* onboarding */
   ob_skip:{en:"Skip",fr:"Passer",es:"Saltar",pt:"Pular",de:"Überspringen",ru:"Пропустить",tr:"Atla",ar:"تخطّي",zh:"跳过",ja:"スキップ",ko:"건너뛰기",hi:"छोड़ें",id:"Lewati",vi:"Bỏ qua",th:"ข้าม"},
@@ -696,7 +706,7 @@ const T={
 /* ===== Birman (my) : fusionné dans T (parité avec les 15 autres langues) ===== */
 const T_MY={
   parcours:"သင်ယူရန်", monespace:"ကျွန်ုပ်နေရာ", sim:"ကုန်သွယ်ရေး စမ်းသပ်စနစ်", missions:"နေ့စဉ် မစ်ရှင်များ", referral:"မိတ်ဆက်ခြင်း", partners:"အလဲအလှယ်များ (CEX)", profile:"ပရိုဖိုင်နှင့် အဆင့်", level:"အဆင့်", install:"ထည့်သွင်းရန်", cont_next:"ဆက်သွားရန်",
-  wb_hi:"မင်္ဂလာပါ", wb_ask:"ဒါဆို ဒီနေ့ ဘာလုပ်ကြမလဲ? Web3 ဆက်မလား? 🚀", wb_scope:"ကျွန်ုပ်တို့သင်ရိုးသည် ကျယ်ပြန့်သည် — အကယ်ဒမီများတစ်လျှောက် Web3 လောကတစ်ခုလုံးကို လေ့လာရမည် — ဘလော့ချိန်း၊ လုံခြုံရေး၊ DeFi၊ NFT၊ ရောင်းဝယ်ရေး၊ AI… အလွန်ကောင်းသော အခွင့်အလမ်း။", wb_resume:"ဆက်လုပ်", pat_train:"🎯 လေ့ကျင့်: ပုံစံကို မှန်းပါ", pat_q:"ဒါ ဘယ်ပုံစံလဲ?", pat_ok:"မှန်ပါတယ်!", pat_no:"လွဲသွားပြီ — အဖြေက:", pat_next:"နောက်တစ်ခု →",
+  wb_hi:"မင်္ဂလာပါ", wb_ask:"ဒါဆို ဒီနေ့ ဘာလုပ်ကြမလဲ? Web3 ဆက်မလား? 🚀", wb_scope:"ကျွန်ုပ်တို့သင်ရိုးသည် ကျယ်ပြန့်သည် — အကယ်ဒမီများတစ်လျှောက် Web3 လောကတစ်ခုလုံးကို လေ့လာရမည် — ဘလော့ချိန်း၊ လုံခြုံရေး၊ DeFi၊ NFT၊ ရောင်းဝယ်ရေး၊ AI… အလွန်ကောင်းသော အခွင့်အလမ်း။", wb_resume:"ဆက်လုပ်", pat_train:"🎯 လေ့ကျင့်: ပုံစံကို မှန်းပါ", pat_q:"ဒါ ဘယ်ပုံစံလဲ?", pat_ok:"မှန်ပါတယ်!", pat_no:"လွဲသွားပြီ — အဖြေက:", pat_next:"နောက်တစ်ခု →", pat_build:"📐 မျဉ်းဆွဲ", pat_signal:"🎯 အချက်ပြ", pat_trade:"💰 ရောင်းဝယ်မှု",
   ob_skip:"ကျော်မည်", ob_next:"နောက်တစ်ခု →", ob_start:"စတင်မယ် 🚀", ob_replay:"🎬 မိတ်ဆက် ပြန်ကြည့်ရန်",
   ob1_t:"MOON-RZ မှ ကြိုဆိုပါတယ် 🌙", ob1_d:"သင်ယူမှုအတွက် ဆုချသော Web3 အကယ်ဒမီ။ သီအိုရီ အလွန်အကျွံ မရှိ — သင်ယူ၊ လေ့ကျင့်၊ ဆုရယူ။",
   ob2_t:"ဘယ်လို အလုပ်လုပ်လဲ", ob2a_t:"📚 သင်ယူ", ob2a_d:"Bitcoin မှ ကုန်သွယ်ရေးအထိ အကယ်ဒမီ ၁၀ ခု။ အသုံးမဝင်သော ဝေါဟာရ မရှိ။",
@@ -7687,7 +7697,17 @@ function bindContent(){
   const rb=$("resetBtn"); if(rb) rb.onclick=()=>{ if(confirm("Réinitialiser TOUTE ta progression (XP, MOON-RZ, badges, simulateur) ?")){ localStorage.removeItem("moonrz"); S=load(); renderHUD(); go("academy",1); toast("Progression réinitialisée."); } };
   const rob=$("replayOb"); if(rob) rob.onclick=showOnboarding;
   bindProfile(); bindReferral();
-  const pg=document.querySelector("[data-patterns]"); if(pg){ pg.innerHTML=patternsGalleryHTML(); const g=pg.querySelector("[data-patgame]"); if(g) patNewRound(g); }
+  const pg=document.querySelector("[data-patterns]"); if(pg){
+    pg.innerHTML=patternsGalleryHTML();
+    const g=pg.querySelector("[data-patgame]"); if(g) patNewRound(g);
+    pg.querySelectorAll(".pat").forEach(f=>f.addEventListener("click",e=>{
+      if(e.target.closest(".pat-detail")) return; // ne pas replier en sélectionnant le texte
+      const det=f.querySelector(".pat-detail"); if(!det) return;
+      const opening=det.hidden;
+      if(opening && !det.innerHTML) det.innerHTML=patDetailHTML(f.dataset.pat);
+      det.hidden=!opening; f.classList.toggle("open",opening);
+    }));
+  }
   if(VIEW.name==="quiz") bindQuiz();
 }
 /* Galerie des figures chartistes (16 patterns). Images universelles, légende dans l'intro du module. */
@@ -7701,9 +7721,33 @@ const PATTERNS=[
   ["price-channel","Price Channel","cont","neutral"],["rounding-bottom","Rounding Bottom","rev","up"],
   ["triple-bottom","Triple Bottom","rev","up"],["triple-top","Triple Top","rev","down"]
 ];
+/* Explication pas à pas par figure : [tracé, signal, trade]. FR + EN (repli EN/FR pour les autres langues). */
+const PATTERN_INFO={
+ "ascending-triangle":{fr:["Trace une ligne horizontale sur les sommets (résistance plate) et une ligne montante sous les creux de plus en plus hauts. Les deux convergent vers la droite.","Continuation haussière : les acheteurs poussent contre un même plafond… jusqu'à la cassure.","Entrée à la cassure au-dessus de la résistance, stop sous la ligne montante, objectif = hauteur du triangle reportée."],en:["Draw a flat line across the highs (horizontal resistance) and a rising line under the higher lows. They converge to the right.","Bullish continuation: buyers keep pushing into a fixed ceiling… until it breaks.","Enter on the break above resistance, stop under the rising line, target = triangle height projected."]},
+ "descending-triangle":{fr:["Ligne horizontale sous les creux (support plat) + ligne descendante sur les sommets de plus en plus bas.","Continuation baissière : les vendeurs pressent un support qui finit par céder.","Entrée à la cassure sous le support, stop au-dessus de la ligne descendante, objectif = hauteur du triangle."],en:["Flat line under the lows (horizontal support) + a falling line across the lower highs.","Bearish continuation: sellers press a support that finally gives way.","Enter on the break below support, stop above the falling line, target = triangle height."]},
+ "symmetric-triangle":{fr:["Deux lignes qui convergent : sommets descendants + creux montants. La cassure donne la direction.","Compression de volatilité ; ça repart souvent dans le sens du trend précédent.","Entrée dans le sens de la cassure, stop de l'autre côté du triangle, objectif = hauteur du triangle."],en:["Two converging lines: falling highs + rising lows. The breakout gives the direction.","Volatility squeeze; usually continues in the prior trend's direction.","Enter in the breakout direction, stop on the other side, target = triangle height."]},
+ "bump-run-reversal":{fr:["1) Phase calme le long d'une ligne de tendance douce. 2) « Bump » : une envolée trop raide. 3) Cassure de la ligne de tendance = le « run » à la baisse.","Retournement baissier après une hausse excessive et insoutenable.","Vente à la cassure de la ligne de tendance, stop au-dessus du bump, objectif = retour vers la base."],en:["1) Calm lead-in along a gentle trendline. 2) 'Bump': an overly steep spike. 3) Break of the trendline = the 'run' down.","Bearish reversal after an excessive, unsustainable rise.","Sell on the trendline break, stop above the bump, target = back to the base."]},
+ "cup-handle":{fr:["Un « U » arrondi (la tasse), puis une petite consolidation légèrement baissière à droite (l'anse).","Continuation haussière : reprise après une pause saine.","Entrée à la cassure du haut de l'anse, stop sous l'anse, objectif = profondeur de la tasse reportée."],en:["A rounded 'U' (the cup), then a small slightly-down consolidation on the right (the handle).","Bullish continuation: resumes after a healthy pause.","Enter on the break above the handle, stop under the handle, target = cup depth projected."]},
+ "double-top":{fr:["Deux sommets quasi égaux séparés par un creux. Trace la « ligne de cou » sous le creux.","Retournement baissier : le prix échoue deux fois au même plafond.","Vente à la cassure sous la ligne de cou, stop au-dessus des sommets, objectif = hauteur du motif."],en:["Two near-equal peaks split by a trough. Draw the 'neckline' under the trough.","Bearish reversal: price fails twice at the same ceiling.","Sell on the break below the neckline, stop above the peaks, target = pattern height."]},
+ "double-bottom":{fr:["Deux creux quasi égaux séparés par un sommet. Ligne de cou au-dessus du sommet.","Retournement haussier : le prix rebondit deux fois sur le même plancher.","Achat à la cassure au-dessus de la ligne de cou, stop sous les creux, objectif = hauteur du motif."],en:["Two near-equal troughs split by a peak. Neckline above the peak.","Bullish reversal: price bounces twice off the same floor.","Buy on the break above the neckline, stop under the troughs, target = pattern height."]},
+ "falling-wedge":{fr:["Deux lignes descendantes qui convergent (sommets et creux baissent, mais les creux baissent moins vite).","Souvent haussier : la baisse s'essouffle.","Achat à la cassure de la ligne haute, stop sous le dernier creux, objectif = hauteur du wedge."],en:["Two falling converging lines (highs and lows drop, but lows drop slower).","Often bullish: the decline runs out of steam.","Buy on the break of the upper line, stop under the last low, target = wedge height."]},
+ "flag":{fr:["Un mât (mouvement fort) puis un petit canal incliné à contre-sens (le drapeau).","Brève pause avant la reprise dans le sens du mât.","Entrée à la cassure du drapeau dans le sens du mât, stop de l'autre côté, objectif = longueur du mât."],en:["A pole (strong move) then a small channel tilted against it (the flag).","Brief pause before resuming in the pole's direction.","Enter on the flag break in the pole's direction, stop on the other side, target = pole length."]},
+ "pennant":{fr:["Comme le drapeau, mais la consolidation est un petit triangle symétrique (le fanion).","Pause de consolidation, reprise dans le sens du mât.","Entrée à la cassure, stop sous le fanion, objectif = longueur du mât."],en:["Like a flag but the consolidation is a small symmetric triangle (the pennant).","Consolidation pause, resumes in the pole's direction.","Enter on the break, stop under the pennant, target = pole length."]},
+ "head-shoulders":{fr:["Trois sommets : épaule, tête (plus haut), épaule. Trace la ligne de cou sous les deux creux.","Retournement baissier classique en fin de hausse.","Vente à la cassure de la ligne de cou, stop au-dessus de l'épaule droite, objectif = hauteur tête→cou."],en:["Three peaks: shoulder, head (highest), shoulder. Draw the neckline under the two troughs.","Classic bearish reversal at the end of an uptrend.","Sell on the neckline break, stop above the right shoulder, target = head-to-neckline height."]},
+ "inverse-head-shoulders":{fr:["Trois creux : épaule, tête (plus bas), épaule. Ligne de cou au-dessus des deux sommets.","Retournement haussier en fin de baisse.","Achat à la cassure de la ligne de cou, stop sous l'épaule droite, objectif = hauteur tête→cou."],en:["Three troughs: shoulder, head (lowest), shoulder. Neckline above the two peaks.","Bullish reversal at the end of a downtrend.","Buy on the neckline break, stop below the right shoulder, target = head-to-neckline height."]},
+ "price-channel":{fr:["Deux lignes parallèles (haute et basse) qui encadrent le prix. Trace-les sur 2 sommets et 2 creux alignés.","Tendance régulière tant que le prix reste dans le canal.","Achat en bas du canal / vente en haut ; la sortie du canal signale un changement."],en:["Two parallel lines (upper & lower) framing price. Draw them across 2 aligned highs and 2 lows.","Steady trend as long as price stays inside the channel.","Buy at the lower line / sell at the upper; leaving the channel signals a change."]},
+ "rounding-bottom":{fr:["Un long arrondi en « U » (soucoupe), sans pic marqué.","Retournement haussier lent : la pression vendeuse s'épuise.","Achat à la cassure du bord droit, stop sous l'arrondi, objectif = profondeur de la soucoupe."],en:["A long 'U' arc (saucer) with no sharp low.","Slow bullish reversal: selling pressure fades.","Buy on the break of the right rim, stop under the arc, target = saucer depth."]},
+ "triple-bottom":{fr:["Trois creux quasi égaux sur un même support. Ligne de cou sur les sommets entre eux.","Retournement haussier : support testé 3 fois et tenu.","Achat à la cassure de la ligne de cou, stop sous les creux, objectif = hauteur du motif."],en:["Three near-equal troughs on the same support. Neckline across the peaks between them.","Bullish reversal: support tested 3× and held.","Buy on the neckline break, stop under the troughs, target = pattern height."]},
+ "triple-top":{fr:["Trois sommets quasi égaux sur une même résistance. Ligne de cou sous les creux.","Retournement baissier : plafond testé 3 fois et tenu.","Vente à la cassure de la ligne de cou, stop au-dessus des sommets, objectif = hauteur du motif."],en:["Three near-equal peaks on the same resistance. Neckline under the troughs.","Bearish reversal: ceiling tested 3× and held.","Sell on the neckline break, stop above the peaks, target = pattern height."]}
+};
+function patDetailHTML(slug){
+  const I=PATTERN_INFO[slug]; if(!I) return '';
+  const d=I[S.lang]||I.en||I.fr;
+  return `<ol class="pat-steps"><li><b>${t("pat_build")}</b> ${d[0]}</li><li><b>${t("pat_signal")}</b> ${d[1]}</li><li><b>${t("pat_trade")}</b> ${d[2]}</li></ol>`;
+}
 function patternsGalleryHTML(){
   const bias={up:"🟢",down:"🔴",neutral:"⚪"};
-  return `<div class="pat-grid">`+PATTERNS.map(p=>`<figure class="pat"><img loading="lazy" src="assets/patterns/${p[0]}.jpg" alt="${p[1]}"/><figcaption><b>${p[1]}</b> <span class="pat-tag">${p[2]==='rev'?'🔄':'➡️'} ${bias[p[3]]}</span></figcaption></figure>`).join("")+`</div>
+  return `<div class="pat-grid">`+PATTERNS.map(p=>`<figure class="pat" data-pat="${p[0]}"><img loading="lazy" src="assets/patterns/${p[0]}.jpg" alt="${p[1]}"/><figcaption><b>${p[1]}</b> <span class="pat-tag">${p[2]==='rev'?'🔄':'➡️'} ${bias[p[3]]} <span class="pat-chev">▸</span></span></figcaption><div class="pat-detail" hidden></div></figure>`).join("")+`</div>
     <div class="section-title">${t("pat_train")}</div>
     <div class="pg" data-patgame></div>`;
 }
