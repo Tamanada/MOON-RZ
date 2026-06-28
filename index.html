@@ -7098,6 +7098,23 @@ function load(){
 function genRefCode(){ return "MOON-"+Math.random().toString(36).slice(2,7).toUpperCase(); }
 function displayName(){ return S.profile.name && S.profile.name.trim() ? S.profile.name.trim() : rankFor(levelFromXp(S.xp).lvl); }
 function refLink(){ return location.origin+location.pathname+"?ref="+S.ref.code; }
+/* Backend parrainage (Supabase) — clé publique (anon), table protégée par RLS, accès via RPC sécurisées. */
+const SB_URL="https://qouzioeghhlcwxkcxplj.supabase.co";
+const SB_KEY="sb_publishable_Ikcwnh1ZbpG-Q8SyU-UJEQ_8UVosMW6";
+function sbRpc(fn,body){
+  return fetch(SB_URL+"/rest/v1/rpc/"+fn,{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json"},body:JSON.stringify(body||{})})
+    .then(r=>r.ok?r.json():null).catch(()=>null);
+}
+/* Récupère le nombre réel de filleuls et met à jour l'affichage + le cache local. */
+function fetchReferralCount(){
+  if(!S.ref.code) return;
+  sbRpc("referral_count",{p_code:S.ref.code}).then(n=>{
+    if(n==null) return;
+    S.ref.invited=n; save();
+    const i=$("refInvited"); if(i) i.textContent=n;
+    const e=$("refEarned"); if(e) e.textContent=n*100;
+  });
+}
 /* QR généré localement (offline, aucune dépendance réseau) -> SVG vectoriel net pour le scan */
 function qrSvg(text){
   try{ var qr=qrcode(0,"M"); qr.addData(text); qr.make(); return qr.createSvgTag({cellSize:6,margin:1,scalable:true}); }
@@ -7644,8 +7661,8 @@ function viewReferral(){
    </div>
 
    <div class="grid cols-3" style="margin-top:18px">
-     <div class="card"><h3>${t("ref_invited")}</h3><p style="font-size:30px;color:var(--moon);font-weight:800">${S.ref.invited}</p></div>
-     <div class="card"><h3>${t("ref_earned")}</h3><p style="font-size:30px;color:var(--gold);font-weight:800">${S.ref.invited*100}</p></div>
+     <div class="card"><h3>${t("ref_invited")}</h3><p id="refInvited" style="font-size:30px;color:var(--moon);font-weight:800">${S.ref.invited}</p></div>
+     <div class="card"><h3>${t("ref_earned")}</h3><p id="refEarned" style="font-size:30px;color:var(--gold);font-weight:800">${S.ref.invited*100}</p></div>
      <div class="card"><h3>${t("ref_reward")}</h3><p style="font-size:30px;color:var(--text);font-weight:800">+100</p><p>MOON-RZ</p></div>
    </div>
 
@@ -7861,6 +7878,7 @@ function bindReferral(){
   const tg=$("shareTg"); if(tg) tg.onclick=()=>window.open("https://t.me/share/url?url="+encodeURIComponent(refLink())+"&text="+encodeURIComponent("🌙 Rejoins MOON-RZ Academy !"),"_blank");
   const tx=$("shareX"); if(tx) tx.onclick=()=>window.open("https://twitter.com/intent/tweet?text="+msg,"_blank");
   const sn=$("shareNative"); if(sn) sn.onclick=()=>{ if(navigator.share) navigator.share({title:"MOON-RZ Academy",text:"🌙 Rejoins-moi sur MOON-RZ Academy !",url:refLink()}).catch(()=>{}); else copyText(refLink(),"🔗 Lien copié (partage natif indisponible)"); };
+  fetchReferralCount(); // total réel de filleuls depuis le backend
 }
 function completeModule(id,aid){
   if(doneList(aid).includes(id))return;
@@ -7876,6 +7894,7 @@ function handleIncomingRef(){
   const ref=params.get("ref");
   if(ref && !S.referredBy && ref!==S.ref.code){
     S.referredBy=ref; S.coins+=50; save();
+    sbRpc("register_referral",{p_referee:S.ref.code,p_referrer:ref}); // enregistre côté serveur (parrain crédité)
     setTimeout(()=>{ toast(`🎉 Invité par <b>${ref}</b> !<br><b>+50 MOON-RZ</b> de bienvenue`); renderHUD(); },800);
   }
   // nettoie l'URL pour éviter de re-créditer au refresh
