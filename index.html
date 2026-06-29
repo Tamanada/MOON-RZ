@@ -313,6 +313,9 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pat-steps{margin:0;padding-left:20px;font-size:12.5px;color:var(--muted);line-height:1.5}
   .pat-steps li{margin:7px 0}
   .pat-steps b{color:var(--text);display:block;font-size:12px}
+  .ind-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 14px;font-size:14px;color:var(--text)}
+  .ind-head b{font-weight:700}
+
   /* Entraînement reconnais la figure */
   .pg{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;max-width:520px}
   .pg-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;color:var(--text);margin-bottom:10px}
@@ -1071,6 +1074,7 @@ const CONTENT={
   ]},
 
   7:{ modules:[
+    {id:"indic",icon:"📊",title:"📊 Indicateurs",xp:40,coins:22,body:`<div data-indicators></div>`},
     {id:"mtf",icon:"🔭",title:"Multi Time Frame Analysis",xp:35,coins:18,body:`
       <p>Un bon trader regarde <b>plusieurs unités de temps</b> avant d'agir. Une seule, c'est regarder par le trou d'une serrure.</p>
       <h4>La méthode top-down</h4>
@@ -1476,6 +1480,7 @@ const CONTENT_I18N={
     {q:"The first question before trading?",a:["What's the project logo?","Which way is the trend going?","Who's the CEO?","How many followers?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Indicators",body:`<div data-indicators></div>`},
     mtf:{title:"Multi Time Frame Analysis",body:`
       <p>A good trader looks at <b>several timeframes</b> before acting. Just one is looking through a keyhole.</p>
       <h4>The top-down method</h4>
@@ -1859,6 +1864,7 @@ const CONTENT_I18N={
     {q:"¿La primera pregunta antes de operar?",a:["¿Cuál es el logo del proyecto?","¿Hacia dónde va la tendencia?","¿Quién es el CEO?","¿Cuántos seguidores?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Indicadores",body:`<div data-indicators></div>`},
     mtf:{title:"Análisis multi-temporal",body:`
       <p>Un buen trader mira <b>varias temporalidades</b> antes de actuar. Una sola es mirar por el ojo de una cerradura.</p>
       <h4>El método top-down</h4>
@@ -2242,6 +2248,7 @@ const CONTENT_I18N={
     {q:"คำถามแรกก่อนเทรด?",a:["โลโก้โปรเจกต์คืออะไร?","เทรนด์ไปทางไหน?","ใครเป็น CEO?","ผู้ติดตามกี่คน?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 อินดิเคเตอร์",body:`<div data-indicators></div>`},
     mtf:{title:"การวิเคราะห์หลายกรอบเวลา",body:`
       <p>เทรดเดอร์ที่ดีดู <b>หลายกรอบเวลา</b> ก่อนลงมือ ดูแค่กรอบเดียวเหมือนมองผ่านรูกุญแจ</p>
       <h4>วิธี top-down</h4>
@@ -2625,6 +2632,7 @@ const CONTENT_I18N={
     {q:"A primeira pergunta antes de operar?",a:["Qual o logo do projeto?","Para onde vai a tendência?","Quem é o CEO?","Quantos seguidores?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Indicadores",body:`<div data-indicators></div>`},
     mtf:{title:"Análise multi-timeframe",body:`
       <p>Um bom trader olha <b>vários timeframes</b> antes de agir. Só um é olhar pelo buraco da fechadura.</p>
       <h4>O método top-down</h4>
@@ -3008,6 +3016,7 @@ const CONTENT_I18N={
     {q:"Die erste Frage vor dem Traden?",a:["Was ist das Projekt-Logo?","Wohin geht der Trend?","Wer ist der CEO?","Wie viele Follower?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Indikatoren",body:`<div data-indicators></div>`},
     mtf:{title:"Multi-Timeframe-Analyse",body:`
       <p>Ein guter Trader schaut <b>mehrere Timeframes</b> an, bevor er handelt. Nur einer ist wie durchs Schlüsselloch schauen.</p>
       <h4>Die Top-Down-Methode</h4>
@@ -3391,6 +3400,7 @@ const CONTENT_I18N={
     {q:"Первый вопрос перед торговлей?",a:["Какой логотип у проекта?","Куда идёт тренд?","Кто CEO?","Сколько подписчиков?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Индикаторы",body:`<div data-indicators></div>`},
     mtf:{title:"Мультитаймфрейм-анализ",body:`
       <p>Хороший трейдер смотрит <b>несколько таймфреймов</b> перед действием. Один — как смотреть в замочную скважину.</p>
       <h4>Метод top-down</h4>
@@ -3789,6 +3799,7 @@ const CONTENT_I18N={
     {q:"Trading öncesi ilk soru?",a:["Projenin logosu ne?","Trend hangi yöne gidiyor?","CEO kim?","Kaç takipçi var?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Göstergeler",body:`<div data-indicators></div>`},
     mtf:{title:"Çoklu zaman dilimi analizi",body:`
       <p>İyi bir tüccar harekete geçmeden önce <b>birkaç zaman dilimine</b> bakar. Tek bir tanesi, anahtar deliğinden bakmaktır.</p>
       <h4>Yukarıdan aşağıya yöntem</h4>
@@ -4187,6 +4198,7 @@ const CONTENT_I18N={
     {q:"Pertanyaan pertama sebelum trading?",a:["Apa logo proyeknya?","Ke mana arah trennya?","Siapa CEO-nya?","Berapa pengikutnya?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Indikator",body:`<div data-indicators></div>`},
     mtf:{title:"Analisis Multi Time Frame",body:`
       <p>Trader yang baik melihat <b>beberapa timeframe</b> sebelum bertindak. Hanya satu sama saja mengintip lewat lubang kunci.</p>
       <h4>Metode top-down</h4>
@@ -4585,6 +4597,7 @@ const CONTENT_I18N={
     {q:"Câu hỏi đầu tiên trước khi trading?",a:["Logo dự án là gì?","Xu hướng đang đi hướng nào?","CEO là ai?","Bao nhiêu follower?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 Chỉ báo",body:`<div data-indicators></div>`},
     mtf:{title:"Phân tích đa khung thời gian",body:`
       <p>Một trader giỏi nhìn <b>nhiều khung thời gian</b> trước khi hành động. Chỉ một khung là nhìn qua lỗ khóa.</p>
       <h4>Phương pháp từ trên xuống</h4>
@@ -4983,6 +4996,7 @@ const CONTENT_I18N={
     {q:"交易前的第一个问题？",a:["项目标志是什么？","趋势往哪个方向走？","CEO 是谁？","有多少粉丝？"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 指标",body:`<div data-indicators></div>`},
     mtf:{title:"多周期分析",body:`
       <p>好的交易者在行动前会看<b>多个时间周期</b>。只看一个，就像从钥匙孔里看。</p>
       <h4>自上而下方法</h4>
@@ -5381,6 +5395,7 @@ const CONTENT_I18N={
     {q:"トレード前の最初の問いは？",a:["プロジェクトのロゴは？","トレンドはどちらへ？","CEOは誰？","フォロワーは何人？"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 インジケーター",body:`<div data-indicators></div>`},
     mtf:{title:"マルチタイムフレーム分析",body:`
       <p>良いトレーダーは動く前に<b>複数の時間軸</b>を見ます。一つだけは鍵穴から覗くようなものです。</p>
       <h4>トップダウン手法</h4>
@@ -5779,6 +5794,7 @@ const CONTENT_I18N={
     {q:"트레이딩 전 첫 질문은?",a:["프로젝트 로고는?","추세는 어느 방향?","CEO는 누구?","팔로워는 몇 명?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 지표",body:`<div data-indicators></div>`},
     mtf:{title:"멀티 타임프레임 분석",body:`
       <p>좋은 트레이더는 행동 전에 <b>여러 시간 단위</b>를 봅니다. 하나만 보는 것은 열쇠 구멍으로 보는 격.</p>
       <h4>탑다운 방법</h4>
@@ -6177,6 +6193,7 @@ const CONTENT_I18N={
     {q:"السؤال الأول قبل التداول؟",a:["ما شعار المشروع؟","إلى أين يتجه الاتجاه؟","من المدير التنفيذي؟","كم عدد المتابعين؟"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 المؤشرات",body:`<div data-indicators></div>`},
     mtf:{title:"تحليل الأطر الزمنية المتعددة",body:`
       <p>المتداول الجيّد ينظر إلى <b>عدة أطر زمنية</b> قبل التصرّف. إطار واحد فقط كالنظر من ثقب مفتاح.</p>
       <h4>الطريقة من الأعلى للأسفل</h4>
@@ -6575,6 +6592,7 @@ const CONTENT_I18N={
     {q:"ट्रेडिंग से पहला सवाल?",a:["परियोजना का लोगो क्या है?","रुझान किधर जा रहा है?","CEO कौन है?","कितने फ़ॉलोअर?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 संकेतक",body:`<div data-indicators></div>`},
     mtf:{title:"मल्टी टाइमफ़्रेम विश्लेषण",body:`
       <p>अच्छा ट्रेडर कार्य से पहले <b>कई टाइमफ़्रेम</b> देखता है। सिर्फ़ एक देखना चाबी के छेद से झाँकने जैसा है।</p>
       <h4>टॉप-डाउन विधि</h4>
@@ -6973,6 +6991,7 @@ const CONTENT_I18N={
     {q:"ရောင်းဝယ်မီ ပထမမေးခွန်း?",a:["စီမံကိန်းလိုဂိုဘာလဲ?","လမ်းကြောင်းဘယ်ဘက်သွားနေသလဲ?","CEO ဘယ်သူလဲ?","follower ဘယ်လောက်လဲ?"],correct:1}
   ]},
   7:{ modules:{
+    indic:{title:"📊 အညွှန်းကိန်းများ",body:`<div data-indicators></div>`},
     mtf:{title:"အချိန်ဘောင်များစွာ ခွဲခြမ်းစိတ်ဖြာမှု",body:`
       <p>ကောင်းသောရောင်းဝယ်သူသည် မလုပ်ဆောင်မီ <b>အချိန်ဘောင်များစွာ</b> ကြည့်။ တစ်ခုတည်းသည် သော့ပေါက်မှ ချောင်းကြည့်သကဲ့သို့။</p>
       <h4>အပေါ်မှအောက် နည်းလမ်း</h4>
@@ -7809,6 +7828,10 @@ function bindContent(){
       det.hidden=!opening; f.classList.toggle("open",opening);
     }));
   }
+  const ig=document.querySelector("[data-indicators]"); if(ig){
+    ig.innerHTML=indicatorsHTML();
+    ig.querySelectorAll(".ind").forEach(function(c){ c.addEventListener("click",function(e){ if(e.target.closest(".pat-detail"))return; var det=c.querySelector(".pat-detail"); if(!det)return; var op=det.hidden; if(op&&!det.innerHTML)det.innerHTML=indDetailHTML(+c.dataset.ind); det.hidden=!op; c.classList.toggle("open",op); }); });
+  }
   if(VIEW.name==="quiz") bindQuiz();
 }
 /* Galerie des figures chartistes (16 patterns). Images universelles, légende dans l'intro du module. */
@@ -7850,6 +7873,13 @@ function patDetailHTML(slug){
   const d=I[S.lang]||I.en||I.fr;
   return `<ol class="pat-steps"><li><b>${t("pat_build")}</b> ${d[0]}</li><li><b>${t("pat_signal")}</b> ${d[1]}</li><li><b>${t("pat_trade")}</b> ${d[2]}</li></ol>`;
 }
+/* Module Indicateurs (autonome, i18n) */
+const IND_NAMES=["MACD","RSI + smooth","Stoch RSI","Williams %R","MFI","Ultimate Oscillator","Connors RSI","MA 7·21·50·80·200"];
+const IND_LABELS={"fr":["🎯 À quoi ça sert","👁️ Comment le lire","⚡ Le signal"],"en":["🎯 What it's for","👁️ How to read it","⚡ The signal"],"es":["🎯 Para qué sirve","👁️ Cómo leerlo","⚡ La señal"],"pt":["🎯 Para que serve","👁️ Como ler","⚡ O sinal"],"de":["🎯 Wofür","👁️ Wie lesen","⚡ Das Signal"],"ru":["🎯 Зачем","👁️ Как читать","⚡ Сигнал"],"tr":["🎯 Ne işe yarar","👁️ Nasıl okunur","⚡ Sinyal"],"ar":["🎯 الغرض منه","👁️ كيف تقرأه","⚡ الإشارة"],"zh":["🎯 用途","👁️ 怎么看","⚡ 信号"],"ja":["🎯 役割","👁️ 読み方","⚡ シグナル"],"ko":["🎯 용도","👁️ 읽는 법","⚡ 신호"],"hi":["🎯 किसलिए","👁️ कैसे पढ़ें","⚡ संकेत"],"id":["🎯 Untuk apa","👁️ Cara baca","⚡ Sinyal"],"vi":["🎯 Dùng để gì","👁️ Cách đọc","⚡ Tín hiệu"],"th":["🎯 ใช้ทำอะไร","👁️ อ่านยังไง","⚡ สัญญาณ"],"my":["🎯 ဘာအတွက်","👁️ ဘယ်လိုဖတ်","⚡ အချက်ပြ"]};
+const IND_I18N={"fr":[["Mesure l'élan et les changements de tendance (moyennes 12/26 + ligne signal 9 + histogramme).","MACD au-dessus de 0 = haussier ; l'histogramme montre l'accélération.","Croisement MACD au-dessus de la signal = achat, en-dessous = vente ; divergence prix/MACD = retournement."],["Force du mouvement de 0 à 100 ; la version lissée enlève le bruit.",">70 suracheté · <30 survendu · 50 neutre.","Sortie de zone (repasse sous 70 / au-dessus de 30) + divergences."],["Un RSI du RSI : plus rapide, repère les extrêmes plus tôt (lignes K et D).",">80 suracheté · <20 survendu.","Croisement K/D dans une zone extrême."],["Où clôture le prix dans son range récent (échelle −100 à 0).","> −20 suracheté · < −80 survendu.","Retour depuis les extrêmes."],["Le RSI pondéré par le volume : suit l'argent qui entre et sort.",">80 suracheté · <20 survendu.","Divergence prix/MFI = essoufflement, confirmé par le volume."],["Combine 3 périodes (court/moyen/long) pour limiter les faux signaux.",">70 suracheté · <30 survendu.","Sa spécialité : les divergences."],["3 composants combinés, taillé pour le court terme et le retour à la moyenne.","Extrêmes très marqués (<10 / >90).","<10 rebond probable · >90 repli probable."],["Ruban de moyennes mobiles : ⚪ 7 (ultra court), 🟦 21 (court), 🟢 50 (moyen), 🔴 80 (moyen-long), 🟡 200 (long, la référence).","L'ordre d'empilement des MA donne la tendance ; prix au-dessus de toutes = forte tendance haussière.","Golden cross (50 au-dessus de 200) haussier · death cross baissier ; les MA = supports/résistances dynamiques."]],"en":[["Measures momentum and trend shifts (12/26 moving averages + 9 signal line + histogram).","MACD above 0 = bullish; the histogram shows acceleration.","MACD crossing above the signal = buy, below = sell; price/MACD divergence = reversal."],["Strength of the move from 0 to 100; the smoothed version cuts noise.",">70 overbought · <30 oversold · 50 neutral.","Leaving a zone (back under 70 / above 30) + divergences."],["An RSI of the RSI: faster, spots extremes earlier (K and D lines).",">80 overbought · <20 oversold.","K/D cross inside an extreme zone."],["Where price closes within its recent range (scale −100 to 0).","> −20 overbought · < −80 oversold.","Coming back from the extremes."],["The volume-weighted RSI: tracks money flowing in and out.",">80 overbought · <20 oversold.","Price/MFI divergence = exhaustion, confirmed by volume."],["Combines 3 periods (short/medium/long) to cut false signals.",">70 overbought · <30 oversold.","Its specialty: divergences."],["3 components combined, built for short-term mean-reversion.","Very sharp extremes (<10 / >90).","<10 likely bounce · >90 likely pullback."],["MA ribbon: ⚪ 7 (ultra-short), 🟦 21 (short), 🟢 50 (medium), 🔴 80 (medium-long), 🟡 200 (long, the reference).","The stacking order of the MAs gives the trend; price above all = strong uptrend.","Golden cross (50 above 200) bullish · death cross bearish; MAs act as dynamic support/resistance."]],"es":[["Mide el impulso y los cambios de tendencia (medias 12/26 + línea de señal 9 + histograma).","MACD por encima de 0 = alcista; el histograma muestra la aceleración.","Cruce del MACD por encima de la señal = compra, por debajo = venta; divergencia precio/MACD = giro."],["Fuerza del movimiento de 0 a 100; la versión suavizada quita el ruido.",">70 sobrecompra · <30 sobreventa · 50 neutro.","Salida de zona (vuelve bajo 70 / sobre 30) + divergencias."],["Un RSI del RSI: más rápido, detecta extremos antes (líneas K y D).",">80 sobrecompra · <20 sobreventa.","Cruce K/D en zona extrema."],["Dónde cierra el precio en su rango reciente (escala −100 a 0).","> −20 sobrecompra · < −80 sobreventa.","Regreso desde los extremos."],["El RSI ponderado por volumen: sigue el dinero que entra y sale.",">80 sobrecompra · <20 sobreventa.","Divergencia precio/MFI = agotamiento, confirmado por el volumen."],["Combina 3 períodos (corto/medio/largo) para reducir señales falsas.",">70 sobrecompra · <30 sobreventa.","Su especialidad: las divergencias."],["3 componentes combinados, hecho para el corto plazo y la reversión a la media.","Extremos muy marcados (<10 / >90).","<10 rebote probable · >90 retroceso probable."],["Cinta de medias móviles: ⚪ 7 (ultracorto), 🟦 21 (corto), 🟢 50 (medio), 🔴 80 (medio-largo), 🟡 200 (largo, la referencia).","El orden de apilamiento de las MM da la tendencia; precio sobre todas = fuerte tendencia alcista.","Cruce dorado (50 sobre 200) alcista · cruce de la muerte bajista; las MM = soportes/resistencias dinámicos."]],"pt":[["Mede o momentum e as mudanças de tendência (médias 12/26 + linha de sinal 9 + histograma).","MACD acima de 0 = alta; o histograma mostra a aceleração.","Cruzamento do MACD acima do sinal = compra, abaixo = venda; divergência preço/MACD = reversão."],["Força do movimento de 0 a 100; a versão suavizada tira o ruído.",">70 sobrecomprado · <30 sobrevendido · 50 neutro.","Saída de zona (volta abaixo de 70 / acima de 30) + divergências."],["Um RSI do RSI: mais rápido, detecta extremos mais cedo (linhas K e D).",">80 sobrecomprado · <20 sobrevendido.","Cruzamento K/D em zona extrema."],["Onde o preço fecha no seu range recente (escala −100 a 0).","> −20 sobrecomprado · < −80 sobrevendido.","Volta a partir dos extremos."],["O RSI ponderado pelo volume: segue o dinheiro que entra e sai.",">80 sobrecomprado · <20 sobrevendido.","Divergência preço/MFI = exaustão, confirmada pelo volume."],["Combina 3 períodos (curto/médio/longo) para reduzir sinais falsos.",">70 sobrecomprado · <30 sobrevendido.","Sua especialidade: as divergências."],["3 componentes combinados, feito para o curto prazo e a reversão à média.","Extremos muito marcados (<10 / >90).","<10 repique provável · >90 recuo provável."],["Faixa de médias móveis: ⚪ 7 (ultracurto), 🟦 21 (curto), 🟢 50 (médio), 🔴 80 (médio-longo), 🟡 200 (longo, a referência).","A ordem de empilhamento das MM dá a tendência; preço acima de todas = forte alta.","Cruzamento dourado (50 acima de 200) de alta · cruz da morte de baixa; as MM = suportes/resistências dinâmicos."]],"de":[["Misst Momentum und Trendwechsel (12/26-Durchschnitte + 9er-Signallinie + Histogramm).","MACD über 0 = bullisch; das Histogramm zeigt die Beschleunigung.","MACD kreuzt über die Signallinie = Kauf, darunter = Verkauf; Kurs/MACD-Divergenz = Umkehr."],["Stärke der Bewegung von 0 bis 100; die geglättete Version filtert Rauschen.",">70 überkauft · <30 überverkauft · 50 neutral.","Verlassen einer Zone (zurück unter 70 / über 30) + Divergenzen."],["Ein RSI des RSI: schneller, erkennt Extreme früher (K- und D-Linien).",">80 überkauft · <20 überverkauft.","K/D-Kreuzung in einer Extremzone."],["Wo der Kurs in seiner jüngsten Spanne schließt (Skala −100 bis 0).","> −20 überkauft · < −80 überverkauft.","Rückkehr aus den Extremen."],["Der volumengewichtete RSI: folgt dem ein- und ausströmenden Geld.",">80 überkauft · <20 überverkauft.","Kurs/MFI-Divergenz = Erschöpfung, durch Volumen bestätigt."],["Kombiniert 3 Perioden (kurz/mittel/lang), um Fehlsignale zu reduzieren.",">70 überkauft · <30 überverkauft.","Seine Spezialität: Divergenzen."],["3 kombinierte Komponenten, für kurzfristige Mean-Reversion gebaut.","Sehr scharfe Extreme (<10 / >90).","<10 wahrscheinlicher Bounce · >90 wahrscheinlicher Rücksetzer."],["MA-Band: ⚪ 7 (ultrakurz), 🟦 21 (kurz), 🟢 50 (mittel), 🔴 80 (mittel-lang), 🟡 200 (lang, die Referenz).","Die Stapelreihenfolge der MAs gibt den Trend; Kurs über allen = starker Aufwärtstrend.","Golden Cross (50 über 200) bullisch · Death Cross bärisch; MAs als dynamische Unterstützung/Widerstand."]],"ru":[["Измеряет импульс и смену тренда (средние 12/26 + сигнальная линия 9 + гистограмма).","MACD выше 0 = бычий; гистограмма показывает ускорение.","MACD пересекает сигнальную вверх = покупка, вниз = продажа; дивергенция цена/MACD = разворот."],["Сила движения от 0 до 100; сглаженная версия убирает шум.",">70 перекуплен · <30 перепродан · 50 нейтрально.","Выход из зоны (обратно под 70 / над 30) + дивергенции."],["RSI от RSI: быстрее, замечает экстремумы раньше (линии K и D).",">80 перекуплен · <20 перепродан.","Пересечение K/D в экстремальной зоне."],["Где цена закрывается в недавнем диапазоне (шкала −100 до 0).","> −20 перекуплен · < −80 перепродан.","Возврат из экстремумов."],["RSI, взвешенный по объёму: следит за приходящими и уходящими деньгами.",">80 перекуплен · <20 перепродан.","Дивергенция цена/MFI = истощение, подтверждённое объёмом."],["Сочетает 3 периода (короткий/средний/длинный) для снижения ложных сигналов.",">70 перекуплен · <30 перепродан.","Его конёк: дивергенции."],["3 объединённых компонента, создан для краткосрочного возврата к среднему.","Очень резкие экстремумы (<10 / >90).","<10 вероятен отскок · >90 вероятен откат."],["Лента скользящих средних: ⚪ 7 (ультракороткая), 🟦 21 (короткая), 🟢 50 (средняя), 🔴 80 (средне-длинная), 🟡 200 (длинная, ориентир).","Порядок наслоения MA задаёт тренд; цена выше всех = сильный восходящий тренд.","Золотой крест (50 над 200) бычий · крест смерти медвежий; MA = динамические поддержки/сопротивления."]],"tr":[["Momentumu ve trend değişimlerini ölçer (12/26 ortalamalar + 9 sinyal çizgisi + histogram).","MACD 0'ın üzerinde = yükseliş; histogram ivmeyi gösterir.","MACD sinyalin üzerine kesişir = al, altına = sat; fiyat/MACD uyumsuzluğu = dönüş."],["Hareketin gücü 0–100; yumuşatılmış sürüm gürültüyü keser.",">70 aşırı alım · <30 aşırı satım · 50 nötr.","Bölgeden çıkış (70 altına / 30 üstüne dönüş) + uyumsuzluklar."],["RSI'nin RSI'si: daha hızlı, uçları daha erken yakalar (K ve D çizgileri).",">80 aşırı alım · <20 aşırı satım.","Uç bölgede K/D kesişimi."],["Fiyatın son aralığında nerede kapandığı (ölçek −100 ile 0).","> −20 aşırı alım · < −80 aşırı satım.","Uçlardan dönüş."],["Hacim ağırlıklı RSI: giren ve çıkan parayı izler.",">80 aşırı alım · <20 aşırı satım.","Fiyat/MFI uyumsuzluğu = tükenme, hacimle teyitli."],["3 periyodu (kısa/orta/uzun) birleştirir, yanlış sinyalleri azaltır.",">70 aşırı alım · <30 aşırı satım.","Uzmanlığı: uyumsuzluklar."],["3 bileşen birleşik, kısa vadeli ortalamaya dönüş için yapılmış.","Çok keskin uçlar (<10 / >90).","<10 olası sıçrama · >90 olası geri çekilme."],["Hareketli ortalama şeridi: ⚪ 7 (ultra kısa), 🟦 21 (kısa), 🟢 50 (orta), 🔴 80 (orta-uzun), 🟡 200 (uzun, referans).","MA'ların dizilim sırası trendi verir; fiyat hepsinin üstünde = güçlü yükseliş.","Golden cross (50, 200'ün üstünde) yükseliş · death cross düşüş; MA'lar dinamik destek/direnç."]],"ar":[["يقيس الزخم وتغيّرات الاتجاه (متوسطان 12/26 + خط إشارة 9 + هيستوغرام).","MACD فوق 0 = صعودي؛ الهيستوغرام يُظهر التسارع.","تقاطع MACD فوق الإشارة = شراء، تحتها = بيع؛ تباعد السعر/MACD = انعكاس."],["قوة الحركة من 0 إلى 100؛ النسخة المنعّمة تزيل الضجيج.",">70 تشبّع شرائي · <30 تشبّع بيعي · 50 محايد.","الخروج من منطقة (العودة تحت 70 / فوق 30) + تباعدات."],["RSI لمؤشر RSI: أسرع، يرصد القمم والقيعان أبكر (خطّا K وD).",">80 تشبّع شرائي · <20 تشبّع بيعي.","تقاطع K/D داخل منطقة متطرفة."],["أين يُغلق السعر ضمن مداه الأخير (مقياس −100 إلى 0).","> −20 تشبّع شرائي · < −80 تشبّع بيعي.","العودة من المناطق المتطرفة."],["RSI المرجّح بالحجم: يتتبّع المال الداخل والخارج.",">80 تشبّع شرائي · <20 تشبّع بيعي.","تباعد السعر/MFI = إنهاك، مؤكَّد بالحجم."],["يدمج 3 فترات (قصيرة/متوسطة/طويلة) لتقليل الإشارات الكاذبة.",">70 تشبّع شرائي · <30 تشبّع بيعي.","تخصّصه: التباعدات."],["3 مكوّنات مدمجة، مصمَّم للمدى القصير والعودة إلى المتوسط.","قمم وقيعان حادّة جداً (<10 / >90).","<10 ارتداد محتمل · >90 تراجع محتمل."],["شريط المتوسطات المتحركة: ⚪ 7 (قصير جداً)، 🟦 21 (قصير)، 🟢 50 (متوسط)، 🔴 80 (متوسط-طويل)، 🟡 200 (طويل، المرجع).","ترتيب تراصّ المتوسطات يحدّد الاتجاه؛ السعر فوقها جميعاً = اتجاه صاعد قوي.","التقاطع الذهبي (50 فوق 200) صعودي · تقاطع الموت هبوطي؛ المتوسطات = دعوم/مقاومات ديناميكية."]],"zh":[["衡量动能与趋势变化（12/26 均线 + 9 信号线 + 柱状图）。","MACD 在 0 以上 = 看涨；柱状图显示加速度。","MACD 上穿信号线 = 买入，下穿 = 卖出；价格/MACD 背离 = 反转。"],["动量强度 0 到 100；平滑版去掉噪音。",">70 超买 · <30 超卖 · 50 中性。","离开区间（回落 70 下方 / 升破 30 上方）+ 背离。"],["RSI 的 RSI：更快，更早发现极值（K 和 D 线）。",">80 超买 · <20 超卖。","在极值区的 K/D 交叉。"],["价格在近期区间中的收盘位置（刻度 −100 到 0）。","> −20 超买 · < −80 超卖。","从极值区回归。"],["按成交量加权的 RSI：追踪资金流入流出。",">80 超买 · <20 超卖。","价格/MFI 背离 = 动能衰竭，由成交量确认。"],["综合 3 个周期（短/中/长）以减少假信号。",">70 超买 · <30 超卖。","它的强项：背离。"],["3 个组件合一，专为短线均值回归而设。","极值非常锋利（<10 / >90）。","<10 大概率反弹 · >90 大概率回落。"],["均线缎带：⚪ 7（超短）、🟦 21（短）、🟢 50（中）、🔴 80（中长）、🟡 200（长，基准）。","均线的排列顺序给出趋势；价格在全部之上 = 强势上涨。","金叉（50 上穿 200）看涨 · 死叉看跌；均线 = 动态支撑/阻力。"]],"ja":[["勢いとトレンド転換を測る（12/26移動平均＋9シグナル線＋ヒストグラム）。","MACDが0より上＝強気；ヒストグラムは加速を示す。","MACDがシグナルを上抜け＝買い、下抜け＝売り；価格/MACDダイバージェンス＝転換。"],["値動きの強さ0〜100；平滑版はノイズを除く。",">70買われすぎ · <30売られすぎ · 50中立。","ゾーンからの離脱（70の下/30の上へ戻る）＋ダイバージェンス。"],["RSIのRSI：より速く、極値を早めに捉える（KとD線）。",">80買われすぎ · <20売られすぎ。","極値ゾーン内でのK/Dクロス。"],["直近レンジ内で価格がどこで引けたか（−100〜0のスケール）。","> −20買われすぎ · < −80売られすぎ。","極値からの戻り。"],["出来高加重のRSI：出入りする資金を追う。",">80買われすぎ · <20売られすぎ。","価格/MFIダイバージェンス＝息切れ、出来高で確認。"],["3つの期間（短/中/長）を組み合わせ、ダマシを減らす。",">70買われすぎ · <30売られすぎ。","得意技：ダイバージェンス。"],["3要素を結合、短期の平均回帰向けに作られた。","極めて鋭い極値（<10 / >90）。","<10反発の可能性 · >90押しの可能性。"],["移動平均リボン：⚪ 7（超短期）、🟦 21（短期）、🟢 50（中期）、🔴 80（中長期）、🟡 200（長期、基準）。","MAの並び順がトレンドを示す；価格が全ての上＝強い上昇。","ゴールデンクロス（50が200を上抜け）強気 · デッドクロス弱気；MAは動的なサポート/レジスタンス。"]],"ko":[["모멘텀과 추세 전환을 측정(12/26 이동평균 + 9 시그널선 + 히스토그램).","MACD가 0 위 = 상승; 히스토그램은 가속을 보여줌.","MACD가 시그널 상향 돌파 = 매수, 하향 = 매도; 가격/MACD 다이버전스 = 반전."],["움직임의 강도 0~100; 스무딩 버전은 노이즈를 줄임.",">70 과매수 · <30 과매도 · 50 중립.","구간 이탈(70 아래/30 위로 복귀) + 다이버전스."],["RSI의 RSI: 더 빠르고, 극단을 더 일찍 포착(K·D선).",">80 과매수 · <20 과매도.","극단 구간에서의 K/D 교차."],["가격이 최근 범위 내 어디서 마감했는지(−100~0 척도).","> −20 과매수 · < −80 과매도.","극단에서의 복귀."],["거래량 가중 RSI: 들어오고 나가는 돈을 추적.",">80 과매수 · <20 과매도.","가격/MFI 다이버전스 = 소진, 거래량으로 확인."],["3개 기간(단/중/장)을 결합해 거짓 신호를 줄임.",">70 과매수 · <30 과매도.","특기: 다이버전스."],["3개 요소 결합, 단기 평균회귀용으로 설계.","매우 날카로운 극단(<10 / >90).","<10 반등 가능 · >90 되돌림 가능."],["이동평균 리본: ⚪ 7(초단기), 🟦 21(단기), 🟢 50(중기), 🔴 80(중장기), 🟡 200(장기, 기준).","MA의 배열 순서가 추세를 알려줌; 가격이 모두 위 = 강한 상승.","골든크로스(50이 200 상향) 상승 · 데드크로스 하락; MA는 동적 지지/저항."]],"hi":[["गति और रुझान बदलाव मापता है (12/26 औसत + 9 सिग्नल लाइन + हिस्टोग्राम)।","MACD 0 से ऊपर = तेज़ी; हिस्टोग्राम त्वरण दिखाता है।","MACD सिग्नल से ऊपर क्रॉस = खरीद, नीचे = बिक्री; मूल्य/MACD डाइवर्जेंस = पलटाव।"],["चाल की ताक़त 0 से 100; स्मूद संस्करण शोर हटाता है।",">70 ओवरबॉट · <30 ओवरसोल्ड · 50 तटस्थ।","ज़ोन से बाहर (70 के नीचे / 30 के ऊपर वापसी) + डाइवर्जेंस।"],["RSI का RSI: तेज़, चरम पहले पकड़ता है (K और D लाइनें)।",">80 ओवरबॉट · <20 ओवरसोल्ड।","चरम ज़ोन में K/D क्रॉस।"],["हाल की रेंज में मूल्य कहाँ बंद हुआ (पैमाना −100 से 0)।","> −20 ओवरबॉट · < −80 ओवरसोल्ड।","चरम से वापसी।"],["वॉल्यूम-भारित RSI: आने-जाने वाले पैसे को ट्रैक करता है।",">80 ओवरबॉट · <20 ओवरसोल्ड।","मूल्य/MFI डाइवर्जेंस = थकान, वॉल्यूम से पुष्ट।"],["3 अवधि (छोटी/मध्यम/लंबी) जोड़कर झूठे संकेत घटाता है।",">70 ओवरबॉट · <30 ओवरसोल्ड।","इसकी खासियत: डाइवर्जेंस।"],["3 घटक संयुक्त, अल्पकालिक मीन-रिवर्ज़न के लिए बना।","बहुत तीखे चरम (<10 / >90)।","<10 संभावित उछाल · >90 संभावित गिरावट।"],["मूविंग एवरेज रिबन: ⚪ 7 (अति-अल्प), 🟦 21 (अल्प), 🟢 50 (मध्यम), 🔴 80 (मध्यम-लंबी), 🟡 200 (लंबी, संदर्भ)।","MA के ढेर का क्रम रुझान देता है; मूल्य सबसे ऊपर = मज़बूत तेज़ी।","गोल्डन क्रॉस (50 ऊपर 200) तेज़ी · डेथ क्रॉस मंदी; MA = गतिशील समर्थन/प्रतिरोध।"]],"id":[["Mengukur momentum dan pergeseran tren (rata-rata 12/26 + garis sinyal 9 + histogram).","MACD di atas 0 = bullish; histogram menunjukkan akselerasi.","MACD memotong di atas sinyal = beli, di bawah = jual; divergensi harga/MACD = pembalikan."],["Kekuatan gerakan 0 sampai 100; versi halus membuang noise.",">70 jenuh beli · <30 jenuh jual · 50 netral.","Keluar dari zona (kembali di bawah 70 / di atas 30) + divergensi."],["RSI dari RSI: lebih cepat, menangkap ekstrem lebih awal (garis K dan D).",">80 jenuh beli · <20 jenuh jual.","Persilangan K/D di dalam zona ekstrem."],["Di mana harga ditutup dalam range terkininya (skala −100 sampai 0).","> −20 jenuh beli · < −80 jenuh jual.","Kembali dari ekstrem."],["RSI tertimbang volume: melacak uang yang masuk dan keluar.",">80 jenuh beli · <20 jenuh jual.","Divergensi harga/MFI = kehabisan tenaga, dikonfirmasi volume."],["Menggabungkan 3 periode (pendek/menengah/panjang) untuk kurangi sinyal palsu.",">70 jenuh beli · <30 jenuh jual.","Keahliannya: divergensi."],["3 komponen digabung, dibuat untuk mean-reversion jangka pendek.","Ekstrem sangat tajam (<10 / >90).","<10 kemungkinan pantul · >90 kemungkinan koreksi."],["Pita rata-rata bergerak: ⚪ 7 (ultra pendek), 🟦 21 (pendek), 🟢 50 (menengah), 🔴 80 (menengah-panjang), 🟡 200 (panjang, acuan).","Urutan tumpukan MA memberi tren; harga di atas semua = tren naik kuat.","Golden cross (50 di atas 200) bullish · death cross bearish; MA = support/resistance dinamis."]],"vi":[["Đo động lượng và sự đổi chiều xu hướng (đường 12/26 + đường tín hiệu 9 + histogram).","MACD trên 0 = tăng; histogram cho thấy gia tốc.","MACD cắt lên đường tín hiệu = mua, cắt xuống = bán; phân kỳ giá/MACD = đảo chiều."],["Sức mạnh của chuyển động từ 0 đến 100; bản làm mượt loại bỏ nhiễu.",">70 quá mua · <30 quá bán · 50 trung tính.","Rời vùng (về dưới 70 / lên trên 30) + phân kỳ."],["RSI của RSI: nhanh hơn, bắt cực trị sớm hơn (đường K và D).",">80 quá mua · <20 quá bán.","Giao cắt K/D trong vùng cực trị."],["Nơi giá đóng cửa trong biên độ gần đây (thang −100 đến 0).","> −20 quá mua · < −80 quá bán.","Quay về từ vùng cực trị."],["RSI có trọng số khối lượng: theo dõi dòng tiền ra vào.",">80 quá mua · <20 quá bán.","Phân kỳ giá/MFI = đuối sức, được khối lượng xác nhận."],["Kết hợp 3 chu kỳ (ngắn/trung/dài) để giảm tín hiệu giả.",">70 quá mua · <30 quá bán.","Sở trường: phân kỳ."],["3 thành phần kết hợp, làm cho hồi quy trung bình ngắn hạn.","Cực trị rất gắt (<10 / >90).","<10 dễ bật lại · >90 dễ điều chỉnh."],["Dải đường trung bình động: ⚪ 7 (siêu ngắn), 🟦 21 (ngắn), 🟢 50 (trung), 🔴 80 (trung-dài), 🟡 200 (dài, mốc tham chiếu).","Thứ tự xếp chồng các MA cho biết xu hướng; giá trên tất cả = xu hướng tăng mạnh.","Golden cross (50 trên 200) tăng · death cross giảm; MA là hỗ trợ/kháng cự động."]],"th":[["วัดโมเมนตัมและการเปลี่ยนเทรนด์ (เส้นเฉลี่ย 12/26 + เส้นสัญญาณ 9 + ฮิสโตแกรม)","MACD เหนือ 0 = ขาขึ้น; ฮิสโตแกรมแสดงการเร่ง","MACD ตัดขึ้นเหนือเส้นสัญญาณ = ซื้อ, ตัดลง = ขาย; ไดเวอร์เจนซ์ราคา/MACD = กลับตัว"],["ความแรงของการเคลื่อนไหว 0 ถึง 100; เวอร์ชันสมูทตัดสัญญาณรบกวน",">70 ซื้อมากเกิน · <30 ขายมากเกิน · 50 กลาง","ออกจากโซน (กลับใต้ 70 / เหนือ 30) + ไดเวอร์เจนซ์"],["RSI ของ RSI: เร็วกว่า จับจุดสุดขั้วเร็วกว่า (เส้น K และ D)",">80 ซื้อมากเกิน · <20 ขายมากเกิน","เส้น K/D ตัดกันในโซนสุดขั้ว"],["ราคาปิดตรงไหนในกรอบล่าสุด (สเกล −100 ถึง 0)","> −20 ซื้อมากเกิน · < −80 ขายมากเกิน","กลับมาจากจุดสุดขั้ว"],["RSI ถ่วงน้ำหนักด้วยวอลุ่ม: ตามเงินที่ไหลเข้าออก",">80 ซื้อมากเกิน · <20 ขายมากเกิน","ไดเวอร์เจนซ์ราคา/MFI = หมดแรง ยืนยันด้วยวอลุ่ม"],["รวม 3 ช่วงเวลา (สั้น/กลาง/ยาว) เพื่อลดสัญญาณหลอก",">70 ซื้อมากเกิน · <30 ขายมากเกิน","ความถนัด: ไดเวอร์เจนซ์"],["3 องค์ประกอบรวมกัน ออกแบบเพื่อการคืนสู่ค่าเฉลี่ยระยะสั้น","จุดสุดขั้วคมมาก (<10 / >90)","<10 น่าจะเด้ง · >90 น่าจะย่อ"],["ริบบิ้นเส้นเฉลี่ย: ⚪ 7 (สั้นมาก), 🟦 21 (สั้น), 🟢 50 (กลาง), 🔴 80 (กลาง-ยาว), 🟡 200 (ยาว, ตัวอ้างอิง)","ลำดับการเรียงของ MA บอกเทรนด์; ราคาเหนือทุกเส้น = ขาขึ้นแข็งแรง","โกลเด้นครอส (50 เหนือ 200) ขาขึ้น · เดธครอส ขาลง; MA = แนวรับ/แนวต้านแบบไดนามิก"]],"my":[["အရှိန်နှင့် လမ်းကြောင်းပြောင်းမှုကို တိုင်း (၁၂/၂၆ ပျမ်းမျှ + ၉ signal မျဉ်း + histogram)။","MACD 0 အထက် = အတက်; histogram က အရှိန်မြှင့်မှုပြ။","MACD signal အပေါ်ဖြတ် = ဝယ်၊ အောက်ဖြတ် = ရောင်း; ဈေး/MACD ကွဲလွဲ = ပြောင်းပြန်။"],["ရွေ့လျားမှု အားအင် ၀ မှ ၁၀၀; smooth ဗားရှင်းက ဆူညံသံဖယ်။",">70 ဝယ်လွန် · <30 ရောင်းလွန် · 50 ကြားနေ။","ဇုန်မှထွက် (70 အောက် / 30 အထက် ပြန်) + ကွဲလွဲ။"],["RSI ၏ RSI: ပိုမြန်၊ အစွန်းများ ပိုစောတွေ့ (K နှင့် D မျဉ်း)။",">80 ဝယ်လွန် · <20 ရောင်းလွန်။","အစွန်းဇုန်အတွင်း K/D ဖြတ်ကျော်။"],["မကြာသေးမီ range အတွင်း ဈေးဘယ်မှာပိတ် (−100 မှ 0)။","> −20 ဝယ်လွန် · < −80 ရောင်းလွန်။","အစွန်းများမှ ပြန်လာ။"],["volume ဖြင့်အလေးချိန်ပေး RSI: ဝင်ထွက်ငွေကို ခြေရာခံ။",">80 ဝယ်လွန် · <20 ရောင်းလွန်။","ဈေး/MFI ကွဲလွဲ = အားကုန် (volume ဖြင့်အတည်ပြု)။"],["ကာလ ၃ ခု (တို/အလယ်/ရှည်) ပေါင်းပြီး အတုအချက်ပြ လျှော့။",">70 ဝယ်လွန် · <30 ရောင်းလွန်။","ကျွမ်းကျင်ရာ: ကွဲလွဲမှုများ။"],["အစိတ်အပိုင်း ၃ ခု ပေါင်း၊ ရေတိုပျမ်းမျှသို့ပြန်ရန်အတွက်။","အလွန်ထက်သော အစွန်းများ (<10 / >90)။","<10 ပြန်ကန်နိုင် · >90 ပြန်ဆုတ်နိုင်။"],["ပျမ်းမျှမျဉ်းဖဲကြိုး: ⚪ 7 (အလွန်တို)၊ 🟦 21 (တို)၊ 🟢 50 (အလယ်)၊ 🔴 80 (အလယ်-ရှည်)၊ 🟡 200 (ရှည်၊ ကိုးကားချက်)။","MA များ စီနေသည့်အစီအစဉ်က လမ်းကြောင်းပြ; ဈေး အားလုံးအထက် = အားကောင်းအတက်။","Golden cross (50 က 200 အထက်) အတက် · death cross အကျ; MA = ရွေ့လျား ထောက်ပံ့/ခုခံ။"]]};
+function indicatorsHTML(){ return '<div class="pat-grid ind-grid">'+IND_NAMES.map(function(n,i){return '<div class="pat ind" data-ind="'+i+'"><div class="ind-head"><b>'+n+'</b><span class="pat-chev">\u25B8</span></div><div class="pat-detail" hidden></div></div>';}).join('')+'</div>'; }
+function indDetailHTML(i){ var L=IND_LABELS[S.lang]||IND_LABELS.en, d=(IND_I18N[S.lang]||IND_I18N.en)[i]; return '<ol class="pat-steps"><li><b>'+L[0]+'</b> '+d[0]+'</li><li><b>'+L[1]+'</b> '+d[1]+'</li><li><b>'+L[2]+'</b> '+d[2]+'</li></ol>'; }
+
 function patternsGalleryHTML(){
   const bias={up:"🟢",down:"🔴",neutral:"⚪"};
   return `<div class="pat-grid">`+PATTERNS.map(p=>`<figure class="pat" data-pat="${p[0]}"><img loading="lazy" src="assets/patterns/${p[0]}.jpg" alt="${p[1]}"/><figcaption><b>${p[1]}</b> <span class="pat-tag">${p[2]==='rev'?'🔄':'➡️'} ${bias[p[3]]} <span class="pat-chev">▸</span></span></figcaption><div class="pat-detail" hidden></div></figure>`).join("")+`</div>
