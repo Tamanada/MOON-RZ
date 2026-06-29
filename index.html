@@ -254,7 +254,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
 
   .content{padding:30px 26px;max-width:1080px;margin:0 auto}
   .hero{background:linear-gradient(120deg,#1d1542,#161630 60%,#0e1f2e);border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;margin-bottom:26px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
-  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,var(--moon) 55%,var(--moon-2));opacity:.18;filter:blur(4px)}
+  .hero::after{content:"";position:absolute;right:-30px;top:-30px;width:190px;height:190px;border-radius:50%;background:url('assets/moon.jpg') center/cover;opacity:.3;filter:blur(2px)}
   .hero h1{font-size:28px;margin-bottom:8px}
   .hero h1 .acc{background:linear-gradient(90deg,var(--moon),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p{color:var(--muted);max-width:560px;line-height:1.55}
@@ -339,6 +339,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .vision-story{font-size:14px;line-height:1.65;color:var(--text)}
   .vision-story b{color:var(--text)}.vision-story b{color:var(--text)}
   .ob-disc{font-size:10px;line-height:1.4;color:var(--muted);margin-top:16px;opacity:.85}
+  .vmoon{width:150px;height:150px;border-radius:50%;margin:2px auto 12px;background:url('assets/moon.jpg') center/cover;box-shadow:0 0 36px -6px var(--accent),0 0 0 2px rgba(242,196,107,.3)}
   .bot-panel[hidden]{display:none}
   .bot-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border);background:var(--chip-bg)}
   .bot-head b{color:var(--text);font-size:14px;display:block} .bot-head span{color:var(--muted);font-size:11px}
@@ -444,8 +445,8 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .ob-skip:hover{color:var(--txt)}
   .ob-body{min-height:300px;display:flex;flex-direction:column;justify-content:center;text-align:center;position:relative;z-index:1;animation:obFade .4s}
   @keyframes obFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-  .ob-moon{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;
-    background:radial-gradient(circle at 35% 30%,#fff,var(--moon) 55%,var(--moon-2));box-shadow:0 0 50px var(--moon-2);animation:float 2.6s ease-in-out infinite}
+  .ob-moon{width:116px;height:116px;border-radius:50%;margin:0 auto 18px;
+    background:url('assets/moon.jpg') center/cover;box-shadow:0 0 46px -4px var(--moon-2),0 0 0 2px rgba(242,196,107,.35);animation:float 2.6s ease-in-out infinite}
   .ob-card h2{font-size:25px;line-height:1.2;margin-bottom:12px}
   .ob-card h2 .acc{background:linear-gradient(90deg,var(--moon),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
   .ob-lead{color:#cfcfe6;font-size:15px;line-height:1.6;max-width:360px;margin:0 auto}
@@ -7936,7 +7937,7 @@ function initBot(){ var ex=document.getElementById('botFab'); if(ex){ ex.remove(
 function refreshBot(){ if(document.getElementById('botFab')) initBot(); }
 
 function viewVision(){
-  return '<div class="hero" style="padding:18px 20px 16px;text-align:center"><span class="pill" style="margin-bottom:0">🌕 MOON-RZ</span>'
+  return '<div class="hero" style="padding:18px 20px 16px;text-align:center"><div class="vmoon"></div><span class="pill" style="margin-bottom:0">🌕 MOON-RZ</span>'
    +'<h1 class="mrz-display" style="color:var(--text);font-size:24px;margin-top:8px">'+t('vision')+'</h1></div>'
    +'<div class="card" style="margin-bottom:12px"><div class="vision-story">'+t('ob_story_d')+'</div></div>'
    +'<div class="card" style="margin-bottom:12px"><div class="vision-story">'+t('vision_intro')+'</div></div>'
