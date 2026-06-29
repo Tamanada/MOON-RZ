@@ -333,7 +333,8 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .hot-px span{font-size:11px;font-weight:700}
   .hot-px .pos{color:var(--pos)} .hot-px .neg{color:var(--red)}
   #botFab{position:fixed;right:18px;bottom:20px;width:54px;height:54px;border-radius:50%;border:none;background:var(--accent);color:#0a0a14;font-size:24px;cursor:pointer;box-shadow:0 6px 20px #0006;z-index:60}
-  .bot-panel{position:fixed;right:18px;bottom:84px;width:340px;max-width:calc(100vw - 36px);height:480px;max-height:calc(100vh - 120px);background:var(--panel,#141425);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;z-index:61;box-shadow:0 10px 40px #0008}
+  .bot-panel{position:fixed;right:18px;bottom:84px;width:340px;max-width:calc(100vw - 36px);height:480px;max-height:calc(100vh - 120px);background:var(--hero-scrim,#141B3A);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;z-index:61;box-shadow:0 10px 40px #0008}
+  :root[data-theme="glass"] .bot-panel{background:#4C1D95}
   .bot-panel[hidden]{display:none}
   .bot-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border);background:var(--chip-bg)}
   .bot-head b{color:var(--text);font-size:14px;display:block} .bot-head span{color:var(--muted);font-size:11px}
