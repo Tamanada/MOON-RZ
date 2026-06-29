@@ -8268,11 +8268,17 @@ const PHRASES_I18N={
   var l=$("launch"); if(!l) return;
   var msg=$("launchMsg"); if(msg){ var arr=(PHRASES_I18N[S.lang]||PHRASES_I18N.en||PHRASES_I18N.fr); msg.textContent=arr[Math.floor(Math.random()*arr.length)]; }
   var img=$("launchImg");
-  if(img){ img.src=(window.MOONRZ_ASSETS&&MOONRZ_ASSETS.launch)||"assets/brand/launch.jpg";
-    if(img.complete) img.classList.add("in"); else img.onload=()=>img.classList.add("in"); }
+  if(img){
+    // alterne lune / fusée à chaque ouverture
+    var imgs=["assets/brand/launch.jpg","assets/brand/launch-moon.jpg"];
+    var li=parseInt(localStorage.getItem("mrz-launch-i"),10)||0;
+    try{ localStorage.setItem("mrz-launch-i", li+1); }catch(e){}
+    img.src=(window.MOONRZ_ASSETS&&MOONRZ_ASSETS.launch)||imgs[li%imgs.length];
+    if(img.complete) img.classList.add("in"); else img.onload=()=>img.classList.add("in");
+  }
   let done=false;
   function hide(){ if(done)return; done=true; l.classList.add("hide"); setTimeout(()=>{l.style.display="none";},650); }
-  const tmr=setTimeout(hide,3000);
+  const tmr=setTimeout(hide,4000);
   l.addEventListener("click",()=>{clearTimeout(tmr);hide();});
 })();
 
