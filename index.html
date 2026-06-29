@@ -340,6 +340,8 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .vision-story b{color:var(--text)}.vision-story b{color:var(--text)}
   .ob-disc{font-size:10px;line-height:1.4;color:var(--muted);margin-top:16px;opacity:.85}
   .vmoon{width:150px;height:150px;border-radius:50%;margin:2px auto 12px;background:url('assets/moon.jpg') center/cover;box-shadow:0 0 36px -6px var(--accent),0 0 0 2px rgba(242,196,107,.3)}
+  .hero-rocket{background-image:linear-gradient(to right,rgba(8,8,20,.9),rgba(8,8,20,.42)),url('assets/brand/launch.jpg');background-size:cover;background-position:center;min-height:158px}
+  .hero-rocket::after{display:none}
   .bot-panel[hidden]{display:none}
   .bot-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border);background:var(--chip-bg)}
   .bot-head b{color:var(--text);font-size:14px;display:block} .bot-head span{color:var(--muted);font-size:11px}
@@ -7949,7 +7951,7 @@ function viewVision(){
 function viewMissions(){
   const claimed=S.lastDay===todayKey();
   const rid=resumeAcademy(), ra=ACADEMIES.find(a=>a.id===rid);
-  return `<div class="hero"><span class="pill">${t("daily")}</span><h1>🎯 <span class="acc">${t("missions")}</span></h1><p>${t("missions_sub")}</p></div>
+  return `<div class="hero hero-rocket"><span class="pill">${t("daily")}</span><h1>🎯 <span class="acc">${t("missions")}</span></h1><p>${t("missions_sub")}</p></div>
    <div class="grid cols-2">
      <div class="card"><h3>${t("m_learn_t")}</h3><p>${t("m_learn_d")}</p><div class="meta"><span class="tag">+10 XP</span><span class="tag gold">+5 MOON-RZ</span></div><button class="btn ghost" style="margin-top:14px" data-goto="${rid}">${t("goto_modules")} ${ra.icon} ${rid}</button></div>
      <div class="card"><h3>${t("m_trade_t")}</h3><p>${t("m_trade_d")}</p><div class="meta"><span class="tag">+10 XP</span><span class="tag gold">+8 MOON-RZ</span></div><button class="btn ghost" style="margin-top:14px" data-gosim="1">${t("open_sim")}</button></div>
