@@ -317,6 +317,21 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .ind-head b{font-weight:700}
   .ind-illu{padding:0 12px 12px}
   .ind-illu .indsvg{display:block;width:100%;height:62px;background:var(--chip-bg);border-radius:8px;border:1px solid var(--border)}
+  .hot-tabs{display:flex;gap:8px;margin:0 0 12px;flex-wrap:wrap}
+  .hot-tab{flex:1;min-width:92px;padding:9px 8px;border-radius:10px;border:1px solid var(--border);background:var(--chip-bg);color:var(--muted);font-weight:700;font-size:13px;cursor:pointer}
+  .hot-tab.on{border-color:var(--accent);color:var(--text)}
+  .hot-load{text-align:center;color:var(--muted);padding:34px 10px}
+  .hot-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--chip-bg);margin-bottom:8px}
+  .hot-rank{width:20px;text-align:center;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+  .hot-ic{width:28px;height:28px;border-radius:50%;background:var(--chip-bg);flex:0 0 28px}
+  .hot-id{display:flex;flex-direction:column;min-width:0;flex:1}
+  .hot-id b{font-size:14px;color:var(--text)}
+  .hot-id span{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
+  .hot-spark{flex:0 0 72px}
+  .hot-px{display:flex;flex-direction:column;align-items:flex-end;min-width:84px}
+  .hot-px b{font-size:13px;color:var(--text);font-variant-numeric:tabular-nums}
+  .hot-px span{font-size:11px;font-weight:700}
+  .hot-px .pos{color:var(--pos)} .hot-px .neg{color:var(--red)}
 
   /* Entraînement reconnais la figure */
   .pg{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;max-width:520px}
@@ -477,6 +492,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
       <span class="label" data-t="parcours">Parcours</span>
       <span class="label" data-t="monespace">Mon espace</span>
       <button data-view="simulator"><span class="ico">📈</span> <span data-t="sim">Simulateur Trading</span></button>
+      <button data-view="hot"><span class="ico">🔥</span> <span data-t="hot">🔥 HOT coins</span></button>
       <button data-view="missions"><span class="ico">🎯</span> <span data-t="missions">Missions du jour</span></button>
       <button data-view="referral"><span class="ico">🤝</span> <span data-t="referral">Parrainage</span></button>
       <button data-view="partners"><span class="ico">🏦</span> <span data-t="partners">Exchanges (CEX)</span></button>
@@ -794,6 +810,7 @@ const T_MY={
   academy_pill:"အကယ်ဒမီ", ref_copied:"🔗 လင့်ခ် ကူးယူပြီး!", ref_copied_native:"🔗 လင့်ခ် ကူးယူပြီး (နေးတစ် မျှဝေမှု မရရှိနိုင်)", ref_share_msg:"🌙 MOON-RZ Academy တွင် ကျွန်ုပ်နှင့် ပါဝင်ပါ — ခရစ်ပတို လေ့လာပြီး MOON-RZ ရယူပါ! ", ref_join_short:"🌙 MOON-RZ Academy သို့ ပါဝင်ပါ!", ref_share_native:"🌙 MOON-RZ Academy တွင် ကျွန်ုပ်နှင့် ပါဝင်ပါ!"
 };
 for(const k in T_MY){ if(T[k]) T[k].my=T_MY[k]; }
+Object.assign(T, {"hot":{"en":"🔥 HOT coins","fr":"🔥 HOT coins","es":"🔥 HOT coins","pt":"🔥 HOT coins","de":"🔥 HOT coins","ru":"🔥 HOT coins","tr":"🔥 HOT coins","ar":"🔥 HOT coins","zh":"🔥 HOT coins","ja":"🔥 HOT coins","ko":"🔥 HOT coins","hi":"🔥 HOT coins","id":"🔥 HOT coins","vi":"🔥 HOT coins","th":"🔥 HOT coins","my":"🔥 HOT coins"},"hot_sub":{"en":"The coins moving right now","fr":"Les cryptos qui bougent maintenant","es":"Las cripto que se mueven ahora","pt":"As cripto que estão se movendo agora","de":"Die Coins, die sich gerade bewegen","ru":"Монеты, которые движутся прямо сейчас","tr":"Şu anda hareketlenen coinler","ar":"العملات التي تتحرّك الآن","zh":"此刻在异动的币种","ja":"いま動いているコイン","ko":"지금 움직이는 코인","hi":"अभी हलचल वाली क्रिप्टो","id":"Koin yang bergerak sekarang","vi":"Những coin đang biến động ngay bây giờ","th":"เหรียญที่กำลังเคลื่อนไหวตอนนี้","my":"အခုလှုပ်ရှားနေတဲ့ coin များ"},"hot_trending":{"en":"Trending","fr":"Tendance","es":"Tendencia","pt":"Em alta","de":"Im Trend","ru":"В тренде","tr":"Trend","ar":"رائج","zh":"热门","ja":"トレンド","ko":"인기","hi":"ट्रेंडिंग","id":"Tren","vi":"Xu hướng","th":"กำลังฮิต","my":"ခေတ်စား"},"hot_gainers":{"en":"Gainers 24h","fr":"Hausses 24h","es":"Subidas 24h","pt":"Altas 24h","de":"Gewinner 24h","ru":"Рост 24ч","tr":"Yükselenler 24s","ar":"الرابحون 24س","zh":"24h涨幅","ja":"上昇 24h","ko":"상승 24h","hi":"बढ़त 24घं","id":"Naik 24j","vi":"Tăng 24h","th":"ขึ้น 24ชม","my":"တက် 24နာရီ"},"hot_losers":{"en":"Losers 24h","fr":"Baisses 24h","es":"Bajadas 24h","pt":"Quedas 24h","de":"Verlierer 24h","ru":"Падение 24ч","tr":"Düşenler 24s","ar":"الخاسرون 24س","zh":"24h跌幅","ja":"下落 24h","ko":"하락 24h","hi":"गिरावट 24घं","id":"Turun 24j","vi":"Giảm 24h","th":"ลง 24ชม","my":"ကျ 24နာရီ"},"hot_loading":{"en":"Loading prices…","fr":"Chargement des prix…","es":"Cargando precios…","pt":"Carregando preços…","de":"Preise werden geladen…","ru":"Загрузка цен…","tr":"Fiyatlar yükleniyor…","ar":"جارٍ تحميل الأسعار…","zh":"正在加载价格…","ja":"価格を読み込み中…","ko":"가격 불러오는 중…","hi":"कीमतें लोड हो रही हैं…","id":"Memuat harga…","vi":"Đang tải giá…","th":"กำลังโหลดราคา…","my":"စျေးနှုန်းများ ဖွင့်နေသည်…"},"hot_err":{"en":"Couldn't load prices. Try again.","fr":"Impossible de charger les prix. Réessaie.","es":"No se pudieron cargar los precios. Inténtalo de nuevo.","pt":"Não foi possível carregar os preços. Tente novamente.","de":"Preise konnten nicht geladen werden. Versuche es erneut.","ru":"Не удалось загрузить цены. Попробуйте снова.","tr":"Fiyatlar yüklenemedi. Tekrar dene.","ar":"تعذّر تحميل الأسعار. حاول مجددًا.","zh":"无法加载价格。请重试。","ja":"価格を読み込めませんでした。再試行してください。","ko":"가격을 불러오지 못했어요. 다시 시도하세요.","hi":"कीमतें लोड नहीं हो सकीं। फिर कोशिश करें।","id":"Gagal memuat harga. Coba lagi.","vi":"Không tải được giá. Thử lại.","th":"โหลดราคาไม่สำเร็จ ลองใหม่","my":"စျေးနှုန်းများ ဖွင့်၍မရပါ။ ထပ်ကြိုးစားပါ။"},"hot_retry":{"en":"Retry","fr":"Réessayer","es":"Reintentar","pt":"Tentar de novo","de":"Erneut","ru":"Повторить","tr":"Tekrar dene","ar":"إعادة المحاولة","zh":"重试","ja":"再試行","ko":"다시","hi":"फिर से","id":"Coba lagi","vi":"Thử lại","th":"ลองใหม่","my":"ထပ်ကြိုးစား"},"hot_powered":{"en":"Data: CoinGecko","fr":"Données : CoinGecko","es":"Datos: CoinGecko","pt":"Dados: CoinGecko","de":"Daten: CoinGecko","ru":"Данные: CoinGecko","tr":"Veri: CoinGecko","ar":"البيانات: CoinGecko","zh":"数据：CoinGecko","ja":"データ：CoinGecko","ko":"데이터: CoinGecko","hi":"डेटा: CoinGecko","id":"Data: CoinGecko","vi":"Dữ liệu: CoinGecko","th":"ข้อมูล: CoinGecko","my":"ဒေတာ: CoinGecko"}}); // 🔥 HOT coins i18n
 const ACA_INTRO={
  en:{1:"Understand blockchain from scratch and handle your first wallet.",2:"Never get robbed: scams, phishing, rug pulls, drainers.",3:"Decentralized finance: DEX, pools, staking, yield, lending.",4:"The NFT economy: collections, utility, gaming, RWA.",5:"Launch a project: branding, community, DAO, tokenomics.",6:"Read the markets: support, resistance, trends, volume.",7:"A profitable strategy: MTF, risk management, position sizing.",8:"Use AI: crypto analyst, market scanner, strategies.",9:"Create your own token: smart contracts, liquidity, vesting.",10:"Master the entire ecosystem end to end."},
  es:{1:"Entiende la blockchain desde cero y maneja tu primera billetera.",2:"Que nunca te roben: estafas, phishing, rug pulls, drainers.",3:"Finanzas descentralizadas: DEX, pools, staking, yield, lending.",4:"La economía NFT: colecciones, utilidad, gaming, RWA.",5:"Lanza un proyecto: branding, comunidad, DAO, tokenomics.",6:"Lee los mercados: soportes, resistencias, tendencias, volumen.",7:"Una estrategia rentable: MTF, gestión del riesgo, position sizing.",8:"Usa la IA: analista cripto, escáner de mercado, estrategias.",9:"Crea tu propio token: contratos inteligentes, liquidez, vesting.",10:"Domina todo el ecosistema de principio a fin."},
@@ -7263,6 +7280,7 @@ function buildNav(){
   });
   nav.insertBefore(frag,nav.querySelectorAll(".label")[1]);
   nav.querySelector('[data-view="simulator"]').onclick=()=>go("simulator");
+  nav.querySelector('[data-view="hot"]').onclick=()=>go("hot");
   nav.querySelector('[data-view="missions"]').onclick=()=>go("missions");
   nav.querySelector('[data-view="referral"]').onclick=()=>go("referral");
   nav.querySelector('[data-view="partners"]').onclick=()=>go("partners");
@@ -7301,6 +7319,7 @@ function render(){
   else if(VIEW.name==="lesson") c.innerHTML=viewLesson(VIEW.id,VIEW.aid);
   else if(VIEW.name==="quiz") c.innerHTML=viewQuiz(VIEW.id);
   else if(VIEW.name==="simulator"){ c.innerHTML=viewSim(); startSim(); }
+  else if(VIEW.name==="hot"){ c.innerHTML=viewHot(); loadHot(); }
   else if(VIEW.name==="profile") c.innerHTML=viewProfile();
   else if(VIEW.name==="missions") c.innerHTML=viewMissions();
   else if(VIEW.name==="referral") c.innerHTML=viewReferral();
@@ -7783,6 +7802,63 @@ function viewPartners(){
 
 /* ---------- MISSIONS ---------- */
 function todayKey(){ return new Date().toISOString().slice(0,10); }
+/* ---------- 🔥 HOT COINS (CoinGecko, gratuit) ---------- */
+let hotCache={trending:null,markets:null,ts:0};
+let hotTab="trending";
+function viewHot(){
+  function tb(id,em,k){ return '<button class="hot-tab'+(hotTab===id?' on':'')+'" data-hot="'+id+'">'+em+' '+t(k)+'</button>'; }
+  return '<div class="hero" style="padding:16px 20px 14px"><span class="pill" style="margin-bottom:0">🔥 HOT</span>'
+   +'<h1 class="mrz-display" style="color:var(--text);font-size:22px;margin-top:8px">'+t("hot")+'</h1>'
+   +'<p style="color:var(--muted);font-size:13px;margin-top:4px">'+t("hot_sub")+'</p></div>'
+   +'<div class="hot-tabs">'+tb("trending","🔥","hot_trending")+tb("gainers","📈","hot_gainers")+tb("losers","📉","hot_losers")+'</div>'
+   +'<div id="hotList"><div class="hot-load">'+t("hot_loading")+'</div></div>'
+   +'<p style="text-align:center;color:var(--muted);font-size:11px;margin-top:12px">'+t("hot_powered")+'</p>';
+}
+function loadHot(){
+  if(hotCache.markets && hotCache.trending && Date.now()-hotCache.ts<60000){ renderHot(); return; }
+  Promise.all([
+    fetch("https://api.coingecko.com/api/v3/search/trending").then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
+    fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=24h&sparkline=true").then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
+  ]).then(function(res){ hotCache.trending=res[0]; hotCache.markets=res[1]; hotCache.ts=Date.now(); renderHot(); });
+}
+function hotErr(){ return '<div class="hot-load">'+t("hot_err")+'<br><button class="btn ghost" style="margin-top:10px" onclick="hotCache.ts=0;loadHot()">'+t("hot_retry")+'</button></div>'; }
+function renderHot(){
+  var box=document.getElementById("hotList"); if(!box) return;
+  document.querySelectorAll(".hot-tab").forEach(function(b){ b.classList.toggle("on", b.dataset.hot===hotTab); });
+  var list=[];
+  if(hotTab==="trending"){
+    var tr=hotCache.trending&&hotCache.trending.coins, mk=hotCache.markets||[];
+    if(!tr){ box.innerHTML=hotErr(); return; }
+    list=tr.map(function(c){ var it=c.item, d=it.data||{}, m=mk.find(function(x){return x.id===it.id;});
+      return { name:it.name, sym:it.symbol, rank:it.market_cap_rank, img:it.small||it.thumb,
+        price:(m?m.current_price:d.price), chg:(m?m.price_change_percentage_24h:(d.price_change_percentage_24h&&d.price_change_percentage_24h.usd)),
+        spark:(m&&m.sparkline_in_7d?m.sparkline_in_7d.price:null) }; });
+  } else {
+    var mk2=(hotCache.markets||[]).slice();
+    if(!mk2.length){ box.innerHTML=hotErr(); return; }
+    mk2=mk2.filter(function(m){return m.price_change_percentage_24h!=null;});
+    mk2.sort(function(a,b){ return b.price_change_percentage_24h-a.price_change_percentage_24h; });
+    var top = hotTab==="gainers"? mk2.slice(0,15) : mk2.slice(-15).reverse();
+    list=top.map(function(m){ return { name:m.name, sym:m.symbol, rank:m.market_cap_rank, img:m.image, price:m.current_price, chg:m.price_change_percentage_24h, spark:m.sparkline_in_7d?m.sparkline_in_7d.price:null }; });
+  }
+  box.innerHTML=list.map(hotRow).join("");
+}
+function fmtPrice(p){ if(p==null) return "—"; if(p>=1) return "$"+p.toLocaleString("en-US",{maximumFractionDigits:2}); return "$"+p.toLocaleString("en-US",{maximumFractionDigits:6}); }
+function hotSpark(arr,up){
+  if(!arr||arr.length<2) return "";
+  var W=72,H=28,mn=Math.min.apply(null,arr),mx=Math.max.apply(null,arr),rg=(mx-mn)||1;
+  var pts=arr.map(function(v,i){ return (i/(arr.length-1)*W).toFixed(1)+","+(H-(v-mn)/rg*H).toFixed(1); }).join(" ");
+  return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" style="width:'+W+'px;height:'+H+'px"><polyline points="'+pts+'" style="fill:none;stroke:var('+(up?"--pos":"--red")+')" stroke-width="1.5"/></svg>';
+}
+function hotRow(c){
+  var up=(c.chg||0)>=0, chg=Math.abs(c.chg||0).toFixed(2);
+  return '<div class="hot-row"><span class="hot-rank">'+(c.rank||"–")+'</span>'
+   +'<img class="hot-ic" src="'+(c.img||"")+'" alt="" loading="lazy"/>'
+   +'<div class="hot-id"><b>'+String(c.sym||"").toUpperCase()+'</b><span>'+c.name+'</span></div>'
+   +'<div class="hot-spark">'+hotSpark(c.spark,up)+'</div>'
+   +'<div class="hot-px"><b>'+fmtPrice(c.price)+'</b><span class="'+(up?"pos":"neg")+'">'+(up?"▲":"▼")+' '+chg+'%</span></div></div>';
+}
+
 function viewMissions(){
   const claimed=S.lastDay===todayKey();
   const rid=resumeAcademy(), ra=ACADEMIES.find(a=>a.id===rid);
@@ -7838,6 +7914,7 @@ function bindContent(){
     ig.innerHTML=indicatorsHTML();
     ig.querySelectorAll(".ind").forEach(function(c){ c.addEventListener("click",function(e){ if(e.target.closest(".pat-detail"))return; var det=c.querySelector(".pat-detail"); if(!det)return; var op=det.hidden; if(op&&!det.innerHTML)det.innerHTML=indDetailHTML(+c.dataset.ind); det.hidden=!op; c.classList.toggle("open",op); }); });
   }
+  if(VIEW.name==="hot"){ document.querySelectorAll(".hot-tab").forEach(function(b){ b.onclick=function(){ hotTab=b.dataset.hot; renderHot(); }; }); }
   if(VIEW.name==="quiz") bindQuiz();
 }
 /* Galerie des figures chartistes (16 patterns). Images universelles, légende dans l'intro du module. */
