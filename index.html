@@ -7384,9 +7384,13 @@ function viewLesson(id,aid){
 let quizState=null;
 function viewQuiz(aid){
   const C=ac(aid), A=ACADEMIES.find(x=>x.id===aid), total=C.quiz.length;
-  if(!quizState || quizState.aid!==aid){ quizState={aid,answers:Array(total).fill(null),submitted:false,cur:0}; }
+  if(!quizState || quizState.aid!==aid){
+    // mélange les options de chaque question pour que la bonne réponse ne soit pas toujours à la même place
+    const qs=C.quiz.map(q=>{ const o=q.a.map((tx,ix)=>({tx,ok:ix===q.correct})); for(let k=o.length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); const tmp=o[k]; o[k]=o[j]; o[j]=tmp; } return {q:q.q,a:o.map(x=>x.tx),correct:o.findIndex(x=>x.ok)}; });
+    quizState={aid,answers:Array(total).fill(null),submitted:false,cur:0,q:qs};
+  }
   if(quizState.submitted) return viewQuizResult(aid);
-  const i=quizState.cur, q=C.quiz[i], answeredCount=quizState.answers.filter(a=>a!==null).length;
+  const i=quizState.cur, q=quizState.q[i], answeredCount=quizState.answers.filter(a=>a!==null).length;
   return `<button class="btn ghost" data-goto="${aid}" style="margin-bottom:8px">${t("quit")}</button>
    <div class="hero" style="padding:14px 20px 12px">
      <span class="pill" style="margin-bottom:0">${A.title} — ${t("exam_word")}</span>
@@ -7435,7 +7439,7 @@ function submitQuiz(){
   const aid=quizState.aid, C=ac(aid), total=C.quiz.length;
   const unanswered=quizState.answers.indexOf(null);
   if(unanswered>=0){ quizState.cur=unanswered; toast(t("answer_all")); render(); return; }
-  let score=0; C.quiz.forEach((q,qi)=>{ if(quizState.answers[qi]===q.correct) score++; });
+  let score=0; quizState.q.forEach((q,qi)=>{ if(quizState.answers[qi]===q.correct) score++; });
   quizState.score=score; quizState.submitted=true;
   const pass=Math.round(score/total*100)>=80;
   if(pass){
@@ -8082,6 +8086,7 @@ const PHRASES_I18N={
 /* ---------- BOOT ---------- */
 handleIncomingRef();
 updateStreak();
+if(S.onboarded) VIEW={name:"missions"}; // au retour : direct sur Missions du jour (avec le bouton Reprendre)
 buildNav(); applyLang(); renderHUD(); render();
 if(!S.onboarded) showOnboarding();
 </script>
