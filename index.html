@@ -343,6 +343,10 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .qz-q{color:var(--text);font-size:19px;line-height:1.35;margin-bottom:16px}
   .qz-nav{display:flex;gap:10px;flex:none;padding-top:8px}
   body.quiz-open #botFab{display:none}
+  .bot-typing{display:flex;gap:5px;align-items:center}
+  .bot-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:ld 1s infinite}
+  .bot-typing span:nth-child(2){animation-delay:.15s}
+  .bot-typing span:nth-child(3){animation-delay:.3s}
   /* Accueil / hubs : grandes box pleine largeur */
   .homegrid{display:flex;flex-direction:column;gap:12px;margin-top:14px}
   .homebox,.acadbox{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px;border-radius:16px;border:1px solid var(--border);background:var(--surface);-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);box-shadow:var(--card-shadow);cursor:pointer;transition:.15s;color:var(--text)}
@@ -9129,7 +9133,20 @@ function botAnswer(raw){
 }
 function botMsg(who,html){ var m=document.getElementById('botMsgs'); if(!m) return; var d=document.createElement('div'); d.className='bot-b '+(who==='me'?'me':'ai'); d.innerHTML=html; m.appendChild(d); m.scrollTop=m.scrollHeight; }
 function botAsk(txt){ var inp=document.getElementById('botInput'); if(inp) inp.value=txt; botSend(); }
-function botSend(){ var inp=document.getElementById('botInput'); if(!inp) return; var v=inp.value.trim(); if(!v) return; botMsg('me', botEsc(v)); inp.value=''; var ans=botAnswer(v); setTimeout(function(){ botMsg('ai', ans); }, 220); }
+var botHist=[];
+function botFmt(x){ return botEsc(x).replace(/\n/g,'<br>'); }
+function botTyping(){ var m=document.getElementById('botMsgs'); if(!m) return null; var d=document.createElement('div'); d.className='bot-b ai bot-typing'; d.innerHTML='<span></span><span></span><span></span>'; m.appendChild(d); m.scrollTop=m.scrollHeight; return d; }
+/* v2 : vraie IA (Claude) via l'Edge Function Supabase ; repli sur le moteur gratuit v1 si indispo */
+function botAskAI(question,hist){ if(!SB_URL) return Promise.resolve(null); return fetch(SB_URL+"/functions/v1/tutor",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({question:question,lang:S.lang,history:hist})}).then(function(r){return r.ok?r.json():null;}).then(function(j){return (j&&j.answer)?j.answer:null;}).catch(function(){return null;}); }
+function botSend(){ var inp=document.getElementById('botInput'); if(!inp) return; var v=inp.value.trim(); if(!v) return; botMsg('me', botEsc(v)); inp.value='';
+  var hist=botHist.slice(-6); botHist.push({role:'user',content:v});
+  var typing=botTyping();
+  botAskAI(v,hist).then(function(ai){
+    if(typing&&typing.parentNode) typing.parentNode.removeChild(typing);
+    if(ai){ botMsg('ai', botFmt(ai)); botHist.push({role:'assistant',content:ai}); }
+    else { botMsg('ai', botAnswer(v)); } // repli moteur local gratuit
+  });
+}
 function renderSugg(){ var box=document.getElementById('botSugg'); if(!box) return; box.innerHTML=['bot_sug1','bot_sug2','bot_sug3'].map(function(k){ return '<button>'+t(k)+'</button>'; }).join(''); box.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ botAsk(b.textContent); }; }); }
 function botHTML(){ return '<button id="botFab" aria-label="'+t('bot_open')+'">💬</button>'
   +'<div id="botPanel" class="bot-panel" hidden><div class="bot-head"><div><b>'+t('bot_title')+'</b><span>'+t('bot_sub')+'</span></div><button id="botClose" aria-label="close">✕</button></div>'
@@ -9137,7 +9154,7 @@ function botHTML(){ return '<button id="botFab" aria-label="'+t('bot_open')+'">�
   +'<form class="bot-input" id="botForm"><input id="botInput" placeholder="'+t('bot_ph')+'" autocomplete="off"/><button type="submit" aria-label="'+t('bot_send')+'">➤</button></form></div>'; }
 function openBot(){ var p=document.getElementById('botPanel'); if(p){ p.hidden=false; var i=document.getElementById('botInput'); if(i) i.focus(); } }
 function closeBot(){ var p=document.getElementById('botPanel'); if(p) p.hidden=true; }
-function initBot(){ var ex=document.getElementById('botFab'); if(ex){ ex.remove(); var op=document.getElementById('botPanel'); if(op) op.remove(); } document.body.insertAdjacentHTML('beforeend', botHTML()); document.getElementById('botFab').onclick=openBot; document.getElementById('botClose').onclick=closeBot; document.getElementById('botForm').onsubmit=function(e){ e.preventDefault(); botSend(); }; botMsg('ai', t('bot_hi')); renderSugg(); }
+function initBot(){ var ex=document.getElementById('botFab'); if(ex){ ex.remove(); var op=document.getElementById('botPanel'); if(op) op.remove(); } document.body.insertAdjacentHTML('beforeend', botHTML()); document.getElementById('botFab').onclick=openBot; document.getElementById('botClose').onclick=closeBot; document.getElementById('botForm').onsubmit=function(e){ e.preventDefault(); botSend(); }; botHist=[]; botMsg('ai', t('bot_hi')); renderSugg(); }
 function refreshBot(){ if(document.getElementById('botFab')) initBot(); }
 
 function viewVision(){
