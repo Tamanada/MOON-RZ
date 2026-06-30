@@ -332,6 +332,17 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .hot-px b{font-size:13px;color:var(--text);font-variant-numeric:tabular-nums}
   .hot-px span{font-size:11px;font-weight:700}
   .hot-px .pos{color:var(--pos)} .hot-px .neg{color:var(--red)}
+  /* Examen : écran fixe plein écran (la question ne bouge pas, barre + boutons épinglés) */
+  .quizmodal{position:fixed;inset:0;z-index:45;background:var(--stage-bg,#0B1026);display:flex;flex-direction:column;padding:14px 16px calc(16px + env(safe-area-inset-bottom));overflow:hidden}
+  .qz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none}
+  .qz-count{color:var(--muted);font-size:12px;white-space:nowrap}
+  .qz-bar{margin:10px 0 0;flex:none}
+  .qz-body{flex:1;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;padding:10px 0;min-height:0}
+  .qz-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 18px;-webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);box-shadow:var(--card-shadow)}
+  .qz-acad{display:inline-block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+  .qz-q{color:var(--text);font-size:19px;line-height:1.35;margin-bottom:16px}
+  .qz-nav{display:flex;gap:10px;flex:none;padding-top:8px}
+  body.quiz-open #botFab{display:none}
   #botFab{position:fixed;right:18px;bottom:20px;width:54px;height:54px;border-radius:50%;border:none;background:var(--accent);color:#0a0a14;font-size:24px;cursor:pointer;box-shadow:0 6px 20px #0006;z-index:60}
   .bot-panel{position:fixed;right:18px;bottom:84px;width:340px;max-width:calc(100vw - 36px);height:480px;max-height:calc(100vh - 120px);background:var(--hero-scrim,#141B3A);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;z-index:61;box-shadow:0 10px 40px #0008}
   :root[data-theme="glass"] .bot-panel{background:#4C1D95}
@@ -7805,6 +7816,7 @@ function render(){
   else if(VIEW.name==="vision") c.innerHTML=viewVision();
   bindContent();
   if(VIEW.name==="academy"||VIEW.name==="referral") wireAccordions(); // volets déroulants (profil câblé dans bindProfile)
+  document.body.classList.toggle("quiz-open", VIEW.name==="quiz"); // examen = écran fixe plein écran
   window.scrollTo(0,0); // toujours remonter en haut à chaque transition de page
 }
 
@@ -7896,18 +7908,20 @@ function viewQuiz(aid){
   if(quizState.submitted) return viewQuizResult(aid);
   const total=quizState.q.length;
   const i=quizState.cur, q=quizState.q[i], answeredCount=quizState.answers.filter(a=>a!==null).length;
-  return `<button class="btn ghost" data-goto="${aid}" style="margin-bottom:8px">${t("quit")}</button>
-   <div class="hero" style="padding:14px 20px 12px">
-     <span class="pill" style="margin-bottom:0">${A.title} — ${t("exam_word")}</span>
-     <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:8px">
-       <b class="mrz-display" style="color:var(--text);font-size:17px">Question ${i+1}/${total}</b>
-       <span class="mrz-mono" style="color:var(--muted);font-size:12px">${answeredCount}/${total} ✓</span>
+  return `<div class="quizmodal">
+     <div class="qz-top">
+       <button class="btn ghost sm" data-goto="${aid}">${t("quit")}</button>
+       <span class="qz-count mrz-mono">${i+1}/${total} · ${answeredCount}/${total} ✓</span>
      </div>
-     <div class="bar" style="margin-top:8px"><span style="width:${Math.round((i+1)/total*100)}%"></span></div>
-   </div>
-   <div class="quiz card" style="padding:14px">
-     <div class="q"><h4 style="margin-bottom:10px">${q.q}</h4>${q.a.map((opt,oi)=>`<button class="opt ${quizState.answers[i]===oi?'sel':''}" data-oi="${oi}">${opt}</button>`).join("")}</div>
-     <div style="display:flex;gap:10px;margin-top:6px">
+     <div class="bar qz-bar"><span style="width:${Math.round((i+1)/total*100)}%"></span></div>
+     <div class="qz-body">
+       <div class="qz-card quiz">
+         <span class="qz-acad">${A.title} — ${t("exam_word")}</span>
+         <h3 class="qz-q mrz-display">${q.q}</h3>
+         <div class="q">${q.a.map((opt,oi)=>`<button class="opt ${quizState.answers[i]===oi?'sel':''}" data-oi="${oi}">${opt}</button>`).join("")}</div>
+       </div>
+     </div>
+     <div class="qz-nav">
        ${i>0?`<button class="btn ghost" id="qPrev" style="flex:0 0 58px">←</button>`:''}
        ${i<total-1
          ?`<button class="btn moon" id="qNext" style="flex:1">${t("ob_next")}</button>`
