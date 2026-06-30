@@ -8249,23 +8249,8 @@ function viewProfile(){
      <p style="color:var(--muted);margin-top:8px">${t("level")} ${L.lvl} · ${S.xp} XP · ${S.coins} MOON-RZ.</p>
    </div>
 
-   <div class="section-title">${t("prof_customize")}</div>
-   <div class="mrz-card" style="padding:20px">
-     <div class="field"><label>${t("lbl_pseudo")}</label><input type="text" id="nameInput" maxlength="20" placeholder="${rankFor(L.lvl)}" value="${(S.profile.name||'').replace(/"/g,'&quot;')}" /></div>
-     <div class="field"><label>${t("lbl_avatar")}</label><div class="picker" id="avPicker">${AVATARS.map(a=>`<div class="av ${a===S.profile.avatar?'sel':''}" data-av="${a}">${a}</div>`).join("")}</div></div>
-     <div class="field" style="margin-bottom:6px"><label>${t("lbl_accent")}</label><div class="picker" id="colPicker">${ACCENTS.map(c=>`<div class="col ${c===S.profile.accent?'sel':''}" data-col="${c}" style="background:${c}"></div>`).join("")}</div></div>
-   </div>
-
-   <!-- ===== MOON-RZ THEMES [B] : sélecteur de thème ===== -->
-   <div class="mrz-card mrz-picker" style="margin-top:14px">
-     <div class="t">Choisis ton style</div>
-     <div class="grid">
-       <button class="mrz-pk mrz-focus" data-theme-pick="mission"><span class="sw"><i style="background:#0B1026"></i><i style="background:#F2C46B"></i><i style="background:#5EE6C5"></i></span><span class="nm">Mission Control</span><span class="tg">Défaut</span></button>
-       <button class="mrz-pk mrz-focus" data-theme-pick="neon"><span class="sw"><i style="background:#08070F"></i><i style="background:#BEF264"></i><i style="background:#22D3EE"></i></span><span class="nm">Neon Floor</span><span class="tg">Gamifié</span></button>
-       <button class="mrz-pk mrz-focus" data-theme-pick="bright"><span class="sw"><i style="background:#F6F2EA"></i><i style="background:#5B3FBF"></i><i style="background:#0E9E9E"></i></span><span class="nm">Editorial Bright</span><span class="tg">Clair</span></button>
-       <button class="mrz-pk mrz-focus" data-theme-pick="glass"><span class="sw"><i style="background:#7C3AED"></i><i style="background:#FFFFFF"></i><i style="background:#DB2777"></i></span><span class="nm">Glassmorphism</span><span class="tg">Verre</span></button>
-     </div>
-   </div>
+   <div class="section-title">🤝 ${t("referral")}</div>
+   ${referralBlock()}
 
    <div class="section-title">${t("prof_stats")}</div>
    <div class="grid cols-3">
@@ -8284,18 +8269,36 @@ function viewProfile(){
      ${RANKS.map(r=>`<div style="display:flex;align-items:center;gap:12px;opacity:${L.lvl>=r.lvl?1:.4}"><b class="mrz-mono" style="width:40px;color:${L.lvl>=r.lvl?'var(--accent)':'var(--muted)'}">L${r.lvl}</b><span style="flex:1;color:var(--text)">${r.name}</span>${L.lvl>=r.lvl?'<span style="color:var(--pos);font-weight:700">✓</span>':''}</div>`).join("")}
    </div></div>
 
-   <div style="margin-top:24px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+   <div class="section-title">${t("prof_customize")}</div>
+   <div class="mrz-card" style="padding:20px">
+     <div class="field"><label>${t("lbl_pseudo")}</label><input type="text" id="nameInput" maxlength="20" placeholder="${rankFor(L.lvl)}" value="${(S.profile.name||'').replace(/"/g,'&quot;')}" /></div>
+     <div class="field"><label>${t("lbl_avatar")}</label><div class="picker" id="avPicker">${AVATARS.map(a=>`<div class="av ${a===S.profile.avatar?'sel':''}" data-av="${a}">${a}</div>`).join("")}</div></div>
+     <div class="field" style="margin-bottom:6px"><label>${t("lbl_accent")}</label><div class="picker" id="colPicker">${ACCENTS.map(c=>`<div class="col ${c===S.profile.accent?'sel':''}" data-col="${c}" style="background:${c}"></div>`).join("")}</div></div>
+   </div>
+
+   <!-- ===== MOON-RZ THEMES [B] : sélecteur de thème ===== -->
+   <div class="mrz-card mrz-picker" style="margin-top:14px">
+     <div class="t">Choisis ton style</div>
+     <div class="grid">
+       <button class="mrz-pk mrz-focus" data-theme-pick="mission"><span class="sw"><i style="background:#0B1026"></i><i style="background:#F2C46B"></i><i style="background:#5EE6C5"></i></span><span class="nm">Mission Control</span><span class="tg">Défaut</span></button>
+       <button class="mrz-pk mrz-focus" data-theme-pick="neon"><span class="sw"><i style="background:#08070F"></i><i style="background:#BEF264"></i><i style="background:#22D3EE"></i></span><span class="nm">Neon Floor</span><span class="tg">Gamifié</span></button>
+       <button class="mrz-pk mrz-focus" data-theme-pick="bright"><span class="sw"><i style="background:#F6F2EA"></i><i style="background:#5B3FBF"></i><i style="background:#0E9E9E"></i></span><span class="nm">Editorial Bright</span><span class="tg">Clair</span></button>
+       <button class="mrz-pk mrz-focus" data-theme-pick="glass"><span class="sw"><i style="background:#7C3AED"></i><i style="background:#FFFFFF"></i><i style="background:#DB2777"></i></span><span class="nm">Glassmorphism</span><span class="tg">Verre</span></button>
+     </div>
+   </div>
+
+   <div style="margin-top:18px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
      <button class="mrz-btn-ghost mrz-focus" id="replayOb">${t("ob_replay")}</button>
      <button class="mrz-btn-ghost mrz-focus" id="resetBtn">${t("reset_btn")}</button>
-   </div>`;
+   </div>
+
+   <div class="section-title">${t("vision")}</div>
+   <button class="homebox" data-gview="vision"><span class="hb-ic">🌕</span><div class="hb-tx"><b>${t("vision")}</b><span>${t("home_vision_d")}</span></div><span class="hb-ar">›</span></button>`;
 }
 
 /* ---------- PARRAINAGE ---------- */
-function viewReferral(){
+function referralBlock(){
   return `
-   <div class="hero"><span class="pill">${t("community")}</span><h1>🤝 <span class="acc">${t("referral")}</span></h1>
-     <p>${t("ref_sub")}</p></div>
-
    <div class="card">
      <h3>${t("ref_link_t")}</h3>
      <p>${t("ref_link_d")}</p>
@@ -8330,6 +8333,11 @@ function viewReferral(){
      ${S.referredBy?`<div class="callout">✅ <b>${S.referredBy}</b> ✓ +50 MOON-RZ</div>`:''}
      <div class="callout warn" style="margin-top:14px">${t("ref_note")}</div>
    </div>`;
+}
+function viewReferral(){
+  return `
+   <div class="hero"><span class="pill">${t("community")}</span><h1>🤝 <span class="acc">${t("referral")}</span></h1>
+     <p>${t("ref_sub")}</p></div>`+referralBlock();
 }
 
 /* ---------- PARTENAIRES CEX ---------- */
