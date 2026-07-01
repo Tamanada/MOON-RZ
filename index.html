@@ -9137,7 +9137,7 @@ var botHist=[];
 function botFmt(x){ return botEsc(x).replace(/\n/g,'<br>'); }
 function botTyping(){ var m=document.getElementById('botMsgs'); if(!m) return null; var d=document.createElement('div'); d.className='bot-b ai bot-typing'; d.innerHTML='<span></span><span></span><span></span>'; m.appendChild(d); m.scrollTop=m.scrollHeight; return d; }
 /* v2 : vraie IA (Claude) via l'Edge Function Supabase ; repli sur le moteur gratuit v1 si indispo */
-function botAskAI(question,hist){ if(!SB_URL) return Promise.resolve(null); return fetch(SB_URL+"/functions/v1/tutor",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({question:question,lang:S.lang,history:hist})}).then(function(r){return r.ok?r.json():null;}).then(function(j){return (j&&j.answer)?j.answer:null;}).catch(function(){return null;}); }
+function botAskAI(question,hist){ if(!SB_URL) return Promise.resolve(null); return fetch(SB_URL+"/functions/v1/bright-handler",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json"},body:JSON.stringify({question:question,lang:S.lang,history:hist})}).then(function(r){return r.ok?r.json():null;}).then(function(j){return (j&&j.answer)?j.answer:null;}).catch(function(){return null;}); }
 function botSend(){ var inp=document.getElementById('botInput'); if(!inp) return; var v=inp.value.trim(); if(!v) return; botMsg('me', botEsc(v)); inp.value='';
   var hist=botHist.slice(-6); botHist.push({role:'user',content:v});
   var typing=botTyping();
