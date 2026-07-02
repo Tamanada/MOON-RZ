@@ -16,3 +16,7 @@ dist/
 # Sources lourdes (non versionnees : versions optimisees dans assets/)
 17 patterns/
 STOCK IMAGES/
+
+# Sources lourdes du livre (versions optimisees dans assets/book/)
+assets/brand/BOOK/
+assets/brand/cover.png
