@@ -979,6 +979,7 @@ const CONTENT={
   ]},
 
   2:{ modules:[
+    {id:"walletstep",icon:"👛",xp:30,coins:15,title:"Wallet pas à pas",body:"<p>Ton <b>wallet</b> est ta porte d'entrée dans le Web3. Voici comment bien démarrer.</p><h4>1. Choisir</h4><p><b>Hot wallet</b> (appli/extension, ex. MetaMask) — pratique au quotidien. <b>Cold wallet</b> (appareil hors ligne, ex. Ledger) — pour garder de gros montants en sécurité.</p><h4>2. Créer</h4><p>À la création, on te donne une <b>seed phrase</b> (12/24 mots). <b>Écris-la sur papier</b>, hors ligne. Jamais de capture d'écran, jamais dans un email.</p><h4>3. Utiliser</h4><p>Ton <b>adresse publique</b> se partage pour recevoir. Ta seed et ta clé privée, <b>jamais</b>.</p><div class=\"callout warn\">⚠️ Personne (aucun « support ») ne doit te demander ta seed phrase. Qui l'a, prend tout. 🔐</div>"},
     {id:"scam",icon:"🎭",title:"Les arnaques crypto : panorama",xp:30,coins:15,body:`
       <p>La crypto est sans intermédiaire : <b>aucune banque ne peut annuler</b> une transaction. C'est la liberté… mais aussi le terrain de jeu des arnaqueurs. Ta meilleure protection, c'est <b>toi</b>.</p>
       <h4>Les grandes familles</h4>
@@ -1159,6 +1160,7 @@ const CONTENT={
   ]},
 
   6:{ modules:[
+    {id:"memes",icon:"🐕",xp:30,coins:15,title:"Memecoins & Airdrops",body:"<p>Deux phénomènes très populaires — et très risqués — du monde crypto.</p><h4>🐕 Les memecoins</h4><p>Des cryptos nées d'une blague ou d'une communauté (Dogecoin, Shiba…). <b>Peu ou pas d'utilité</b> : leur prix vit du buzz et de l'émotion. Ça peut exploser… puis s'effondrer (<b>pump &amp; dump</b>).</p><h4>🎁 Les airdrops</h4><p>Des tokens <b>distribués gratuitement</b> pour récompenser les premiers utilisateurs ou lancer un projet. Parfois de vraies opportunités — souvent des appâts.</p><div class=\"callout warn\">⚠️ Règles d'or : ne <b>connecte jamais</b> ton wallet principal à un airdrop douteux, ne signe pas n'importe quoi, et n'investis dans un memecoin que ce que tu peux perdre. Si « c'est gratuit », <b>tu es peut-être le produit</b>.</div>"},
     {id:"candles",icon:"🕯️",title:"Lire un graphique : les bougies",xp:30,coins:15,body:`
       <p>Le graphique en <b>chandeliers japonais</b> (candlesticks) est le langage universel du trader. Chaque bougie résume le combat acheteurs/vendeurs sur une période.</p>
       <h4>Une bougie = 4 prix</h4>
@@ -1207,6 +1209,7 @@ const CONTENT={
   ]},
 
   7:{ modules:[
+    {id:"onchain",icon:"🔍",xp:30,coins:15,title:"Analyse on-chain",body:"<p>L'<b>analyse on-chain</b> lit directement les données publiques de la blockchain — pas les graphiques de prix, mais ce qui se passe <b>vraiment</b> sur le réseau.</p><h4>Ce qu'on observe</h4><ul><li>Les <b>flux</b> vers/depuis les exchanges (entrées = pression vendeuse possible).</li><li>Les mouvements des <b>« whales »</b> (gros portefeuilles).</li><li>L'<b>activité</b> : adresses actives, volume réel, frais.</li></ul><h4>Les outils</h4><p>Un <b>explorateur</b> (Etherscan, BscScan) montre chaque transaction. Des sites (Glassnode, Nansen) résument les tendances.</p><div class=\"callout\">🔎 L'on-chain ne prédit pas l'avenir, mais il révèle ce que le prix seul cache : conviction, panique, accumulation.</div>"},
     {id:"indic",icon:"📊",title:"📊 Indicateurs",xp:40,coins:22,body:`<div data-indicators></div>`},
     {id:"mtf",icon:"🔭",title:"Multi Time Frame Analysis",xp:35,coins:18,body:`
       <p>Un bon trader regarde <b>plusieurs unités de temps</b> avant d'agir. Une seule, c'est regarder par le trou d'une serrure.</p>
@@ -1461,6 +1464,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » means…",a:["Keep crypto on an exchange","Whoever holds the keys controls the funds","Keys are free","You can't lose crypto"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Wallet step by step","body":"<p>Your <b>wallet</b> is your door into Web3. Here's how to start right.</p><h4>1. Choose</h4><p><b>Hot wallet</b> (app/extension, e.g. MetaMask) — handy for daily use. <b>Cold wallet</b> (offline device, e.g. Ledger) — to keep large amounts safe.</p><h4>2. Create</h4><p>On creation you get a <b>seed phrase</b> (12/24 words). <b>Write it on paper</b>, offline. Never a screenshot, never in an email.</p><h4>3. Use</h4><p>Your <b>public address</b> is shared to receive. Your seed and private key, <b>never</b>.</p><div class=\"callout warn\">⚠️ No one (no \"support\") should ever ask for your seed phrase. Whoever has it takes everything. 🔐</div>"},
     scam:{title:"Crypto scams: overview",body:`
       <p>Crypto has no middleman: <b>no bank can reverse</b> a transaction. That's freedom… but also a playground for scammers. Your best protection is <b>you</b>.</p>
       <h4>The main families</h4>
@@ -1637,6 +1641,7 @@ const CONTENT_I18N={
     {q:"The right priority before a launch?",a:["Maximum hype right away","Build the community and a working product","Buy followers","Launch with no whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoins & Airdrops","body":"<p>Two very popular — and very risky — crypto phenomena.</p><h4>🐕 Memecoins</h4><p>Coins born from a joke or a community (Dogecoin, Shiba…). <b>Little or no utility</b>: their price lives on hype and emotion. It can explode… then crash (<b>pump &amp; dump</b>).</p><h4>🎁 Airdrops</h4><p>Tokens <b>given for free</b> to reward early users or launch a project. Sometimes real opportunities — often bait.</p><div class=\"callout warn\">⚠️ Golden rules: <b>never connect</b> your main wallet to a shady airdrop, don't blindly sign anything, and only put into a memecoin what you can lose. If \"it's free\", <b>you might be the product</b>.</div>"},
     candles:{title:"Reading a chart: candles",body:`
       <p>The <b>Japanese candlestick</b> chart is the trader's universal language. Each candle sums up the buyer/seller battle over a period.</p>
       <h4>One candle = 4 prices</h4>
@@ -1684,6 +1689,7 @@ const CONTENT_I18N={
     {q:"The first question before trading?",a:["What's the project logo?","Which way is the trend going?","Who's the CEO?","How many followers?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"On-chain analysis","body":"<p><b>On-chain analysis</b> reads the blockchain's public data directly — not price charts, but what's <b>really</b> happening on the network.</p><h4>What we watch</h4><ul><li><b>Flows</b> to/from exchanges (inflows = possible sell pressure).</li><li>The moves of <b>\"whales\"</b> (big wallets).</li><li><b>Activity</b>: active addresses, real volume, fees.</li></ul><h4>The tools</h4><p>An <b>explorer</b> (Etherscan, BscScan) shows every transaction. Sites (Glassnode, Nansen) summarize the trends.</p><div class=\"callout\">🔎 On-chain doesn't predict the future, but it reveals what price alone hides: conviction, panic, accumulation.</div>"},
     indic:{title:"📊 Indicators",body:`<div data-indicators></div>`},
     mtf:{title:"Multi Time Frame Analysis",body:`
       <p>A good trader looks at <b>several timeframes</b> before acting. Just one is looking through a keyhole.</p>
@@ -1916,6 +1922,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » significa…",a:["Guardar cripto en un exchange","Quien tiene las claves controla los fondos","Las claves son gratis","No puedes perder cripto"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Wallet paso a paso","body":"<p>Tu <b>wallet</b> es tu puerta al Web3. Así se empieza bien.</p><h4>1. Elegir</h4><p><b>Hot wallet</b> (app/extensión, ej. MetaMask) — práctica a diario. <b>Cold wallet</b> (dispositivo sin conexión, ej. Ledger) — para guardar grandes sumas seguras.</p><h4>2. Crear</h4><p>Al crearla te dan una <b>frase semilla</b> (12/24 palabras). <b>Escríbela en papel</b>, sin conexión. Nunca captura, nunca en un email.</p><h4>3. Usar</h4><p>Tu <b>dirección pública</b> se comparte para recibir. Tu semilla y clave privada, <b>nunca</b>.</p><div class=\"callout warn\">⚠️ Nadie (ningún «soporte») debe pedirte tu frase semilla. Quien la tiene, se lo lleva todo. 🔐</div>"},
     scam:{title:"Estafas cripto: panorama",body:`
       <p>La cripto no tiene intermediarios: <b>ningún banco puede revertir</b> una transacción. Eso es libertad… pero también el terreno de juego de los estafadores. Tu mejor protección eres <b>tú</b>.</p>
       <h4>Las grandes familias</h4>
@@ -2092,6 +2099,7 @@ const CONTENT_I18N={
     {q:"¿La prioridad correcta antes de un lanzamiento?",a:["Máximo hype de inmediato","Construir la comunidad y un producto que funcione","Comprar seguidores","Lanzar sin whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoins y Airdrops","body":"<p>Dos fenómenos muy populares — y muy arriesgados — del mundo cripto.</p><h4>🐕 Memecoins</h4><p>Cripto nacidas de una broma o una comunidad (Dogecoin, Shiba…). <b>Poca o ninguna utilidad</b>: su precio vive del hype y la emoción. Puede explotar… y luego desplomarse (<b>pump &amp; dump</b>).</p><h4>🎁 Airdrops</h4><p>Tokens <b>repartidos gratis</b> para recompensar a los primeros usuarios o lanzar un proyecto. A veces oportunidades reales — a menudo cebos.</p><div class=\"callout warn\">⚠️ Reglas de oro: <b>nunca conectes</b> tu wallet principal a un airdrop dudoso, no firmes cualquier cosa y solo pon en un memecoin lo que puedas perder. Si «es gratis», <b>quizá el producto seas tú</b>.</div>"},
     candles:{title:"Leer un gráfico: las velas",body:`
       <p>El gráfico de <b>velas japonesas</b> es el lenguaje universal del trader. Cada vela resume la batalla compradores/vendedores en un periodo.</p>
       <h4>Una vela = 4 precios</h4>
@@ -2139,6 +2147,7 @@ const CONTENT_I18N={
     {q:"¿La primera pregunta antes de operar?",a:["¿Cuál es el logo del proyecto?","¿Hacia dónde va la tendencia?","¿Quién es el CEO?","¿Cuántos seguidores?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"Análisis on-chain","body":"<p>El <b>análisis on-chain</b> lee directamente los datos públicos de la blockchain — no los gráficos de precio, sino lo que pasa <b>de verdad</b> en la red.</p><h4>Qué observamos</h4><ul><li>Los <b>flujos</b> hacia/desde los exchanges (entradas = posible presión vendedora).</li><li>Los movimientos de las <b>«whales»</b> (grandes carteras).</li><li>La <b>actividad</b>: direcciones activas, volumen real, comisiones.</li></ul><h4>Las herramientas</h4><p>Un <b>explorador</b> (Etherscan, BscScan) muestra cada transacción. Sitios (Glassnode, Nansen) resumen las tendencias.</p><div class=\"callout\">🔎 El on-chain no predice el futuro, pero revela lo que el precio solo esconde: convicción, pánico, acumulación.</div>"},
     indic:{title:"📊 Indicadores",body:`<div data-indicators></div>`},
     mtf:{title:"Análisis multi-temporal",body:`
       <p>Un buen trader mira <b>varias temporalidades</b> antes de actuar. Una sola es mirar por el ojo de una cerradura.</p>
@@ -2371,6 +2380,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » หมายความว่า…",a:["เก็บคริปโตไว้บน exchange","ใครถือกุญแจคนนั้นคุมเงิน","กุญแจฟรี","คริปโตหายไม่ได้"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"วอลเล็ตทีละขั้น","body":"<p><b>วอลเล็ต</b>ของคุณคือประตูสู่ Web3 เริ่มให้ถูกต้องดังนี้</p><h4>1. เลือก</h4><p><b>Hot wallet</b> (แอป/ส่วนขยาย เช่น MetaMask) — สะดวกใช้ประจำวัน <b>Cold wallet</b> (อุปกรณ์ออฟไลน์ เช่น Ledger) — เก็บเงินก้อนใหญ่ให้ปลอดภัย</p><h4>2. สร้าง</h4><p>ตอนสร้างคุณจะได้ <b>seed phrase</b> (12/24 คำ) <b>เขียนลงกระดาษ</b> แบบออฟไลน์ อย่าแคปหน้าจอ อย่าไว้ในอีเมล</p><h4>3. ใช้</h4><p><b>ที่อยู่สาธารณะ</b> แชร์ได้เพื่อรับ ส่วน seed และคีย์ส่วนตัว <b>ห้ามเด็ดขาด</b></p><div class=\"callout warn\">⚠️ ไม่มีใคร (ไม่มี «ซัพพอร์ต» ใด) ควรขอ seed phrase ของคุณ ใครได้ไปก็เอาไปหมด 🔐</div>"},
     scam:{title:"สแกมคริปโต: ภาพรวม",body:`
       <p>คริปโตไม่มีคนกลาง: <b>ไม่มีธนาคารยกเลิก</b> ธุรกรรมได้ นั่นคืออิสรภาพ… แต่ก็เป็นสนามเด็กเล่นของมิจฉาชีพ เกราะที่ดีที่สุดคือ <b>ตัวคุณเอง</b></p>
       <h4>กลุ่มหลัก ๆ</h4>
@@ -2547,6 +2557,7 @@ const CONTENT_I18N={
     {q:"ลำดับความสำคัญที่ถูกก่อนเปิดตัว?",a:["ไฮป์สูงสุดทันที","สร้างชุมชนและผลิตภัณฑ์ที่ใช้งานได้","ซื้อผู้ติดตาม","เปิดตัวโดยไม่มี whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"มีมคอยน์ & แอร์ดรอป","body":"<p>สองปรากฏการณ์ที่นิยมมาก — และเสี่ยงมาก — ในโลกคริปโต</p><h4>🐕 มีมคอยน์</h4><p>เหรียญที่เกิดจากมุกตลกหรือชุมชน (Dogecoin, Shiba…) <b>แทบไม่มีประโยชน์ใช้งาน</b>: ราคาอยู่ได้ด้วยกระแสและอารมณ์ พุ่งแรงได้… แล้วก็ร่วง (<b>ปั่นแล้วเท</b>)</p><h4>🎁 แอร์ดรอป</h4><p>โทเคนที่ <b>แจกฟรี</b> เพื่อตอบแทนผู้ใช้ยุคแรกหรือเปิดตัวโปรเจกต์ บางครั้งเป็นโอกาสจริง — บ่อยครั้งเป็นเหยื่อล่อ</p><div class=\"callout warn\">⚠️ กฎทอง: <b>อย่าเชื่อมต่อ</b> วอลเล็ตหลักกับแอร์ดรอปที่น่าสงสัย อย่าเซ็นอะไรมั่ว ๆ และลงในมีมคอยน์เท่าที่เสียได้ ถ้า «ฟรี» <b>คุณอาจเป็นสินค้า</b></div>"},
     candles:{title:"อ่านกราฟ: แท่งเทียน",body:`
       <p>กราฟ <b>แท่งเทียนญี่ปุ่น</b> คือภาษาสากลของเทรดเดอร์ แต่ละแท่งสรุปการต่อสู้ของผู้ซื้อ/ผู้ขายในช่วงเวลาหนึ่ง</p>
       <h4>หนึ่งแท่ง = 4 ราคา</h4>
@@ -2594,6 +2605,7 @@ const CONTENT_I18N={
     {q:"คำถามแรกก่อนเทรด?",a:["โลโก้โปรเจกต์คืออะไร?","เทรนด์ไปทางไหน?","ใครเป็น CEO?","ผู้ติดตามกี่คน?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"การวิเคราะห์ออนเชน","body":"<p><b>การวิเคราะห์ออนเชน</b> อ่านข้อมูลสาธารณะของบล็อกเชนโดยตรง — ไม่ใช่กราฟราคา แต่คือสิ่งที่เกิดขึ้น <b>จริง ๆ</b> บนเครือข่าย</p><h4>ดูอะไร</h4><ul><li><b>กระแสเงิน</b> เข้า/ออกกระดานเทรด (เงินเข้า = อาจมีแรงขาย)</li><li>การเคลื่อนไหวของ <b>«วาฬ»</b> (วอลเล็ตใหญ่)</li><li><b>กิจกรรม</b>: ที่อยู่ที่ใช้งาน ปริมาณจริง ค่าธรรมเนียม</li></ul><h4>เครื่องมือ</h4><p><b>Explorer</b> (Etherscan, BscScan) แสดงทุกธุรกรรม เว็บ (Glassnode, Nansen) สรุปแนวโน้ม</p><div class=\"callout\">🔎 ออนเชนไม่ทำนายอนาคต แต่เผยสิ่งที่ราคาอย่างเดียวซ่อนไว้: ความเชื่อมั่น ความตื่นตระหนก การสะสม</div>"},
     indic:{title:"📊 อินดิเคเตอร์",body:`<div data-indicators></div>`},
     mtf:{title:"การวิเคราะห์หลายกรอบเวลา",body:`
       <p>เทรดเดอร์ที่ดีดู <b>หลายกรอบเวลา</b> ก่อนลงมือ ดูแค่กรอบเดียวเหมือนมองผ่านรูกุญแจ</p>
@@ -2826,6 +2838,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » significa…",a:["Guardar cripto numa exchange","Quem tem as chaves controla os fundos","As chaves são grátis","Não dá para perder cripto"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Wallet passo a passo","body":"<p>Sua <b>wallet</b> é a porta para o Web3. Veja como começar certo.</p><h4>1. Escolher</h4><p><b>Hot wallet</b> (app/extensão, ex. MetaMask) — prática no dia a dia. <b>Cold wallet</b> (dispositivo offline, ex. Ledger) — para guardar grandes quantias com segurança.</p><h4>2. Criar</h4><p>Ao criar você recebe uma <b>frase semente</b> (12/24 palavras). <b>Escreva no papel</b>, offline. Nunca print, nunca em e-mail.</p><h4>3. Usar</h4><p>Seu <b>endereço público</b> é compartilhado para receber. Sua semente e chave privada, <b>nunca</b>.</p><div class=\"callout warn\">⚠️ Ninguém (nenhum «suporte») deve pedir sua frase semente. Quem a tem, leva tudo. 🔐</div>"},
     scam:{title:"Golpes cripto: panorama",body:`
       <p>A cripto não tem intermediário: <b>nenhum banco reverte</b> uma transação. Isso é liberdade… mas também o playground dos golpistas. Sua melhor proteção é <b>você</b>.</p>
       <h4>As grandes famílias</h4>
@@ -3002,6 +3015,7 @@ const CONTENT_I18N={
     {q:"A prioridade certa antes de um lançamento?",a:["Hype máximo já","Construir a comunidade e um produto que funciona","Comprar seguidores","Lançar sem whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoins e Airdrops","body":"<p>Dois fenômenos muito populares — e muito arriscados — do mundo cripto.</p><h4>🐕 Memecoins</h4><p>Cripto nascidas de uma piada ou comunidade (Dogecoin, Shiba…). <b>Pouca ou nenhuma utilidade</b>: o preço vive de hype e emoção. Pode explodir… e depois desabar (<b>pump &amp; dump</b>).</p><h4>🎁 Airdrops</h4><p>Tokens <b>distribuídos de graça</b> para recompensar os primeiros usuários ou lançar um projeto. Às vezes oportunidades reais — muitas vezes iscas.</p><div class=\"callout warn\">⚠️ Regras de ouro: <b>nunca conecte</b> sua wallet principal a um airdrop suspeito, não assine qualquer coisa e só coloque num memecoin o que puder perder. Se «é grátis», <b>talvez você seja o produto</b>.</div>"},
     candles:{title:"Ler um gráfico: os candles",body:`
       <p>O gráfico de <b>candles japoneses</b> é a língua universal do trader. Cada candle resume a batalha compradores/vendedores num período.</p>
       <h4>Um candle = 4 preços</h4>
@@ -3049,6 +3063,7 @@ const CONTENT_I18N={
     {q:"A primeira pergunta antes de operar?",a:["Qual o logo do projeto?","Para onde vai a tendência?","Quem é o CEO?","Quantos seguidores?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"Análise on-chain","body":"<p>A <b>análise on-chain</b> lê diretamente os dados públicos da blockchain — não os gráficos de preço, mas o que <b>de fato</b> acontece na rede.</p><h4>O que observamos</h4><ul><li>Os <b>fluxos</b> de/para as exchanges (entradas = possível pressão vendedora).</li><li>Os movimentos das <b>«whales»</b> (grandes carteiras).</li><li>A <b>atividade</b>: endereços ativos, volume real, taxas.</li></ul><h4>As ferramentas</h4><p>Um <b>explorador</b> (Etherscan, BscScan) mostra cada transação. Sites (Glassnode, Nansen) resumem as tendências.</p><div class=\"callout\">🔎 O on-chain não prevê o futuro, mas revela o que o preço sozinho esconde: convicção, pânico, acumulação.</div>"},
     indic:{title:"📊 Indicadores",body:`<div data-indicators></div>`},
     mtf:{title:"Análise multi-timeframe",body:`
       <p>Um bom trader olha <b>vários timeframes</b> antes de agir. Só um é olhar pelo buraco da fechadura.</p>
@@ -3281,6 +3296,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » bedeutet…",a:["Krypto auf einer Börse halten","Wer die Schlüssel hat, kontrolliert die Gelder","Schlüssel sind kostenlos","Man kann Krypto nicht verlieren"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Wallet Schritt für Schritt","body":"<p>Deine <b>Wallet</b> ist dein Tor zum Web3. So startest du richtig.</p><h4>1. Wählen</h4><p><b>Hot Wallet</b> (App/Erweiterung, z. B. MetaMask) — praktisch im Alltag. <b>Cold Wallet</b> (Offline-Gerät, z. B. Ledger) — um große Beträge sicher zu lagern.</p><h4>2. Erstellen</h4><p>Beim Erstellen erhältst du eine <b>Seed-Phrase</b> (12/24 Wörter). <b>Schreib sie auf Papier</b>, offline. Nie ein Screenshot, nie in einer E-Mail.</p><h4>3. Nutzen</h4><p>Deine <b>öffentliche Adresse</b> teilst du zum Empfangen. Deine Seed und deinen privaten Schlüssel <b>nie</b>.</p><div class=\"callout warn\">⚠️ Niemand (kein «Support») darf je nach deiner Seed-Phrase fragen. Wer sie hat, nimmt alles. 🔐</div>"},
     scam:{title:"Krypto-Betrug: Überblick",body:`
       <p>Krypto hat keinen Mittelsmann: <b>keine Bank macht</b> eine Transaktion rückgängig. Das ist Freiheit… aber auch der Spielplatz der Betrüger. Dein bester Schutz bist <b>du</b>.</p>
       <h4>Die großen Familien</h4>
@@ -3457,6 +3473,7 @@ const CONTENT_I18N={
     {q:"Die richtige Priorität vor einem Launch?",a:["Sofort maximaler Hype","Community und ein funktionierendes Produkt aufbauen","Follower kaufen","Ohne Whitepaper launchen"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoins & Airdrops","body":"<p>Zwei sehr beliebte — und sehr riskante — Krypto-Phänomene.</p><h4>🐕 Memecoins</h4><p>Coins aus einem Witz oder einer Community (Dogecoin, Shiba…). <b>Wenig bis kein Nutzen</b>: Der Preis lebt von Hype und Emotion. Kann explodieren… und dann abstürzen (<b>Pump &amp; Dump</b>).</p><h4>🎁 Airdrops</h4><p>Token, die <b>gratis verteilt</b> werden, um frühe Nutzer zu belohnen oder ein Projekt zu starten. Manchmal echte Chancen — oft Köder.</p><div class=\"callout warn\">⚠️ Goldene Regeln: <b>verbinde nie</b> deine Haupt-Wallet mit einem dubiosen Airdrop, signiere nicht blind alles und stecke in einen Memecoin nur, was du verlieren kannst. Wenn es «gratis» ist, <b>bist vielleicht du das Produkt</b>.</div>"},
     candles:{title:"Ein Chart lesen: die Kerzen",body:`
       <p>Der <b>japanische Kerzenchart</b> ist die Universalsprache des Traders. Jede Kerze fasst den Kampf Käufer/Verkäufer in einem Zeitraum zusammen.</p>
       <h4>Eine Kerze = 4 Preise</h4>
@@ -3504,6 +3521,7 @@ const CONTENT_I18N={
     {q:"Die erste Frage vor dem Traden?",a:["Was ist das Projekt-Logo?","Wohin geht der Trend?","Wer ist der CEO?","Wie viele Follower?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"On-Chain-Analyse","body":"<p>Die <b>On-Chain-Analyse</b> liest die öffentlichen Daten der Blockchain direkt — keine Preischarts, sondern was <b>wirklich</b> im Netzwerk passiert.</p><h4>Was wir beobachten</h4><ul><li><b>Flüsse</b> zu/von Börsen (Zuflüsse = möglicher Verkaufsdruck).</li><li>Die Bewegungen der <b>«Whales»</b> (große Wallets).</li><li><b>Aktivität</b>: aktive Adressen, echtes Volumen, Gebühren.</li></ul><h4>Die Werkzeuge</h4><p>Ein <b>Explorer</b> (Etherscan, BscScan) zeigt jede Transaktion. Seiten (Glassnode, Nansen) fassen Trends zusammen.</p><div class=\"callout\">🔎 On-Chain sagt die Zukunft nicht voraus, aber es zeigt, was der Preis allein verbirgt: Überzeugung, Panik, Akkumulation.</div>"},
     indic:{title:"📊 Indikatoren",body:`<div data-indicators></div>`},
     mtf:{title:"Multi-Timeframe-Analyse",body:`
       <p>Ein guter Trader schaut <b>mehrere Timeframes</b> an, bevor er handelt. Nur einer ist wie durchs Schlüsselloch schauen.</p>
@@ -3736,6 +3754,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » означает…",a:["Держать крипту на бирже","Кто владеет ключами — контролирует средства","Ключи бесплатны","Крипту нельзя потерять"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Кошелёк шаг за шагом","body":"<p>Твой <b>кошелёк</b> — дверь в Web3. Вот как начать правильно.</p><h4>1. Выбрать</h4><p><b>Горячий кошелёк</b> (приложение/расширение, напр. MetaMask) — удобно каждый день. <b>Холодный кошелёк</b> (офлайн-устройство, напр. Ledger) — чтобы безопасно хранить крупные суммы.</p><h4>2. Создать</h4><p>При создании ты получаешь <b>seed-фразу</b> (12/24 слова). <b>Запиши её на бумаге</b>, офлайн. Никаких скриншотов, никогда в письме.</p><h4>3. Пользоваться</h4><p>Свой <b>публичный адрес</b> ты даёшь, чтобы получать. Seed и приватный ключ — <b>никогда</b>.</p><div class=\"callout warn\">⚠️ Никто (никакая «поддержка») не должен просить твою seed-фразу. У кого она — забирает всё. 🔐</div>"},
     scam:{title:"Крипто-мошенничества: обзор",body:`
       <p>В крипте нет посредника: <b>ни один банк не отменит</b> транзакцию. Это свобода… но и площадка для мошенников. Твоя лучшая защита — <b>ты сам</b>.</p>
       <h4>Основные виды</h4>
@@ -3912,6 +3931,7 @@ const CONTENT_I18N={
     {q:"Правильный приоритет перед запуском?",a:["Максимальный хайп сразу","Построить сообщество и работающий продукт","Купить подписчиков","Запустить без whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Мемкоины и эирдропы","body":"<p>Два очень популярных — и очень рискованных — крипто-явления.</p><h4>🐕 Мемкоины</h4><p>Монеты, рождённые из шутки или сообщества (Dogecoin, Shiba…). <b>Мало или совсем нет пользы</b>: их цена живёт хайпом и эмоциями. Может взлететь… и потом рухнуть (<b>pump &amp; dump</b>).</p><h4>🎁 Эирдропы</h4><p>Токены, <b>раздаваемые бесплатно</b>, чтобы вознаградить первых пользователей или запустить проект. Иногда реальные возможности — часто приманка.</p><div class=\"callout warn\">⚠️ Золотые правила: <b>никогда не подключай</b> основной кошелёк к сомнительному эирдропу, не подписывай всё подряд и вкладывай в мемкоин лишь то, что можешь потерять. Если «бесплатно», <b>возможно, продукт — это ты</b>.</div>"},
     candles:{title:"Читать график: свечи",body:`
       <p>График <b>японских свечей</b> — универсальный язык трейдера. Каждая свеча резюмирует борьбу покупателей/продавцов за период.</p>
       <h4>Одна свеча = 4 цены</h4>
@@ -3959,6 +3979,7 @@ const CONTENT_I18N={
     {q:"Первый вопрос перед торговлей?",a:["Какой логотип у проекта?","Куда идёт тренд?","Кто CEO?","Сколько подписчиков?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"Он-чейн анализ","body":"<p><b>Он-чейн анализ</b> читает публичные данные блокчейна напрямую — не графики цены, а то, что <b>реально</b> происходит в сети.</p><h4>Что смотрим</h4><ul><li><b>Потоки</b> на/с бирж (притоки = возможное давление продавцов).</li><li>Движения <b>«китов»</b> (крупных кошельков).</li><li><b>Активность</b>: активные адреса, реальный объём, комиссии.</li></ul><h4>Инструменты</h4><p><b>Обозреватель</b> (Etherscan, BscScan) показывает каждую транзакцию. Сайты (Glassnode, Nansen) обобщают тренды.</p><div class=\"callout\">🔎 Он-чейн не предсказывает будущее, но показывает то, что скрывает одна лишь цена: убеждённость, панику, накопление.</div>"},
     indic:{title:"📊 Индикаторы",body:`<div data-indicators></div>`},
     mtf:{title:"Мультитаймфрейм-анализ",body:`
       <p>Хороший трейдер смотрит <b>несколько таймфреймов</b> перед действием. Один — как смотреть в замочную скважину.</p>
@@ -4206,6 +4227,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » ne demek?",a:["Kriptoyu borsada tut","Anahtarları tutan, fonları kontrol eder","Anahtarlar ücretsizdir","Kripto kaybedilemez"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Adım adım cüzdan","body":"<p><b>Cüzdanın</b> Web3'e açılan kapın. Doğru başlamanın yolu.</p><h4>1. Seç</h4><p><b>Sıcak cüzdan</b> (uygulama/uzantı, örn. MetaMask) — günlük kullanışlı. <b>Soğuk cüzdan</b> (çevrimdışı cihaz, örn. Ledger) — büyük miktarları güvende tutmak için.</p><h4>2. Oluştur</h4><p>Oluştururken bir <b>seed ifadesi</b> (12/24 kelime) alırsın. <b>Kâğıda yaz</b>, çevrimdışı. Asla ekran görüntüsü, asla e-posta.</p><h4>3. Kullan</h4><p><b>Açık adresini</b> almak için paylaşırsın. Seed ve özel anahtarını <b>asla</b>.</p><div class=\"callout warn\">⚠️ Hiç kimse (hiçbir «destek») seed ifadeni istememeli. Kimde varsa her şeyi alır. 🔐</div>"},
     scam:{title:"Kripto dolandırıcılıkları: genel bakış",body:`
       <p>Kriptoda aracı yoktur: <b>hiçbir banka bir işlemi geri alamaz</b>. Bu özgürlüktür… ama aynı zamanda dolandırıcılar için bir oyun alanı. En iyi korumanı <b>sensin</b>.</p>
       <h4>Ana türler</h4>
@@ -4382,6 +4404,7 @@ const CONTENT_I18N={
     {q:"Bir lansman öncesi doğru öncelik?",a:["Hemen maksimum hype","Topluluğu ve çalışan bir ürünü inşa etmek","Takipçi satın almak","Whitepaper'sız başlatmak"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoin'ler & Airdrop'lar","body":"<p>Kripto dünyasının çok popüler — ve çok riskli — iki olgusu.</p><h4>🐕 Memecoinler</h4><p>Bir şaka ya da topluluktan doğan coinler (Dogecoin, Shiba…). <b>Az ya da hiç fayda</b>: fiyatı hype ve duyguyla yaşar. Patlayabilir… sonra çöker (<b>pump &amp; dump</b>).</p><h4>🎁 Airdrop'lar</h4><p>Erken kullanıcıları ödüllendirmek ya da bir projeyi başlatmak için <b>bedava dağıtılan</b> tokenler. Bazen gerçek fırsat — çoğu zaman yem.</p><div class=\"callout warn\">⚠️ Altın kurallar: ana cüzdanını şüpheli bir airdrop'a <b>asla bağlama</b>, her şeyi körü körüne imzalama ve bir memecoin'e sadece kaybedebileceğini koy. «Bedava» ise <b>ürün sen olabilirsin</b>.</div>"},
     candles:{title:"Grafik okuma: mumlar",body:`
       <p><b>Japon mum</b> grafiği, tüccarın evrensel dilidir. Her mum, bir dönemdeki alıcı/satıcı savaşını özetler.</p>
       <h4>Bir mum = 4 fiyat</h4>
@@ -4429,6 +4452,7 @@ const CONTENT_I18N={
     {q:"Trading öncesi ilk soru?",a:["Projenin logosu ne?","Trend hangi yöne gidiyor?","CEO kim?","Kaç takipçi var?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"Zincir üstü (on-chain) analiz","body":"<p><b>On-chain analiz</b>, blok zincirinin herkese açık verilerini doğrudan okur — fiyat grafiklerini değil, ağda <b>gerçekte</b> ne olduğunu.</p><h4>Neye bakarız</h4><ul><li>Borsalara <b>giriş/çıkış akışları</b> (girişler = olası satış baskısı).</li><li><b>«Balina»</b> hareketleri (büyük cüzdanlar).</li><li><b>Etkinlik</b>: aktif adresler, gerçek hacim, ücretler.</li></ul><h4>Araçlar</h4><p>Bir <b>gezgin</b> (Etherscan, BscScan) her işlemi gösterir. Siteler (Glassnode, Nansen) trendleri özetler.</p><div class=\"callout\">🔎 On-chain geleceği tahmin etmez ama tek başına fiyatın gizlediğini gösterir: inanç, panik, birikim.</div>"},
     indic:{title:"📊 Göstergeler",body:`<div data-indicators></div>`},
     mtf:{title:"Çoklu zaman dilimi analizi",body:`
       <p>İyi bir tüccar harekete geçmeden önce <b>birkaç zaman dilimine</b> bakar. Tek bir tanesi, anahtar deliğinden bakmaktır.</p>
@@ -4676,6 +4700,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » berarti…",a:["Simpan kripto di bursa","Siapa yang memegang kunci mengendalikan dana","Kunci itu gratis","Kripto tak bisa hilang"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Wallet langkah demi langkah","body":"<p><b>Wallet</b>-mu adalah pintu ke Web3. Begini memulai dengan benar.</p><h4>1. Pilih</h4><p><b>Hot wallet</b> (app/ekstensi, mis. MetaMask) — praktis sehari-hari. <b>Cold wallet</b> (perangkat offline, mis. Ledger) — untuk menyimpan jumlah besar dengan aman.</p><h4>2. Buat</h4><p>Saat membuat kamu diberi <b>seed phrase</b> (12/24 kata). <b>Tulis di kertas</b>, offline. Jangan screenshot, jangan di email.</p><h4>3. Pakai</h4><p><b>Alamat publikmu</b> dibagikan untuk menerima. Seed dan kunci privat, <b>jangan pernah</b>.</p><div class=\"callout warn\">⚠️ Tak seorang pun (tak ada «support») boleh minta seed phrase-mu. Siapa yang punya, mengambil semua. 🔐</div>"},
     scam:{title:"Penipuan kripto: gambaran umum",body:`
       <p>Kripto tak punya perantara: <b>tak ada bank yang bisa membatalkan</b> transaksi. Itu kebebasan… tapi juga lahan bermain penipu. Pelindung terbaikmu adalah <b>dirimu</b>.</p>
       <h4>Jenis-jenis utama</h4>
@@ -4852,6 +4877,7 @@ const CONTENT_I18N={
     {q:"Prioritas yang benar sebelum peluncuran?",a:["Hype maksimum langsung","Bangun komunitas dan produk yang berfungsi","Beli pengikut","Luncurkan tanpa whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoin & Airdrop","body":"<p>Dua fenomena kripto yang sangat populer — dan sangat berisiko.</p><h4>🐕 Memecoin</h4><p>Koin yang lahir dari lelucon atau komunitas (Dogecoin, Shiba…). <b>Sedikit atau tanpa utilitas</b>: harganya hidup dari hype dan emosi. Bisa meledak… lalu ambruk (<b>pump &amp; dump</b>).</p><h4>🎁 Airdrop</h4><p>Token yang <b>dibagikan gratis</b> untuk memberi hadiah pengguna awal atau meluncurkan proyek. Kadang peluang nyata — sering umpan.</p><div class=\"callout warn\">⚠️ Aturan emas: <b>jangan pernah hubungkan</b> wallet utamamu ke airdrop mencurigakan, jangan tanda tangani sembarangan, dan taruh di memecoin hanya yang sanggup kamu relakan. Kalau «gratis», <b>bisa jadi kamulah produknya</b>.</div>"},
     candles:{title:"Membaca grafik: candle",body:`
       <p>Grafik <b>candlestick Jepang</b> adalah bahasa universal trader. Tiap candle merangkum pertempuran pembeli/penjual selama satu periode.</p>
       <h4>Satu candle = 4 harga</h4>
@@ -4899,6 +4925,7 @@ const CONTENT_I18N={
     {q:"Pertanyaan pertama sebelum trading?",a:["Apa logo proyeknya?","Ke mana arah trennya?","Siapa CEO-nya?","Berapa pengikutnya?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"Analisis on-chain","body":"<p><b>Analisis on-chain</b> membaca data publik blockchain langsung — bukan grafik harga, tapi apa yang <b>benar-benar</b> terjadi di jaringan.</p><h4>Yang diamati</h4><ul><li><b>Aliran</b> ke/dari bursa (masuk = kemungkinan tekanan jual).</li><li>Gerakan <b>«whale»</b> (dompet besar).</li><li><b>Aktivitas</b>: alamat aktif, volume nyata, biaya.</li></ul><h4>Alatnya</h4><p>Sebuah <b>explorer</b> (Etherscan, BscScan) menampilkan tiap transaksi. Situs (Glassnode, Nansen) merangkum tren.</p><div class=\"callout\">🔎 On-chain tak meramal masa depan, tapi mengungkap yang disembunyikan harga saja: keyakinan, kepanikan, akumulasi.</div>"},
     indic:{title:"📊 Indikator",body:`<div data-indicators></div>`},
     mtf:{title:"Analisis Multi Time Frame",body:`
       <p>Trader yang baik melihat <b>beberapa timeframe</b> sebelum bertindak. Hanya satu sama saja mengintip lewat lubang kunci.</p>
@@ -5146,6 +5173,7 @@ const CONTENT_I18N={
     {q:"« Not your keys, not your coins » nghĩa là…",a:["Giữ crypto trên sàn","Ai giữ khóa thì kiểm soát tiền","Khóa là miễn phí","Không thể mất crypto"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Ví từng bước","body":"<p><b>Ví</b> của bạn là cánh cửa vào Web3. Bắt đầu đúng cách như sau.</p><h4>1. Chọn</h4><p><b>Ví nóng</b> (app/tiện ích, vd MetaMask) — tiện hằng ngày. <b>Ví lạnh</b> (thiết bị ngoại tuyến, vd Ledger) — giữ số lượng lớn an toàn.</p><h4>2. Tạo</h4><p>Khi tạo, bạn nhận một <b>seed phrase</b> (12/24 từ). <b>Ghi ra giấy</b>, ngoại tuyến. Không chụp màn hình, không để trong email.</p><h4>3. Dùng</h4><p><b>Địa chỉ công khai</b> được chia sẻ để nhận. Seed và khóa riêng thì <b>không bao giờ</b>.</p><div class=\"callout warn\">⚠️ Không ai (không «hỗ trợ» nào) được hỏi seed phrase của bạn. Ai có nó lấy tất cả. 🔐</div>"},
     scam:{title:"Lừa đảo crypto: tổng quan",body:`
       <p>Crypto không có trung gian: <b>không ngân hàng nào có thể đảo ngược</b> một giao dịch. Đó là tự do… nhưng cũng là sân chơi cho kẻ lừa đảo. Lá chắn tốt nhất của bạn là <b>chính bạn</b>.</p>
       <h4>Các nhóm chính</h4>
@@ -5322,6 +5350,7 @@ const CONTENT_I18N={
     {q:"Ưu tiên đúng trước khi ra mắt?",a:["Hype tối đa ngay","Xây cộng đồng và một sản phẩm chạy được","Mua follower","Ra mắt không whitepaper"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoin & Airdrop","body":"<p>Hai hiện tượng rất phổ biến — và rất rủi ro — của thế giới crypto.</p><h4>🐕 Memecoin</h4><p>Coin sinh ra từ một trò đùa hay cộng đồng (Dogecoin, Shiba…). <b>Ít hoặc không có tiện ích</b>: giá sống nhờ hype và cảm xúc. Có thể bùng nổ… rồi sụp đổ (<b>pump &amp; dump</b>).</p><h4>🎁 Airdrop</h4><p>Token <b>phát miễn phí</b> để thưởng người dùng sớm hoặc khởi động dự án. Đôi khi là cơ hội thật — thường là mồi.</p><div class=\"callout warn\">⚠️ Quy tắc vàng: <b>đừng bao giờ kết nối</b> ví chính vào airdrop mờ ám, đừng ký bừa, và chỉ bỏ vào memecoin số tiền bạn chấp nhận mất. Nếu «miễn phí», <b>có thể bạn chính là sản phẩm</b>.</div>"},
     candles:{title:"Đọc biểu đồ: nến",body:`
       <p>Biểu đồ <b>nến Nhật</b> là ngôn ngữ chung của trader. Mỗi cây nến tóm tắt cuộc chiến mua/bán trong một khoảng thời gian.</p>
       <h4>Một cây nến = 4 mức giá</h4>
@@ -5369,6 +5398,7 @@ const CONTENT_I18N={
     {q:"Câu hỏi đầu tiên trước khi trading?",a:["Logo dự án là gì?","Xu hướng đang đi hướng nào?","CEO là ai?","Bao nhiêu follower?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"Phân tích on-chain","body":"<p><b>Phân tích on-chain</b> đọc trực tiếp dữ liệu công khai của blockchain — không phải biểu đồ giá, mà điều <b>thực sự</b> diễn ra trên mạng.</p><h4>Ta theo dõi gì</h4><ul><li><b>Dòng tiền</b> vào/ra sàn (dòng vào = có thể có áp lực bán).</li><li>Động thái của <b>«cá voi»</b> (ví lớn).</li><li><b>Hoạt động</b>: địa chỉ hoạt động, khối lượng thật, phí.</li></ul><h4>Công cụ</h4><p>Một <b>explorer</b> (Etherscan, BscScan) hiện mọi giao dịch. Các trang (Glassnode, Nansen) tóm tắt xu hướng.</p><div class=\"callout\">🔎 On-chain không dự đoán tương lai, nhưng phơi bày điều mà chỉ riêng giá che giấu: niềm tin, hoảng loạn, tích luỹ.</div>"},
     indic:{title:"📊 Chỉ báo",body:`<div data-indicators></div>`},
     mtf:{title:"Phân tích đa khung thời gian",body:`
       <p>Một trader giỏi nhìn <b>nhiều khung thời gian</b> trước khi hành động. Chỉ một khung là nhìn qua lỗ khóa.</p>
@@ -5616,6 +5646,7 @@ const CONTENT_I18N={
     {q:"「Not your keys, not your coins」意思是……",a:["把加密货币放在交易所","谁持有密钥谁就控制资金","密钥是免费的","加密货币不会丢失"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"钱包一步步","body":"<p>你的<b>钱包</b>是通向 Web3 的门。这样开始才对。</p><h4>1. 选择</h4><p><b>热钱包</b>（App/扩展，如 MetaMask）——日常方便。<b>冷钱包</b>（离线设备，如 Ledger）——安全存放大额。</p><h4>2. 创建</h4><p>创建时会给你一组<b>助记词</b>（12/24 个词）。<b>写在纸上</b>，离线保存。绝不截图，绝不放进邮件。</p><h4>3. 使用</h4><p>你的<b>公开地址</b>用来接收，可分享。助记词和私钥，<b>永不</b>。</p><div class=\"callout warn\">⚠️ 任何人（任何「客服」）都不该向你索要助记词。谁拿到，谁就拿走一切。🔐</div>"},
     scam:{title:"加密骗局：概览",body:`
       <p>加密货币没有中间人：<b>没有银行能撤销</b>一笔交易。这是自由……但也是骗子的游乐场。你最好的保护就是<b>你自己</b>。</p>
       <h4>主要类型</h4>
@@ -5792,6 +5823,7 @@ const CONTENT_I18N={
     {q:"启动前的正确优先级？",a:["立刻拉满炒作","建立社区和一个能用的产品","购买粉丝","没有白皮书就启动"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"模因币与空投","body":"<p>加密世界里两种非常流行——也非常危险——的现象。</p><h4>🐕 模因币</h4><p>源自一个玩笑或社区的币（Dogecoin、Shiba…）。<b>几乎没有实用性</b>：价格靠炒作和情绪。可能暴涨……然后崩盘（<b>拉高出货</b>）。</p><h4>🎁 空投</h4><p><b>免费发放</b>的代币，用来奖励早期用户或启动项目。有时是真机会——往往是诱饵。</p><div class=\"callout warn\">⚠️ 黄金法则：<b>绝不</b>把主钱包连到可疑空投，不要盲目签名，投模因币只投你能承受损失的钱。若「免费」，<b>你可能就是商品</b>。</div>"},
     candles:{title:"看图：K 线（蜡烛图）",body:`
       <p><b>日本蜡烛图</b>是交易者的通用语言。每根 K 线总结一段时间内买卖双方的较量。</p>
       <h4>一根 K 线 = 4 个价格</h4>
@@ -5839,6 +5871,7 @@ const CONTENT_I18N={
     {q:"交易前的第一个问题？",a:["项目标志是什么？","趋势往哪个方向走？","CEO 是谁？","有多少粉丝？"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"链上分析","body":"<p><b>链上分析</b>直接读取区块链的公开数据——不是价格图，而是网络上<b>真正</b>发生的事。</p><h4>看什么</h4><ul><li>进出交易所的<b>资金流</b>（流入=可能的抛压）。</li><li><b>「巨鲸」</b>（大钱包）的动向。</li><li><b>活跃度</b>：活跃地址、真实成交量、手续费。</li></ul><h4>工具</h4><p><b>区块浏览器</b>（Etherscan、BscScan）显示每笔交易。网站（Glassnode、Nansen）汇总趋势。</p><div class=\"callout\">🔎 链上不预测未来，但揭示价格本身掩盖的东西：信念、恐慌、吸筹。</div>"},
     indic:{title:"📊 指标",body:`<div data-indicators></div>`},
     mtf:{title:"多周期分析",body:`
       <p>好的交易者在行动前会看<b>多个时间周期</b>。只看一个，就像从钥匙孔里看。</p>
@@ -6086,6 +6119,7 @@ const CONTENT_I18N={
     {q:"「Not your keys, not your coins」の意味は…",a:["暗号資産を取引所に置く","鍵を持つ者が資金を支配する","鍵は無料","暗号資産は失われない"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"ウォレットを一歩ずつ","body":"<p><b>ウォレット</b>はWeb3への扉。正しい始め方はこう。</p><h4>1. 選ぶ</h4><p><b>ホットウォレット</b>（アプリ/拡張、例：MetaMask）——日常に便利。<b>コールドウォレット</b>（オフライン機器、例：Ledger）——大金を安全に保管。</p><h4>2. 作る</h4><p>作成時に<b>シードフレーズ</b>（12/24語）が渡される。<b>紙に書く</b>、オフラインで。スクショ厳禁、メールも厳禁。</p><h4>3. 使う</h4><p><b>公開アドレス</b>は受け取りに共有。シードと秘密鍵は<b>絶対に</b>渡さない。</p><div class=\"callout warn\">⚠️ 誰も（どんな「サポート」も）シードフレーズを尋ねてはいけない。持つ者がすべてを奪う。🔐</div>"},
     scam:{title:"暗号資産の詐欺：概観",body:`
       <p>暗号資産には仲介者がいません。<b>どの銀行も取引を取り消せません</b>。それは自由……でも詐欺師の遊び場でもあります。最良の防御は<b>あなた自身</b>です。</p>
       <h4>主な種類</h4>
@@ -6262,6 +6296,7 @@ const CONTENT_I18N={
     {q:"立ち上げ前の正しい優先順位は？",a:["すぐに最大の宣伝","コミュニティと機能する製品を築く","フォロワーを買う","ホワイトペーパーなしで立ち上げ"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"ミームコインとエアドロップ","body":"<p>暗号資産界でとても人気——そしてとても危険——な2つの現象。</p><h4>🐕 ミームコイン</h4><p>ジョークやコミュニティから生まれたコイン（Dogecoin、Shiba…）。<b>実用性はほぼない</b>：価格は話題と感情で動く。急騰し…そして暴落する（<b>pump &amp; dump</b>）。</p><h4>🎁 エアドロップ</h4><p>初期ユーザーへの報酬やプロジェクト立ち上げのため<b>無料で配られる</b>トークン。本物の好機のことも——多くは餌。</p><div class=\"callout warn\">⚠️ 鉄則：怪しいエアドロップにメインのウォレットを<b>絶対に繋がない</b>、むやみに署名しない、ミームコインには失っても困らない額だけ。「無料」なら<b>あなたが商品かも</b>。</div>"},
     candles:{title:"チャートを読む：ローソク足",body:`
       <p><b>日本のローソク足</b>チャートはトレーダーの共通言語です。各ローソクは、ある期間の買い手と売り手の戦いを要約します。</p>
       <h4>1本のローソク = 4つの価格</h4>
@@ -6309,6 +6344,7 @@ const CONTENT_I18N={
     {q:"トレード前の最初の問いは？",a:["プロジェクトのロゴは？","トレンドはどちらへ？","CEOは誰？","フォロワーは何人？"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"オンチェーン分析","body":"<p><b>オンチェーン分析</b>はブロックチェーンの公開データを直接読む——価格チャートではなく、ネットワークで<b>実際に</b>起きていること。</p><h4>見るもの</h4><ul><li>取引所への<b>資金の出入り</b>（流入=売り圧力の可能性）。</li><li><b>「クジラ」</b>（大口ウォレット）の動き。</li><li><b>活動</b>：アクティブアドレス、実出来高、手数料。</li></ul><h4>ツール</h4><p><b>エクスプローラー</b>（Etherscan、BscScan）が全取引を表示。サイト（Glassnode、Nansen）が傾向を要約。</p><div class=\"callout\">🔎 オンチェーンは未来を予測しないが、価格だけでは隠れるものを明かす：確信、パニック、集積。</div>"},
     indic:{title:"📊 インジケーター",body:`<div data-indicators></div>`},
     mtf:{title:"マルチタイムフレーム分析",body:`
       <p>良いトレーダーは動く前に<b>複数の時間軸</b>を見ます。一つだけは鍵穴から覗くようなものです。</p>
@@ -6556,6 +6592,7 @@ const CONTENT_I18N={
     {q:"「Not your keys, not your coins」의 뜻은…",a:["암호화폐를 거래소에 둔다","키를 가진 자가 자금을 통제한다","키는 무료다","암호화폐는 잃을 수 없다"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"지갑 한 걸음씩","body":"<p>네 <b>지갑</b>은 Web3로 가는 문. 제대로 시작하는 법.</p><h4>1. 고르기</h4><p><b>핫 월렛</b>(앱/확장, 예: MetaMask) — 일상에 편리. <b>콜드 월렛</b>(오프라인 기기, 예: Ledger) — 큰 금액을 안전하게 보관.</p><h4>2. 만들기</h4><p>생성 시 <b>시드 문구</b>(12/24 단어)를 받는다. <b>종이에 적어라</b>, 오프라인으로. 스크린샷 금지, 이메일 금지.</p><h4>3. 사용</h4><p><b>공개 주소</b>는 받기 위해 공유. 시드와 개인 키는 <b>절대</b>.</p><div class=\"callout warn\">⚠️ 누구도(어떤 「고객지원」도) 시드 문구를 묻지 않는다. 가진 사람이 전부 가져간다. 🔐</div>"},
     scam:{title:"암호화폐 사기: 개요",body:`
       <p>암호화폐에는 중개자가 없습니다: <b>어떤 은행도 거래를 되돌릴 수 없습니다</b>. 그것은 자유… 하지만 사기꾼의 놀이터이기도 합니다. 최고의 보호는 <b>당신 자신</b>입니다.</p>
       <h4>주요 유형</h4>
@@ -6732,6 +6769,7 @@ const CONTENT_I18N={
     {q:"출시 전 올바른 우선순위는?",a:["즉시 최대 홍보","커뮤니티와 작동하는 제품 구축","팔로워 구매","백서 없이 출시"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"밈코인 & 에어드롭","body":"<p>크립토 세계에서 아주 인기 있고 — 아주 위험한 — 두 현상.</p><h4>🐕 밈코인</h4><p>농담이나 커뮤니티에서 태어난 코인(Dogecoin, Shiba…). <b>효용이 거의 없음</b>: 가격은 화제와 감정으로 산다. 폭등했다가… 폭락한다(<b>펌프 앤 덤프</b>).</p><h4>🎁 에어드롭</h4><p>초기 사용자 보상이나 프로젝트 출시를 위해 <b>무료로 배포</b>되는 토큰. 때로 진짜 기회 — 종종 미끼.</p><div class=\"callout warn\">⚠️ 황금률: 수상한 에어드롭에 메인 지갑을 <b>절대 연결하지 말고</b>, 아무거나 서명하지 말고, 밈코인엔 잃어도 되는 만큼만. 「공짜」라면 <b>당신이 상품일 수 있다</b>.</div>"},
     candles:{title:"차트 읽기: 캔들",body:`
       <p><b>일본식 캔들</b> 차트는 트레이더의 공용어입니다. 각 캔들은 한 기간의 매수자/매도자 싸움을 요약합니다.</p>
       <h4>캔들 하나 = 4개의 가격</h4>
@@ -6779,6 +6817,7 @@ const CONTENT_I18N={
     {q:"트레이딩 전 첫 질문은?",a:["프로젝트 로고는?","추세는 어느 방향?","CEO는 누구?","팔로워는 몇 명?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"온체인 분석","body":"<p><b>온체인 분석</b>은 블록체인의 공개 데이터를 직접 읽는다 — 가격 차트가 아니라 네트워크에서 <b>실제로</b> 벌어지는 일.</p><h4>무엇을 보나</h4><ul><li>거래소로의 <b>자금 흐름</b>(유입=매도 압력 가능성).</li><li><b>「고래」</b>(큰 지갑)의 움직임.</li><li><b>활동</b>: 활성 주소, 실거래량, 수수료.</li></ul><h4>도구</h4><p><b>익스플로러</b>(Etherscan, BscScan)가 모든 거래를 보여준다. 사이트(Glassnode, Nansen)가 추세를 요약.</p><div class=\"callout\">🔎 온체인은 미래를 예측하지 않지만, 가격만으로는 숨겨지는 것을 드러낸다: 확신, 패닉, 매집.</div>"},
     indic:{title:"📊 지표",body:`<div data-indicators></div>`},
     mtf:{title:"멀티 타임프레임 분석",body:`
       <p>좋은 트레이더는 행동 전에 <b>여러 시간 단위</b>를 봅니다. 하나만 보는 것은 열쇠 구멍으로 보는 격.</p>
@@ -7026,6 +7065,7 @@ const CONTENT_I18N={
     {q:"معنى «Not your keys, not your coins»…",a:["احتفظ بالكريبتو على منصة","من يملك المفاتيح يتحكم بالأموال","المفاتيح مجانية","لا يمكن خسارة الكريبتو"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"المحفظة خطوة بخطوة","body":"<p><b>محفظتك</b> هي بابك إلى Web3. إليك كيف تبدأ بشكل صحيح.</p><h4>١. الاختيار</h4><p><b>محفظة ساخنة</b> (تطبيق/إضافة، مثل MetaMask) — عملية يومياً. <b>محفظة باردة</b> (جهاز دون اتصال، مثل Ledger) — لحفظ المبالغ الكبيرة بأمان.</p><h4>٢. الإنشاء</h4><p>عند الإنشاء تحصل على <b>عبارة استرداد</b> (١٢/٢٤ كلمة). <b>اكتبها على ورق</b>، دون اتصال. لا لقطة شاشة أبداً، ولا في بريد.</p><h4>٣. الاستخدام</h4><p><b>عنوانك العام</b> تشاركه للاستقبال. عبارتك ومفتاحك الخاص <b>أبداً</b>.</p><div class=\"callout warn\">⚠️ لا أحد (ولا «دعم») يحق له طلب عبارة الاسترداد. من يملكها يأخذ كل شيء. 🔐</div>"},
     scam:{title:"عمليات احتيال الكريبتو: نظرة عامة",body:`
       <p>الكريبتو بلا وسيط: <b>لا بنك يستطيع عكس</b> معاملة. تلك حرية… لكنها أيضاً ملعب للمحتالين. أفضل حماية لك هي <b>أنت</b>.</p>
       <h4>الأنواع الرئيسية</h4>
@@ -7202,6 +7242,7 @@ const CONTENT_I18N={
     {q:"الأولوية الصحيحة قبل الإطلاق؟",a:["أقصى ضجيج فوراً","بناء المجتمع ومنتج يعمل","شراء متابعين","الإطلاق بلا ورقة بيضاء"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"الميم كوين والإيردروب","body":"<p>ظاهرتان شائعتان جداً — ومحفوفتان بالمخاطر — في عالم الكريبتو.</p><h4>🐕 الميم كوين</h4><p>عملات وُلدت من نكتة أو مجتمع (Dogecoin، Shiba…). <b>فائدة قليلة أو معدومة</b>: سعرها يعيش على الضجيج والعاطفة. قد ينفجر… ثم ينهار (<b>pump &amp; dump</b>).</p><h4>🎁 الإيردروب</h4><p>رموز <b>تُوزَّع مجاناً</b> لمكافأة أوائل المستخدمين أو إطلاق مشروع. أحياناً فرص حقيقية — وغالباً طُعم.</p><div class=\"callout warn\">⚠️ قواعد ذهبية: <b>لا تربط أبداً</b> محفظتك الرئيسية بإيردروب مشبوه، لا توقّع أي شيء بثقة عمياء، ولا تضع في الميم كوين إلا ما تتحمّل خسارته. إن كان «مجانياً» <b>فقد تكون أنت المنتَج</b>.</div>"},
     candles:{title:"قراءة الرسم: الشموع",body:`
       <p>رسم <b>الشموع اليابانية</b> هو لغة المتداولين العالمية. كل شمعة تلخّص معركة المشترين/البائعين خلال فترة.</p>
       <h4>شمعة واحدة = 4 أسعار</h4>
@@ -7249,6 +7290,7 @@ const CONTENT_I18N={
     {q:"السؤال الأول قبل التداول؟",a:["ما شعار المشروع؟","إلى أين يتجه الاتجاه؟","من المدير التنفيذي؟","كم عدد المتابعين؟"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"التحليل على السلسلة","body":"<p>يقرأ <b>التحليل على السلسلة</b> بيانات البلوكشين العامة مباشرةً — لا رسوم الأسعار، بل ما يحدث <b>فعلاً</b> على الشبكة.</p><h4>ماذا نراقب</h4><ul><li><b>التدفقات</b> من/إلى المنصات (الداخلة = ضغط بيع محتمل).</li><li>تحرّكات <b>«الحيتان»</b> (المحافظ الكبيرة).</li><li><b>النشاط</b>: العناوين النشطة، الحجم الحقيقي، الرسوم.</li></ul><h4>الأدوات</h4><p><b>مستكشف</b> (Etherscan، BscScan) يعرض كل معاملة. مواقع (Glassnode، Nansen) تلخّص الاتجاهات.</p><div class=\"callout\">🔎 لا يتنبأ التحليل على السلسلة بالمستقبل، لكنه يكشف ما يخفيه السعر وحده: القناعة، الذعر، التجميع.</div>"},
     indic:{title:"📊 المؤشرات",body:`<div data-indicators></div>`},
     mtf:{title:"تحليل الأطر الزمنية المتعددة",body:`
       <p>المتداول الجيّد ينظر إلى <b>عدة أطر زمنية</b> قبل التصرّف. إطار واحد فقط كالنظر من ثقب مفتاح.</p>
@@ -7496,6 +7538,7 @@ const CONTENT_I18N={
     {q:"«Not your keys, not your coins» का अर्थ है…",a:["क्रिप्टो को एक्सचेंज पर रखें","जिसके पास कुंजियाँ वही धन को नियंत्रित करता है","कुंजियाँ मुफ़्त हैं","क्रिप्टो खोई नहीं जा सकती"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"वॉलेट कदम दर कदम","body":"<p>तुम्हारा <b>वॉलेट</b> Web3 का दरवाज़ा है। सही शुरुआत ऐसे करो।</p><h4>1. चुनना</h4><p><b>हॉट वॉलेट</b> (ऐप/एक्सटेंशन, जैसे MetaMask) — रोज़मर्रा के लिए सुविधाजनक। <b>कोल्ड वॉलेट</b> (ऑफ़लाइन डिवाइस, जैसे Ledger) — बड़ी रकम सुरक्षित रखने के लिए।</p><h4>2. बनाना</h4><p>बनाते समय तुम्हें एक <b>सीड फ्रेज़</b> (12/24 शब्द) मिलती है। <b>कागज़ पर लिखो</b>, ऑफ़लाइन। कभी स्क्रीनशॉट नहीं, कभी ईमेल में नहीं।</p><h4>3. इस्तेमाल</h4><p>तुम्हारा <b>सार्वजनिक पता</b> पाने के लिए साझा होता है। सीड और प्राइवेट की, <b>कभी नहीं</b>।</p><div class=\"callout warn\">⚠️ कोई भी (कोई «सपोर्ट») तुमसे सीड फ्रेज़ न माँगे। जिसके पास है, वह सब ले जाता है। 🔐</div>"},
     scam:{title:"क्रिप्टो घोटाले: सिंहावलोकन",body:`
       <p>क्रिप्टो में कोई बिचौलिया नहीं: <b>कोई बैंक लेनदेन को पलट नहीं सकता</b>। यह आज़ादी है… पर ठगों का खेल का मैदान भी। आपकी सबसे अच्छी सुरक्षा <b>आप ख़ुद</b> हैं।</p>
       <h4>मुख्य प्रकार</h4>
@@ -7672,6 +7715,7 @@ const CONTENT_I18N={
     {q:"लॉन्च से पहले सही प्राथमिकता?",a:["तुरंत अधिकतम प्रचार","समुदाय और एक चलता उत्पाद बनाना","फ़ॉलोअर ख़रीदना","बिना वाइटपेपर लॉन्च"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"मीमकॉइन और एयरड्रॉप","body":"<p>क्रिप्टो जगत की दो बहुत लोकप्रिय — और बहुत जोखिम भरी — घटनाएँ।</p><h4>🐕 मीमकॉइन</h4><p>किसी मज़ाक या समुदाय से जन्मे कॉइन (Dogecoin, Shiba…)। <b>बहुत कम या कोई उपयोगिता नहीं</b>: इनकी कीमत हाइप और भावना पर टिकी है। उछल सकती है… फिर गिर सकती है (<b>pump &amp; dump</b>)।</p><h4>🎁 एयरड्रॉप</h4><p><b>मुफ़्त बाँटे गए</b> टोकन, शुरुआती यूज़र्स को इनाम देने या प्रोजेक्ट शुरू करने के लिए। कभी असली मौके — अक्सर चारा।</p><div class=\"callout warn\">⚠️ सुनहरे नियम: संदिग्ध एयरड्रॉप से अपना मुख्य वॉलेट <b>कभी न जोड़ें</b>, आँख मूँदकर कुछ भी साइन न करें, और मीमकॉइन में उतना ही लगाएँ जितना खो सकें। अगर «मुफ़्त» है, तो <b>शायद आप ही उत्पाद हैं</b>।</div>"},
     candles:{title:"चार्ट पढ़ना: कैंडल",body:`
       <p><b>जापानी कैंडलस्टिक</b> चार्ट ट्रेडर की सार्वभौमिक भाषा है। हर कैंडल एक अवधि की ख़रीदार/विक्रेता लड़ाई को समेटती है।</p>
       <h4>एक कैंडल = 4 क़ीमतें</h4>
@@ -7719,6 +7763,7 @@ const CONTENT_I18N={
     {q:"ट्रेडिंग से पहला सवाल?",a:["परियोजना का लोगो क्या है?","रुझान किधर जा रहा है?","CEO कौन है?","कितने फ़ॉलोअर?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"ऑन-चेन विश्लेषण","body":"<p><b>ऑन-चेन विश्लेषण</b> ब्लॉकचेन का सार्वजनिक डेटा सीधे पढ़ता है — कीमत के चार्ट नहीं, बल्कि नेटवर्क पर <b>असल में</b> क्या हो रहा है।</p><h4>क्या देखते हैं</h4><ul><li>एक्सचेंज में/से <b>प्रवाह</b> (इनफ़्लो = संभावित बिकवाली दबाव)।</li><li><b>«व्हेल»</b> (बड़े वॉलेट) की चालें।</li><li><b>सक्रियता</b>: सक्रिय पते, असली वॉल्यूम, फ़ीस।</li></ul><h4>औज़ार</h4><p>एक <b>एक्सप्लोरर</b> (Etherscan, BscScan) हर लेन-देन दिखाता है। साइट्स (Glassnode, Nansen) रुझान बताती हैं।</p><div class=\"callout\">🔎 ऑन-चेन भविष्य नहीं बताता, पर वह दिखाता है जो अकेली कीमत छिपाती है: विश्वास, घबराहट, संचय।</div>"},
     indic:{title:"📊 संकेतक",body:`<div data-indicators></div>`},
     mtf:{title:"मल्टी टाइमफ़्रेम विश्लेषण",body:`
       <p>अच्छा ट्रेडर कार्य से पहले <b>कई टाइमफ़्रेम</b> देखता है। सिर्फ़ एक देखना चाबी के छेद से झाँकने जैसा है।</p>
@@ -7966,6 +8011,7 @@ const CONTENT_I18N={
     {q:"«Not your keys, not your coins» အဓိပ္ပာယ်…",a:["ခရစ်ပတိုကို ကုန်စည်လဲလှယ်ရာတွင်ထား","သော့ကိုင်သူက ရန်ပုံငွေကို ထိန်းချုပ်","သော့များ အခမဲ့","ခရစ်ပတို မဆုံးရှုံးနိုင်"],correct:1}
   ]},
   2:{ modules:{
+    walletstep:{"title":"Wallet အဆင့်လိုက်","body":"<p>မင်း <b>wallet</b> က Web3 ဆီ တံခါးပေါက်။ မှန်ကန်စွာ စတင်နည်း။</p><h4>၁. ရွေးချယ်</h4><p><b>Hot wallet</b> (app/extension၊ ဥပမာ MetaMask) — နေ့စဉ်သုံးရ အဆင်ပြေ။ <b>Cold wallet</b> (offline device၊ ဥပမာ Ledger) — ပမာဏကြီးတွေ လုံခြုံစွာ သိမ်းဖို့။</p><h4>၂. ဖန်တီး</h4><p>ဖန်တီးချိန် <b>seed phrase</b> (စကားလုံး ၁၂/၂၄) ရမယ်။ <b>စက္ကူပေါ်ရေး</b>၊ offline။ screenshot မရိုက်၊ email ထဲ မထား။</p><h4>၃. သုံး</h4><p><b>အများသိလိပ်စာ</b> ကို လက်ခံဖို့ မျှဝေ။ seed နဲ့ private key ကတော့ <b>ဘယ်တော့မှ</b>။</p><div class=\"callout warn\">⚠️ 'support' ဘယ်သူမှ မင်း seed phrase ကို မတောင်းသင့်။ ရသူက အကုန်ယူ။ 🔐</div>"},
     scam:{title:"ခရစ်ပတို လိမ်လည်မှုများ — ခြုံငုံသုံးသပ်ချက်",body:`
       <p>ခရစ်ပတိုတွင် ကြားခံမရှိ: <b>မည်သည့်ဘဏ်မျှ ငွေလွှဲမှုကို ပြန်ဖျက်၍မရ</b>။ ၎င်းသည် လွတ်လပ်မှု… သို့သော် လိမ်လည်သူများ၏ ကစားကွင်းလည်းဖြစ်သည်။ သင့်အကောင်းဆုံး အကာအကွယ်မှာ <b>သင်ကိုယ်တိုင်</b>။</p>
       <h4>အဓိက အမျိုးအစားများ</h4>
@@ -8142,6 +8188,7 @@ const CONTENT_I18N={
     {q:"စတင်ခြင်းမတိုင်မီ မှန်ကန်သော ဦးစားပေး?",a:["ချက်ချင်း အမြင့်ဆုံးဟိုက်ပ်","အသိုက်အဝန်းနှင့် အလုပ်လုပ်ကုန်ပစ္စည်းတည်ဆောက်","follower ဝယ်","whitepaper မပါဘဲစတင်"],correct:1}
   ]},
   6:{ modules:{
+    memes:{"title":"Memecoin & Airdrop","body":"<p>crypto ကမ္ဘာမှာ အရမ်းရေပန်းစား — အရမ်းအန္တရာယ်ရှိတဲ့ — ဖြစ်ရပ်နှစ်ခု။</p><h4>🐕 Memecoin</h4><p>ဟာသ ဒါမှမဟုတ် community ကနေ မွေးဖွားတဲ့ coin တွေ (Dogecoin, Shiba…)။ <b>အသုံးဝင်မှု နည်း/မရှိ</b>: ဈေးက hype နဲ့ ခံစားချက်နဲ့ ရှင်သန်။ ဖေါင်းကြွ… ပြီးတော့ ပြိုကျ (<b>pump &amp; dump</b>)။</p><h4>🎁 Airdrop</h4><p>စောစီးအသုံးပြုသူတွေကို ဆုချ ဒါမှမဟုတ် project စတင်ဖို့ <b>အခမဲ့ဝေတဲ့</b> token တွေ။ တစ်ခါတရံ တကယ့်အခွင့်အရေး — အများအားဖြင့် မှော်ဆွဲ။</p><div class=\"callout warn\">⚠️ ရွှေဥပဒေ: သံသယဖြစ်ဖွယ် airdrop ကို မင်း wallet အဓိကနဲ့ <b>ဘယ်တော့မှ မချိတ်ပါနဲ့</b>၊ ဘာမဆို မျက်ကန်း sign မလုပ်ပါနဲ့၊ memecoin မှာ ဆုံးရှုံးခံနိုင်တာပဲ ထည့်ပါ။ «အခမဲ့» ဆိုရင် <b>မင်းကိုယ်တိုင် ကုန်ပစ္စည်းဖြစ်နိုင်</b>။</div>"},
     candles:{title:"ဂရပ်ဖတ်ခြင်း — ပန်းတိုင်တိုင်များ (Candle)",body:`
       <p><b>ဂျပန် ပန်းတိုင်တိုင် (candlestick)</b> ဂရပ်သည် ရောင်းဝယ်သူ၏ နိုင်ငံတကာဘာသာစကား။ candle တိုင်းသည် ကာလတစ်ခု၏ ဝယ်သူ/ရောင်းသူ တိုက်ပွဲကို အကျဉ်းချုပ်။</p>
       <h4>candle တစ်ခု = ဈေး ၄ ခု</h4>
@@ -8189,6 +8236,7 @@ const CONTENT_I18N={
     {q:"ရောင်းဝယ်မီ ပထမမေးခွန်း?",a:["စီမံကိန်းလိုဂိုဘာလဲ?","လမ်းကြောင်းဘယ်ဘက်သွားနေသလဲ?","CEO ဘယ်သူလဲ?","follower ဘယ်လောက်လဲ?"],correct:1}
   ]},
   7:{ modules:{
+    onchain:{"title":"On-chain ခွဲခြမ်းစိတ်ဖြာ","body":"<p><b>On-chain ခွဲခြမ်းစိတ်ဖြာမှု</b> က blockchain ရဲ့ အများသိ ဒေတာကို တိုက်ရိုက်ဖတ် — ဈေးဂရပ်မဟုတ်၊ ကွန်ရက်ပေါ်မှာ <b>တကယ်</b> ဖြစ်နေတာ။</p><h4>ဘာကြည့်လဲ</h4><ul><li>Exchange ဆီ/မှ <b>ငွေစီးဆင်းမှု</b> (ဝင်လာ = ရောင်းအားဖိအား ဖြစ်နိုင်)။</li><li><b>«ဝေလငါး»</b> (wallet ကြီးများ) ရဲ့ ရွေ့လျားမှု။</li><li><b>လှုပ်ရှားမှု</b>: active address, တကယ့် volume, ကြေး။</li></ul><h4>ကိရိယာများ</h4><p><b>Explorer</b> (Etherscan, BscScan) က transaction တိုင်းပြ။ site များ (Glassnode, Nansen) က ခေတ်ရေစီးကြောင်း အနှစ်ချုပ်။</p><div class=\"callout\">🔎 On-chain က အနာဂတ်ကို မဟော၊ ဒါပေမဲ့ ဈေးတစ်ခုတည်း ဖုံးကွယ်ထားတာ ဖော်ပြ: ယုံကြည်မှု၊ ထိတ်လန့်မှု၊ စုဆောင်းမှု။</div>"},
     indic:{title:"📊 အညွှန်းကိန်းများ",body:`<div data-indicators></div>`},
     mtf:{title:"အချိန်ဘောင်များစွာ ခွဲခြမ်းစိတ်ဖြာမှု",body:`
       <p>ကောင်းသောရောင်းဝယ်သူသည် မလုပ်ဆောင်မီ <b>အချိန်ဘောင်များစွာ</b> ကြည့်။ တစ်ခုတည်းသည် သော့ပေါက်မှ ချောင်းကြည့်သကဲ့သို့။</p>
