@@ -9497,12 +9497,16 @@ function prCandleHTML(top,bot,hi,lo,col){
     +'<rect x="'+(cx-bw/2)+'" y="'+top.toFixed(1)+'" width="'+bw+'" height="'+Math.max(3,bot-top).toFixed(1)+'" fill="'+col+'" rx="3"/></svg>';
 }
 const CFIG=[
-  {k:"doji",    n:{fr:"Doji",en:"Doji"}},
-  {k:"hammer",  n:{fr:"Marteau",en:"Hammer"}},
-  {k:"star",    n:{fr:"Étoile filante",en:"Shooting star"}},
-  {k:"maru_up", n:{fr:"Marubozu haussier",en:"Bullish Marubozu"}},
-  {k:"maru_dn", n:{fr:"Marubozu baissier",en:"Bearish Marubozu"}},
-  {k:"spin",    n:{fr:"Toupie",en:"Spinning top"}}
+  {k:"doji",       n:{fr:"Doji",en:"Doji"}},
+  {k:"hammer",     n:{fr:"Marteau",en:"Hammer"}},
+  {k:"star",       n:{fr:"Étoile filante",en:"Shooting star"}},
+  {k:"maru_up",    n:{fr:"Marubozu haussier",en:"Bullish Marubozu"}},
+  {k:"maru_dn",    n:{fr:"Marubozu baissier",en:"Bearish Marubozu"}},
+  {k:"spin",       n:{fr:"Toupie",en:"Spinning top"}},
+  {k:"dragonfly",  n:{fr:"Doji libellule",en:"Dragonfly doji"}},
+  {k:"gravestone", n:{fr:"Doji pierre tombale",en:"Gravestone doji"}},
+  {k:"engulf_up",  n:{fr:"Avalement haussier",en:"Bullish engulfing"}},
+  {k:"engulf_dn",  n:{fr:"Avalement baissier",en:"Bearish engulfing"}}
 ];
 const CFIG_INFO={
   doji:{fr:"Doji : ouverture ≈ clôture. Indécision, souvent un signal de retournement près d'un support/résistance.",en:"Doji: open ≈ close. Indecision, often a reversal hint near support/resistance."},
@@ -9510,17 +9514,29 @@ const CFIG_INFO={
   star:{fr:"Étoile filante : petit corps en bas, longue mèche haute. Rejet des acheteurs = signal baissier après une hausse.",en:"Shooting star: small body at bottom, long upper wick. Buyers rejected = bearish after a rise."},
   maru_up:{fr:"Marubozu haussier : grand corps vert, quasi sans mèche. Domination totale des acheteurs.",en:"Bullish Marubozu: big green body, almost no wick. Buyers fully in control."},
   maru_dn:{fr:"Marubozu baissier : grand corps rouge, quasi sans mèche. Domination totale des vendeurs.",en:"Bearish Marubozu: big red body, almost no wick. Sellers fully in control."},
-  spin:{fr:"Toupie : petit corps, mèches des deux côtés. Équilibre acheteurs/vendeurs, marché hésitant.",en:"Spinning top: small body, wicks both sides. Buyers/sellers balanced, hesitant market."}
+  spin:{fr:"Toupie : petit corps, mèches des deux côtés. Équilibre acheteurs/vendeurs, marché hésitant.",en:"Spinning top: small body, wicks both sides. Buyers/sellers balanced, hesitant market."},
+  dragonfly:{fr:"Doji libellule : ouverture/clôture en haut, longue mèche basse, pas de mèche haute. Rejet fort des vendeurs = signal haussier.",en:"Dragonfly doji: open/close at the top, long lower wick, no upper wick. Strong seller rejection = bullish."},
+  gravestone:{fr:"Doji pierre tombale : ouverture/clôture en bas, longue mèche haute. Rejet fort des acheteurs = signal baissier.",en:"Gravestone doji: open/close at the bottom, long upper wick. Strong buyer rejection = bearish."},
+  engulf_up:{fr:"Avalement haussier : une grande bougie verte « avale » entièrement la petite rouge précédente. Les acheteurs prennent le contrôle.",en:"Bullish engulfing: a large green candle fully 'engulfs' the prior small red one. Buyers take control."},
+  engulf_dn:{fr:"Avalement baissier : une grande bougie rouge « avale » entièrement la petite verte précédente. Les vendeurs prennent le contrôle.",en:"Bearish engulfing: a large red candle fully 'engulfs' the prior small green one. Sellers take control."}
 };
+function prCel(cx,bw,top,bot,hi,lo,col){
+  return '<line x1="'+cx+'" y1="'+hi.toFixed(1)+'" x2="'+cx+'" y2="'+lo.toFixed(1)+'" stroke="'+col+'" stroke-width="3"/>'
+    +'<rect x="'+(cx-bw/2)+'" y="'+top.toFixed(1)+'" width="'+bw+'" height="'+Math.max(3,bot-top).toFixed(1)+'" fill="'+col+'" rx="3"/>';
+}
 function cfigSVG(k){
-  var col,top,bot,hi,lo;
-  if(k==="doji"){ col='var(--muted)'; top=100; bot=104; hi=40; lo=172; }
-  else if(k==="hammer"){ col='var(--pos)'; top=50; bot=78; hi=42; lo=172; }
-  else if(k==="star"){ col='var(--red)'; top=120; bot=148; hi=40; lo=160; }
-  else if(k==="maru_up"){ col='var(--pos)'; top=40; bot=172; hi=40; lo=172; }
-  else if(k==="maru_dn"){ col='var(--red)'; top=40; bot=172; hi=40; lo=172; }
-  else { col='var(--muted)'; top=86; bot=120; hi=46; lo=164; }
-  return prCandleHTML(top,bot,hi,lo,col);
+  var G='var(--pos)',R='var(--red)',M='var(--muted)',inner;
+  if(k==="doji") inner=prCel(80,46,100,105,42,170,M);
+  else if(k==="hammer") inner=prCel(80,46,48,78,44,174,G);
+  else if(k==="star") inner=prCel(80,46,120,150,40,156,R);
+  else if(k==="maru_up") inner=prCel(80,46,42,172,42,172,G);
+  else if(k==="maru_dn") inner=prCel(80,46,42,172,42,172,R);
+  else if(k==="dragonfly") inner=prCel(80,46,44,49,42,174,M);
+  else if(k==="gravestone") inner=prCel(80,46,161,166,40,168,M);
+  else if(k==="engulf_up") inner=prCel(56,28,86,108,78,118,R)+prCel(104,44,74,120,66,132,G);
+  else if(k==="engulf_dn") inner=prCel(56,28,96,118,86,128,G)+prCel(104,44,84,130,76,142,R);
+  else inner=prCel(80,46,88,122,46,164,M); // spin
+  return '<svg viewBox="0 0 160 210" class="pr-svg">'+inner+'</svg>';
 }
 
 /* ---------- Scénarios point d'entrée ---------- */
@@ -9594,7 +9610,7 @@ const PR_SCEN=[
 
 /* ---------- Moteur ---------- */
 let prState={key:null,i:0,correct:0};
-const PR_TARGET=8;
+const PR_TARGET=10;
 function prStart(key){ prState={key:key,i:0,correct:0}; }
 
 function prShell(mount,chartHTML,question,optLabels,one){
