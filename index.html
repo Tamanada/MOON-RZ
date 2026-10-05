@@ -420,6 +420,10 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pr-done-em{font-size:48px;line-height:1}
   .pr-done-sc{font-family:var(--font-data,ui-monospace,monospace);font-size:27px;color:var(--accent);font-weight:800;margin:4px 0 14px}
   .pr-reward{background:var(--chip-bg);border:1px solid var(--border);border-radius:12px;padding:12px;margin:0 auto 16px;max-width:360px;color:var(--text);font-weight:600}
+  .pr-draw{touch-action:none;cursor:crosshair;background:var(--surface);border:1px solid var(--border);border-radius:10px}
+  .pr-hint{color:var(--muted);font-size:13px;line-height:1.4;margin:2px 2px 0}
+  .pr-drawbar{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+  .pr-tag{display:inline-block;font-size:10px;font-weight:700;color:var(--accent);background:var(--chip-bg);border:1px solid var(--border);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -897,6 +901,7 @@ Object.assign(T, {"ob_story_d":{"en":"Imagine waking up free — your time, your
 Object.assign(T, {"bot_title":{"en":"MOON-RZ Tutor","fr":"Tuteur MOON-RZ","es":"Tutor MOON-RZ","pt":"Tutor MOON-RZ","de":"MOON-RZ Tutor","ru":"Наставник MOON-RZ","tr":"MOON-RZ Eğitmeni","ar":"مدرّب MOON-RZ","zh":"MOON-RZ 导师","ja":"MOON-RZ チューター","ko":"MOON-RZ 튜터","hi":"MOON-RZ ट्यूटर","id":"Tutor MOON-RZ","vi":"Gia sư MOON-RZ","th":"ติวเตอร์ MOON-RZ","my":"MOON-RZ နည်းပြ"},"bot_sub":{"en":"Ask me a crypto question","fr":"Pose-moi une question crypto","es":"Hazme una pregunta cripto","pt":"Faça uma pergunta cripto","de":"Stell mir eine Krypto-Frage","ru":"Задай вопрос о крипте","tr":"Bana bir kripto sorusu sor","ar":"اسألني سؤالاً عن الكريبتو","zh":"问我一个加密问题","ja":"暗号資産について質問してね","ko":"크립토 질문을 해보세요","hi":"मुझसे क्रिप्टो सवाल पूछें","id":"Tanya aku soal kripto","vi":"Hỏi mình về crypto","th":"ถามคำถามคริปโตกับฉัน","my":"crypto အကြောင်း မေးပါ"},"bot_ph":{"en":"Type your question…","fr":"Écris ta question…","es":"Escribe tu pregunta…","pt":"Escreva sua pergunta…","de":"Schreib deine Frage…","ru":"Напиши свой вопрос…","tr":"Sorunu yaz…","ar":"اكتب سؤالك…","zh":"输入你的问题…","ja":"質問を入力…","ko":"질문을 입력하세요…","hi":"अपना सवाल लिखें…","id":"Tulis pertanyaanmu…","vi":"Nhập câu hỏi…","th":"พิมพ์คำถามของคุณ…","my":"မေးခွန်းရိုက်ပါ…"},"bot_hi":{"en":"Hi! I'm your tutor. Ask me about an indicator (RSI, MACD…), a chart pattern, or a crypto term. 🚀","fr":"Salut ! Je suis ton tuteur. Demande-moi ce qu'est un indicateur (RSI, MACD…), une figure chartiste, ou un terme crypto. 🚀","es":"¡Hola! Soy tu tutor. Pregúntame por un indicador (RSI, MACD…), una figura chartista o un término cripto. 🚀","pt":"Oi! Sou seu tutor. Pergunte sobre um indicador (RSI, MACD…), um padrão gráfico ou um termo cripto. 🚀","de":"Hi! Ich bin dein Tutor. Frag mich nach einem Indikator (RSI, MACD…), einem Chartmuster oder einem Krypto-Begriff. 🚀","ru":"Привет! Я твой наставник. Спроси про индикатор (RSI, MACD…), фигуру на графике или крипто-термин. 🚀","tr":"Selam! Ben senin eğitmeninim. Bir gösterge (RSI, MACD…), grafik formasyonu ya da kripto terimi sor. 🚀","ar":"مرحباً! أنا مدرّبك. اسألني عن مؤشر (RSI، MACD…)، نموذج رسم بياني، أو مصطلح كريبتو. 🚀","zh":"嗨！我是你的导师。问我某个指标（RSI、MACD…）、图表形态或加密术语吧。🚀","ja":"やあ！君のチューターだよ。指標（RSI、MACD…）、チャートパターン、暗号用語について聞いてね。🚀","ko":"안녕! 네 튜터야. 지표(RSI, MACD…), 차트 패턴, 크립토 용어를 물어봐. 🚀","hi":"नमस्ते! मैं तुम्हारा ट्यूटर हूँ। किसी इंडिकेटर (RSI, MACD…), चार्ट पैटर्न या क्रिप्टो शब्द के बारे में पूछो। 🚀","id":"Hai! Aku tutormu. Tanya soal indikator (RSI, MACD…), pola grafik, atau istilah kripto. 🚀","vi":"Chào! Mình là gia sư của bạn. Hỏi mình về một chỉ báo (RSI, MACD…), mô hình giá, hay thuật ngữ crypto nhé. 🚀","th":"สวัสดี! ฉันคือติวเตอร์ของคุณ ถามเกี่ยวกับอินดิเคเตอร์ (RSI, MACD…), รูปแบบกราฟ หรือศัพท์คริปโตได้เลย 🚀","my":"ဟိုင်း! ကျွန်တော်က မင်းရဲ့နည်းပြ။ အညွှန်းကိန်း (RSI, MACD…)၊ ချာ့ပုံစံ၊ crypto ဝေါဟာရအကြောင်း မေးပါ။ 🚀"},"bot_nomatch":{"en":"I don't have the exact answer yet. Try a keyword (RSI, MACD, wallet, NFT…) or explore the academies. 📚","fr":"Je n'ai pas encore la réponse exacte. Essaie un mot-clé (RSI, MACD, wallet, NFT…) ou explore les académies. 📚","es":"Aún no tengo la respuesta exacta. Prueba una palabra clave (RSI, MACD, wallet, NFT…) o explora las academias. 📚","pt":"Ainda não tenho a resposta exata. Tente uma palavra-chave (RSI, MACD, wallet, NFT…) ou explore as academias. 📚","de":"Ich habe die genaue Antwort noch nicht. Versuch ein Stichwort (RSI, MACD, Wallet, NFT…) oder erkunde die Akademien. 📚","ru":"У меня пока нет точного ответа. Попробуй ключевое слово (RSI, MACD, кошелёк, NFT…) или загляни в академии. 📚","tr":"Tam cevabım henüz yok. Bir anahtar kelime dene (RSI, MACD, cüzdan, NFT…) ya da akademileri keşfet. 📚","ar":"ليس لديّ الإجابة الدقيقة بعد. جرّب كلمة مفتاحية (RSI، MACD، محفظة، NFT…) أو استكشف الأكاديميات. 📚","zh":"我还没有确切答案。试试关键词（RSI、MACD、钱包、NFT…）或去看看学院。📚","ja":"まだ正確な答えがないんだ。キーワード（RSI、MACD、ウォレット、NFT…）を試すか、アカデミーを見てみて。📚","ko":"아직 정확한 답이 없어. 키워드(RSI, MACD, 지갑, NFT…)를 써보거나 아카데미를 둘러봐. 📚","hi":"मेरे पास अभी सटीक जवाब नहीं है। कोई कीवर्ड आज़माओ (RSI, MACD, wallet, NFT…) या अकादमियाँ देखो। 📚","id":"Aku belum punya jawaban pastinya. Coba kata kunci (RSI, MACD, wallet, NFT…) atau jelajahi akademi. 📚","vi":"Mình chưa có câu trả lời chính xác. Thử một từ khóa (RSI, MACD, ví, NFT…) hoặc khám phá các học viện. 📚","th":"ฉันยังไม่มีคำตอบที่แน่ชัด ลองคำสำคัญ (RSI, MACD, wallet, NFT…) หรือสำรวจสถาบันดูนะ 📚","my":"တိကျတဲ့အဖြေ မရှိသေးဘူး။ keyword (RSI, MACD, wallet, NFT…) စမ်းပါ၊ ဒါမှမဟုတ် academy တွေ လေ့လာပါ။ 📚"},"bot_open":{"en":"Open the tutor","fr":"Ouvrir le tuteur","es":"Abrir el tutor","pt":"Abrir o tutor","de":"Tutor öffnen","ru":"Открыть наставника","tr":"Eğitmeni aç","ar":"افتح المدرّب","zh":"打开导师","ja":"チューターを開く","ko":"튜터 열기","hi":"ट्यूटर खोलें","id":"Buka tutor","vi":"Mở gia sư","th":"เปิดติวเตอร์","my":"နည်းပြဖွင့်"},"bot_send":{"en":"Send","fr":"Envoyer","es":"Enviar","pt":"Enviar","de":"Senden","ru":"Отправить","tr":"Gönder","ar":"إرسال","zh":"发送","ja":"送信","ko":"보내기","hi":"भेजें","id":"Kirim","vi":"Gửi","th":"ส่ง","my":"ပို့"},"bot_see":{"en":"See the card →","fr":"Voir la fiche →","es":"Ver la ficha →","pt":"Ver a ficha →","de":"Zur Karte →","ru":"Открыть карточку →","tr":"Kartı gör →","ar":"اعرض البطاقة →","zh":"查看卡片 →","ja":"カードを見る →","ko":"카드 보기 →","hi":"कार्ड देखें →","id":"Lihat kartu →","vi":"Xem thẻ →","th":"ดูการ์ด →","my":"ကတ်ကြည့် →"},"bot_sug1":{"en":"What is the RSI?","fr":"C'est quoi le RSI ?","es":"¿Qué es el RSI?","pt":"O que é o RSI?","de":"Was ist der RSI?","ru":"Что такое RSI?","tr":"RSI nedir?","ar":"ما هو RSI؟","zh":"RSI 是什么？","ja":"RSIとは？","ko":"RSI가 뭐야?","hi":"RSI क्या है?","id":"Apa itu RSI?","vi":"RSI là gì?","th":"RSI คืออะไร?","my":"RSI ဆိုတာဘာလဲ?"},"bot_sug2":{"en":"Explain the MACD","fr":"Explique le MACD","es":"Explica el MACD","pt":"Explique o MACD","de":"Erkläre den MACD","ru":"Объясни MACD","tr":"MACD'yi açıkla","ar":"اشرح MACD","zh":"解释一下 MACD","ja":"MACDを説明して","ko":"MACD 설명해줘","hi":"MACD समझाओ","id":"Jelaskan MACD","vi":"Giải thích MACD","th":"อธิบาย MACD","my":"MACD ရှင်းပြ"},"bot_sug3":{"en":"What is a wallet?","fr":"C'est quoi un wallet ?","es":"¿Qué es una wallet?","pt":"O que é uma wallet?","de":"Was ist eine Wallet?","ru":"Что такое кошелёк?","tr":"Cüzdan nedir?","ar":"ما هي المحفظة؟","zh":"钱包是什么？","ja":"ウォレットとは？","ko":"지갑이 뭐야?","hi":"wallet क्या है?","id":"Apa itu wallet?","vi":"Ví là gì?","th":"wallet คือออะไร?","my":"wallet ဆိုတာဘာလဲ?"}}); // 🤖 tuteur i18n
 Object.assign(T, {"hot":{"en":"🔥 HOT coins","fr":"🔥 HOT coins","es":"🔥 HOT coins","pt":"🔥 HOT coins","de":"🔥 HOT coins","ru":"🔥 HOT coins","tr":"🔥 HOT coins","ar":"🔥 HOT coins","zh":"🔥 HOT coins","ja":"🔥 HOT coins","ko":"🔥 HOT coins","hi":"🔥 HOT coins","id":"🔥 HOT coins","vi":"🔥 HOT coins","th":"🔥 HOT coins","my":"🔥 HOT coins"},"hot_sub":{"en":"The coins moving right now","fr":"Les cryptos qui bougent maintenant","es":"Las cripto que se mueven ahora","pt":"As cripto que estão se movendo agora","de":"Die Coins, die sich gerade bewegen","ru":"Монеты, которые движутся прямо сейчас","tr":"Şu anda hareketlenen coinler","ar":"العملات التي تتحرّك الآن","zh":"此刻在异动的币种","ja":"いま動いているコイン","ko":"지금 움직이는 코인","hi":"अभी हलचल वाली क्रिप्टो","id":"Koin yang bergerak sekarang","vi":"Những coin đang biến động ngay bây giờ","th":"เหรียญที่กำลังเคลื่อนไหวตอนนี้","my":"အခုလှုပ်ရှားနေတဲ့ coin များ"},"hot_trending":{"en":"Trending","fr":"Tendance","es":"Tendencia","pt":"Em alta","de":"Im Trend","ru":"В тренде","tr":"Trend","ar":"رائج","zh":"热门","ja":"トレンド","ko":"인기","hi":"ट्रेंडिंग","id":"Tren","vi":"Xu hướng","th":"กำลังฮิต","my":"ခေတ်စား"},"hot_gainers":{"en":"Gainers 24h","fr":"Hausses 24h","es":"Subidas 24h","pt":"Altas 24h","de":"Gewinner 24h","ru":"Рост 24ч","tr":"Yükselenler 24s","ar":"الرابحون 24س","zh":"24h涨幅","ja":"上昇 24h","ko":"상승 24h","hi":"बढ़त 24घं","id":"Naik 24j","vi":"Tăng 24h","th":"ขึ้น 24ชม","my":"တက် 24နာရီ"},"hot_losers":{"en":"Losers 24h","fr":"Baisses 24h","es":"Bajadas 24h","pt":"Quedas 24h","de":"Verlierer 24h","ru":"Падение 24ч","tr":"Düşenler 24s","ar":"الخاسرون 24س","zh":"24h跌幅","ja":"下落 24h","ko":"하락 24h","hi":"गिरावट 24घं","id":"Turun 24j","vi":"Giảm 24h","th":"ลง 24ชม","my":"ကျ 24နာရီ"},"hot_loading":{"en":"Loading prices…","fr":"Chargement des prix…","es":"Cargando precios…","pt":"Carregando preços…","de":"Preise werden geladen…","ru":"Загрузка цен…","tr":"Fiyatlar yükleniyor…","ar":"جارٍ تحميل الأسعار…","zh":"正在加载价格…","ja":"価格を読み込み中…","ko":"가격 불러오는 중…","hi":"कीमतें लोड हो रही हैं…","id":"Memuat harga…","vi":"Đang tải giá…","th":"กำลังโหลดราคา…","my":"စျေးနှုန်းများ ဖွင့်နေသည်…"},"hot_err":{"en":"Couldn't load prices. Try again.","fr":"Impossible de charger les prix. Réessaie.","es":"No se pudieron cargar los precios. Inténtalo de nuevo.","pt":"Não foi possível carregar os preços. Tente novamente.","de":"Preise konnten nicht geladen werden. Versuche es erneut.","ru":"Не удалось загрузить цены. Попробуйте снова.","tr":"Fiyatlar yüklenemedi. Tekrar dene.","ar":"تعذّر تحميل الأسعار. حاول مجددًا.","zh":"无法加载价格。请重试。","ja":"価格を読み込めませんでした。再試行してください。","ko":"가격을 불러오지 못했어요. 다시 시도하세요.","hi":"कीमतें लोड नहीं हो सकीं। फिर कोशिश करें।","id":"Gagal memuat harga. Coba lagi.","vi":"Không tải được giá. Thử lại.","th":"โหลดราคาไม่สำเร็จ ลองใหม่","my":"စျေးနှုန်းများ ဖွင့်၍မရပါ။ ထပ်ကြိုးစားပါ။"},"hot_retry":{"en":"Retry","fr":"Réessayer","es":"Reintentar","pt":"Tentar de novo","de":"Erneut","ru":"Повторить","tr":"Tekrar dene","ar":"إعادة المحاولة","zh":"重试","ja":"再試行","ko":"다시","hi":"फिर से","id":"Coba lagi","vi":"Thử lại","th":"ลองใหม่","my":"ထပ်ကြိုးစား"},"hot_powered":{"en":"Data: CoinGecko","fr":"Données : CoinGecko","es":"Datos: CoinGecko","pt":"Dados: CoinGecko","de":"Daten: CoinGecko","ru":"Данные: CoinGecko","tr":"Veri: CoinGecko","ar":"البيانات: CoinGecko","zh":"数据：CoinGecko","ja":"データ：CoinGecko","ko":"데이터: CoinGecko","hi":"डेटा: CoinGecko","id":"Data: CoinGecko","vi":"Dữ liệu: CoinGecko","th":"ข้อมูล: CoinGecko","my":"ဒေတာ: CoinGecko"}}); // 🔥 HOT coins i18n
 Object.assign(T, {"practice":{"en":"🎮 Practice","fr":"🎮 Practice","es":"🎮 Practice","pt":"🎮 Practice","de":"🎮 Practice","ru":"🎮 Practice","tr":"🎮 Practice","ar":"🎮 Practice","zh":"🎮 Practice","ja":"🎮 Practice","ko":"🎮 Practice","hi":"🎮 Practice","id":"🎮 Practice","vi":"🎮 Practice","th":"🎮 Practice","my":"🎮 Practice"},"home_practice_t":{"en":"Practice","fr":"Entraînement","es":"Práctica","pt":"Prática","de":"Üben","ru":"Практика","tr":"Alıştırma","ar":"تدريب","zh":"练习","ja":"練習","ko":"연습","hi":"अभ्यास","id":"Latihan","vi":"Luyện tập","th":"ฝึกฝน","my":"လေ့ကျင့်ခန်း"},"home_practice_d":{"en":"Put theory into practice: candles, patterns, entry points.","fr":"Mets la théorie en pratique : bougies, patterns, points d’entrée.","es":"Lleva la teoría a la práctica: velas, patrones, puntos de entrada.","pt":"Coloque a teoria em prática: velas, padrões, pontos de entrada.","de":"Theorie in die Praxis umsetzen: Kerzen, Muster, Einstiegspunkte.","ru":"Применяй теорию: свечи, паттерны, точки входа.","tr":"Teoriyi uygula: mumlar, formasyonlar, giriş noktaları.","ar":"طبّق النظرية: الشموع، النماذج، نقاط الدخول.","zh":"把理论用起来：K线、形态、入场点。","ja":"理論を実践に：ローソク足、パターン、エントリー。","ko":"이론을 실전으로: 캔들, 패턴, 진입 지점.","hi":"थ्योरी को व्यवहार में लाओ: कैंडल, पैटर्न, एंट्री पॉइंट।","id":"Praktikkan teori: candle, pola, titik masuk.","vi":"Áp dụng lý thuyết: nến, mô hình, điểm vào lệnh.","th":"นำทฤษฎีมาปฏิบัติ: แท่งเทียน รูปแบบ จุดเข้า","my":"သီအိုရီကို လက်တွေ့အသုံးချပါ — ကင်းဒယ်လ်၊ ပုံစံ၊ ဝင်ရောက်မှတ်များ။"},"pr_intro":{"en":"Interactive drills to get ready before you open a real account.","fr":"Des exercices interactifs pour t’entraîner avant d’ouvrir un vrai compte.","es":"Ejercicios interactivos para prepararte antes de abrir una cuenta real.","pt":"Exercícios interativos para se preparar antes de abrir uma conta real.","de":"Interaktive Übungen, bevor du ein echtes Konto eröffnest.","ru":"Интерактивные упражнения перед открытием реального счёта.","tr":"Gerçek hesap açmadan önce hazırlanmak için interaktif alıştırmalar.","ar":"تمارين تفاعلية لتجهّز نفسك قبل فتح حساب حقيقي.","zh":"开真实账户前的互动练习。","ja":"本番口座を開く前の対話型ドリル。","ko":"실계좌를 열기 전 대비하는 인터랙티브 훈련.","hi":"असली खाता खोलने से पहले तैयारी के इंटरैक्टिव अभ्यास।","id":"Latihan interaktif untuk siap sebelum buka akun sungguhan.","vi":"Bài tập tương tác để sẵn sàng trước khi mở tài khoản thật.","th":"แบบฝึกแบบอินเทอร์แอกทีฟ ก่อนเปิดบัญชีจริง","my":"အကောင့်အစစ်မဖွင့်ခင် ပြင်ဆင်ရန် အပြန်အလှန်လေ့ကျင့်ခန်းများ။"},"pr_score":{"en":"Score","fr":"Score","es":"Puntuación","pt":"Pontos","de":"Punkte","ru":"Счёт","tr":"Puan","ar":"النتيجة","zh":"得分","ja":"スコア","ko":"점수","hi":"स्कोर","id":"Skor","vi":"Điểm","th":"คะแนน","my":"ရမှတ်"},"pr_next":{"en":"Next","fr":"Suivant","es":"Siguiente","pt":"Próximo","de":"Weiter","ru":"Далее","tr":"İleri","ar":"التالي","zh":"下一个","ja":"次へ","ko":"다음","hi":"अगला","id":"Lanjut","vi":"Tiếp","th":"ถัดไป","my":"နောက်တစ်ခု"},"pr_see_result":{"en":"See result","fr":"Voir le résultat","es":"Ver resultado","pt":"Ver resultado","de":"Ergebnis ansehen","ru":"Результат","tr":"Sonucu gör","ar":"انظر النتيجة","zh":"查看结果","ja":"結果を見る","ko":"결과 보기","hi":"परिणाम देखें","id":"Lihat hasil","vi":"Xem kết quả","th":"ดูผล","my":"ရလဒ်ကြည့်"},"pr_correct":{"en":"Nice!","fr":"Bravo !","es":"¡Bien!","pt":"Boa!","de":"Super!","ru":"Отлично!","tr":"Harika!","ar":"أحسنت!","zh":"漂亮！","ja":"いいね！","ko":"좋아요!","hi":"शाबाश!","id":"Mantap!","vi":"Tuyệt!","th":"เยี่ยม!","my":"တော်တယ်!"},"pr_wrong":{"en":"Missed.","fr":"Raté.","es":"Fallaste.","pt":"Errou.","de":"Daneben.","ru":"Мимо.","tr":"Kaçırdın.","ar":"خطأ.","zh":"错了。","ja":"残念。","ko":"아쉽네.","hi":"चूक गए।","id":"Meleset.","vi":"Trượt.","th":"พลาด","my":"လွဲသွားပြီ။"},"pr_again":{"en":"Play again","fr":"Rejouer","es":"Jugar de nuevo","pt":"Jogar de novo","de":"Nochmal","ru":"Ещё раз","tr":"Tekrar oyna","ar":"العب مجددًا","zh":"再玩一次","ja":"もう一度","ko":"다시 하기","hi":"फिर खेलें","id":"Main lagi","vi":"Chơi lại","th":"เล่นอีก","my":"ထပ်ကစား"},"pr_done_t":{"en":"Set complete!","fr":"Série terminée !","es":"¡Serie completa!","pt":"Série concluída!","de":"Runde fertig!","ru":"Серия пройдена!","tr":"Seri bitti!","ar":"انتهت الجولة!","zh":"完成一组！","ja":"セット完了！","ko":"세트 완료!","hi":"सेट पूरा!","id":"Set selesai!","vi":"Hoàn thành!","th":"จบชุดแล้ว!","my":"အပြီးသတ်!"},"pr_reward":{"en":"Daily reward unlocked!","fr":"Récompense du jour débloquée !","es":"¡Recompensa diaria desbloqueada!","pt":"Recompensa diária desbloqueada!","de":"Tagesbelohnung freigeschaltet!","ru":"Награда дня получена!","tr":"Günlük ödül açıldı!","ar":"تم فتح مكافأة اليوم!","zh":"已解锁每日奖励！","ja":"デイリー報酬を獲得！","ko":"일일 보상 획득!","hi":"दैनिक इनाम अनलॉक!","id":"Hadiah harian terbuka!","vi":"Mở thưởng hằng ngày!","th":"ปลดล็อกรางวัลประจำวัน!","my":"နေ့စဉ်ဆုရရှိ!"},"pr_bull":{"en":"Bullish 🟢","fr":"Haussière 🟢","es":"Alcista 🟢","pt":"Alta 🟢","de":"Bullish 🟢","ru":"Бычья 🟢","tr":"Yükseliş 🟢","ar":"صاعدة 🟢","zh":"看涨 🟢","ja":"陽線 🟢","ko":"상승 🟢","hi":"तेजी 🟢","id":"Bullish 🟢","vi":"Tăng 🟢","th":"ขาขึ้น 🟢","my":"အတက် 🟢"},"pr_bear":{"en":"Bearish 🔴","fr":"Baissière 🔴","es":"Bajista 🔴","pt":"Baixa 🔴","de":"Bearish 🔴","ru":"Медвежья 🔴","tr":"Düşüş 🔴","ar":"هابطة 🔴","zh":"看跌 🔴","ja":"陰線 🔴","ko":"하락 🔴","hi":"मंदी 🔴","id":"Bearish 🔴","vi":"Giảm 🔴","th":"ขาลง 🔴","my":"အကျ 🔴"}}); // 🎮 Practice i18n
+Object.assign(T, {"pr_clear":{"en":"Clear","fr":"Effacer","es":"Borrar","pt":"Limpar","de":"Löschen","ru":"Очистить","tr":"Temizle","ar":"مسح","zh":"清除","ja":"クリア","ko":"지우기","hi":"मिटाएँ","id":"Hapus","vi":"Xóa","th":"ล้าง","my":"ရှင်း"},"pr_check":{"en":"Check","fr":"Valider","es":"Comprobar","pt":"Verificar","de":"Prüfen","ru":"Проверить","tr":"Kontrol et","ar":"تحقق","zh":"检查","ja":"チェック","ko":"확인","hi":"जाँचें","id":"Periksa","vi":"Kiểm tra","th":"ตรวจ","my":"စစ်ဆေး"}}); // ✏️ Tracé i18n
 const ACA_INTRO={
  en:{1:"Understand blockchain from scratch and handle your first wallet.",2:"Never get robbed: scams, phishing, rug pulls, drainers.",3:"Decentralized finance: DEX, pools, staking, yield, lending.",4:"The NFT economy: collections, utility, gaming, RWA.",5:"Launch a project: branding, community, DAO, tokenomics.",6:"Read the markets: support, resistance, trends, volume.",7:"A profitable strategy: MTF, risk management, position sizing.",8:"Use AI: crypto analyst, market scanner, strategies.",9:"Create your own token: smart contracts, liquidity, vesting.",10:"Master the entire ecosystem end to end."},
  es:{1:"Entiende la blockchain desde cero y maneja tu primera billetera.",2:"Que nunca te roben: estafas, phishing, rug pulls, drainers.",3:"Finanzas descentralizadas: DEX, pools, staking, yield, lending.",4:"La economía NFT: colecciones, utilidad, gaming, RWA.",5:"Lanza un proyecto: branding, comunidad, DAO, tokenomics.",6:"Lee los mercados: soportes, resistencias, tendencias, volumen.",7:"Una estrategia rentable: MTF, gestión del riesgo, position sizing.",8:"Usa la IA: analista cripto, escáner de mercado, estrategias.",9:"Crea tu propio token: contratos inteligentes, liquidez, vesting.",10:"Domina todo el ecosistema de principio a fin."},
@@ -9462,7 +9467,9 @@ const PR_DRILLS=[
   {key:"pat",    icon:"🔺", t:{fr:"Figures chartistes",en:"Chart patterns"},          d:{fr:"Triangles, têtes-épaules, drapeaux…",en:"Triangles, H&S, flags…"}},
   {key:"sr",     icon:"📏", t:{fr:"Support & Résistance",en:"Support & Resistance"},   d:{fr:"Repère le niveau que le prix respecte.",en:"Spot the level price respects."}},
   {key:"entry",  icon:"🎯", t:{fr:"Point d'entrée",en:"Entry point"},                 d:{fr:"Entrée, stop, objectif : le bon plan.",en:"Entry, stop, target: the right plan."}},
-  {key:"size",   icon:"🧮", t:{fr:"Taille de position",en:"Position size"},           d:{fr:"Combien investir sans trop risquer.",en:"How much to invest, safely."}}
+  {key:"size",   icon:"🧮", t:{fr:"Taille de position",en:"Position size"},           d:{fr:"Combien investir sans trop risquer.",en:"How much to invest, safely."}},
+  {key:"dsr",    icon:"✏️", t:{fr:"Tracer un support",en:"Draw a support"},            d:{fr:"Pose toi-même la ligne clé.",en:"Place the key line yourself."}, tag:1},
+  {key:"dtrend", icon:"📐", t:{fr:"Tracer une tendance",en:"Draw a trendline"},         d:{fr:"Relie les creux, trouve la pente.",en:"Connect the lows, find the slope."}, tag:1}
 ];
 
 /* Questions & libellés sensibles à la langue (FR+EN, repli EN→FR) */
@@ -9475,7 +9482,11 @@ const PRQ={
   q_entry:{fr:"Quel est le meilleur plan de trade ?",en:"What's the best trade plan?"},
   wick_low:{fr:"Rejet des vendeurs — les acheteurs reviennent 🟢",en:"Sellers rejected — buyers step back in 🟢"},
   wick_up:{fr:"Rejet des acheteurs — les vendeurs reprennent 🔴",en:"Buyers rejected — sellers take over 🔴"},
-  wick_none:{fr:"Rien de spécial, c'est aléatoire",en:"Nothing special, it's random"}
+  wick_none:{fr:"Rien de spécial, c'est aléatoire",en:"Nothing special, it's random"},
+  q_dsr:{fr:"Trace le support / la résistance",en:"Draw the support / resistance"},
+  h_dsr:{fr:"Tape sur le graphe pour poser une ligne horizontale au niveau que le prix respecte le plus.",en:"Tap the chart to place a horizontal line at the level price respects most."},
+  q_dtrend:{fr:"Trace la ligne de tendance",en:"Draw the trendline"},
+  h_dtrend:{fr:"Pose 2 points sur les creux de plus en plus hauts pour tracer la pente.",en:"Place 2 points on the higher lows to draw the slope."}
 };
 
 /* ---------- SVG bougies ---------- */
@@ -9637,6 +9648,8 @@ function prRound(mount){
   else if(k==="sr") prR_sr(mount);
   else if(k==="entry") prR_entry(mount);
   else if(k==="size") prR_size(mount);
+  else if(k==="dsr") prR_drawSR(mount);
+  else if(k==="dtrend") prR_drawTrend(mount);
 }
 
 /* ---------- Ateliers ---------- */
@@ -9744,7 +9757,7 @@ function viewPractice(){
     return '<button class="btn ghost" data-gview="home" style="margin-bottom:12px">← '+t('nav_home')+'</button>'
       +'<h2 class="hub-h mrz-display">🎮 '+t('home_practice_t')+'</h2><p class="hub-d">'+t('pr_intro')+'</p>'
       +'<div class="homegrid">'+PR_DRILLS.map(function(x){
-        return '<button class="homebox" data-drill="'+x.key+'"><span class="hb-ic">'+x.icon+'</span><div class="hb-tx"><b>'+px(x.t)+'</b><span>'+px(x.d)+'</span></div><span class="hb-ar">›</span></button>';
+        return '<button class="homebox" data-drill="'+x.key+'"><span class="hb-ic">'+x.icon+'</span><div class="hb-tx"><b>'+px(x.t)+(x.tag?' <span class="pr-tag">✏️ '+px({fr:"Tracé",en:"Draw"})+'</span>':'')+'</b><span>'+px(x.d)+'</span></div><span class="hb-ar">›</span></button>';
       }).join('')+'</div>';
   }
   return '<button class="btn ghost" data-prhub style="margin-bottom:12px">← '+t('home_practice_t')+'</button>'
@@ -9756,6 +9769,120 @@ function bindPractice(){
   document.querySelectorAll("[data-prhub]").forEach(function(el){ el.onclick=function(){ VIEW={name:"practice",id:null}; render(); }; });
   var box=document.getElementById("drillBox");
   if(box && PR_DRILLS.find(function(x){return x.key===VIEW.id;})) prRound(box);
+}
+
+/* ============ ✏️ STUDIO DE TRACÉ — l'élève dessine lui-même (Tier 1) ============
+   Moteur tactile réutilisable : poser/glisser des points sur un graphe SVG,
+   « Valider » → note géométrique (★) vs le tracé vrai + overlay correct + explication.
+   Alimente : tracer un support/résistance, une ligne de tendance (puis canal, pattern, zone…). */
+function prFinish(mount,ok,feedHTML){
+  prState.i++; if(ok) prState.correct++;
+  var sc=mount.querySelector('.pg-score'); if(sc) sc.textContent=t('pr_score')+' '+prState.correct+'/'+prState.i;
+  var feed=mount.querySelector('.pg-feed');
+  feed.innerHTML=feedHTML+'<button class="btn sm pr-next">'+(prState.i>=PR_TARGET?t('pr_see_result'):t('pr_next'))+'</button>';
+  feed.querySelector('.pr-next').onclick=function(){ prRound(mount); };
+}
+function prStars(n){ return '★★★'.slice(0,n)+'☆☆☆'.slice(0,3-n); }
+
+function prDraw(mount,o){
+  var W=o.W,H=o.H,mode=o.mode,need=(mode==='hline'?1:2);
+  var pts=[],submitted=false,drag=-1;
+  mount.innerHTML='<div class="pg-top"><span>'+o.question+'</span><span class="pg-score">'+t('pr_score')+' '+prState.correct+'/'+prState.i+'</span></div>'
+    +'<p class="pr-hint">'+o.hint+'</p>'
+    +'<div class="pr-chart"><svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide pr-draw" id="prDrawSvg" preserveAspectRatio="xMidYMid meet"></svg></div>'
+    +'<div class="pr-drawbar"><button class="btn sm ghost pr-clear">'+t('pr_clear')+'</button><button class="btn sm pr-submit" disabled>'+t('pr_check')+'</button></div>'
+    +'<div class="pg-feed"></div>';
+  var svg=mount.querySelector('#prDrawSvg');
+  function handle(x,y){ return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="7" fill="var(--accent)" fill-opacity="0.25" stroke="var(--accent)" stroke-width="2"/>'; }
+  function ext(sp,x){ return sp[0].y+(sp[1].y-sp[0].y)*((x-sp[0].x)/((sp[1].x-sp[0].x)||1)); }
+  function render(overlay){
+    var s=o.inner;
+    if(mode==='hline' && pts.length){
+      s+='<line x1="0" y1="'+pts[0].y.toFixed(1)+'" x2="'+W+'" y2="'+pts[0].y.toFixed(1)+'" stroke="var(--accent)" stroke-width="2"/>'+handle(W/2,pts[0].y);
+    } else if(mode==='line'){
+      if(pts.length===2){ var sp=pts.slice().sort(function(a,b){return a.x-b.x;}); s+='<line x1="0" y1="'+ext(sp,0).toFixed(1)+'" x2="'+W+'" y2="'+ext(sp,W).toFixed(1)+'" stroke="var(--accent)" stroke-width="2"/>'; }
+      pts.forEach(function(p){ s+=handle(p.x,p.y); });
+    }
+    if(overlay) s+=overlay;
+    svg.innerHTML=s;
+  }
+  function xy(e){ var r=svg.getBoundingClientRect(); return {x:(e.clientX-r.left)/r.width*W, y:(e.clientY-r.top)/r.height*H}; }
+  function nearest(p){ var bi=-1,bd=1e9; pts.forEach(function(q,i){ var d=Math.hypot(q.x-p.x,q.y-p.y); if(d<bd){bd=d;bi=i;} }); return bd<24?bi:-1; }
+  function updateBtn(){ var b=mount.querySelector('.pr-submit'); if(b) b.disabled=(pts.length<need); }
+  svg.addEventListener('pointerdown',function(e){ if(submitted) return; e.preventDefault(); var p=xy(e);
+    if(mode==='hline'){ if(!pts.length) pts.push({x:W/2,y:p.y}); else pts[0].y=p.y; drag=0; }
+    else { var n=nearest(p); if(n>=0) drag=n; else if(pts.length<2){ pts.push(p); drag=pts.length-1; } else { drag=0; pts[0]=p; } }
+    if(svg.setPointerCapture){ try{ svg.setPointerCapture(e.pointerId); }catch(_){} }
+    render(); updateBtn();
+  });
+  svg.addEventListener('pointermove',function(e){ if(submitted||drag<0) return; e.preventDefault(); var p=xy(e); if(mode==='hline') pts[0].y=p.y; else pts[drag]={x:p.x,y:p.y}; render(); });
+  svg.addEventListener('pointerup',function(){ drag=-1; });
+  svg.addEventListener('pointercancel',function(){ drag=-1; });
+  mount.querySelector('.pr-clear').onclick=function(){ if(submitted) return; pts=[]; render(); updateBtn(); };
+  mount.querySelector('.pr-submit').onclick=function(){ if(submitted||pts.length<need) return; submitted=true;
+    var g=o.grade(pts); render(g.overlay);
+    var b=mount.querySelector('.pr-submit'); if(b) b.disabled=true; var cl=mount.querySelector('.pr-clear'); if(cl) cl.disabled=true;
+    var head=(g.ok?'<span class="up">':'<span class="down">')+prStars(g.stars)+' '+(g.ok?t('pr_correct'):t('pr_wrong'))+'</span>';
+    prFinish(mount,g.ok,head+'<div class="pr-expl">'+g.explain+'</div>');
+  };
+  render();
+}
+
+/* Générateurs : série visible + tracé vrai (truth) */
+function genSR(){
+  var W=340,H=200,N=11,pad=18,pts,best=0,bestCount=0,tries=0;
+  do{
+    pts=[]; var y=55+Math.random()*70;
+    for(var i=0;i<N;i++){ pts.push(y); y+=(Math.random()-0.5)*78; if(y<28)y=28+Math.random()*18; if(y>H-24)y=H-24-Math.random()*18; }
+    best=0; bestCount=0;
+    for(var lv=30; lv<=H-26; lv+=4){ var c=0; for(var j=0;j<N;j++) if(Math.abs(pts[j]-lv)<8) c++; if(c>bestCount){bestCount=c;best=lv;} }
+    tries++;
+  } while(bestCount<3 && tries<30);
+  var dx=(W-2*pad)/(N-1);
+  var poly=pts.map(function(p,i){return (pad+i*dx).toFixed(1)+','+p.toFixed(1);}).join(' ');
+  var inner='<polyline points="'+poly+'" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>';
+  return {inner:inner,truthY:best,touches:bestCount,W:W,H:H};
+}
+function genTrend(dir){
+  var W=340,H=200,xA=W*0.14,xB=W*0.9,yA,yB;
+  if(dir==='down'){ yA=0.40*H; yB=0.78*H; } else { yA=0.78*H; yB=0.42*H; }
+  function ly(x){ return yA+(yB-yA)*((x-xA)/((xB-xA)||1)); }
+  var frac=[0,0.2,0.4,0.56,0.74,1],ser=[];
+  ser.push({x:6,y:ly(6)+(dir==='down'?4:-4)});
+  frac.forEach(function(f,i){
+    var x=xA+(xB-xA)*f, touch=(i%2===0), off=34+Math.random()*16;
+    ser.push({x:x,y: touch?ly(x):(dir==='down'?ly(x)+off:ly(x)-off)});
+  });
+  ser.push({x:W-6,y: ly(W-6)+(dir==='down'?22:-22)});
+  var poly=ser.map(function(p){return p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
+  var inner='<polyline points="'+poly+'" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>';
+  return {inner:inner,truth:{a:{x:xA,y:yA},b:{x:xB,y:yB}},W:W,H:H};
+}
+
+function prR_drawSR(mount){
+  var g=genSR();
+  prDraw(mount,{inner:g.inner,W:g.W,H:g.H,mode:'hline',
+    question:px(PRQ.q_dsr),hint:px(PRQ.h_dsr),
+    grade:function(pts){
+      var err=Math.abs(pts[0].y-g.truthY);
+      var stars=err<6?3:err<13?2:err<24?1:0,ok=stars>=1;
+      var overlay='<line x1="0" y1="'+g.truthY.toFixed(1)+'" x2="'+g.W+'" y2="'+g.truthY.toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
+      return {ok:ok,stars:stars,overlay:overlay,explain:px({fr:"Le vrai niveau (en vert) est touché "+g.touches+" fois. Un bon support/résistance s'aligne sur ces extrêmes répétés.",en:"The real level (green) is touched "+g.touches+" times. A good support/resistance lines up with those repeated extremes."})};
+    }});
+}
+function prR_drawTrend(mount){
+  var g=genTrend('up');
+  prDraw(mount,{inner:g.inner,W:g.W,H:g.H,mode:'line',
+    question:px(PRQ.q_dtrend),hint:px(PRQ.h_dtrend),
+    grade:function(pts){
+      var sp=pts.slice().sort(function(a,b){return a.x-b.x;});
+      function lineY(L,x){ return L.a.y+(L.b.y-L.a.y)*((x-L.a.x)/((L.b.x-L.a.x)||1)); }
+      function sy(x){ return sp[0].y+(sp[1].y-sp[0].y)*((x-sp[0].x)/((sp[1].x-sp[0].x)||1)); }
+      var err=(Math.abs(lineY(g.truth,0)-sy(0))+Math.abs(lineY(g.truth,g.W)-sy(g.W)))/2;
+      var stars=err<9?3:err<18?2:err<30?1:0,ok=stars>=1;
+      var overlay='<line x1="0" y1="'+lineY(g.truth,0).toFixed(1)+'" x2="'+g.W+'" y2="'+lineY(g.truth,g.W).toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
+      return {ok:ok,stars:stars,overlay:overlay,explain:px({fr:"La vraie ligne de tendance (en vert) relie les creux de plus en plus hauts. Tant que le prix reste au-dessus, la tendance est haussière.",en:"The real trendline (green) connects the higher lows. While price holds above it, the trend is up."})};
+    }});
 }
 
 function bindContent(){
