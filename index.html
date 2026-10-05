@@ -407,6 +407,19 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pg-opt.ok{background:var(--pos);border-color:var(--pos);color:#04210f}
   .pg-opt.no{background:var(--red);border-color:var(--red);color:#2a0707}
   .pg-feed{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px;min-height:10px;font-weight:600}
+  /* 🎮 Practice — ateliers interactifs */
+  .pr-chart{display:flex;justify-content:center;margin:8px 0 2px}
+  .pr-svg{width:150px;height:auto;max-width:100%}
+  .pr-svg.wide{width:100%;max-width:470px}
+  .pr-patimg{display:block;width:100%;max-width:300px;margin:0 auto;background:#fff;border-radius:10px;border:1px solid var(--border)}
+  .pr-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .pr-opts.one{grid-template-columns:1fr}
+  .pr-scen{color:var(--text);font-weight:600;margin:10px 2px 0;line-height:1.45}
+  .pr-expl{flex-basis:100%;color:var(--muted);font-weight:500;font-size:13px;line-height:1.5;margin-top:2px}
+  .pr-done{text-align:center;padding:12px 6px}
+  .pr-done-em{font-size:48px;line-height:1}
+  .pr-done-sc{font-family:var(--font-data,ui-monospace,monospace);font-size:27px;color:var(--accent);font-weight:800;margin:4px 0 14px}
+  .pr-reward{background:var(--chip-bg);border:1px solid var(--border);border-radius:12px;padding:12px;margin:0 auto 16px;max-width:360px;color:var(--text);font-weight:600}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -553,6 +566,7 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
     <select id="langSel" class="langsel" title="Langue / Language" style="width:100%;max-width:none;margin:4px 0 8px"></select>
     <nav class="nav" id="nav">
       <button data-view="home"><span class="ico">🏠</span> <span data-t="nav_home">Accueil</span></button>
+      <button data-view="practice"><span class="ico">🎮</span> <span data-t="practice">🎮 Practice</span></button>
       <span class="label" data-t="parcours">Parcours</span>
       <span class="label" data-t="monespace">Mon espace</span>
       <button data-view="simulator"><span class="ico">📈</span> <span data-t="sim">Simulateur Trading</span></button>
@@ -882,6 +896,7 @@ Object.assign(T, {"book_c6":{"en":"Trade, strategy & certification","fr":"Trade,
 Object.assign(T, {"ob_story_d":{"en":"Imagine waking up free — your time, your money, your life finally in your own hands. 🌙<br><br>That dream is why MOON-RZ exists.<br><br>When Covid shut down the world, I bought my first <b>BTC on June 1st, 2020</b> — and I felt it instantly: a door was opening. On <b>June 20th, 2020</b>, I began designing the <b>world's first physical crypto university</b>. Six years later, it's in your hands.<br><br>I believe knowledge changes lives — that anyone, anywhere, can learn to become financially independent and truly happy. No hype, no gurus. Just one lesson a day.<br><br>So let's go, <b>Space Cadet</b> 🚀 — learn one lesson a day and change your life forever.<br><br><b>Welcome to MOON-RZ.</b> 🌕","fr":"Imagine te réveiller libre — ton temps, ton argent, ta vie enfin entre tes mains. 🌙<br><br>C'est ce rêve qui a donné naissance à MOON-RZ.<br><br>Quand le Covid a arrêté le monde, j'ai acheté mes premiers <b>BTC le 1er juin 2020</b> — et je l'ai senti tout de suite : une porte s'ouvrait. Le <b>20 juin 2020</b>, je dessinais la <b>première université crypto physique au monde</b>. Six ans plus tard, elle est entre tes mains.<br><br>Je crois que le savoir change des vies — que n'importe qui, où qu'il soit, peut apprendre à devenir financièrement indépendant et vraiment heureux. Pas de hype, pas de gourous. Juste une leçon par jour.<br><br>Alors c'est parti, <b>Space Cadet</b> 🚀 — une leçon par jour, et change ta vie pour toujours.<br><br><b>Bienvenue dans MOON-RZ.</b> 🌕","es":"Imagina despertar libre — tu tiempo, tu dinero, tu vida por fin en tus manos. 🌙<br><br>Ese sueño es la razón de ser de MOON-RZ.<br><br>Cuando el Covid paralizó el mundo, compré mis primeros <b>BTC el 1 de junio de 2020</b> — y lo sentí al instante: una puerta se abría. El <b>20 de junio de 2020</b>, empecé a diseñar la <b>primera universidad cripto física del mundo</b>. Seis años después, está en tus manos.<br><br>Creo que el conocimiento cambia vidas — que cualquiera, donde sea, puede aprender a ser financieramente independiente y verdaderamente feliz. Sin hype, sin gurús. Solo una lección al día.<br><br>Así que vamos, <b>Space Cadet</b> 🚀 — una lección al día y cambia tu vida para siempre.<br><br><b>Bienvenido a MOON-RZ.</b> 🌕","pt":"Imagine acordar livre — seu tempo, seu dinheiro, sua vida finalmente nas suas mãos. 🌙<br><br>Esse sonho é a razão de existir do MOON-RZ.<br><br>Quando a Covid parou o mundo, comprei meus primeiros <b>BTC em 1º de junho de 2020</b> — e senti na hora: uma porta se abria. Em <b>20 de junho de 2020</b>, comecei a desenhar a <b>primeira universidade cripto física do mundo</b>. Seis anos depois, está nas suas mãos.<br><br>Acredito que o conhecimento muda vidas — que qualquer pessoa, em qualquer lugar, pode aprender a ser financeiramente independente e verdadeiramente feliz. Sem hype, sem gurus. Só uma lição por dia.<br><br>Então vamos, <b>Space Cadet</b> 🚀 — uma lição por dia e mude sua vida para sempre.<br><br><b>Bem-vindo ao MOON-RZ.</b> 🌕","de":"Stell dir vor, du wachst frei auf — deine Zeit, dein Geld, dein Leben endlich in deiner Hand. 🌙<br><br>Dieser Traum ist der Grund, warum MOON-RZ existiert.<br><br>Als Corona die Welt stilllegte, kaufte ich meine ersten <b>BTC am 1. Juni 2020</b> — und ich spürte es sofort: eine Tür öffnete sich. Am <b>20. Juni 2020</b> begann ich, die <b>weltweit erste physische Krypto-Universität</b> zu entwerfen. Sechs Jahre später liegt sie in deiner Hand.<br><br>Ich glaube, Wissen verändert Leben — dass jeder, überall, lernen kann, finanziell unabhängig und wirklich glücklich zu werden. Kein Hype, keine Gurus. Nur eine Lektion pro Tag.<br><br>Also los, <b>Space Cadet</b> 🚀 — eine Lektion pro Tag und verändere dein Leben für immer.<br><br><b>Willkommen bei MOON-RZ.</b> 🌕","ru":"Представь, что ты просыпаешься свободным — твоё время, твои деньги, твоя жизнь наконец в твоих руках. 🌙<br><br>Ради этой мечты и существует MOON-RZ.<br><br>Когда ковид остановил мир, я купил свои первые <b>BTC 1 июня 2020 года</b> — и сразу почувствовал: открывается дверь. <b>20 июня 2020 года</b> я начал проектировать <b>первый в мире физический крипто-университет</b>. Шесть лет спустя он у тебя в руках.<br><br>Я верю, что знания меняют жизни — что любой человек где угодно может научиться быть финансово независимым и по-настоящему счастливым. Без хайпа, без гуру. Всего один урок в день.<br><br>Так что вперёд, <b>Space Cadet</b> 🚀 — один урок в день, и измени свою жизнь навсегда.<br><br><b>Добро пожаловать в MOON-RZ.</b> 🌕","tr":"Özgür uyandığını hayal et — zamanın, paran, hayatın sonunda senin elinde. 🌙<br><br>MOON-RZ işte bu hayal için var.<br><br>Covid dünyayı durdurduğunda ilk <b>BTC'lerimi 1 Haziran 2020'de</b> aldım — ve hemen hissettim: bir kapı açılıyordu. <b>20 Haziran 2020'de</b>, <b>dünyanın ilk fiziksel kripto üniversitesini</b> tasarlamaya başladım. Altı yıl sonra, şimdi senin elinde.<br><br>Bilginin hayatları değiştirdiğine inanıyorum — herkesin, her yerde, finansal olarak özgür ve gerçekten mutlu olmayı öğrenebileceğine. Balon yok, guru yok. Sadece günde bir ders.<br><br>Haydi o zaman, <b>Space Cadet</b> 🚀 — günde bir ders ve hayatını sonsuza dek değiştir.<br><br><b>MOON-RZ'ye hoş geldin.</b> 🌕","ar":"تخيّل أن تستيقظ حرّاً — وقتك ومالك وحياتك أخيراً بين يديك. 🌙<br><br>هذا الحلم هو سبب وجود MOON-RZ.<br><br>عندما أوقف كوفيد العالم، اشتريت أول <b>BTC في 1 يونيو 2020</b> — وشعرت بذلك فوراً: باب يُفتح. في <b>20 يونيو 2020</b>، بدأت تصميم <b>أول جامعة كريبتو فعلية في العالم</b>. وبعد ست سنوات، ها هي بين يديك.<br><br>أؤمن أن المعرفة تغيّر الحياة — أن أي شخص، في أي مكان، يمكنه أن يتعلّم ليصبح مستقلاً مالياً وسعيداً حقاً. لا ضجيج، لا معلّمين مزيّفين. مجرد درس واحد يومياً.<br><br>فهيا، <b>Space Cadet</b> 🚀 — درس واحد كل يوم، وغيّر حياتك إلى الأبد.<br><br><b>أهلاً بك في MOON-RZ.</b> 🌕","zh":"想象一下，醒来便是自由——你的时间、你的金钱、你的人生终于掌握在自己手中。🌙<br><br>正是这个梦想，让 MOON-RZ 诞生。<br><br>当新冠让世界停摆时，我在 <b>2020年6月1日</b> 买入了第一批 <b>BTC</b>——我立刻感觉到：一扇门正在打开。<b>2020年6月20日</b>，我开始设计 <b>全球首所实体加密大学</b>。六年之后，它就在你手中。<br><br>我相信知识能改变命运——任何人，无论身在何处，都能学会实现财务自由、获得真正的幸福。没有炒作，没有大师。每天只需一课。<br><br>那么出发吧，<b>Space Cadet</b> 🚀——每天一课，永远改变你的人生。<br><br><b>欢迎来到 MOON-RZ。</b> 🌕","ja":"想像してみて——自由に目覚める朝を。君の時間、君のお金、君の人生が、ついに君の手の中に。🌙<br><br>その夢のために MOON-RZ はある。<br><br>コロナが世界を止めたとき、<b>2020年6月1日</b>に初めて <b>BTC</b> を買った——そして即座に感じた、扉が開くのを。<b>2020年6月20日</b>、私は <b>世界初の物理的なクリプト大学</b> の設計を始めた。6年後、それは君の手の中にある。<br><br>私は知識が人生を変えると信じている——どこにいる誰でも、経済的に自立し、本当に幸せになる方法を学べると。誇大広告も、グルもいらない。ただ1日1レッスン。<br><br>さあ行こう、<b>Space Cadet</b> 🚀——1日1レッスンで、人生を永遠に変えよう。<br><br><b>MOON-RZ へようこそ。</b> 🌕","ko":"상상해봐 — 자유롭게 눈뜨는 아침을. 너의 시간, 너의 돈, 너의 인생이 드디어 네 손안에. 🌙<br><br>바로 그 꿈을 위해 MOON-RZ가 존재한다.<br><br>코로나가 세상을 멈췄을 때, 나는 <b>2020년 6월 1일</b> 첫 <b>BTC</b>를 샀다 — 그리고 즉시 느꼈다, 문이 열리는 것을. <b>2020년 6월 20일</b>, 나는 <b>세계 최초의 물리적 크립토 대학</b>을 설계하기 시작했다. 6년 후, 그것이 네 손안에 있다.<br><br>나는 지식이 인생을 바꾼다고 믿는다 — 누구나, 어디서든, 경제적으로 독립하고 진정으로 행복해지는 법을 배울 수 있다고. 과장도, 구루도 없이. 하루 한 강의면 된다.<br><br>자, 가자 <b>Space Cadet</b> 🚀 — 하루 한 강의로 너의 인생을 영원히 바꿔라.<br><br><b>MOON-RZ에 온 걸 환영해.</b> 🌕","hi":"कल्पना करो — आज़ाद जागना। तुम्हारा समय, तुम्हारा पैसा, तुम्हारी ज़िंदगी आख़िरकार तुम्हारे हाथ में। 🌙<br><br>यही सपना MOON-RZ के होने की वजह है।<br><br>जब कोविड ने दुनिया रोक दी, मैंने अपने पहले <b>BTC 1 जून 2020</b> को खरीदे — और मुझे तुरंत महसूस हुआ: एक दरवाज़ा खुल रहा है। <b>20 जून 2020</b> को, मैंने <b>दुनिया की पहली भौतिक क्रिप्टो यूनिवर्सिटी</b> डिज़ाइन करनी शुरू की। छह साल बाद, वह तुम्हारे हाथ में है।<br><br>मेरा विश्वास है कि ज्ञान ज़िंदगियाँ बदलता है — कि कोई भी, कहीं भी, आर्थिक रूप से स्वतंत्र और सच में ख़ुश होना सीख सकता है। न हाइप, न गुरु। बस रोज़ एक पाठ।<br><br>तो चलो, <b>Space Cadet</b> 🚀 — रोज़ एक पाठ और अपनी ज़िंदगी हमेशा के लिए बदल दो।<br><br><b>MOON-RZ में स्वागत है।</b> 🌕","id":"Bayangkan bangun dalam keadaan bebas — waktumu, uangmu, hidupmu akhirnya di tanganmu sendiri. 🌙<br><br>Mimpi itulah alasan MOON-RZ ada.<br><br>Saat Covid menghentikan dunia, aku membeli <b>BTC pertamaku pada 1 Juni 2020</b> — dan aku langsung merasakannya: sebuah pintu terbuka. Pada <b>20 Juni 2020</b>, aku mulai merancang <b>universitas kripto fisik pertama di dunia</b>. Enam tahun kemudian, kini ada di tanganmu.<br><br>Aku percaya pengetahuan mengubah hidup — bahwa siapa pun, di mana pun, bisa belajar menjadi mandiri secara finansial dan benar-benar bahagia. Tanpa hype, tanpa guru. Cukup satu pelajaran sehari.<br><br>Jadi ayo, <b>Space Cadet</b> 🚀 — satu pelajaran sehari dan ubah hidupmu selamanya.<br><br><b>Selamat datang di MOON-RZ.</b> 🌕","vi":"Hãy tưởng tượng thức dậy trong tự do — thời gian, tiền bạc, cuộc đời bạn cuối cùng nằm trong tay bạn. 🌙<br><br>Giấc mơ đó là lý do MOON-RZ tồn tại.<br><br>Khi Covid khiến thế giới ngừng lại, tôi mua những đồng <b>BTC đầu tiên vào ngày 1/6/2020</b> — và tôi cảm nhận ngay lập tức: một cánh cửa đang mở ra. Ngày <b>20/6/2020</b>, tôi bắt đầu thiết kế <b>trường đại học crypto vật lý đầu tiên trên thế giới</b>. Sáu năm sau, nó đang ở trong tay bạn.<br><br>Tôi tin rằng tri thức thay đổi cuộc đời — rằng bất kỳ ai, ở bất kỳ đâu, đều có thể học để tự do tài chính và thực sự hạnh phúc. Không thổi phồng, không thầy bà. Chỉ một bài học mỗi ngày.<br><br>Vậy thì lên đường, <b>Space Cadet</b> 🚀 — mỗi ngày một bài học và thay đổi cuộc đời bạn mãi mãi.<br><br><b>Chào mừng đến với MOON-RZ.</b> 🌕","th":"ลองจินตนาการว่าตื่นขึ้นมาอย่างอิสระ — เวลา เงิน และชีวิตของคุณ อยู่ในมือคุณเองในที่สุด 🌙<br><br>ความฝันนั้นคือเหตุผลที่ MOON-RZ ถือกำเนิด<br><br>เมื่อโควิดทำให้โลกหยุดนิ่ง ผมซื้อ <b>BTC ก้อนแรกเมื่อ 1 มิถุนายน 2020</b> — และผมรู้สึกได้ทันที ว่าประตูกำลังเปิดออก เมื่อ <b>20 มิถุนายน 2020</b> ผมเริ่มออกแบบ <b>มหาวิทยาลัยคริปโตเชิงกายภาพแห่งแรกของโลก</b> หกปีต่อมา มันอยู่ในมือคุณแล้ว<br><br>ผมเชื่อว่าความรู้เปลี่ยนชีวิต — ว่าใครก็ตาม ที่ไหนก็ได้ สามารถเรียนรู้ที่จะมีอิสรภาพทางการเงินและมีความสุขอย่างแท้จริง ไม่มีการปั่นกระแส ไม่มีกูรู แค่วันละหนึ่งบทเรียน<br><br>ฉะนั้นไปกันเลย <b>Space Cadet</b> 🚀 — วันละหนึ่งบทเรียน แล้วเปลี่ยนชีวิตคุณไปตลอดกาล<br><br><b>ยินดีต้อนรับสู่ MOON-RZ</b> 🌕","my":"စိတ်ကူးကြည့်ပါ — လွတ်လပ်စွာ နိုးထတဲ့မနက်ခင်းကို။ မင်းရဲ့အချိန်၊ မင်းရဲ့ငွေ၊ မင်းရဲ့ဘဝ နောက်ဆုံးမှာ မင်းလက်ထဲ ရောက်လာပြီ။ 🌙<br><br>အဲ့ဒီအိပ်မက်ကြောင့်ပဲ MOON-RZ တည်ရှိနေတာ။<br><br>Covid က ကမ္ဘာကို ရပ်တန့်စေတဲ့အခါ ပထမဆုံး <b>BTC ကို 2020 ဇွန် 1 ရက်</b> မှာဝယ်ခဲ့တယ် — ချက်ချင်းခံစားမိတယ်၊ တံခါးတစ်ချပ် ပွင့်လာနေတာ။ <b>2020 ဇွန် 20 ရက်</b> မှာ <b>ကမ္ဘာ့ပထမဆုံး ရုပ်ပိုင်းဆိုင်ရာ crypto တက္ကသိုလ်</b> ကို စတင်ဒီဇိုင်းဆွဲခဲ့တယ်။ ၆ နှစ်ကြာပြီးနောက် အခု မင်းလက်ထဲမှာ။<br><br>အသိပညာက ဘဝတွေကို ပြောင်းလဲစေတယ်လို့ ကျွန်တော်ယုံတယ် — ဘယ်သူမဆို၊ ဘယ်နေရာကမဆို ငွေကြေးလွတ်လပ်ပြီး တကယ်ပျော်ရွှင်အောင် သင်ယူနိုင်တယ်လို့။ hype မရှိ၊ ဆရာတော်ကြီးမရှိ။ တစ်နေ့ သင်ခန်းစာတစ်ခုပဲ။<br><br>ဒါဆို သွားကြစို့ <b>Space Cadet</b> 🚀 — တစ်နေ့ သင်ခန်းစာတစ်ခုနဲ့ မင်းဘဝကို ထာဝရ ပြောင်းလဲလိုက်ပါ။<br><br><b>MOON-RZ မှ ကြိုဆိုပါတယ်။</b> 🌕"},"disclaimer_t":{"en":"⚠️ Disclaimer","fr":"⚠️ Avertissement","es":"⚠️ Aviso legal","pt":"⚠️ Aviso legal","de":"⚠️ Haftungsausschluss","ru":"⚠️ Отказ от ответственности","tr":"⚠️ Yasal Uyarı","ar":"⚠️ إخلاء مسؤولية","zh":"⚠️ 免责声明","ja":"⚠️ 免責事項","ko":"⚠️ 면책 조항","hi":"⚠️ अस्वीकरण","id":"⚠️ Penafian","vi":"⚠️ Tuyên bố miễn trừ","th":"⚠️ ข้อจำกัดความรับผิด","my":"⚠️ သတိပေးချက်"},"disclaimer_short":{"en":"⚠️ Educational content only — not financial advice. You trade at your own risk.","fr":"⚠️ Contenu éducatif uniquement — pas un conseil financier. Tu trades à tes propres risques.","es":"⚠️ Solo contenido educativo — no es asesoramiento financiero. Operas bajo tu propio riesgo.","pt":"⚠️ Apenas conteúdo educativo — não é aconselhamento financeiro. Você opera por sua conta e risco.","de":"⚠️ Nur Bildungsinhalte — keine Finanzberatung. Du handelst auf eigenes Risiko.","ru":"⚠️ Только обучение — не финансовый совет. Ты торгуешь на свой страх и риск.","tr":"⚠️ Yalnızca eğitim içeriği — finansal tavsiye değildir. Kendi riskinle işlem yaparsın.","ar":"⚠️ محتوى تعليمي فقط — ليس نصيحة مالية. أنت تتداول على مسؤوليتك الخاصة.","zh":"⚠️ 仅为教育内容——非财务建议。交易风险自负。","ja":"⚠️ 教育目的のみ — 金融助言ではありません。取引は自己責任で。","ko":"⚠️ 교육용 콘텐츠일 뿐 — 금융 조언이 아닙니다. 거래는 본인 책임입니다.","hi":"⚠️ केवल शैक्षिक सामग्री — वित्तीय सलाह नहीं। ट्रेडिंग आपके अपने जोखिम पर।","id":"⚠️ Hanya konten edukasi — bukan nasihat finansial. Kamu trading atas risikomu sendiri.","vi":"⚠️ Chỉ là nội dung giáo dục — không phải lời khuyên tài chính. Bạn giao dịch với rủi ro của chính mình.","th":"⚠️ เนื้อหาเพื่อการศึกษาเท่านั้น — ไม่ใช่คำแนะนำทางการเงิน คุณเทรดด้วยความเสี่ยงของคุณเอง","my":"⚠️ ပညာရေးအတွက်သာ — ဘဏ္ဍာရေးအကြံပြုချက်မဟုတ်ပါ။ ကိုယ့်တာဝန်နှင့်ကိုယ် ရောင်းဝယ်ပါ။"},"disclaimer":{"en":"MOON-RZ is an educational platform only. Nothing here is financial, investment, legal or tax advice. Crypto trading carries a high level of risk and you may lose some or all of your capital — never invest more than you can afford to lose. Always do your own research (DYOR). Past performance does not guarantee future results. You alone are responsible for your decisions.","fr":"MOON-RZ est une plateforme uniquement éducative. Rien ici ne constitue un conseil financier, en investissement, juridique ou fiscal. Le trading de cryptos comporte un risque élevé et tu peux perdre tout ou partie de ton capital — n'investis jamais plus que ce que tu peux te permettre de perdre. Fais toujours tes propres recherches (DYOR). Les performances passées ne garantissent pas les résultats futurs. Tu es seul responsable de tes décisions.","es":"MOON-RZ es únicamente una plataforma educativa. Nada de lo aquí presente es asesoramiento financiero, de inversión, legal ni fiscal. El trading de cripto conlleva un alto riesgo y puedes perder parte o la totalidad de tu capital; nunca inviertas más de lo que puedas permitirte perder. Haz siempre tu propia investigación (DYOR). Los resultados pasados no garantizan resultados futuros. Eres el único responsable de tus decisiones.","pt":"O MOON-RZ é apenas uma plataforma educativa. Nada aqui é aconselhamento financeiro, de investimento, jurídico ou fiscal. O trading de cripto envolve risco elevado e você pode perder parte ou todo o seu capital — nunca invista mais do que pode perder. Faça sempre sua própria pesquisa (DYOR). Resultados passados não garantem resultados futuros. Você é o único responsável pelas suas decisões.","de":"MOON-RZ ist ausschließlich eine Bildungsplattform. Nichts hier ist Finanz-, Anlage-, Rechts- oder Steuerberatung. Krypto-Trading birgt ein hohes Risiko und du kannst einen Teil oder dein gesamtes Kapital verlieren — investiere nie mehr, als du dir leisten kannst zu verlieren. Mach immer deine eigene Recherche (DYOR). Vergangene Ergebnisse garantieren keine zukünftigen. Für deine Entscheidungen bist allein du verantwortlich.","ru":"MOON-RZ — это исключительно образовательная платформа. Ничто здесь не является финансовой, инвестиционной, юридической или налоговой консультацией. Торговля криптовалютой сопряжена с высоким риском, и ты можешь потерять часть или весь капитал — никогда не вкладывай больше, чем можешь позволить себе потерять. Всегда проводи собственное исследование (DYOR). Прошлые результаты не гарантируют будущих. Ответственность за свои решения несёшь только ты.","tr":"MOON-RZ yalnızca bir eğitim platformudur. Buradaki hiçbir şey finansal, yatırım, hukuki veya vergi tavsiyesi değildir. Kripto ticareti yüksek risk taşır ve sermayenin bir kısmını veya tamamını kaybedebilirsin — kaybetmeyi göze alabileceğinden fazlasını asla yatırma. Daima kendi araştırmanı yap (DYOR). Geçmiş performans gelecekteki sonuçları garanti etmez. Kararlarından yalnızca sen sorumlusun.","ar":"MOON-RZ منصة تعليمية فقط. لا شيء هنا يُعدّ نصيحة مالية أو استثمارية أو قانونية أو ضريبية. ينطوي تداول الكريبتو على مخاطر عالية وقد تخسر جزءاً من رأس مالك أو كله — لا تستثمر أبداً أكثر مما يمكنك تحمّل خسارته. قم دائماً ببحثك الخاص (DYOR). الأداء السابق لا يضمن النتائج المستقبلية. أنت وحدك المسؤول عن قراراتك.","zh":"MOON-RZ 仅为教育平台。此处任何内容均不构成财务、投资、法律或税务建议。加密交易风险极高，你可能损失部分甚至全部本金——切勿投入超过你能承受损失的资金。请务必自行研究（DYOR）。过往表现不保证未来结果。你需对自己的决定独自负责。","ja":"MOON-RZ は教育目的のプラットフォームです。ここにあるものは金融・投資・法律・税務上の助言ではありません。暗号資産の取引は高いリスクを伴い、資金の一部またはすべてを失う可能性があります——失っても困らない範囲を超えて投資しないでください。必ず自分で調べてください（DYOR）。過去の実績は将来の結果を保証しません。あなたの決定の責任はあなた自身にあります。","ko":"MOON-RZ는 교육용 플랫폼일 뿐입니다. 여기 어떤 것도 금융·투자·법률·세무 조언이 아닙니다. 암호화폐 거래는 높은 위험을 수반하며 자본의 일부 또는 전부를 잃을 수 있습니다 — 잃어도 괜찮은 금액 이상을 투자하지 마세요. 항상 스스로 조사하세요(DYOR). 과거 성과가 미래 결과를 보장하지 않습니다. 당신의 결정에 대한 책임은 오직 당신에게 있습니다.","hi":"MOON-RZ केवल एक शैक्षिक मंच है। यहाँ कुछ भी वित्तीय, निवेश, क़ानूनी या कर सलाह नहीं है। क्रिप्टो ट्रेडिंग में बहुत ज़्यादा जोखिम है और आप अपनी पूंजी का कुछ हिस्सा या पूरा खो सकते हैं — उतना कभी न लगाएँ जितना खोना आपके लिए भारी हो। हमेशा ख़ुद शोध करें (DYOR)। पिछला प्रदर्शन भविष्य के नतीजों की गारंटी नहीं है। आपके फ़ैसलों के लिए केवल आप ज़िम्मेदार हैं।","id":"MOON-RZ hanyalah platform edukasi. Tidak ada satu pun di sini yang merupakan nasihat finansial, investasi, hukum, atau pajak. Trading kripto memiliki risiko tinggi dan kamu bisa kehilangan sebagian atau seluruh modalmu — jangan pernah berinvestasi lebih dari yang sanggup kamu tanggung kerugiannya. Selalu lakukan riset sendiri (DYOR). Kinerja masa lalu tidak menjamin hasil di masa depan. Hanya kamu yang bertanggung jawab atas keputusanmu.","vi":"MOON-RZ chỉ là một nền tảng giáo dục. Không có nội dung nào ở đây là lời khuyên tài chính, đầu tư, pháp lý hay thuế. Giao dịch crypto mang rủi ro cao và bạn có thể mất một phần hoặc toàn bộ vốn — đừng bao giờ đầu tư nhiều hơn số tiền bạn có thể chấp nhận mất. Luôn tự nghiên cứu (DYOR). Hiệu suất trong quá khứ không đảm bảo kết quả tương lai. Bạn là người duy nhất chịu trách nhiệm cho quyết định của mình.","th":"MOON-RZ เป็นแพลตฟอร์มเพื่อการศึกษาเท่านั้น ไม่มีสิ่งใดในที่นี้เป็นคำแนะนำทางการเงิน การลงทุน กฎหมาย หรือภาษี การเทรดคริปโตมีความเสี่ยงสูงและคุณอาจสูญเสียเงินทุนบางส่วนหรือทั้งหมด — อย่าลงทุนเกินกว่าที่คุณรับความสูญเสียได้ ศึกษาด้วยตนเองเสมอ (DYOR) ผลงานในอดีตไม่รับประกันผลในอนาคต คุณเป็นผู้รับผิดชอบต่อการตัดสินใจของคุณแต่เพียงผู้เดียว","my":"MOON-RZ သည် ပညာရေးပလက်ဖောင်းသာ ဖြစ်သည်။ ဤနေရာတွင် မည်သည့်အရာမျှ ဘဏ္ဍာရေး၊ ရင်းနှီးမြှုပ်နှံမှု၊ ဥပဒေ သို့မဟုတ် အခွန်ဆိုင်ရာ အကြံပြုချက် မဟုတ်ပါ။ crypto ရောင်းဝယ်ခြင်းသည် အန္တရာယ်များပြီး သင့်အရင်းအနှီး တစ်စိတ်တစ်ပိုင်း သို့မဟုတ် အားလုံး ဆုံးရှုံးနိုင်သည် — ဆုံးရှုံးခံနိုင်တာထက် ပိုမရင်းနှီးပါနဲ့။ ကိုယ်တိုင် အမြဲ သုတေသနလုပ်ပါ (DYOR)။ အတိတ်စွမ်းဆောင်ရည်က အနာဂတ်ရလဒ်ကို အာမမခံပါ။ သင့်ဆုံးဖြတ်ချက်များအတွက် သင်တစ်ဦးတည်းသာ တာဝန်ရှိသည်။"}}); // ✨ histoire inspirante + disclaimer
 Object.assign(T, {"bot_title":{"en":"MOON-RZ Tutor","fr":"Tuteur MOON-RZ","es":"Tutor MOON-RZ","pt":"Tutor MOON-RZ","de":"MOON-RZ Tutor","ru":"Наставник MOON-RZ","tr":"MOON-RZ Eğitmeni","ar":"مدرّب MOON-RZ","zh":"MOON-RZ 导师","ja":"MOON-RZ チューター","ko":"MOON-RZ 튜터","hi":"MOON-RZ ट्यूटर","id":"Tutor MOON-RZ","vi":"Gia sư MOON-RZ","th":"ติวเตอร์ MOON-RZ","my":"MOON-RZ နည်းပြ"},"bot_sub":{"en":"Ask me a crypto question","fr":"Pose-moi une question crypto","es":"Hazme una pregunta cripto","pt":"Faça uma pergunta cripto","de":"Stell mir eine Krypto-Frage","ru":"Задай вопрос о крипте","tr":"Bana bir kripto sorusu sor","ar":"اسألني سؤالاً عن الكريبتو","zh":"问我一个加密问题","ja":"暗号資産について質問してね","ko":"크립토 질문을 해보세요","hi":"मुझसे क्रिप्टो सवाल पूछें","id":"Tanya aku soal kripto","vi":"Hỏi mình về crypto","th":"ถามคำถามคริปโตกับฉัน","my":"crypto အကြောင်း မေးပါ"},"bot_ph":{"en":"Type your question…","fr":"Écris ta question…","es":"Escribe tu pregunta…","pt":"Escreva sua pergunta…","de":"Schreib deine Frage…","ru":"Напиши свой вопрос…","tr":"Sorunu yaz…","ar":"اكتب سؤالك…","zh":"输入你的问题…","ja":"質問を入力…","ko":"질문을 입력하세요…","hi":"अपना सवाल लिखें…","id":"Tulis pertanyaanmu…","vi":"Nhập câu hỏi…","th":"พิมพ์คำถามของคุณ…","my":"မေးခွန်းရိုက်ပါ…"},"bot_hi":{"en":"Hi! I'm your tutor. Ask me about an indicator (RSI, MACD…), a chart pattern, or a crypto term. 🚀","fr":"Salut ! Je suis ton tuteur. Demande-moi ce qu'est un indicateur (RSI, MACD…), une figure chartiste, ou un terme crypto. 🚀","es":"¡Hola! Soy tu tutor. Pregúntame por un indicador (RSI, MACD…), una figura chartista o un término cripto. 🚀","pt":"Oi! Sou seu tutor. Pergunte sobre um indicador (RSI, MACD…), um padrão gráfico ou um termo cripto. 🚀","de":"Hi! Ich bin dein Tutor. Frag mich nach einem Indikator (RSI, MACD…), einem Chartmuster oder einem Krypto-Begriff. 🚀","ru":"Привет! Я твой наставник. Спроси про индикатор (RSI, MACD…), фигуру на графике или крипто-термин. 🚀","tr":"Selam! Ben senin eğitmeninim. Bir gösterge (RSI, MACD…), grafik formasyonu ya da kripto terimi sor. 🚀","ar":"مرحباً! أنا مدرّبك. اسألني عن مؤشر (RSI، MACD…)، نموذج رسم بياني، أو مصطلح كريبتو. 🚀","zh":"嗨！我是你的导师。问我某个指标（RSI、MACD…）、图表形态或加密术语吧。🚀","ja":"やあ！君のチューターだよ。指標（RSI、MACD…）、チャートパターン、暗号用語について聞いてね。🚀","ko":"안녕! 네 튜터야. 지표(RSI, MACD…), 차트 패턴, 크립토 용어를 물어봐. 🚀","hi":"नमस्ते! मैं तुम्हारा ट्यूटर हूँ। किसी इंडिकेटर (RSI, MACD…), चार्ट पैटर्न या क्रिप्टो शब्द के बारे में पूछो। 🚀","id":"Hai! Aku tutormu. Tanya soal indikator (RSI, MACD…), pola grafik, atau istilah kripto. 🚀","vi":"Chào! Mình là gia sư của bạn. Hỏi mình về một chỉ báo (RSI, MACD…), mô hình giá, hay thuật ngữ crypto nhé. 🚀","th":"สวัสดี! ฉันคือติวเตอร์ของคุณ ถามเกี่ยวกับอินดิเคเตอร์ (RSI, MACD…), รูปแบบกราฟ หรือศัพท์คริปโตได้เลย 🚀","my":"ဟိုင်း! ကျွန်တော်က မင်းရဲ့နည်းပြ။ အညွှန်းကိန်း (RSI, MACD…)၊ ချာ့ပုံစံ၊ crypto ဝေါဟာရအကြောင်း မေးပါ။ 🚀"},"bot_nomatch":{"en":"I don't have the exact answer yet. Try a keyword (RSI, MACD, wallet, NFT…) or explore the academies. 📚","fr":"Je n'ai pas encore la réponse exacte. Essaie un mot-clé (RSI, MACD, wallet, NFT…) ou explore les académies. 📚","es":"Aún no tengo la respuesta exacta. Prueba una palabra clave (RSI, MACD, wallet, NFT…) o explora las academias. 📚","pt":"Ainda não tenho a resposta exata. Tente uma palavra-chave (RSI, MACD, wallet, NFT…) ou explore as academias. 📚","de":"Ich habe die genaue Antwort noch nicht. Versuch ein Stichwort (RSI, MACD, Wallet, NFT…) oder erkunde die Akademien. 📚","ru":"У меня пока нет точного ответа. Попробуй ключевое слово (RSI, MACD, кошелёк, NFT…) или загляни в академии. 📚","tr":"Tam cevabım henüz yok. Bir anahtar kelime dene (RSI, MACD, cüzdan, NFT…) ya da akademileri keşfet. 📚","ar":"ليس لديّ الإجابة الدقيقة بعد. جرّب كلمة مفتاحية (RSI، MACD، محفظة، NFT…) أو استكشف الأكاديميات. 📚","zh":"我还没有确切答案。试试关键词（RSI、MACD、钱包、NFT…）或去看看学院。📚","ja":"まだ正確な答えがないんだ。キーワード（RSI、MACD、ウォレット、NFT…）を試すか、アカデミーを見てみて。📚","ko":"아직 정확한 답이 없어. 키워드(RSI, MACD, 지갑, NFT…)를 써보거나 아카데미를 둘러봐. 📚","hi":"मेरे पास अभी सटीक जवाब नहीं है। कोई कीवर्ड आज़माओ (RSI, MACD, wallet, NFT…) या अकादमियाँ देखो। 📚","id":"Aku belum punya jawaban pastinya. Coba kata kunci (RSI, MACD, wallet, NFT…) atau jelajahi akademi. 📚","vi":"Mình chưa có câu trả lời chính xác. Thử một từ khóa (RSI, MACD, ví, NFT…) hoặc khám phá các học viện. 📚","th":"ฉันยังไม่มีคำตอบที่แน่ชัด ลองคำสำคัญ (RSI, MACD, wallet, NFT…) หรือสำรวจสถาบันดูนะ 📚","my":"တိကျတဲ့အဖြေ မရှိသေးဘူး။ keyword (RSI, MACD, wallet, NFT…) စမ်းပါ၊ ဒါမှမဟုတ် academy တွေ လေ့လာပါ။ 📚"},"bot_open":{"en":"Open the tutor","fr":"Ouvrir le tuteur","es":"Abrir el tutor","pt":"Abrir o tutor","de":"Tutor öffnen","ru":"Открыть наставника","tr":"Eğitmeni aç","ar":"افتح المدرّب","zh":"打开导师","ja":"チューターを開く","ko":"튜터 열기","hi":"ट्यूटर खोलें","id":"Buka tutor","vi":"Mở gia sư","th":"เปิดติวเตอร์","my":"နည်းပြဖွင့်"},"bot_send":{"en":"Send","fr":"Envoyer","es":"Enviar","pt":"Enviar","de":"Senden","ru":"Отправить","tr":"Gönder","ar":"إرسال","zh":"发送","ja":"送信","ko":"보내기","hi":"भेजें","id":"Kirim","vi":"Gửi","th":"ส่ง","my":"ပို့"},"bot_see":{"en":"See the card →","fr":"Voir la fiche →","es":"Ver la ficha →","pt":"Ver a ficha →","de":"Zur Karte →","ru":"Открыть карточку →","tr":"Kartı gör →","ar":"اعرض البطاقة →","zh":"查看卡片 →","ja":"カードを見る →","ko":"카드 보기 →","hi":"कार्ड देखें →","id":"Lihat kartu →","vi":"Xem thẻ →","th":"ดูการ์ด →","my":"ကတ်ကြည့် →"},"bot_sug1":{"en":"What is the RSI?","fr":"C'est quoi le RSI ?","es":"¿Qué es el RSI?","pt":"O que é o RSI?","de":"Was ist der RSI?","ru":"Что такое RSI?","tr":"RSI nedir?","ar":"ما هو RSI؟","zh":"RSI 是什么？","ja":"RSIとは？","ko":"RSI가 뭐야?","hi":"RSI क्या है?","id":"Apa itu RSI?","vi":"RSI là gì?","th":"RSI คืออะไร?","my":"RSI ဆိုတာဘာလဲ?"},"bot_sug2":{"en":"Explain the MACD","fr":"Explique le MACD","es":"Explica el MACD","pt":"Explique o MACD","de":"Erkläre den MACD","ru":"Объясни MACD","tr":"MACD'yi açıkla","ar":"اشرح MACD","zh":"解释一下 MACD","ja":"MACDを説明して","ko":"MACD 설명해줘","hi":"MACD समझाओ","id":"Jelaskan MACD","vi":"Giải thích MACD","th":"อธิบาย MACD","my":"MACD ရှင်းပြ"},"bot_sug3":{"en":"What is a wallet?","fr":"C'est quoi un wallet ?","es":"¿Qué es una wallet?","pt":"O que é uma wallet?","de":"Was ist eine Wallet?","ru":"Что такое кошелёк?","tr":"Cüzdan nedir?","ar":"ما هي المحفظة؟","zh":"钱包是什么？","ja":"ウォレットとは？","ko":"지갑이 뭐야?","hi":"wallet क्या है?","id":"Apa itu wallet?","vi":"Ví là gì?","th":"wallet คือออะไร?","my":"wallet ဆိုတာဘာလဲ?"}}); // 🤖 tuteur i18n
 Object.assign(T, {"hot":{"en":"🔥 HOT coins","fr":"🔥 HOT coins","es":"🔥 HOT coins","pt":"🔥 HOT coins","de":"🔥 HOT coins","ru":"🔥 HOT coins","tr":"🔥 HOT coins","ar":"🔥 HOT coins","zh":"🔥 HOT coins","ja":"🔥 HOT coins","ko":"🔥 HOT coins","hi":"🔥 HOT coins","id":"🔥 HOT coins","vi":"🔥 HOT coins","th":"🔥 HOT coins","my":"🔥 HOT coins"},"hot_sub":{"en":"The coins moving right now","fr":"Les cryptos qui bougent maintenant","es":"Las cripto que se mueven ahora","pt":"As cripto que estão se movendo agora","de":"Die Coins, die sich gerade bewegen","ru":"Монеты, которые движутся прямо сейчас","tr":"Şu anda hareketlenen coinler","ar":"العملات التي تتحرّك الآن","zh":"此刻在异动的币种","ja":"いま動いているコイン","ko":"지금 움직이는 코인","hi":"अभी हलचल वाली क्रिप्टो","id":"Koin yang bergerak sekarang","vi":"Những coin đang biến động ngay bây giờ","th":"เหรียญที่กำลังเคลื่อนไหวตอนนี้","my":"အခုလှုပ်ရှားနေတဲ့ coin များ"},"hot_trending":{"en":"Trending","fr":"Tendance","es":"Tendencia","pt":"Em alta","de":"Im Trend","ru":"В тренде","tr":"Trend","ar":"رائج","zh":"热门","ja":"トレンド","ko":"인기","hi":"ट्रेंडिंग","id":"Tren","vi":"Xu hướng","th":"กำลังฮิต","my":"ခေတ်စား"},"hot_gainers":{"en":"Gainers 24h","fr":"Hausses 24h","es":"Subidas 24h","pt":"Altas 24h","de":"Gewinner 24h","ru":"Рост 24ч","tr":"Yükselenler 24s","ar":"الرابحون 24س","zh":"24h涨幅","ja":"上昇 24h","ko":"상승 24h","hi":"बढ़त 24घं","id":"Naik 24j","vi":"Tăng 24h","th":"ขึ้น 24ชม","my":"တက် 24နာရီ"},"hot_losers":{"en":"Losers 24h","fr":"Baisses 24h","es":"Bajadas 24h","pt":"Quedas 24h","de":"Verlierer 24h","ru":"Падение 24ч","tr":"Düşenler 24s","ar":"الخاسرون 24س","zh":"24h跌幅","ja":"下落 24h","ko":"하락 24h","hi":"गिरावट 24घं","id":"Turun 24j","vi":"Giảm 24h","th":"ลง 24ชม","my":"ကျ 24နာရီ"},"hot_loading":{"en":"Loading prices…","fr":"Chargement des prix…","es":"Cargando precios…","pt":"Carregando preços…","de":"Preise werden geladen…","ru":"Загрузка цен…","tr":"Fiyatlar yükleniyor…","ar":"جارٍ تحميل الأسعار…","zh":"正在加载价格…","ja":"価格を読み込み中…","ko":"가격 불러오는 중…","hi":"कीमतें लोड हो रही हैं…","id":"Memuat harga…","vi":"Đang tải giá…","th":"กำลังโหลดราคา…","my":"စျေးနှုန်းများ ဖွင့်နေသည်…"},"hot_err":{"en":"Couldn't load prices. Try again.","fr":"Impossible de charger les prix. Réessaie.","es":"No se pudieron cargar los precios. Inténtalo de nuevo.","pt":"Não foi possível carregar os preços. Tente novamente.","de":"Preise konnten nicht geladen werden. Versuche es erneut.","ru":"Не удалось загрузить цены. Попробуйте снова.","tr":"Fiyatlar yüklenemedi. Tekrar dene.","ar":"تعذّر تحميل الأسعار. حاول مجددًا.","zh":"无法加载价格。请重试。","ja":"価格を読み込めませんでした。再試行してください。","ko":"가격을 불러오지 못했어요. 다시 시도하세요.","hi":"कीमतें लोड नहीं हो सकीं। फिर कोशिश करें।","id":"Gagal memuat harga. Coba lagi.","vi":"Không tải được giá. Thử lại.","th":"โหลดราคาไม่สำเร็จ ลองใหม่","my":"စျေးနှုန်းများ ဖွင့်၍မရပါ။ ထပ်ကြိုးစားပါ။"},"hot_retry":{"en":"Retry","fr":"Réessayer","es":"Reintentar","pt":"Tentar de novo","de":"Erneut","ru":"Повторить","tr":"Tekrar dene","ar":"إعادة المحاولة","zh":"重试","ja":"再試行","ko":"다시","hi":"फिर से","id":"Coba lagi","vi":"Thử lại","th":"ลองใหม่","my":"ထပ်ကြိုးစား"},"hot_powered":{"en":"Data: CoinGecko","fr":"Données : CoinGecko","es":"Datos: CoinGecko","pt":"Dados: CoinGecko","de":"Daten: CoinGecko","ru":"Данные: CoinGecko","tr":"Veri: CoinGecko","ar":"البيانات: CoinGecko","zh":"数据：CoinGecko","ja":"データ：CoinGecko","ko":"데이터: CoinGecko","hi":"डेटा: CoinGecko","id":"Data: CoinGecko","vi":"Dữ liệu: CoinGecko","th":"ข้อมูล: CoinGecko","my":"ဒေတာ: CoinGecko"}}); // 🔥 HOT coins i18n
+Object.assign(T, {"practice":{"en":"🎮 Practice","fr":"🎮 Practice","es":"🎮 Practice","pt":"🎮 Practice","de":"🎮 Practice","ru":"🎮 Practice","tr":"🎮 Practice","ar":"🎮 Practice","zh":"🎮 Practice","ja":"🎮 Practice","ko":"🎮 Practice","hi":"🎮 Practice","id":"🎮 Practice","vi":"🎮 Practice","th":"🎮 Practice","my":"🎮 Practice"},"home_practice_t":{"en":"Practice","fr":"Entraînement","es":"Práctica","pt":"Prática","de":"Üben","ru":"Практика","tr":"Alıştırma","ar":"تدريب","zh":"练习","ja":"練習","ko":"연습","hi":"अभ्यास","id":"Latihan","vi":"Luyện tập","th":"ฝึกฝน","my":"လေ့ကျင့်ခန်း"},"home_practice_d":{"en":"Put theory into practice: candles, patterns, entry points.","fr":"Mets la théorie en pratique : bougies, patterns, points d’entrée.","es":"Lleva la teoría a la práctica: velas, patrones, puntos de entrada.","pt":"Coloque a teoria em prática: velas, padrões, pontos de entrada.","de":"Theorie in die Praxis umsetzen: Kerzen, Muster, Einstiegspunkte.","ru":"Применяй теорию: свечи, паттерны, точки входа.","tr":"Teoriyi uygula: mumlar, formasyonlar, giriş noktaları.","ar":"طبّق النظرية: الشموع، النماذج، نقاط الدخول.","zh":"把理论用起来：K线、形态、入场点。","ja":"理論を実践に：ローソク足、パターン、エントリー。","ko":"이론을 실전으로: 캔들, 패턴, 진입 지점.","hi":"थ्योरी को व्यवहार में लाओ: कैंडल, पैटर्न, एंट्री पॉइंट।","id":"Praktikkan teori: candle, pola, titik masuk.","vi":"Áp dụng lý thuyết: nến, mô hình, điểm vào lệnh.","th":"นำทฤษฎีมาปฏิบัติ: แท่งเทียน รูปแบบ จุดเข้า","my":"သီအိုရီကို လက်တွေ့အသုံးချပါ — ကင်းဒယ်လ်၊ ပုံစံ၊ ဝင်ရောက်မှတ်များ။"},"pr_intro":{"en":"Interactive drills to get ready before you open a real account.","fr":"Des exercices interactifs pour t’entraîner avant d’ouvrir un vrai compte.","es":"Ejercicios interactivos para prepararte antes de abrir una cuenta real.","pt":"Exercícios interativos para se preparar antes de abrir uma conta real.","de":"Interaktive Übungen, bevor du ein echtes Konto eröffnest.","ru":"Интерактивные упражнения перед открытием реального счёта.","tr":"Gerçek hesap açmadan önce hazırlanmak için interaktif alıştırmalar.","ar":"تمارين تفاعلية لتجهّز نفسك قبل فتح حساب حقيقي.","zh":"开真实账户前的互动练习。","ja":"本番口座を開く前の対話型ドリル。","ko":"실계좌를 열기 전 대비하는 인터랙티브 훈련.","hi":"असली खाता खोलने से पहले तैयारी के इंटरैक्टिव अभ्यास।","id":"Latihan interaktif untuk siap sebelum buka akun sungguhan.","vi":"Bài tập tương tác để sẵn sàng trước khi mở tài khoản thật.","th":"แบบฝึกแบบอินเทอร์แอกทีฟ ก่อนเปิดบัญชีจริง","my":"အကောင့်အစစ်မဖွင့်ခင် ပြင်ဆင်ရန် အပြန်အလှန်လေ့ကျင့်ခန်းများ။"},"pr_score":{"en":"Score","fr":"Score","es":"Puntuación","pt":"Pontos","de":"Punkte","ru":"Счёт","tr":"Puan","ar":"النتيجة","zh":"得分","ja":"スコア","ko":"점수","hi":"स्कोर","id":"Skor","vi":"Điểm","th":"คะแนน","my":"ရမှတ်"},"pr_next":{"en":"Next","fr":"Suivant","es":"Siguiente","pt":"Próximo","de":"Weiter","ru":"Далее","tr":"İleri","ar":"التالي","zh":"下一个","ja":"次へ","ko":"다음","hi":"अगला","id":"Lanjut","vi":"Tiếp","th":"ถัดไป","my":"နောက်တစ်ခု"},"pr_see_result":{"en":"See result","fr":"Voir le résultat","es":"Ver resultado","pt":"Ver resultado","de":"Ergebnis ansehen","ru":"Результат","tr":"Sonucu gör","ar":"انظر النتيجة","zh":"查看结果","ja":"結果を見る","ko":"결과 보기","hi":"परिणाम देखें","id":"Lihat hasil","vi":"Xem kết quả","th":"ดูผล","my":"ရလဒ်ကြည့်"},"pr_correct":{"en":"Nice!","fr":"Bravo !","es":"¡Bien!","pt":"Boa!","de":"Super!","ru":"Отлично!","tr":"Harika!","ar":"أحسنت!","zh":"漂亮！","ja":"いいね！","ko":"좋아요!","hi":"शाबाश!","id":"Mantap!","vi":"Tuyệt!","th":"เยี่ยม!","my":"တော်တယ်!"},"pr_wrong":{"en":"Missed.","fr":"Raté.","es":"Fallaste.","pt":"Errou.","de":"Daneben.","ru":"Мимо.","tr":"Kaçırdın.","ar":"خطأ.","zh":"错了。","ja":"残念。","ko":"아쉽네.","hi":"चूक गए।","id":"Meleset.","vi":"Trượt.","th":"พลาด","my":"လွဲသွားပြီ။"},"pr_again":{"en":"Play again","fr":"Rejouer","es":"Jugar de nuevo","pt":"Jogar de novo","de":"Nochmal","ru":"Ещё раз","tr":"Tekrar oyna","ar":"العب مجددًا","zh":"再玩一次","ja":"もう一度","ko":"다시 하기","hi":"फिर खेलें","id":"Main lagi","vi":"Chơi lại","th":"เล่นอีก","my":"ထပ်ကစား"},"pr_done_t":{"en":"Set complete!","fr":"Série terminée !","es":"¡Serie completa!","pt":"Série concluída!","de":"Runde fertig!","ru":"Серия пройдена!","tr":"Seri bitti!","ar":"انتهت الجولة!","zh":"完成一组！","ja":"セット完了！","ko":"세트 완료!","hi":"सेट पूरा!","id":"Set selesai!","vi":"Hoàn thành!","th":"จบชุดแล้ว!","my":"အပြီးသတ်!"},"pr_reward":{"en":"Daily reward unlocked!","fr":"Récompense du jour débloquée !","es":"¡Recompensa diaria desbloqueada!","pt":"Recompensa diária desbloqueada!","de":"Tagesbelohnung freigeschaltet!","ru":"Награда дня получена!","tr":"Günlük ödül açıldı!","ar":"تم فتح مكافأة اليوم!","zh":"已解锁每日奖励！","ja":"デイリー報酬を獲得！","ko":"일일 보상 획득!","hi":"दैनिक इनाम अनलॉक!","id":"Hadiah harian terbuka!","vi":"Mở thưởng hằng ngày!","th":"ปลดล็อกรางวัลประจำวัน!","my":"နေ့စဉ်ဆုရရှိ!"},"pr_bull":{"en":"Bullish 🟢","fr":"Haussière 🟢","es":"Alcista 🟢","pt":"Alta 🟢","de":"Bullish 🟢","ru":"Бычья 🟢","tr":"Yükseliş 🟢","ar":"صاعدة 🟢","zh":"看涨 🟢","ja":"陽線 🟢","ko":"상승 🟢","hi":"तेजी 🟢","id":"Bullish 🟢","vi":"Tăng 🟢","th":"ขาขึ้น 🟢","my":"အတက် 🟢"},"pr_bear":{"en":"Bearish 🔴","fr":"Baissière 🔴","es":"Bajista 🔴","pt":"Baixa 🔴","de":"Bearish 🔴","ru":"Медвежья 🔴","tr":"Düşüş 🔴","ar":"هابطة 🔴","zh":"看跌 🔴","ja":"陰線 🔴","ko":"하락 🔴","hi":"मंदी 🔴","id":"Bearish 🔴","vi":"Giảm 🔴","th":"ขาลง 🔴","my":"အကျ 🔴"}}); // 🎮 Practice i18n
 const ACA_INTRO={
  en:{1:"Understand blockchain from scratch and handle your first wallet.",2:"Never get robbed: scams, phishing, rug pulls, drainers.",3:"Decentralized finance: DEX, pools, staking, yield, lending.",4:"The NFT economy: collections, utility, gaming, RWA.",5:"Launch a project: branding, community, DAO, tokenomics.",6:"Read the markets: support, resistance, trends, volume.",7:"A profitable strategy: MTF, risk management, position sizing.",8:"Use AI: crypto analyst, market scanner, strategies.",9:"Create your own token: smart contracts, liquidity, vesting.",10:"Master the entire ecosystem end to end."},
  es:{1:"Entiende la blockchain desde cero y maneja tu primera billetera.",2:"Que nunca te roben: estafas, phishing, rug pulls, drainers.",3:"Finanzas descentralizadas: DEX, pools, staking, yield, lending.",4:"La economía NFT: colecciones, utilidad, gaming, RWA.",5:"Lanza un proyecto: branding, comunidad, DAO, tokenomics.",6:"Lee los mercados: soportes, resistencias, tendencias, volumen.",7:"Una estrategia rentable: MTF, gestión del riesgo, position sizing.",8:"Usa la IA: analista cripto, escáner de mercado, estrategias.",9:"Crea tu propio token: contratos inteligentes, liquidez, vesting.",10:"Domina todo el ecosistema de principio a fin."},
@@ -8681,6 +8696,7 @@ function buildNav(){
   nav.querySelector('[data-view="simulator"]').onclick=()=>go("simulator");
   nav.querySelector('[data-view="hot"]').onclick=()=>go("hot");
   nav.querySelector('[data-view="home"]').onclick=()=>go("home");
+  nav.querySelector('[data-view="practice"]').onclick=()=>go("practice");
   nav.querySelector('[data-view="referral"]').onclick=()=>go("referral");
   nav.querySelector('[data-view="partners"]').onclick=()=>go("partners");
   nav.querySelector('[data-view="profile"]').onclick=()=>go("profile");
@@ -8725,6 +8741,7 @@ function render(){
   else if(VIEW.name==="academies") c.innerHTML=viewAcademies();
   else if(VIEW.name==="trading") c.innerHTML=viewTrading();
   else if(VIEW.name==="book") c.innerHTML=viewBook();
+  else if(VIEW.name==="practice") c.innerHTML=viewPractice();
   else if(VIEW.name==="missions") c.innerHTML=viewMissions();
   else if(VIEW.name==="referral") c.innerHTML=viewReferral();
   else if(VIEW.name==="partners") c.innerHTML=viewPartners();
@@ -8759,6 +8776,7 @@ function viewHome(){
    +(claimed?'':'<button class="home-daily" id="claimDaily">\uD83C\uDF81 <b>'+t('claim_btn')+'</b><span>+15 XP \u00B7 +25 MOON-RZ</span></button>')
    +'<div class="homegrid">'
      +hbox('academies','\uD83C\uDF93',t('home_academy_t'),t('home_academy_d'))
+     +hbox('practice','\uD83C\uDFAE',t('home_practice_t'),t('home_practice_d'))
      +hbox('trading','\uD83D\uDCC8',t('home_trading_t'),t('home_trading_d'))
      +hbox('profile','\uD83E\uDDD1\u200D\uD83D\uDE80',t('home_profile_t'),t('home_profile_d'))
      +hbox('vision','\uD83C\uDF15',t('vision'),t('home_vision_d'))
@@ -8780,6 +8798,7 @@ function viewTrading(){
   return '<button class="btn ghost" data-gview="home" style="margin-bottom:12px">\u2190 '+t('nav_home')+'</button>'
    +'<h2 class="hub-h mrz-display">\uD83D\uDCC8 '+t('home_trading_t')+'</h2><p class="hub-d">'+t('home_trading_d')+'</p>'
    +'<div class="homegrid">'
+     +hbox('practice','\uD83C\uDFAE',t('home_practice_t'),t('home_practice_d'))
      +hbox('simulator','\uD83D\uDCCA',t('sim'),t('home_sim_d'))
      +hbox('hot','\uD83D\uDD25',t('hot'),t('hot_sub'))
      +hbox('partners','\uD83C\uDFE6',t('partners'),t('home_cex_d'))
@@ -9430,6 +9449,315 @@ function claimDaily(){
 }
 
 /* ============================================================ BIND ============================================================ */
+/* ============ 🎮 PRACTICE — exercices interactifs (théorie → pratique) ============
+   6 ateliers rejouables : lire une bougie, nommer une bougie, figures chartistes,
+   support/résistance, point d'entrée, taille de position.
+   Récompense +20 XP · +15 MOON-RZ une fois par jour et par atelier terminé.
+   Libellés de nav/accueil dans T (16 langues) ; questions/explications FR+EN (repli). */
+function px(o){ return (o&&(o[S.lang]||o.en||o.fr))||''; }
+
+const PR_DRILLS=[
+  {key:"candle", icon:"🕯️", t:{fr:"Lire une bougie",en:"Read a candle"},            d:{fr:"Haussière, baissière, mèches : l'ABC.",en:"Bullish, bearish, wicks: the ABC."}},
+  {key:"cfig",   icon:"📊", t:{fr:"Reconnaître les bougies",en:"Name the candle"},   d:{fr:"Doji, marteau, étoile filante…",en:"Doji, hammer, shooting star…"}},
+  {key:"pat",    icon:"🔺", t:{fr:"Figures chartistes",en:"Chart patterns"},          d:{fr:"Triangles, têtes-épaules, drapeaux…",en:"Triangles, H&S, flags…"}},
+  {key:"sr",     icon:"📏", t:{fr:"Support & Résistance",en:"Support & Resistance"},   d:{fr:"Repère le niveau que le prix respecte.",en:"Spot the level price respects."}},
+  {key:"entry",  icon:"🎯", t:{fr:"Point d'entrée",en:"Entry point"},                 d:{fr:"Entrée, stop, objectif : le bon plan.",en:"Entry, stop, target: the right plan."}},
+  {key:"size",   icon:"🧮", t:{fr:"Taille de position",en:"Position size"},           d:{fr:"Combien investir sans trop risquer.",en:"How much to invest, safely."}}
+];
+
+/* Questions & libellés sensibles à la langue (FR+EN, repli EN→FR) */
+const PRQ={
+  q_dir:{fr:"Cette bougie est-elle haussière ou baissière ?",en:"Is this candle bullish or bearish?"},
+  q_wick:{fr:"Que signale la longue mèche ?",en:"What does the long wick signal?"},
+  q_cfig:{fr:"Quelle est cette figure ?",en:"Which candle is this?"},
+  q_pat:{fr:"Quelle est cette figure chartiste ?",en:"Which chart pattern is this?"},
+  q_sr:{fr:"Quelle ligne le prix respecte-t-il (support/résistance) ?",en:"Which line does price respect (support/resistance)?"},
+  q_entry:{fr:"Quel est le meilleur plan de trade ?",en:"What's the best trade plan?"},
+  wick_low:{fr:"Rejet des vendeurs — les acheteurs reviennent 🟢",en:"Sellers rejected — buyers step back in 🟢"},
+  wick_up:{fr:"Rejet des acheteurs — les vendeurs reprennent 🔴",en:"Buyers rejected — sellers take over 🔴"},
+  wick_none:{fr:"Rien de spécial, c'est aléatoire",en:"Nothing special, it's random"}
+};
+
+/* ---------- SVG bougies ---------- */
+function prCandleHTML(top,bot,hi,lo,col){
+  var cx=80,bw=46;
+  return '<svg viewBox="0 0 160 210" class="pr-svg">'
+    +'<line x1="'+cx+'" y1="'+hi.toFixed(1)+'" x2="'+cx+'" y2="'+lo.toFixed(1)+'" stroke="'+col+'" stroke-width="3"/>'
+    +'<rect x="'+(cx-bw/2)+'" y="'+top.toFixed(1)+'" width="'+bw+'" height="'+Math.max(3,bot-top).toFixed(1)+'" fill="'+col+'" rx="3"/></svg>';
+}
+const CFIG=[
+  {k:"doji",    n:{fr:"Doji",en:"Doji"}},
+  {k:"hammer",  n:{fr:"Marteau",en:"Hammer"}},
+  {k:"star",    n:{fr:"Étoile filante",en:"Shooting star"}},
+  {k:"maru_up", n:{fr:"Marubozu haussier",en:"Bullish Marubozu"}},
+  {k:"maru_dn", n:{fr:"Marubozu baissier",en:"Bearish Marubozu"}},
+  {k:"spin",    n:{fr:"Toupie",en:"Spinning top"}}
+];
+const CFIG_INFO={
+  doji:{fr:"Doji : ouverture ≈ clôture. Indécision, souvent un signal de retournement près d'un support/résistance.",en:"Doji: open ≈ close. Indecision, often a reversal hint near support/resistance."},
+  hammer:{fr:"Marteau : petit corps en haut, longue mèche basse. Rejet des vendeurs = signal haussier après une baisse.",en:"Hammer: small body on top, long lower wick. Sellers rejected = bullish after a drop."},
+  star:{fr:"Étoile filante : petit corps en bas, longue mèche haute. Rejet des acheteurs = signal baissier après une hausse.",en:"Shooting star: small body at bottom, long upper wick. Buyers rejected = bearish after a rise."},
+  maru_up:{fr:"Marubozu haussier : grand corps vert, quasi sans mèche. Domination totale des acheteurs.",en:"Bullish Marubozu: big green body, almost no wick. Buyers fully in control."},
+  maru_dn:{fr:"Marubozu baissier : grand corps rouge, quasi sans mèche. Domination totale des vendeurs.",en:"Bearish Marubozu: big red body, almost no wick. Sellers fully in control."},
+  spin:{fr:"Toupie : petit corps, mèches des deux côtés. Équilibre acheteurs/vendeurs, marché hésitant.",en:"Spinning top: small body, wicks both sides. Buyers/sellers balanced, hesitant market."}
+};
+function cfigSVG(k){
+  var col,top,bot,hi,lo;
+  if(k==="doji"){ col='var(--muted)'; top=100; bot=104; hi=40; lo=172; }
+  else if(k==="hammer"){ col='var(--pos)'; top=50; bot=78; hi=42; lo=172; }
+  else if(k==="star"){ col='var(--red)'; top=120; bot=148; hi=40; lo=160; }
+  else if(k==="maru_up"){ col='var(--pos)'; top=40; bot=172; hi=40; lo=172; }
+  else if(k==="maru_dn"){ col='var(--red)'; top=40; bot=172; hi=40; lo=172; }
+  else { col='var(--muted)'; top=86; bot=120; hi=46; lo=164; }
+  return prCandleHTML(top,bot,hi,lo,col);
+}
+
+/* ---------- Scénarios point d'entrée ---------- */
+function scenSVG(kind){
+  var W=300,H=120,s='<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">';
+  if(kind==="breakout"){
+    s+='<line x1="0" y1="55" x2="'+W+'" y2="55" stroke="var(--red)" stroke-dasharray="5 4" stroke-width="1.5"/>';
+    s+='<polyline points="10,100 70,85 130,62 150,56 190,40 240,30 290,20" fill="none" stroke="var(--text)" stroke-width="2.3" stroke-linejoin="round"/>';
+  } else if(kind==="bounce"){
+    s+='<line x1="0" y1="92" x2="'+W+'" y2="92" stroke="var(--pos)" stroke-dasharray="5 4" stroke-width="1.5"/>';
+    s+='<polyline points="10,25 70,55 130,86 150,90 190,70 240,45 290,28" fill="none" stroke="var(--text)" stroke-width="2.3" stroke-linejoin="round"/>';
+  } else if(kind==="range"){
+    s+='<line x1="0" y1="35" x2="'+W+'" y2="35" stroke="var(--red)" stroke-dasharray="5 4" stroke-width="1.5"/>';
+    s+='<line x1="0" y1="92" x2="'+W+'" y2="92" stroke="var(--pos)" stroke-dasharray="5 4" stroke-width="1.5"/>';
+    s+='<polyline points="10,90 55,40 110,88 165,38 220,90 275,40" fill="none" stroke="var(--text)" stroke-width="2.3" stroke-linejoin="round"/>';
+  } else {
+    s+='<polyline points="10,20 60,30 110,55 160,90 210,108 260,114" fill="none" stroke="var(--red)" stroke-width="2.3" stroke-linejoin="round"/>';
+  }
+  return s+'</svg>';
+}
+const PR_SCEN=[
+  { kind:"breakout",
+    s:{fr:"Le prix casse une résistance testée 3 fois, avec du volume. Un pullback (retour sur le niveau) est en cours.",en:"Price breaks a resistance tested 3×, on volume. A pullback (retest of the level) is underway."},
+    opts:[
+      {ok:true,  fr:"Entrée sur le pullback au niveau cassé · Stop juste sous · Objectif = hauteur du range",en:"Enter on the pullback at the broken level · Stop just below · Target = range height"},
+      {ok:false, fr:"Acheter tout de suite au plus haut · Stop à −20% · Aucun objectif",en:"Buy right now at the high · Stop at −20% · No target"},
+      {ok:false, fr:"Vendre à découvert la cassure haussière",en:"Short the bullish breakout"}
+    ],
+    why:{fr:"Après une cassure, le retest du niveau offre une entrée avec un stop serré sous le niveau et un bon ratio risque/récompense.",en:"After a breakout, the retest gives an entry with a tight stop below the level and a solid risk/reward."} },
+  { kind:"bounce",
+    s:{fr:"Le prix revient sur un support majeur testé plusieurs fois et y forme un marteau.",en:"Price returns to a major support tested several times and prints a hammer there."},
+    opts:[
+      {ok:true,  fr:"Entrée au rebond sur le support · Stop sous le support · Objectif = résistance au-dessus",en:"Enter on the bounce at support · Stop below support · Target = resistance above"},
+      {ok:false, fr:"Vendre car ça va forcément casser",en:"Sell because it will surely break"},
+      {ok:false, fr:"Entrer sans stop, « je verrai bien »",en:"Enter with no stop, 'I'll see how it goes'"}
+    ],
+    why:{fr:"Un support confirmé + un marteau = rebond probable. Le stop sous le support limite la perte si ça casse.",en:"Confirmed support + a hammer = likely bounce. A stop below support caps the loss if it breaks."} },
+  { kind:"range",
+    s:{fr:"Le prix oscille dans un range horizontal bien net depuis des semaines.",en:"Price has been oscillating in a clean horizontal range for weeks."},
+    opts:[
+      {ok:true,  fr:"Acheter en bas du range · Stop sous le range · Vendre en haut du range",en:"Buy at range low · Stop below range · Sell at range high"},
+      {ok:false, fr:"Acheter au milieu du range avec un stop très large",en:"Buy mid-range with a very wide stop"},
+      {ok:false, fr:"Acheter en haut du range en espérant une cassure immédiate",en:"Buy at range high hoping for an instant breakout"}
+    ],
+    why:{fr:"En range, on achète bas / vend haut. Acheter en haut, c'est payer le plus cher avec le pire ratio.",en:"In a range you buy low / sell high. Buying at the top means paying the most with the worst ratio."} },
+  { kind:"knife",
+    s:{fr:"Le prix chute de −30% en ligne droite, sans aucun signe de stabilisation.",en:"Price drops −30% in a straight line, with no sign of stabilizing."},
+    opts:[
+      {ok:true,  fr:"Attendre une stabilisation / un signal avant d'agir",en:"Wait for stabilization / a signal before acting"},
+      {ok:false, fr:"Tout acheter maintenant, « c'est soldé »",en:"Buy it all now, 'it's on sale'"},
+      {ok:false, fr:"Acheter avec un stop à −1% juste sous le prix",en:"Buy with a −1% stop right under price"}
+    ],
+    why:{fr:"« Attraper un couteau qui tombe » est risqué : sans stabilisation, la chute peut continuer. Mieux vaut attendre.",en:"'Catching a falling knife' is risky: without stabilization the drop can continue. Better to wait."} },
+  { kind:"breakout",
+    s:{fr:"Setup d'achat validé, entrée à 100. Tu hésites sur le placement du stop.",en:"Valid buy setup, entry at 100. You're unsure where to put the stop."},
+    opts:[
+      {ok:true,  fr:"Stop sous le dernier creux (support), objectif à +2× le risque",en:"Stop below the last swing low (support), target at +2× the risk"},
+      {ok:false, fr:"Stop à −50% pour « ne jamais être sorti »",en:"Stop at −50% so you're 'never stopped out'"},
+      {ok:false, fr:"Pas de stop, HODL quoi qu'il arrive",en:"No stop, HODL no matter what"}
+    ],
+    why:{fr:"Le stop se place à un niveau technique (sous le creux). Un ratio ≥ 2:1 rend la stratégie rentable même avec 50% de réussite.",en:"The stop goes at a technical level (below the swing low). A ≥ 2:1 ratio makes the strategy profitable even at a 50% win rate."} },
+  { kind:"bounce",
+    s:{fr:"Belle configuration… mais la prendre pleinement représenterait 60% de tout ton capital.",en:"Nice setup… but taking it fully would be 60% of your whole capital."},
+    opts:[
+      {ok:true,  fr:"Réduire la taille pour ne risquer que 1–2% du capital",en:"Size down to risk only 1–2% of capital"},
+      {ok:false, fr:"Mettre 100% du capital, c'est une occasion en or",en:"Go 100% in, it's a golden opportunity"},
+      {ok:false, fr:"Emprunter pour mettre encore plus",en:"Borrow to put in even more"}
+    ],
+    why:{fr:"La gestion du risque passe avant le setup. Ne jamais risquer plus de 1–2% du capital sur un seul trade.",en:"Risk management comes before the setup. Never risk more than 1–2% of capital on a single trade."} }
+];
+
+/* ---------- Moteur ---------- */
+let prState={key:null,i:0,correct:0};
+const PR_TARGET=8;
+function prStart(key){ prState={key:key,i:0,correct:0}; }
+
+function prShell(mount,chartHTML,question,optLabels,one){
+  mount.innerHTML='<div class="pg-top"><span>'+question+'</span><span class="pg-score">'+t('pr_score')+' '+prState.correct+'/'+prState.i+'</span></div>'
+    +(chartHTML?'<div class="pr-chart">'+chartHTML+'</div>':'')
+    +'<div class="pr-opts'+(one?' one':'')+'">'+optLabels.map(function(l,i){return '<button class="pg-opt" data-i="'+i+'">'+l+'</button>';}).join('')+'</div>'
+    +'<div class="pg-feed"></div>';
+}
+function prWire(mount,correctIdx,explainHTML){
+  mount.dataset.done="";
+  mount.querySelectorAll(".pg-opt").forEach(function(b){
+    b.onclick=function(){
+      if(mount.dataset.done) return; mount.dataset.done="1";
+      prState.i++; var ok=(+b.dataset.i===correctIdx); if(ok) prState.correct++;
+      mount.querySelectorAll(".pg-opt").forEach(function(x){ x.disabled=true; if(+x.dataset.i===correctIdx) x.classList.add("ok"); else if(x===b) x.classList.add("no"); });
+      mount.querySelector(".pg-score").textContent=t('pr_score')+' '+prState.correct+'/'+prState.i;
+      mount.querySelector(".pg-feed").innerHTML=(ok?'<span class="up">✓ '+t('pr_correct')+'</span>':'<span class="down">✗ '+t('pr_wrong')+'</span>')
+        +(explainHTML?'<div class="pr-expl">'+explainHTML+'</div>':'')
+        +'<button class="btn sm pr-next">'+(prState.i>=PR_TARGET?t('pr_see_result'):t('pr_next'))+'</button>';
+      mount.querySelector(".pr-next").onclick=function(){ prRound(mount); };
+    };
+  });
+}
+function prReward(key){
+  S.practice=S.practice||{day:"",done:{}};
+  var dk=todayKey();
+  if(S.practice.day!==dk){ S.practice.day=dk; S.practice.done={}; }
+  if(S.practice.done[key]){ save(); return false; }
+  S.practice.done[key]=1; save();
+  award(20,15,px({fr:"Exercice du jour ✔️",en:"Daily drill ✔️"}));
+  return true;
+}
+function prDone(mount){
+  var score=prState.correct;
+  var rewarded=prReward(prState.key);
+  mount.innerHTML='<div class="pr-done"><div class="pr-done-em">'+(score>=PR_TARGET*0.7?'🎉':'💪')+'</div>'
+    +'<h3 class="mrz-display">'+t('pr_done_t')+'</h3>'
+    +'<p class="pr-done-sc">'+score+' / '+PR_TARGET+'</p>'
+    +(rewarded?'<div class="pr-reward">🪙 '+t('pr_reward')+' <b>+20 XP · +15 MOON-RZ</b></div>':'')
+    +'<button class="btn pr-replay">'+t('pr_again')+'</button> '
+    +'<button class="btn ghost" data-prhub>'+px({fr:"Autres exercices",en:"Other drills"})+'</button></div>';
+  mount.querySelector(".pr-replay").onclick=function(){ prStart(prState.key); prRound(mount); };
+  mount.querySelector("[data-prhub]").onclick=function(){ VIEW={name:"practice",id:null}; render(); };
+}
+function prRound(mount){
+  if(prState.i>=PR_TARGET){ prDone(mount); return; }
+  var k=prState.key;
+  if(k==="candle") prR_candle(mount);
+  else if(k==="cfig") prR_cfig(mount);
+  else if(k==="pat") prR_pat(mount);
+  else if(k==="sr") prR_sr(mount);
+  else if(k==="entry") prR_entry(mount);
+  else if(k==="size") prR_size(mount);
+}
+
+/* ---------- Ateliers ---------- */
+function prR_candle(mount){
+  var type=Math.random()<0.5?'dir':'wick';
+  var bull=Math.random()<0.5, lowWick=Math.random()<0.5, top,bot,hi,lo;
+  if(type==='wick'){
+    top=84+Math.random()*16; bot=top+18+Math.random()*14;
+    if(lowWick){ hi=top-8-Math.random()*6; lo=bot+46+Math.random()*24; }
+    else { hi=top-46-Math.random()*24; lo=bot+8+Math.random()*6; }
+  } else {
+    top=34+Math.random()*50; bot=top+42+Math.random()*52;
+    hi=top-10-Math.random()*18; lo=bot+10+Math.random()*18;
+  }
+  var col=bull?'var(--pos)':'var(--red)';
+  var svg=prCandleHTML(top,bot,hi,lo,col);
+  if(type==='dir'){
+    prShell(mount,svg,px(PRQ.q_dir),[t('pr_bull'),t('pr_bear')]);
+    prWire(mount,bull?0:1,px(bull?{fr:"Clôture au-dessus de l'ouverture : les acheteurs dominent.",en:"Close above open: buyers are in control."}:{fr:"Clôture sous l'ouverture : les vendeurs dominent.",en:"Close below open: sellers are in control."}));
+  } else {
+    prShell(mount,svg,px(PRQ.q_wick),[px(PRQ.wick_low),px(PRQ.wick_up),px(PRQ.wick_none)],true);
+    prWire(mount,lowWick?0:1,px(lowWick?{fr:"Longue mèche basse : le prix a plongé puis les acheteurs l'ont ramené → pression acheteuse.",en:"Long lower wick: price dove then buyers pulled it back → buying pressure."}:{fr:"Longue mèche haute : le prix a grimpé puis les vendeurs l'ont fait redescendre → pression vendeuse.",en:"Long upper wick: price spiked then sellers pushed it down → selling pressure."}));
+  }
+}
+function prR_cfig(mount){
+  var ans=CFIG[Math.floor(Math.random()*CFIG.length)];
+  var opts=CFIG.filter(function(f){return f.k!==ans.k;}).sort(function(){return Math.random()-0.5;}).slice(0,3).concat([ans]).sort(function(){return Math.random()-0.5;});
+  var correct=opts.findIndex(function(o){return o.k===ans.k;});
+  prShell(mount,cfigSVG(ans.k),px(PRQ.q_cfig),opts.map(function(o){return px(o.n);}));
+  prWire(mount,correct,px(CFIG_INFO[ans.k]));
+}
+function prR_pat(mount){
+  var ans=PATTERNS[Math.floor(Math.random()*PATTERNS.length)];
+  var opts=PATTERNS.filter(function(p){return p[0]!==ans[0];}).sort(function(){return Math.random()-0.5;}).slice(0,3).concat([ans]).sort(function(){return Math.random()-0.5;});
+  var correct=opts.findIndex(function(o){return o[0]===ans[0];});
+  prShell(mount,'<img class="pr-patimg" src="assets/patterns/'+ans[0]+'.jpg" alt=""/>',px(PRQ.q_pat),opts.map(function(o){return o[1];}));
+  prWire(mount,correct,patDetailHTML(ans[0]));
+}
+function prR_sr(mount){
+  var W=320,H=180,N=11,pad=18,pts,best=0,bestCount=0,tries=0;
+  do{
+    pts=[]; var y=55+Math.random()*60;
+    for(var i=0;i<N;i++){ pts.push(y); y+=(Math.random()-0.5)*72; if(y<26)y=26+Math.random()*18; if(y>H-22)y=H-22-Math.random()*18; }
+    best=0; bestCount=0;
+    for(var lv=28; lv<=H-24; lv+=4){ var c=0; for(var j=0;j<N;j++) if(Math.abs(pts[j]-lv)<8) c++; if(c>bestCount){bestCount=c;best=lv;} }
+    tries++;
+  } while(bestCount<3 && tries<30);
+  var cand=[best],guard=0;
+  while(cand.length<3 && guard++<80){
+    var lv2=32+Math.random()*(H-60);
+    var far=cand.every(function(cc){return Math.abs(cc-lv2)>32;});
+    if(far){ var c2=0; for(var m=0;m<N;m++) if(Math.abs(pts[m]-lv2)<8)c2++; if(c2<=1) cand.push(lv2); }
+  }
+  while(cand.length<3) cand.push(Math.min(H-24,best+42*cand.length));
+  var order=cand.map(function(v,i){return {v:v,ok:i===0};}).sort(function(){return Math.random()-0.5;});
+  var correct=order.findIndex(function(o){return o.ok;});
+  var labels=["A","B","C"],dx=(W-2*pad)/(N-1);
+  var poly=pts.map(function(p,i){return (pad+i*dx).toFixed(1)+','+p.toFixed(1);}).join(' ');
+  var lines=order.map(function(o,i){return '<line x1="0" y1="'+o.v.toFixed(1)+'" x2="'+W+'" y2="'+o.v.toFixed(1)+'" stroke="var(--accent)" stroke-dasharray="5 4" stroke-width="1.5" opacity="0.6"/><text x="6" y="'+(o.v-4).toFixed(1)+'" fill="var(--accent)" font-size="13" font-weight="700">'+labels[i]+'</text>';}).join('');
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide"><polyline points="'+poly+'" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>'+lines+'</svg>';
+  prShell(mount,svg,px(PRQ.q_sr),labels);
+  prWire(mount,correct,px({fr:"Un vrai support/résistance est touché plusieurs fois sans être franchi nettement. La ligne "+labels[correct]+" est respectée "+bestCount+" fois.",en:"A real support/resistance is touched several times without a clean break. Line "+labels[correct]+" is respected "+bestCount+" times."}));
+}
+function prR_entry(mount){
+  var sc=PR_SCEN[Math.floor(Math.random()*PR_SCEN.length)];
+  var opts=sc.opts.map(function(o,i){return {o:o,i:i};}).sort(function(){return Math.random()-0.5;});
+  var correct=opts.findIndex(function(x){return x.o.ok;});
+  prShell(mount,scenSVG(sc.kind)+'<p class="pr-scen">'+px(sc.s)+'</p>',px(PRQ.q_entry),opts.map(function(x){return px(x.o);}),true);
+  prWire(mount,correct,px(sc.why));
+}
+function prMoney(n){ return n.toLocaleString('en-US')+' $'; }
+function prNumOpts(right,wrongs){
+  var set=[right];
+  wrongs.forEach(function(w){ if(w!==right && set.indexOf(w)<0 && w>0) set.push(w); });
+  var k=0;
+  while(set.length<4){ var p=Math.round(right*(1.3+(k++)*0.5)); if(p>0 && set.indexOf(p)<0) set.push(p); else set.push(right+set.length+k); }
+  return set.slice(0,4).sort(function(a,b){return a-b;});
+}
+function prR_size(mount){
+  var caps=[500,1000,2000,3000,5000],pcts=[1,2,3];
+  var cap=caps[Math.floor(Math.random()*caps.length)];
+  var pct=pcts[Math.floor(Math.random()*pcts.length)];
+  var stopChoices=[3,5,8,10].filter(function(s){return s>=pct;});
+  var stopPct=stopChoices[Math.floor(Math.random()*stopChoices.length)];
+  var risk=Math.round(cap*pct/100);
+  var size=Math.round(risk/(stopPct/100));
+  var opts,correct,expl,q;
+  if(Math.random()<0.5){
+    q=px({fr:"Capital "+cap+" $, tu risques "+pct+"% par trade. Combien peux-tu perdre au maximum ?",en:"Capital $"+cap+", you risk "+pct+"% per trade. Max you can lose?"});
+    opts=prNumOpts(risk,[Math.round(cap*pct),risk*2,Math.round(cap/pct)]); correct=opts.indexOf(risk);
+    expl=px({fr:"Risque $ = Capital × risque% = "+cap+" × "+pct+"% = "+risk+" $.",en:"Risk $ = Capital × risk% = "+cap+" × "+pct+"% = $"+risk+"."});
+  } else {
+    q=px({fr:"Tu risques "+risk+" $, ton stop est à −"+stopPct+"% de l'entrée. Quelle taille de position ?",en:"You risk $"+risk+", your stop is −"+stopPct+"% from entry. Position size?"});
+    opts=prNumOpts(size,[risk,risk*stopPct,size*2]); correct=opts.indexOf(size);
+    expl=px({fr:"Taille = Risque $ ÷ distance au stop = "+risk+" $ ÷ "+stopPct+"% = "+size+" $.",en:"Size = Risk $ ÷ stop distance = $"+risk+" ÷ "+stopPct+"% = $"+size+"."});
+  }
+  prShell(mount,'',q,opts.map(prMoney));
+  prWire(mount,correct,expl);
+}
+
+/* ---------- Vue + câblage ---------- */
+function viewPractice(){
+  var d=PR_DRILLS.find(function(x){return x.key===VIEW.id;});
+  if(!d){
+    return '<button class="btn ghost" data-gview="home" style="margin-bottom:12px">← '+t('nav_home')+'</button>'
+      +'<h2 class="hub-h mrz-display">🎮 '+t('home_practice_t')+'</h2><p class="hub-d">'+t('pr_intro')+'</p>'
+      +'<div class="homegrid">'+PR_DRILLS.map(function(x){
+        return '<button class="homebox" data-drill="'+x.key+'"><span class="hb-ic">'+x.icon+'</span><div class="hb-tx"><b>'+px(x.t)+'</b><span>'+px(x.d)+'</span></div><span class="hb-ar">›</span></button>';
+      }).join('')+'</div>';
+  }
+  return '<button class="btn ghost" data-prhub style="margin-bottom:12px">← '+t('home_practice_t')+'</button>'
+    +'<h2 class="hub-h mrz-display">'+d.icon+' '+px(d.t)+'</h2><p class="hub-d">'+px(d.d)+'</p>'
+    +'<div class="pg" id="drillBox"></div>';
+}
+function bindPractice(){
+  document.querySelectorAll("[data-drill]").forEach(function(el){ el.onclick=function(){ prStart(el.dataset.drill); VIEW={name:"practice",id:el.dataset.drill}; render(); }; });
+  document.querySelectorAll("[data-prhub]").forEach(function(el){ el.onclick=function(){ VIEW={name:"practice",id:null}; render(); }; });
+  var box=document.getElementById("drillBox");
+  if(box && PR_DRILLS.find(function(x){return x.key===VIEW.id;})) prRound(box);
+}
+
 function bindContent(){
   document.querySelectorAll("[data-lesson]").forEach(el=>el.onclick=()=>{VIEW={name:"lesson",id:el.dataset.lesson,aid:+el.dataset.aid};render();});
   document.querySelectorAll("[data-goto]").forEach(el=>el.onclick=()=>go("academy",+el.dataset.goto));
@@ -9459,6 +9787,7 @@ function bindContent(){
   }
   if(VIEW.name==="hot"){ document.querySelectorAll(".hot-tab").forEach(function(b){ b.onclick=function(){ hotTab=b.dataset.hot; renderHot(); }; }); }
   if(VIEW.name==="quiz") bindQuiz();
+  if(VIEW.name==="practice") bindPractice();
 }
 /* Galerie des figures chartistes (16 patterns). Images universelles, légende dans l'intro du module. */
 const PATTERNS=[
