@@ -426,6 +426,26 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pr-hint{color:var(--muted);font-size:13px;line-height:1.4;margin:2px 2px 0}
   .pr-drawbar{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
   .pr-tag{display:inline-block;font-size:10px;font-weight:700;color:var(--accent);background:var(--chip-bg);border:1px solid var(--border);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+  /* Lecteur de leçon paginé (plein écran, zéro scroll de page) */
+  body.lesson-open{overflow:hidden}
+  body.lesson-open #botFab{display:none}
+  .reader{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:var(--stage-bg,var(--surface));padding:max(12px,env(safe-area-inset-top)) 0 max(12px,env(safe-area-inset-bottom))}
+  .rd-top{display:flex;align-items:center;gap:12px;padding:4px 16px 10px}
+  .rd-x{background:var(--chip-bg);border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:10px;font-size:16px;cursor:pointer;flex:0 0 auto}
+  .rd-prog{flex:1;height:7px;background:var(--track);border-radius:999px;overflow:hidden}
+  .rd-prog>span{display:block;height:100%;background:var(--accent-grad);border-radius:999px;transition:width .3s ease}
+  .rd-count{font-size:12px;color:var(--muted);min-width:34px;text-align:right}
+  .rd-title{font-size:18px;color:var(--text);text-align:center;padding:0 16px 6px;line-height:1.25}
+  .rd-stage{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 16px}
+  .rd-card{width:100%;max-width:560px;max-height:100%;overflow:auto}
+  .rd-inner{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--card-shadow)}
+  .rd-inner>:first-child{margin-top:0}
+  .rd-inner>:last-child{margin-bottom:0}
+  .rd-nav{display:flex;gap:10px;justify-content:space-between;padding:12px 16px 4px;max-width:592px;margin:0 auto;width:100%}
+  .rd-nav .btn{flex:1;justify-content:center}
+  .rd-done{text-align:center;padding:24px 10px}
+  .rd-done-em{font-size:52px;line-height:1}
+  .rd-reward{font-family:var(--font-data,ui-monospace,monospace);color:var(--accent);font-weight:800;font-size:18px;margin-top:6px}
 
   .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;color:var(--on-accent);background:var(--accent-grad);transition:.15s;box-shadow:0 6px 18px -6px var(--accent)}
   .btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
@@ -905,6 +925,7 @@ Object.assign(T, {"hot":{"en":"🔥 HOT coins","fr":"🔥 HOT coins","es":"🔥 
 Object.assign(T, {"practice":{"en":"🎮 Practice","fr":"🎮 Practice","es":"🎮 Practice","pt":"🎮 Practice","de":"🎮 Practice","ru":"🎮 Practice","tr":"🎮 Practice","ar":"🎮 Practice","zh":"🎮 Practice","ja":"🎮 Practice","ko":"🎮 Practice","hi":"🎮 Practice","id":"🎮 Practice","vi":"🎮 Practice","th":"🎮 Practice","my":"🎮 Practice"},"home_practice_t":{"en":"Practice","fr":"Entraînement","es":"Práctica","pt":"Prática","de":"Üben","ru":"Практика","tr":"Alıştırma","ar":"تدريب","zh":"练习","ja":"練習","ko":"연습","hi":"अभ्यास","id":"Latihan","vi":"Luyện tập","th":"ฝึกฝน","my":"လေ့ကျင့်ခန်း"},"home_practice_d":{"en":"Put theory into practice: candles, patterns, entry points.","fr":"Mets la théorie en pratique : bougies, patterns, points d’entrée.","es":"Lleva la teoría a la práctica: velas, patrones, puntos de entrada.","pt":"Coloque a teoria em prática: velas, padrões, pontos de entrada.","de":"Theorie in die Praxis umsetzen: Kerzen, Muster, Einstiegspunkte.","ru":"Применяй теорию: свечи, паттерны, точки входа.","tr":"Teoriyi uygula: mumlar, formasyonlar, giriş noktaları.","ar":"طبّق النظرية: الشموع، النماذج، نقاط الدخول.","zh":"把理论用起来：K线、形态、入场点。","ja":"理論を実践に：ローソク足、パターン、エントリー。","ko":"이론을 실전으로: 캔들, 패턴, 진입 지점.","hi":"थ्योरी को व्यवहार में लाओ: कैंडल, पैटर्न, एंट्री पॉइंट।","id":"Praktikkan teori: candle, pola, titik masuk.","vi":"Áp dụng lý thuyết: nến, mô hình, điểm vào lệnh.","th":"นำทฤษฎีมาปฏิบัติ: แท่งเทียน รูปแบบ จุดเข้า","my":"သီအိုရီကို လက်တွေ့အသုံးချပါ — ကင်းဒယ်လ်၊ ပုံစံ၊ ဝင်ရောက်မှတ်များ။"},"pr_intro":{"en":"Interactive drills to get ready before you open a real account.","fr":"Des exercices interactifs pour t’entraîner avant d’ouvrir un vrai compte.","es":"Ejercicios interactivos para prepararte antes de abrir una cuenta real.","pt":"Exercícios interativos para se preparar antes de abrir uma conta real.","de":"Interaktive Übungen, bevor du ein echtes Konto eröffnest.","ru":"Интерактивные упражнения перед открытием реального счёта.","tr":"Gerçek hesap açmadan önce hazırlanmak için interaktif alıştırmalar.","ar":"تمارين تفاعلية لتجهّز نفسك قبل فتح حساب حقيقي.","zh":"开真实账户前的互动练习。","ja":"本番口座を開く前の対話型ドリル。","ko":"실계좌를 열기 전 대비하는 인터랙티브 훈련.","hi":"असली खाता खोलने से पहले तैयारी के इंटरैक्टिव अभ्यास।","id":"Latihan interaktif untuk siap sebelum buka akun sungguhan.","vi":"Bài tập tương tác để sẵn sàng trước khi mở tài khoản thật.","th":"แบบฝึกแบบอินเทอร์แอกทีฟ ก่อนเปิดบัญชีจริง","my":"အကောင့်အစစ်မဖွင့်ခင် ပြင်ဆင်ရန် အပြန်အလှန်လေ့ကျင့်ခန်းများ။"},"pr_score":{"en":"Score","fr":"Score","es":"Puntuación","pt":"Pontos","de":"Punkte","ru":"Счёт","tr":"Puan","ar":"النتيجة","zh":"得分","ja":"スコア","ko":"점수","hi":"स्कोर","id":"Skor","vi":"Điểm","th":"คะแนน","my":"ရမှတ်"},"pr_next":{"en":"Next","fr":"Suivant","es":"Siguiente","pt":"Próximo","de":"Weiter","ru":"Далее","tr":"İleri","ar":"التالي","zh":"下一个","ja":"次へ","ko":"다음","hi":"अगला","id":"Lanjut","vi":"Tiếp","th":"ถัดไป","my":"နောက်တစ်ခု"},"pr_see_result":{"en":"See result","fr":"Voir le résultat","es":"Ver resultado","pt":"Ver resultado","de":"Ergebnis ansehen","ru":"Результат","tr":"Sonucu gör","ar":"انظر النتيجة","zh":"查看结果","ja":"結果を見る","ko":"결과 보기","hi":"परिणाम देखें","id":"Lihat hasil","vi":"Xem kết quả","th":"ดูผล","my":"ရလဒ်ကြည့်"},"pr_correct":{"en":"Nice!","fr":"Bravo !","es":"¡Bien!","pt":"Boa!","de":"Super!","ru":"Отлично!","tr":"Harika!","ar":"أحسنت!","zh":"漂亮！","ja":"いいね！","ko":"좋아요!","hi":"शाबाश!","id":"Mantap!","vi":"Tuyệt!","th":"เยี่ยม!","my":"တော်တယ်!"},"pr_wrong":{"en":"Missed.","fr":"Raté.","es":"Fallaste.","pt":"Errou.","de":"Daneben.","ru":"Мимо.","tr":"Kaçırdın.","ar":"خطأ.","zh":"错了。","ja":"残念。","ko":"아쉽네.","hi":"चूक गए।","id":"Meleset.","vi":"Trượt.","th":"พลาด","my":"လွဲသွားပြီ။"},"pr_again":{"en":"Play again","fr":"Rejouer","es":"Jugar de nuevo","pt":"Jogar de novo","de":"Nochmal","ru":"Ещё раз","tr":"Tekrar oyna","ar":"العب مجددًا","zh":"再玩一次","ja":"もう一度","ko":"다시 하기","hi":"फिर खेलें","id":"Main lagi","vi":"Chơi lại","th":"เล่นอีก","my":"ထပ်ကစား"},"pr_done_t":{"en":"Set complete!","fr":"Série terminée !","es":"¡Serie completa!","pt":"Série concluída!","de":"Runde fertig!","ru":"Серия пройдена!","tr":"Seri bitti!","ar":"انتهت الجولة!","zh":"完成一组！","ja":"セット完了！","ko":"세트 완료!","hi":"सेट पूरा!","id":"Set selesai!","vi":"Hoàn thành!","th":"จบชุดแล้ว!","my":"အပြီးသတ်!"},"pr_reward":{"en":"Daily reward unlocked!","fr":"Récompense du jour débloquée !","es":"¡Recompensa diaria desbloqueada!","pt":"Recompensa diária desbloqueada!","de":"Tagesbelohnung freigeschaltet!","ru":"Награда дня получена!","tr":"Günlük ödül açıldı!","ar":"تم فتح مكافأة اليوم!","zh":"已解锁每日奖励！","ja":"デイリー報酬を獲得！","ko":"일일 보상 획득!","hi":"दैनिक इनाम अनलॉक!","id":"Hadiah harian terbuka!","vi":"Mở thưởng hằng ngày!","th":"ปลดล็อกรางวัลประจำวัน!","my":"နေ့စဉ်ဆုရရှိ!"},"pr_bull":{"en":"Bullish 🟢","fr":"Haussière 🟢","es":"Alcista 🟢","pt":"Alta 🟢","de":"Bullish 🟢","ru":"Бычья 🟢","tr":"Yükseliş 🟢","ar":"صاعدة 🟢","zh":"看涨 🟢","ja":"陽線 🟢","ko":"상승 🟢","hi":"तेजी 🟢","id":"Bullish 🟢","vi":"Tăng 🟢","th":"ขาขึ้น 🟢","my":"အတက် 🟢"},"pr_bear":{"en":"Bearish 🔴","fr":"Baissière 🔴","es":"Bajista 🔴","pt":"Baixa 🔴","de":"Bearish 🔴","ru":"Медвежья 🔴","tr":"Düşüş 🔴","ar":"هابطة 🔴","zh":"看跌 🔴","ja":"陰線 🔴","ko":"하락 🔴","hi":"मंदी 🔴","id":"Bearish 🔴","vi":"Giảm 🔴","th":"ขาลง 🔴","my":"အကျ 🔴"}}); // 🎮 Practice i18n
 Object.assign(T, {"pr_clear":{"en":"Clear","fr":"Effacer","es":"Borrar","pt":"Limpar","de":"Löschen","ru":"Очистить","tr":"Temizle","ar":"مسح","zh":"清除","ja":"クリア","ko":"지우기","hi":"मिटाएँ","id":"Hapus","vi":"Xóa","th":"ล้าง","my":"ရှင်း"},"pr_check":{"en":"Check","fr":"Valider","es":"Comprobar","pt":"Verificar","de":"Prüfen","ru":"Проверить","tr":"Kontrol et","ar":"تحقق","zh":"检查","ja":"チェック","ko":"확인","hi":"जाँचें","id":"Periksa","vi":"Kiểm tra","th":"ตรวจ","my":"စစ်ဆေး"}}); // ✏️ Tracé i18n
 Object.assign(T, {"pr_pass_t":{"en":"Series passed!","fr":"Série validée !","es":"¡Serie superada!","pt":"Série aprovada!","de":"Runde bestanden!","ru":"Серия пройдена!","tr":"Seri geçildi!","ar":"تم اجتياز الجولة!","zh":"通过！","ja":"クリア！","ko":"통과!","hi":"सीरीज़ पास!","id":"Set lulus!","vi":"Qua màn!","th":"ผ่านชุดแล้ว!","my":"အောင်မြင်!"},"pr_fail_t":{"en":"Not yet!","fr":"Pas encore !","es":"¡Aún no!","pt":"Ainda não!","de":"Noch nicht!","ru":"Ещё нет!","tr":"Henüz değil!","ar":"ليس بعد!","zh":"还没通过！","ja":"まだだよ！","ko":"아직이야!","hi":"अभी नहीं!","id":"Belum!","vi":"Chưa đạt!","th":"ยังไม่ผ่าน!","my":"မရသေးဘူး!"},"pr_need":{"en":"You need {n}/10 to pass ✅","fr":"Il te faut {n}/10 pour valider ✅","es":"Necesitas {n}/10 para aprobar ✅","pt":"Você precisa de {n}/10 para passar ✅","de":"Du brauchst {n}/10 zum Bestehen ✅","ru":"Нужно {n}/10 для прохождения ✅","tr":"Geçmek için {n}/10 gerekir ✅","ar":"تحتاج {n}/10 للنجاح ✅","zh":"需要 {n}/10 才能通过 ✅","ja":"合格には {n}/10 必要 ✅","ko":"통과하려면 {n}/10 필요 ✅","hi":"पास होने के लिए {n}/10 चाहिए ✅","id":"Butuh {n}/10 untuk lulus ✅","vi":"Cần {n}/10 để qua ✅","th":"ต้องได้ {n}/10 เพื่อผ่าน ✅","my":"အောင်ဖို့ {n}/10 လိုတယ် ✅"},"pr_retry":{"en":"Try again","fr":"Réessayer","es":"Reintentar","pt":"Tentar de novo","de":"Erneut versuchen","ru":"Повторить","tr":"Tekrar dene","ar":"أعد المحاولة","zh":"再试一次","ja":"もう一度","ko":"다시 시도","hi":"फिर कोशिश","id":"Coba lagi","vi":"Thử lại","th":"ลองใหม่","my":"ထပ်ကြိုးစား"}}); // ✅ Seuil Practice i18n
+Object.assign(T, {"prev_page":{"en":"Back","fr":"Précédent","es":"Anterior","pt":"Anterior","de":"Zurück","ru":"Назад","tr":"Geri","ar":"السابق","zh":"上一个","ja":"戻る","ko":"이전","hi":"पिछला","id":"Kembali","vi":"Trước","th":"ก่อนหน้า","my":"နောက်သို့"},"lesson_finish_t":{"en":"Lesson read!","fr":"Leçon lue !","es":"¡Lección leída!","pt":"Lição lida!","de":"Lektion gelesen!","ru":"Урок прочитан!","tr":"Ders okundu!","ar":"انتهت القراءة!","zh":"读完啦！","ja":"読了！","ko":"레슨 완료!","hi":"पाठ पढ़ा!","id":"Pelajaran dibaca!","vi":"Đã đọc xong!","th":"อ่านจบแล้ว!","my":"သင်ခန်းစာ ပြီးပြီ!"}}); // 📖 Lecteur i18n
 const ACA_INTRO={
  en:{1:"Understand blockchain from scratch and handle your first wallet.",2:"Never get robbed: scams, phishing, rug pulls, drainers.",3:"Decentralized finance: DEX, pools, staking, yield, lending.",4:"The NFT economy: collections, utility, gaming, RWA.",5:"Launch a project: branding, community, DAO, tokenomics.",6:"Read the markets: support, resistance, trends, volume.",7:"A profitable strategy: MTF, risk management, position sizing.",8:"Use AI: crypto analyst, market scanner, strategies.",9:"Create your own token: smart contracts, liquidity, vesting.",10:"Master the entire ecosystem end to end."},
  es:{1:"Entiende la blockchain desde cero y maneja tu primera billetera.",2:"Que nunca te roben: estafas, phishing, rug pulls, drainers.",3:"Finanzas descentralizadas: DEX, pools, staking, yield, lending.",4:"La economía NFT: colecciones, utilidad, gaming, RWA.",5:"Lanza un proyecto: branding, comunidad, DAO, tokenomics.",6:"Lee los mercados: soportes, resistencias, tendencias, volumen.",7:"Una estrategia rentable: MTF, gestión del riesgo, position sizing.",8:"Usa la IA: analista cripto, escáner de mercado, estrategias.",9:"Crea tu propio token: contratos inteligentes, liquidez, vesting.",10:"Domina todo el ecosistema de principio a fin."},
@@ -8757,6 +8778,8 @@ function render(){
   bindContent();
   if(VIEW.name==="academy"||VIEW.name==="referral") wireAccordions(); // volets déroulants (profil câblé dans bindProfile)
   document.body.classList.toggle("quiz-open", VIEW.name==="quiz"); // examen = écran fixe plein écran
+  document.body.classList.toggle("lesson-open", VIEW.name==="lesson"); // leçon = lecteur paginé plein écran
+  if(VIEW.name==="lesson") bindLesson();
   window.scrollTo(0,0); // toujours remonter en haut à chaque transition de page
 }
 
@@ -8870,16 +8893,83 @@ function viewLocked(aid){
 }
 
 /* ---------- LESSON ---------- */
+/* Lecteur de leçon paginé (une carte par écran, zéro scroll de page) */
 function viewLesson(id,aid){
-  const C=ac(aid), i=C.modules.findIndex(m=>m.id===id), m=C.modules[i], d=doneList(aid).includes(m.id), next=C.modules[i+1];
-  const allDone=doneList(aid).length>=C.modules.length;
-  const examBtn=(d&&!next&&allDone)?`<button class="btn moon" data-action="quiz" data-aid="${aid}">${isPassed(aid)?t("retake_exam"):t("take_exam")}</button>`:'';
-  return `
-   <button class="btn ghost" data-goto="${aid}" style="margin-bottom:18px">${t("back_modules")}</button>
-   <div class="lesson"><div class="lhead"><span class="pill">${t("module_word")} ${i+1}/${C.modules.length}</span><h1 style="font-size:24px">${m.icon} ${m.title}</h1></div>
-     <div class="lbody">${m.body}</div>
-     <div class="lfoot"><div>${d?`<span class="tag done">${t("module_done")}</span>`:`<span class="tag">${t("reward_word")} : +${m.xp} XP · +${m.coins} MOON-RZ</span>`}</div>
-       <div style="display:flex;gap:10px">${d&&next?`<button class="btn ghost" data-lesson="${next.id}" data-aid="${aid}">${t("next_module")}</button>`:''}${examBtn}${!d?`<button class="btn" data-complete="${m.id}" data-aid="${aid}">${t("got_it")}</button>`:''}</div></div></div>`;
+  const C=ac(aid), i=C.modules.findIndex(m=>m.id===id), m=C.modules[i];
+  if(!m) return '';
+  return `<div class="reader" id="reader">
+     <div class="rd-top">
+       <button class="rd-x" data-goto="${aid}" aria-label="fermer">✕</button>
+       <div class="rd-prog"><span style="width:0%"></span></div>
+       <span class="rd-count mrz-mono"></span>
+     </div>
+     <div class="rd-title mrz-display">${m.icon} ${m.title}</div>
+     <div class="rd-stage"><div class="rd-card" id="lessonCard"></div></div>
+     <div class="rd-nav"></div>
+   </div>`;
+}
+function lessonPages(html){
+  var box=document.createElement('div'); box.innerHTML=html;
+  var nodes=[].slice.call(box.children);
+  if(!nodes.length) return [html];
+  var pages=[],cur=[],count=0;
+  function flush(){ if(cur.length){ pages.push(cur.map(function(n){return n.outerHTML;}).join('')); cur=[]; count=0; } }
+  nodes.forEach(function(n){
+    var isH=/^H[1-6]$/.test(n.tagName);
+    var isCallout=n.classList&&n.classList.contains('callout');
+    if((isH&&cur.length)||(isCallout&&count>=1)||count>=3) flush();
+    cur.push(n); count++;
+    if(isCallout) flush();
+  });
+  flush();
+  return pages.length?pages:[html];
+}
+function bindLesson(){
+  var id=VIEW.id, aid=VIEW.aid, C=ac(aid);
+  var idx=C.modules.findIndex(function(x){return x.id===id;}), m=C.modules[idx];
+  if(!m) return;
+  var done=doneList(aid).includes(m.id), next=C.modules[idx+1];
+  var allDone=doneList(aid).length>=C.modules.length;
+  var pages=lessonPages(m.body), N=pages.length, total=N+1;
+  var i=(VIEW.pg==='done')?N:0;
+  var card=document.getElementById('lessonCard'),
+      prog=document.querySelector('.rd-prog>span'),
+      cnt=document.querySelector('.rd-count'),
+      nav=document.querySelector('.rd-nav');
+  if(!card||!nav) return;
+  function wireNav(){
+    var p=nav.querySelector('.rd-prev'), n=nav.querySelector('.rd-next');
+    if(p) p.onclick=function(){ if(i>0){i--;paint();} };
+    if(n) n.onclick=function(){ if(i<N){i++;paint();} };
+    nav.querySelectorAll('[data-complete]').forEach(function(el){ el.onclick=function(){ completeModule(el.dataset.complete,+el.dataset.aid); }; });
+    nav.querySelectorAll('[data-lesson]').forEach(function(el){ el.onclick=function(){ VIEW={name:'lesson',id:el.dataset.lesson,aid:+el.dataset.aid}; render(); }; });
+    nav.querySelectorAll('[data-action="quiz"]').forEach(function(el){ el.onclick=function(){ quizState=null; VIEW={name:'quiz',id:+el.dataset.aid}; render(); }; });
+    nav.querySelectorAll('[data-goto]').forEach(function(el){ el.onclick=function(){ go('academy',+el.dataset.goto); }; });
+  }
+  function paint(){
+    if(i<N){
+      card.innerHTML='<div class="rd-inner">'+pages[i]+'</div>';
+      nav.innerHTML='<button class="btn ghost rd-prev"'+(i===0?' disabled':'')+'>'+t('prev_page')+'</button><button class="btn rd-next">'+t('pr_next')+'</button>';
+    } else {
+      card.innerHTML='<div class="rd-done"><div class="rd-done-em">'+(done?'✅':'🎯')+'</div>'
+        +'<h3 class="mrz-display">'+(done?t('module_done'):t('lesson_finish_t'))+'</h3>'
+        +(done?'':'<p class="rd-reward">+'+m.xp+' XP · +'+m.coins+' MOON-RZ</p>')+'</div>';
+      nav.innerHTML='<button class="btn ghost rd-prev">'+t('prev_page')+'</button>'
+        +(!done?('<button class="btn" data-complete="'+m.id+'" data-aid="'+aid+'">'+t('got_it')+'</button>')
+          :((next?('<button class="btn" data-lesson="'+next.id+'" data-aid="'+aid+'">'+t('next_module')+'</button>'):'')
+            +((!next&&allDone)?('<button class="btn moon" data-action="quiz" data-aid="'+aid+'">'+(isPassed(aid)?t('retake_exam'):t('take_exam'))+'</button>'):'')
+            +((!next&&!allDone)?('<button class="btn ghost" data-goto="'+aid+'">'+t('back_modules')+'</button>'):'')));
+    }
+    prog.style.width=Math.round(((i+1)/total)*100)+'%';
+    cnt.textContent=(i+1)+'/'+total;
+    wireNav();
+  }
+  var stage=document.querySelector('.rd-stage'), sx=null;
+  if(stage){
+    stage.addEventListener('pointerdown',function(e){ sx=e.clientX; });
+    stage.addEventListener('pointerup',function(e){ if(sx==null)return; var dx=e.clientX-sx; sx=null; if(dx<-45&&i<N){i++;paint();} else if(dx>45&&i>0){i--;paint();} });
+  }
+  paint();
 }
 
 /* ---------- QUIZ ---------- */
@@ -10102,7 +10192,7 @@ function completeModule(id,aid){
   const m=ac(aid).modules.find(x=>x.id===id);
   doneList(aid).push(id); save();
   award(m.xp,m.coins,`✓ ${t("module_done")} « ${m.title} » ${t("module_validated")}`);
-  VIEW={name:"lesson",id,aid}; render();
+  VIEW={name:"lesson",id,aid,pg:'done'}; render();
 }
 
 /* ---------- PARRAINAGE : capter ?ref= ---------- */
