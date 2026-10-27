@@ -9576,6 +9576,20 @@ const PRQ={
   wick_low:{fr:"Rejet des vendeurs — les acheteurs reviennent 🟢",en:"Sellers rejected — buyers step back in 🟢"},
   wick_up:{fr:"Rejet des acheteurs — les vendeurs reprennent 🔴",en:"Buyers rejected — sellers take over 🔴"},
   wick_none:{fr:"Rien de spécial, c'est aléatoire",en:"Nothing special, it's random"},
+  q_close:{fr:"Où se situe la clôture sur cette bougie ?",en:"Where is the close on this candle?"},
+  close_top:{fr:"En haut du corps (clôture > ouverture) 🟢",en:"At the top of the body (close > open) 🟢"},
+  close_bot:{fr:"En bas du corps (clôture < ouverture) 🔴",en:"At the bottom of the body (close < open) 🔴"},
+  q_body:{fr:"Que représente le CORPS (la partie épaisse) ?",en:"What does the BODY (the thick part) represent?"},
+  body_oc:{fr:"L'écart entre l'ouverture et la clôture",en:"The gap between the open and the close"},
+  body_hl:{fr:"Le plus haut et le plus bas de la période",en:"The high and the low of the period"},
+  body_vol:{fr:"Le volume échangé",en:"The traded volume"},
+  q_mech:{fr:"Que représentent les mèches (les lignes fines) ?",en:"What do the wicks (the thin lines) represent?"},
+  mech_ext:{fr:"Les extrêmes atteints : plus haut et plus bas",en:"The extremes reached: high and low"},
+  mech_oc:{fr:"L'ouverture et la clôture",en:"The open and the close"},
+  mech_vol:{fr:"Le nombre de transactions",en:"The number of trades"},
+  q_conv:{fr:"Que traduit la taille du corps de cette bougie ?",en:"What does this candle's body size tell you?"},
+  conv_strong:{fr:"Une forte conviction (grand corps) 💪",en:"Strong conviction (large body) 💪"},
+  conv_weak:{fr:"De l'hésitation (petit corps) 😐",en:"Hesitation (small body) 😐"},
   q_dsr:{fr:"Trace le support / la résistance",en:"Draw the support / resistance"},
   h_dsr:{fr:"Tape sur le graphe pour poser une ligne horizontale au niveau que le prix respecte le plus.",en:"Tap the chart to place a horizontal line at the level price respects most."},
   q_dtrend:{fr:"Trace la ligne de tendance",en:"Draw the trendline"},
@@ -9769,25 +9783,49 @@ function prRound(mount){
 
 /* ---------- Ateliers ---------- */
 function prR_candle(mount){
-  var type=Math.random()<0.5?'dir':'wick';
+  var types=['dir','close','wick','body','mech','conv'];
+  var type=types[Math.floor(Math.random()*types.length)];
   var bull=Math.random()<0.5, lowWick=Math.random()<0.5, top,bot,hi,lo;
   if(type==='wick'){
     top=84+Math.random()*16; bot=top+18+Math.random()*14;
     if(lowWick){ hi=top-8-Math.random()*6; lo=bot+46+Math.random()*24; }
     else { hi=top-46-Math.random()*24; lo=bot+8+Math.random()*6; }
+  } else if(type==='conv'){
+    var big=Math.random()<0.5;
+    if(big){ top=40+Math.random()*12; bot=top+96+Math.random()*28; }
+    else { top=96+Math.random()*14; bot=top+14+Math.random()*10; }
+    hi=top-10-Math.random()*10; lo=bot+10+Math.random()*10;
   } else {
-    top=34+Math.random()*50; bot=top+42+Math.random()*52;
-    hi=top-10-Math.random()*18; lo=bot+10+Math.random()*18;
+    top=46+Math.random()*44; bot=top+44+Math.random()*46;
+    hi=top-12-Math.random()*16; lo=bot+12+Math.random()*16;
   }
   var col=bull?'var(--pos)':'var(--red)';
   var svg=prCandleHTML(top,bot,hi,lo,col);
+  var q,opts,correct,expl,one=false;
   if(type==='dir'){
-    prShell(mount,svg,px(PRQ.q_dir),[t('pr_bull'),t('pr_bear')]);
-    prWire(mount,bull?0:1,px(bull?{fr:"Clôture au-dessus de l'ouverture : les acheteurs dominent.",en:"Close above open: buyers are in control."}:{fr:"Clôture sous l'ouverture : les vendeurs dominent.",en:"Close below open: sellers are in control."}));
+    q=px(PRQ.q_dir); opts=[t('pr_bull'),t('pr_bear')]; correct=bull?0:1;
+    expl=px(bull?{fr:"Clôture au-dessus de l'ouverture : les acheteurs dominent.",en:"Close above open: buyers are in control."}:{fr:"Clôture sous l'ouverture : les vendeurs dominent.",en:"Close below open: sellers are in control."});
+  } else if(type==='close'){
+    q=px(PRQ.q_close); opts=[px(PRQ.close_top),px(PRQ.close_bot)]; correct=bull?0:1; one=true;
+    expl=px(bull?{fr:"Bougie verte : la clôture est en HAUT du corps (clôture > ouverture).",en:"Green candle: the close is at the TOP of the body (close > open)."}:{fr:"Bougie rouge : la clôture est en BAS du corps (clôture < ouverture).",en:"Red candle: the close is at the BOTTOM of the body (close < open)."});
+  } else if(type==='wick'){
+    q=px(PRQ.q_wick); opts=[px(PRQ.wick_low),px(PRQ.wick_up),px(PRQ.wick_none)]; correct=lowWick?0:1; one=true;
+    expl=px(lowWick?{fr:"Longue mèche basse : le prix a plongé puis les acheteurs l'ont ramené → pression acheteuse.",en:"Long lower wick: price dove then buyers pulled it back → buying pressure."}:{fr:"Longue mèche haute : le prix a grimpé puis les vendeurs l'ont fait redescendre → pression vendeuse.",en:"Long upper wick: price spiked then sellers pushed it down → selling pressure."});
+  } else if(type==='body'){
+    var ob=[{t:px(PRQ.body_oc),ok:true},{t:px(PRQ.body_hl),ok:false},{t:px(PRQ.body_vol),ok:false}].sort(function(){return Math.random()-0.5;});
+    q=px(PRQ.q_body); opts=ob.map(function(x){return x.t;}); correct=ob.findIndex(function(x){return x.ok;}); one=true;
+    expl=px({fr:"Le corps (partie épaisse) = l'écart entre le prix d'ouverture et le prix de clôture.",en:"The body (thick part) = the gap between the open price and the close price."});
+  } else if(type==='mech'){
+    var om=[{t:px(PRQ.mech_ext),ok:true},{t:px(PRQ.mech_oc),ok:false},{t:px(PRQ.mech_vol),ok:false}].sort(function(){return Math.random()-0.5;});
+    q=px(PRQ.q_mech); opts=om.map(function(x){return x.t;}); correct=om.findIndex(function(x){return x.ok;}); one=true;
+    expl=px({fr:"Les mèches (lignes fines) = les extrêmes de la période : le plus haut et le plus bas atteints.",en:"The wicks (thin lines) = the period's extremes: the highest and lowest reached."});
   } else {
-    prShell(mount,svg,px(PRQ.q_wick),[px(PRQ.wick_low),px(PRQ.wick_up),px(PRQ.wick_none)],true);
-    prWire(mount,lowWick?0:1,px(lowWick?{fr:"Longue mèche basse : le prix a plongé puis les acheteurs l'ont ramené → pression acheteuse.",en:"Long lower wick: price dove then buyers pulled it back → buying pressure."}:{fr:"Longue mèche haute : le prix a grimpé puis les vendeurs l'ont fait redescendre → pression vendeuse.",en:"Long upper wick: price spiked then sellers pushed it down → selling pressure."}));
+    var isBig=(bot-top)>60;
+    q=px(PRQ.q_conv); opts=[px(PRQ.conv_strong),px(PRQ.conv_weak)]; correct=isBig?0:1;
+    expl=px(isBig?{fr:"Grand corps = forte conviction : un camp a largement dominé la période.",en:"Large body = strong conviction: one side clearly dominated the period."}:{fr:"Petit corps = hésitation : ouverture et clôture très proches.",en:"Small body = hesitation: open and close are very close."});
   }
+  prShell(mount,svg,q,opts,one);
+  prWire(mount,correct,expl);
 }
 function prR_cfig(mount){
   var ans=CFIG[Math.floor(Math.random()*CFIG.length)];
