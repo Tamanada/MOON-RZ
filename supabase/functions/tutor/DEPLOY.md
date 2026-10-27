@@ -49,6 +49,6 @@ curl -s -X POST "https://qouzioeghhlcwxkcxplj.supabase.co/functions/v1/tutor" \
 
 ## Sécurité & coûts
 - ✅ La clé Anthropic **ne quitte jamais le serveur** (secret Supabase). Le client n'a que la clé publishable (publique, sans danger).
-- 💸 Modèle Haiku + `max_tokens:600` = coût minime. Pour limiter l'abus plus tard :
-  ajouter un **rate-limit** (par IP via une table, ou un quota) et/ou restreindre le CORS.
+- 💸 Modèle Haiku + `max_tokens:600` = coût minime.
+- 🛡️ **Rate-limit intégré** (depuis le correctif P2-1) : max 12 requêtes/minute par IP, sinon réponse 429 (le client retombe alors sur le mode gratuit). Garde-fou en mémoire, par isolate : léger, pas une garantie dure. Pour une limite stricte multi-instances, passer sur une table Postgres ou un KV. **Il faut redéployer la fonction pour que ce correctif prenne effet.**
 - 🔁 Pour changer le ton/les règles du tuteur : édite le `SYSTEM(...)` dans `index.ts` et redéploie.

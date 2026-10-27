@@ -37,6 +37,36 @@ RULES:
 - If the question is off-topic (not crypto/Web3/finance education), say briefly it's outside your scope and invite a crypto question.
 - Encourage: one lesson a day, practice on the simulator, stay curious. You are part of MOON-RZ Academy ("Learn · Practice · Earn 🌕").`;
 
+// --- Rate limit en mémoire (anti-abus de coût). Limite: RL_MAX requêtes par
+// fenêtre glissante RL_WINDOW_MS, par IP. NB: l'état est par isolate et repart
+// à zéro après un cold start — c'est un garde-fou léger, pas une garantie dure.
+// Pour une limite stricte multi-instances, passer sur une table Postgres ou un KV.
+const RL_WINDOW_MS = 60_000;
+const RL_MAX = 12;
+const hits = new Map<string, number[]>();
+function clientIp(req: Request): string {
+  const xff = req.headers.get("x-forwarded-for");
+  if (xff) return xff.split(",")[0].trim();
+  return req.headers.get("cf-connecting-ip") || "unknown";
+}
+// Retourne 0 si autorisé, sinon le nombre de secondes à attendre.
+function rateLimited(ip: string): number {
+  const now = Date.now();
+  const arr = (hits.get(ip) || []).filter((t) => now - t < RL_WINDOW_MS);
+  if (arr.length >= RL_MAX) {
+    hits.set(ip, arr);
+    return Math.ceil((RL_WINDOW_MS - (now - arr[0])) / 1000);
+  }
+  arr.push(now);
+  hits.set(ip, arr);
+  if (hits.size > 5000) {
+    for (const [k, v] of hits) {
+      if (!v.length || now - v[v.length - 1] > RL_WINDOW_MS) hits.delete(k);
+    }
+  }
+  return 0;
+}
+
 Deno.serve(async (req: Request) => {
   const h = cors(req.headers.get("origin"));
   const J = (o: unknown, status = 200) =>
@@ -44,6 +74,14 @@ Deno.serve(async (req: Request) => {
 
   if (req.method === "OPTIONS") return new Response("ok", { headers: h });
   if (req.method !== "POST") return J({ error: "post_only" }, 405);
+
+  const wait = rateLimited(clientIp(req));
+  if (wait > 0) {
+    return new Response(JSON.stringify({ error: "rate_limited" }), {
+      status: 429,
+      headers: { ...h, "Content-Type": "application/json", "Retry-After": String(wait) },
+    });
+  }
 
   try {
     const key = Deno.env.get("ANTHROPIC_API_KEY");
