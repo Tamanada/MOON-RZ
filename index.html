@@ -9597,7 +9597,7 @@ const PR_DRILLS=[
   {key:"entry",  icon:"🎯", t:{fr:"Point d'entrée",en:"Entry point"},                 d:{fr:"Entrée, stop, objectif : le bon plan.",en:"Entry, stop, target: the right plan."}},
   {key:"size",   icon:"🧮", t:{fr:"Taille de position",en:"Position size"},           d:{fr:"Combien investir sans trop risquer.",en:"How much to invest, safely."}},
   {key:"dsr",    icon:"✏️", t:{fr:"Tracer un support",en:"Draw a support"},            d:{fr:"Pose toi-même la ligne clé.",en:"Place the key line yourself."}, tag:1},
-  {key:"dtrend", icon:"📐", t:{fr:"Tracer une tendance",en:"Draw a trendline"},         d:{fr:"Relie les creux, trouve la pente.",en:"Connect the lows, find the slope."}, tag:1},
+  {key:"dtrend", icon:"📐", t:{fr:"Tracer une tendance",en:"Draw a trendline"},         d:{fr:"Trouve et trace la droite de tendance.",en:"Find and draw the trendline."}, tag:1},
   {key:"cseq",   icon:"🔀", t:{fr:"Séries de bougies",en:"Candle series"},               d:{fr:"3 bougies : que t'annoncent-elles ?",en:"3 candles: what do they signal?"}}
 ];
 
@@ -10113,7 +10113,7 @@ function candleChart(bars, opt){
 function genLineBars(cfg){
   cfg=cfg||{};
   var slope=cfg.slope||0, side=cfg.side||'support',
-      n=cfg.n||(22+Math.floor(Math.random()*7)), base=100, vol=cfg.vol||1.6;
+      n=cfg.n||(22+Math.floor(Math.random()*7)), base=100, vol=cfg.vol||1.6, jit=cfg.jitter||0;
   function line(i){ return base+slope*i; }
   var np=3+Math.floor(Math.random()*2), pivots={};
   for(var k=0;k<np;k++) pivots[Math.round(k/(np-1)*(n-1))]=1;
@@ -10127,13 +10127,20 @@ function genLineBars(cfg){
     else { var mxb=Math.max(o,c); if(mxb>L-cushion){ var drop=mxb-(L-cushion); o-=drop; c-=drop; } }
     var hi=Math.max(o,c)+Math.random()*vol*1.1, lo=Math.min(o,c)-Math.random()*vol*1.1;
     if(pivots[i]){
-      if(side==='support') lo=L; else hi=L;
+      var dev=jit?(Math.random()-0.5)*jit:0;
+      if(side==='support') lo=L+dev; else hi=L+dev;
     } else {
       if(side==='support') lo=Math.max(lo, L+1.2+Math.random()*2.0);
       if(side==='resistance') hi=Math.min(hi, L-1.2-Math.random()*2.0);
     }
     hi=Math.max(hi, Math.max(o,c)); lo=Math.min(lo, Math.min(o,c));
     bars.push({o:o,h:hi,l:lo,c:c}); prevC=c;
+  }
+  if(cfg.trap){ // une mèche non-pivot perce légèrement la ligne (fausse cassure)
+    var tc=[]; for(var j=2;j<n-2;j++){ if(!pivots[j]) tc.push(j); }
+    if(tc.length){ var ti=tc[Math.floor(Math.random()*tc.length)], Lt=line(ti), tb=bars[ti];
+      if(side==='support') tb.l=Math.min(tb.l, Lt-(2+Math.random()*3));
+      else tb.h=Math.max(tb.h, Lt+(2+Math.random()*3)); }
   }
   return {bars:bars, lineA:{i:0,p:line(0)}, lineB:{i:n-1,p:line(n-1)}, side:side, slope:slope, touches:np};
 }
@@ -10218,8 +10225,8 @@ function prR_drawSR(mount){
 function prR_drawTrend(mount){
   var dir=Math.random()<0.5?'up':'down';
   var side=dir==='up'?'support':'resistance';
-  var slope=(dir==='up'?1:-1)*(0.5+Math.random()*1.0);
-  var g=genLineBars({slope:slope,side:side});
+  var slope=(dir==='up'?1:-1)*(0.3+Math.random()*1.7); // angles variés : plat à raide
+  var g=genLineBars({slope:slope,side:side,vol:1.4,jitter:2.6,trap:true}); // touches imparfaites + piège
   var ch=candleChart(g.bars,{W:340,H:200});
   var truth={a:{x:ch.X(g.lineA.i),y:ch.Y(g.lineA.p)},b:{x:ch.X(g.lineB.i),y:ch.Y(g.lineB.p)}};
   var hint=px(dir==='up'
@@ -10232,7 +10239,7 @@ function prR_drawTrend(mount){
       function lineY(L,x){ return L.a.y+(L.b.y-L.a.y)*((x-L.a.x)/((L.b.x-L.a.x)||1)); }
       function sy(x){ return sp[0].y+(sp[1].y-sp[0].y)*((x-sp[0].x)/((sp[1].x-sp[0].x)||1)); }
       var err=(Math.abs(lineY(truth,0)-sy(0))+Math.abs(lineY(truth,340)-sy(340)))/2;
-      var stars=err<9?3:err<18?2:err<30?1:0,ok=stars>=1;
+      var stars=err<9?3:err<18?2:err<30?1:0,ok=stars>=2; // validation stricte : 2★ mini
       var overlay='<line x1="0" y1="'+lineY(truth,0).toFixed(1)+'" x2="340" y2="'+lineY(truth,340).toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
       return {ok:ok,stars:stars,overlay:overlay,explain:px(dir==='up'
         ?{fr:"La vraie ligne (en vert) relie les creux de plus en plus hauts : tant que le prix reste au-dessus, la tendance est haussière.",en:"The real line (green) connects the higher lows: while price holds above it, the trend is up."}
