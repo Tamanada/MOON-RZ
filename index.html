@@ -9756,7 +9756,17 @@ const PR_SCEN=[
 /* ---------- Moteur ---------- */
 let prState={key:null,i:0,correct:0};
 const PR_TARGET=10, PR_PASS=7;
-function prStart(key){ prState={key:key,i:0,correct:0}; }
+function prStart(key){ prState={key:key,i:0,correct:0,bag:null,last:null}; }
+/* Tirage SANS REMISE par série : jamais deux fois le même exercice tant que la
+   banque n'est pas épuisée ; au réassort, on évite une répétition à la jointure. */
+function prDraw1(items){
+  if(!prState.bag || !prState.bag.length){
+    prState.bag=items.slice();
+    for(var i=prState.bag.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), tmp=prState.bag[i]; prState.bag[i]=prState.bag[j]; prState.bag[j]=tmp; }
+    if(prState.last!=null && prState.bag.length>1 && prState.bag[0]===prState.last) prState.bag.push(prState.bag.shift());
+  }
+  var it=prState.bag.shift(); prState.last=it; return it;
+}
 
 function prShell(mount,chartHTML,question,optLabels,one){
   mount.innerHTML='<div class="pg-top"><span>'+question+'</span><span class="pg-score">'+t('pr_score')+' '+prState.correct+'/'+prState.i+'</span></div>'
@@ -9822,8 +9832,7 @@ function prRound(mount){
 
 /* ---------- Ateliers ---------- */
 function prR_candle(mount){
-  var types=['dir','close','wick','body','mech','conv'];
-  var type=types[Math.floor(Math.random()*types.length)];
+  var type=prDraw1(['dir','close','wick','body','mech','conv']);
   var bull=Math.random()<0.5, lowWick=Math.random()<0.5, top,bot,hi,lo;
   if(type==='wick'){
     top=84+Math.random()*16; bot=top+18+Math.random()*14;
@@ -9867,7 +9876,7 @@ function prR_candle(mount){
   prWire(mount,correct,expl);
 }
 function prR_cfig(mount){
-  var ans=CFIG[Math.floor(Math.random()*CFIG.length)];
+  var ans=prDraw1(CFIG);
   var opts=CFIG.filter(function(f){return f.k!==ans.k;}).sort(function(){return Math.random()-0.5;}).slice(0,3).concat([ans]).sort(function(){return Math.random()-0.5;});
   var correct=opts.findIndex(function(o){return o.k===ans.k;});
   prShell(mount,cfigSVG(ans.k),px(PRQ.q_cfig),opts.map(function(o){return px(o.n);}));
@@ -9911,7 +9920,7 @@ const SEQ_SIG={
 };
 function seqSVG(cands){ return candleChart(cands,{W:300,H:200,padL:26,padR:26}).svg; }
 function prR_cseq(mount){
-  var ans=SEQ[Math.floor(Math.random()*SEQ.length)];
+  var ans=prDraw1(SEQ);
   var askName=Math.random()<0.5;
   if(askName){
     var opts=SEQ.filter(function(f){return f.k!==ans.k;}).sort(function(){return Math.random()-0.5;}).slice(0,3).concat([ans]).sort(function(){return Math.random()-0.5;});
@@ -9928,7 +9937,7 @@ function prR_cseq(mount){
   }
 }
 function prR_pat(mount){
-  var ans=PATTERNS[Math.floor(Math.random()*PATTERNS.length)];
+  var ans=prDraw1(PATTERNS);
   var opts=PATTERNS.filter(function(p){return p[0]!==ans[0];}).sort(function(){return Math.random()-0.5;}).slice(0,3).concat([ans]).sort(function(){return Math.random()-0.5;});
   var correct=opts.findIndex(function(o){return o[0]===ans[0];});
   prShell(mount,patternSVG(ans[0]),px(PRQ.q_pat),opts.map(function(o){return o[1];}));
@@ -9960,7 +9969,7 @@ function prR_sr(mount){
   prWire(mount,correct,px({fr:"Un vrai support/résistance est touché plusieurs fois sans être franchi nettement. La ligne "+labels[correct]+" est respectée "+bestCount+" fois.",en:"A real support/resistance is touched several times without a clean break. Line "+labels[correct]+" is respected "+bestCount+" times."}));
 }
 function prR_entry(mount){
-  var sc=PR_SCEN[Math.floor(Math.random()*PR_SCEN.length)];
+  var sc=prDraw1(PR_SCEN);
   var opts=sc.opts.map(function(o,i){return {o:o,i:i};}).sort(function(){return Math.random()-0.5;});
   var correct=opts.findIndex(function(x){return x.o.ok;});
   prShell(mount,scenSVG(sc.kind)+'<p class="pr-scen">'+px(sc.s)+'</p>',px(PRQ.q_entry),opts.map(function(x){return px(x.o);}),true);
