@@ -9908,21 +9908,7 @@ const SEQ_SIG={
   cont_down:{fr:"Poursuite de la baisse 🔴",en:"Downtrend continues 🔴"},
   indecision:{fr:"Indécision / pause ⚪",en:"Indecision / pause ⚪"}
 };
-function seqSVG(cands){
-  var W=300,H=200,pad=18,n=cands.length,vals=[];
-  cands.forEach(function(c){ vals.push(c.h,c.l); });
-  var mn=Math.min.apply(null,vals), mx=Math.max.apply(null,vals), rng=(mx-mn)||1;
-  function Y(p){ return pad+(mx-p)/rng*(H-2*pad); }
-  var slot=W/n, bw=Math.min(30,slot*0.5);
-  var s='<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">';
-  cands.forEach(function(c,i){
-    var cx=slot*(i+0.5), bull=c.c>=c.o, col=bull?'var(--pos)':'var(--red)';
-    var top=Y(Math.max(c.o,c.c)), bot=Y(Math.min(c.o,c.c));
-    s+='<line x1="'+cx.toFixed(1)+'" y1="'+Y(c.h).toFixed(1)+'" x2="'+cx.toFixed(1)+'" y2="'+Y(c.l).toFixed(1)+'" stroke="'+col+'" stroke-width="2.5"/>';
-    s+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(2,bot-top).toFixed(1)+'" fill="'+col+'" rx="2"/>';
-  });
-  return s+'</svg>';
-}
+function seqSVG(cands){ return candleChart(cands,{W:300,H:200,padL:26,padR:26}).svg; }
 function prR_cseq(mount){
   var ans=SEQ[Math.floor(Math.random()*SEQ.length)];
   var askName=Math.random()<0.5;
@@ -10088,84 +10074,100 @@ function prDraw(mount,o){
 }
 
 /* Générateurs : série visible + tracé vrai (truth) */
-function genSR(){
-  var W=340,H=200,N=11,pad=18,pts,best=0,bestCount=0,tries=0;
-  do{
-    pts=[]; var y=55+Math.random()*70;
-    for(var i=0;i<N;i++){ pts.push(y); y+=(Math.random()-0.5)*78; if(y<28)y=28+Math.random()*18; if(y>H-24)y=H-24-Math.random()*18; }
-    best=0; bestCount=0;
-    for(var lv=30; lv<=H-26; lv+=4){ var c=0; for(var j=0;j<N;j++) if(Math.abs(pts[j]-lv)<8) c++; if(c>bestCount){bestCount=c;best=lv;} }
-    tries++;
-  } while(bestCount<3 && tries<30);
-  var dx=(W-2*pad)/(N-1);
-  var poly=pts.map(function(p,i){return (pad+i*dx).toFixed(1)+','+p.toFixed(1);}).join(' ');
-  var inner='<polyline points="'+poly+'" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>';
-  return {inner:inner,truthY:best,touches:bestCount,W:W,H:H};
-}
-function genTrend(dir){
-  // Vrai graphe en bougies, varié à chaque tirage : sens (up/down), pente,
-  // nombre de bougies. Les extrêmes de contact (creux pour up, sommets pour down)
-  // sont EXACTEMENT sur la vraie ligne (notation juste) ; les autres flottent.
-  var W=340,H=200;
-  var xA=Math.round(W*0.12), xB=Math.round(W*0.88);
-  var hiY=(0.34+Math.random()*0.10)*H;           // haut de l'écran (petit y)
-  var steep=(0.16+Math.random()*0.26)*H;
-  var loY=hiY+steep;                             // bas de l'écran (grand y)
-  var yA,yB;
-  if(dir==='down'){ yA=hiY; yB=loY; } else { yA=loY; yB=hiY; }
-  function ly(x){ return yA+(yB-yA)*((x-xA)/((xB-xA)||1)); }
-  function cl(v){ return Math.max(6,Math.min(H-6,v)); }
-  var n=9+Math.floor(Math.random()*3), pad=16, bw=Math.min(20,(W-2*pad)/n*0.62), inner='';
-  for(var i=0;i<n;i++){
-    var x=pad+(W-2*pad)*(i/(n-1)), line=ly(x), touch=(i%2===0), off=touch?0:(16+Math.random()*26);
-    var bull=Math.random()<0.5, col=bull?'var(--pos)':'var(--red)', oY,cY,hiv,lov,bodyTop,bodyBot;
-    if(dir==='up'){
-      var lowY=line-off; bodyBot=lowY-(5+Math.random()*7); bodyTop=bodyBot-(9+Math.random()*16);
-      hiv=bodyTop-(3+Math.random()*10); lov=lowY;
-    } else {
-      var highY=line+off; bodyTop=highY+(5+Math.random()*7); bodyBot=bodyTop+(9+Math.random()*16);
-      hiv=highY; lov=bodyBot+(3+Math.random()*10);
-    }
-    if(bull){ cY=bodyTop; oY=bodyBot; } else { oY=bodyTop; cY=bodyBot; }
-    var top=cl(Math.min(oY,cY)), bot=cl(Math.max(oY,cY));
-    inner+='<line x1="'+x.toFixed(1)+'" y1="'+cl(hiv).toFixed(1)+'" x2="'+x.toFixed(1)+'" y2="'+cl(lov).toFixed(1)+'" stroke="'+col+'" stroke-width="2"/>';
-    inner+='<rect x="'+(x-bw/2).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(2,bot-top).toFixed(1)+'" fill="'+col+'" rx="1.5"/>';
+function candleChart(bars, opt){
+  opt=opt||{}; var W=opt.W||340, H=opt.H||200;
+  var padT=opt.padT!=null?opt.padT:14, padB=opt.padB!=null?opt.padB:14,
+      padL=opt.padL!=null?opt.padL:8, padR=opt.padR!=null?opt.padR:8;
+  var his=bars.map(function(b){return b.h;}), los=bars.map(function(b){return b.l;});
+  var mx=Math.max.apply(null,his), mn=Math.min.apply(null,los), rng=(mx-mn)||1;
+  mx+=rng*0.08; mn-=rng*0.08; rng=mx-mn;
+  var plotH=H-padT-padB, plotW=W-padL-padR, n=bars.length, step=plotW/n;
+  function Y(p){ return padT+(mx-p)/rng*plotH; }
+  function X(i){ return padL+(i+0.5)*step; }
+  var cw=Math.max(3, Math.min(15, step*0.6));
+  var s='';
+  if(opt.grid!==false){
+    for(var g=0;g<=4;g++){ var gy=(padT+plotH*g/4).toFixed(1);
+      s+='<line x1="'+padL+'" y1="'+gy+'" x2="'+(W-padR)+'" y2="'+gy+'" stroke="var(--border)" stroke-width="1" opacity="0.22"/>'; }
   }
-  return {inner:inner,truth:{a:{x:xA,y:yA},b:{x:xB,y:yB}},dir:dir,W:W,H:H};
+  bars.forEach(function(b,i){
+    var x=X(i), up=b.c>=b.o, col=up?'var(--pos)':'var(--red)';
+    var top=Math.min(Y(b.o),Y(b.c)), bot=Math.max(Y(b.o),Y(b.c));
+    s+='<line x1="'+x.toFixed(1)+'" y1="'+Y(b.h).toFixed(1)+'" x2="'+x.toFixed(1)+'" y2="'+Y(b.l).toFixed(1)+'" stroke="'+col+'" stroke-width="1.3"/>';
+    s+='<rect x="'+(x-cw/2).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+cw.toFixed(1)+'" height="'+Math.max(1.3,bot-top).toFixed(1)+'" fill="'+col+'" rx="0.8"/>';
+  });
+  return {inner:s, svg:'<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">'+s+'</svg>', X:X, Y:Y, W:W, H:H};
 }
-
+function genLineBars(cfg){
+  cfg=cfg||{};
+  var slope=cfg.slope||0, side=cfg.side||'support',
+      n=cfg.n||(22+Math.floor(Math.random()*7)), base=100, vol=cfg.vol||1.6;
+  function line(i){ return base+slope*i; }
+  var np=3+Math.floor(Math.random()*2), pivots={};
+  for(var k=0;k<np;k++) pivots[Math.round(k/(np-1)*(n-1))]=1;
+  var bars=[], prevC= side==='support'? line(0)+(3+Math.random()*4) : line(0)-(3+Math.random()*4);
+  for(var i=0;i<n;i++){
+    var L=line(i);
+    var o= i===0?prevC : prevC+(Math.random()-0.5)*vol*0.5;
+    var c= o + slope + (Math.random()-0.5)*vol*1.4;
+    var cushion=1.6+Math.random()*1.6;
+    if(side==='support'){ var mnb=Math.min(o,c); if(mnb<L+cushion){ var lift=(L+cushion)-mnb; o+=lift; c+=lift; } }
+    else { var mxb=Math.max(o,c); if(mxb>L-cushion){ var drop=mxb-(L-cushion); o-=drop; c-=drop; } }
+    var hi=Math.max(o,c)+Math.random()*vol*1.1, lo=Math.min(o,c)-Math.random()*vol*1.1;
+    if(pivots[i]){
+      if(side==='support') lo=L; else hi=L;
+    } else {
+      if(side==='support') lo=Math.max(lo, L+1.2+Math.random()*2.0);
+      if(side==='resistance') hi=Math.min(hi, L-1.2-Math.random()*2.0);
+    }
+    hi=Math.max(hi, Math.max(o,c)); lo=Math.min(lo, Math.min(o,c));
+    bars.push({o:o,h:hi,l:lo,c:c}); prevC=c;
+  }
+  return {bars:bars, lineA:{i:0,p:line(0)}, lineB:{i:n-1,p:line(n-1)}, side:side, slope:slope, touches:np};
+}
 function prR_drawSR(mount){
-  var g=genSR();
-  prDraw(mount,{inner:g.inner,W:g.W,H:g.H,mode:'hline',
-    question:px(PRQ.q_dsr),hint:px(PRQ.h_dsr),
+  var side=Math.random()<0.5?'support':'resistance';
+  var g=genLineBars({slope:0,side:side});
+  var ch=candleChart(g.bars,{W:340,H:200});
+  var truthY=ch.Y(g.lineA.p);
+  prDraw(mount,{inner:ch.inner,W:340,H:200,mode:'hline',
+    question:px(PRQ.q_dsr),
+    hint:px(side==='support'
+      ?{fr:"Trace la ligne horizontale que le prix teste par le dessus sans la casser (support).",en:"Draw the horizontal line price tests from above without breaking it (support)."}
+      :{fr:"Trace la ligne horizontale que le prix teste par le dessous sans la casser (résistance).",en:"Draw the horizontal line price tests from below without breaking it (resistance)."}),
     grade:function(pts){
-      var err=Math.abs(pts[0].y-g.truthY);
+      var err=Math.abs(pts[0].y-truthY);
       var stars=err<6?3:err<13?2:err<24?1:0,ok=stars>=1;
-      var overlay='<line x1="0" y1="'+g.truthY.toFixed(1)+'" x2="'+g.W+'" y2="'+g.truthY.toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
-      return {ok:ok,stars:stars,overlay:overlay,explain:px({fr:"Le vrai niveau (en vert) est touché "+g.touches+" fois. Un bon support/résistance s'aligne sur ces extrêmes répétés.",en:"The real level (green) is touched "+g.touches+" times. A good support/resistance lines up with those repeated extremes."})};
+      var overlay='<line x1="0" y1="'+truthY.toFixed(1)+'" x2="340" y2="'+truthY.toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
+      return {ok:ok,stars:stars,overlay:overlay,explain:px(side==='support'
+        ?{fr:"Le vrai niveau (en vert) est testé "+g.touches+" fois par le dessus sans céder : c'est un support.",en:"The real level (green) is tested "+g.touches+" times from above without breaking: it's a support."}
+        :{fr:"Le vrai niveau (en vert) est testé "+g.touches+" fois par le dessous sans céder : c'est une résistance.",en:"The real level (green) is tested "+g.touches+" times from below without breaking: it's a resistance."})};
     }});
 }
 function prR_drawTrend(mount){
   var dir=Math.random()<0.5?'up':'down';
-  var g=genTrend(dir);
+  var side=dir==='up'?'support':'resistance';
+  var slope=(dir==='up'?1:-1)*(0.5+Math.random()*1.0);
+  var g=genLineBars({slope:slope,side:side});
+  var ch=candleChart(g.bars,{W:340,H:200});
+  var truth={a:{x:ch.X(g.lineA.i),y:ch.Y(g.lineA.p)},b:{x:ch.X(g.lineB.i),y:ch.Y(g.lineB.p)}};
   var hint=px(dir==='up'
     ?{fr:"Pose 2 points sur les creux de plus en plus hauts (ligne de support).",en:"Place 2 points on the higher lows (support line)."}
     :{fr:"Pose 2 points sur les sommets de plus en plus bas (ligne de résistance).",en:"Place 2 points on the lower highs (resistance line)."});
-  prDraw(mount,{inner:g.inner,W:g.W,H:g.H,mode:'line',
+  prDraw(mount,{inner:ch.inner,W:340,H:200,mode:'line',
     question:px(PRQ.q_dtrend),hint:hint,
     grade:function(pts){
       var sp=pts.slice().sort(function(a,b){return a.x-b.x;});
       function lineY(L,x){ return L.a.y+(L.b.y-L.a.y)*((x-L.a.x)/((L.b.x-L.a.x)||1)); }
       function sy(x){ return sp[0].y+(sp[1].y-sp[0].y)*((x-sp[0].x)/((sp[1].x-sp[0].x)||1)); }
-      var err=(Math.abs(lineY(g.truth,0)-sy(0))+Math.abs(lineY(g.truth,g.W)-sy(g.W)))/2;
+      var err=(Math.abs(lineY(truth,0)-sy(0))+Math.abs(lineY(truth,340)-sy(340)))/2;
       var stars=err<9?3:err<18?2:err<30?1:0,ok=stars>=1;
-      var overlay='<line x1="0" y1="'+lineY(g.truth,0).toFixed(1)+'" x2="'+g.W+'" y2="'+lineY(g.truth,g.W).toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
+      var overlay='<line x1="0" y1="'+lineY(truth,0).toFixed(1)+'" x2="340" y2="'+lineY(truth,340).toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
       return {ok:ok,stars:stars,overlay:overlay,explain:px(dir==='up'
         ?{fr:"La vraie ligne (en vert) relie les creux de plus en plus hauts : tant que le prix reste au-dessus, la tendance est haussière.",en:"The real line (green) connects the higher lows: while price holds above it, the trend is up."}
         :{fr:"La vraie ligne (en vert) relie les sommets de plus en plus bas : tant que le prix reste en dessous, la tendance est baissière.",en:"The real line (green) connects the lower highs: while price stays below it, the trend is down."})};
     }});
 }
-
 function bindContent(){
   document.querySelectorAll("[data-lesson]").forEach(el=>el.onclick=()=>{VIEW={name:"lesson",id:el.dataset.lesson,aid:+el.dataset.aid};render();});
   document.querySelectorAll("[data-goto]").forEach(el=>el.onclick=()=>go("academy",+el.dataset.goto));
