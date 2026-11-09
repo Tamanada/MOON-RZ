@@ -426,6 +426,24 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pr-hint{color:var(--muted);font-size:13px;line-height:1.4;margin:2px 2px 0}
   .pr-drawbar{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
   .pr-tag{display:inline-block;font-size:10px;font-weight:700;color:var(--accent);background:var(--chip-bg);border:1px solid var(--border);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+  /* Barre de navigation du bas (mobile) */
+  .botnav{display:none}
+  @media(max-width:880px){
+    .botnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;
+      background:var(--hero-scrim,#141B3A);border-top:1px solid var(--border);
+      -webkit-backdrop-filter:var(--card-blur);backdrop-filter:var(--card-blur);
+      padding-bottom:env(safe-area-inset-bottom)}
+    .botnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+      background:none;border:0;cursor:pointer;padding:8px 2px 7px;color:var(--muted);
+      font-size:10.5px;font-weight:600;min-width:0}
+    .botnav button span:last-child{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .botnav .bn-ic{font-size:19px;line-height:1;opacity:.85}
+    .botnav button.active{color:var(--accent)}
+    .botnav button.active .bn-ic{opacity:1}
+    body.quiz-open .botnav, body.lesson-open .botnav{display:none}
+    .main{padding-bottom:72px}
+    #botFab{bottom:80px}
+  }
   /* Lecteur de leçon paginé (plein écran, zéro scroll de page) */
   body.lesson-open{overflow:hidden}
   body.lesson-open #botFab{display:none}
@@ -616,6 +634,13 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
     <div class="lvlroller" id="lvlRoller"></div>
     <main class="content" id="content"></main>
   </div>
+  <nav class="botnav" id="botnav">
+    <button data-bnav="home"><span class="bn-ic">🏠</span><span data-t="nav_home">Accueil</span></button>
+    <button data-bnav="academies"><span class="bn-ic">🎓</span><span data-t="bn_learn">Académies</span></button>
+    <button data-bnav="practice"><span class="bn-ic">🎮</span><span data-t="home_practice_t">Practice</span></button>
+    <button data-bnav="trading"><span class="bn-ic">📈</span><span data-t="home_trading_t">Trading</span></button>
+    <button data-bnav="profile"><span class="bn-ic">🧑‍🚀</span><span data-t="bn_profile">Profil</span></button>
+  </nav>
 </div>
 
 <div class="drawer-scrim" id="drawerScrim"></div>
@@ -926,6 +951,7 @@ Object.assign(T, {"practice":{"en":"🎮 Practice","fr":"🎮 Practice","es":"�
 Object.assign(T, {"pr_clear":{"en":"Clear","fr":"Effacer","es":"Borrar","pt":"Limpar","de":"Löschen","ru":"Очистить","tr":"Temizle","ar":"مسح","zh":"清除","ja":"クリア","ko":"지우기","hi":"मिटाएँ","id":"Hapus","vi":"Xóa","th":"ล้าง","my":"ရှင်း"},"pr_check":{"en":"Check","fr":"Valider","es":"Comprobar","pt":"Verificar","de":"Prüfen","ru":"Проверить","tr":"Kontrol et","ar":"تحقق","zh":"检查","ja":"チェック","ko":"확인","hi":"जाँचें","id":"Periksa","vi":"Kiểm tra","th":"ตรวจ","my":"စစ်ဆေး"}}); // ✏️ Tracé i18n
 Object.assign(T, {"pr_pass_t":{"en":"Series passed!","fr":"Série validée !","es":"¡Serie superada!","pt":"Série aprovada!","de":"Runde bestanden!","ru":"Серия пройдена!","tr":"Seri geçildi!","ar":"تم اجتياز الجولة!","zh":"通过！","ja":"クリア！","ko":"통과!","hi":"सीरीज़ पास!","id":"Set lulus!","vi":"Qua màn!","th":"ผ่านชุดแล้ว!","my":"အောင်မြင်!"},"pr_fail_t":{"en":"Not yet!","fr":"Pas encore !","es":"¡Aún no!","pt":"Ainda não!","de":"Noch nicht!","ru":"Ещё нет!","tr":"Henüz değil!","ar":"ليس بعد!","zh":"还没通过！","ja":"まだだよ！","ko":"아직이야!","hi":"अभी नहीं!","id":"Belum!","vi":"Chưa đạt!","th":"ยังไม่ผ่าน!","my":"မရသေးဘူး!"},"pr_need":{"en":"You need {n}/10 to pass ✅","fr":"Il te faut {n}/10 pour valider ✅","es":"Necesitas {n}/10 para aprobar ✅","pt":"Você precisa de {n}/10 para passar ✅","de":"Du brauchst {n}/10 zum Bestehen ✅","ru":"Нужно {n}/10 для прохождения ✅","tr":"Geçmek için {n}/10 gerekir ✅","ar":"تحتاج {n}/10 للنجاح ✅","zh":"需要 {n}/10 才能通过 ✅","ja":"合格には {n}/10 必要 ✅","ko":"통과하려면 {n}/10 필요 ✅","hi":"पास होने के लिए {n}/10 चाहिए ✅","id":"Butuh {n}/10 untuk lulus ✅","vi":"Cần {n}/10 để qua ✅","th":"ต้องได้ {n}/10 เพื่อผ่าน ✅","my":"အောင်ဖို့ {n}/10 လိုတယ် ✅"},"pr_retry":{"en":"Try again","fr":"Réessayer","es":"Reintentar","pt":"Tentar de novo","de":"Erneut versuchen","ru":"Повторить","tr":"Tekrar dene","ar":"أعد المحاولة","zh":"再试一次","ja":"もう一度","ko":"다시 시도","hi":"फिर कोशिश","id":"Coba lagi","vi":"Thử lại","th":"ลองใหม่","my":"ထပ်ကြိုးစား"}}); // ✅ Seuil Practice i18n
 Object.assign(T, {"prev_page":{"en":"Back","fr":"Précédent","es":"Anterior","pt":"Anterior","de":"Zurück","ru":"Назад","tr":"Geri","ar":"السابق","zh":"上一个","ja":"戻る","ko":"이전","hi":"पिछला","id":"Kembali","vi":"Trước","th":"ก่อนหน้า","my":"နောက်သို့"},"lesson_finish_t":{"en":"Lesson read!","fr":"Leçon lue !","es":"¡Lección leída!","pt":"Lição lida!","de":"Lektion gelesen!","ru":"Урок прочитан!","tr":"Ders okundu!","ar":"انتهت القراءة!","zh":"读完啦！","ja":"読了！","ko":"레슨 완료!","hi":"पाठ पढ़ा!","id":"Pelajaran dibaca!","vi":"Đã đọc xong!","th":"อ่านจบแล้ว!","my":"သင်ခန်းစာ ပြီးပြီ!"}}); // 📖 Lecteur i18n
+Object.assign(T, {"bn_learn":{"en":"Academies","fr":"Académies","es":"Academias","pt":"Academias","de":"Akademien","ru":"Академии","tr":"Akademiler","ar":"الأكاديميات","zh":"学院","ja":"アカデミー","ko":"아카데미","hi":"अकादमी","id":"Akademi","vi":"Học viện","th":"สถาบัน","my":"အကယ်ဒမီ"},"bn_profile":{"en":"Profile","fr":"Profil","es":"Perfil","pt":"Perfil","de":"Profil","ru":"Профиль","tr":"Profil","ar":"الملف","zh":"个人","ja":"プロフィール","ko":"프로필","hi":"प्रोफ़ाइल","id":"Profil","vi":"Hồ sơ","th":"โปรไฟล์","my":"ပရိုဖိုင်"}}); // 📱 Bottom nav i18n
 const ACA_INTRO={
  en:{1:"Understand blockchain from scratch and handle your first wallet.",2:"Never get robbed: scams, phishing, rug pulls, drainers.",3:"Decentralized finance: DEX, pools, staking, yield, lending.",4:"The NFT economy: collections, utility, gaming, RWA.",5:"Launch a project: branding, community, DAO, tokenomics.",6:"Read the markets: support, resistance, trends, volume.",7:"A profitable strategy: MTF, risk management, position sizing.",8:"Use AI: crypto analyst, market scanner, strategies.",9:"Create your own token: smart contracts, liquidity, vesting.",10:"Master the entire ecosystem end to end."},
  es:{1:"Entiende la blockchain desde cero y maneja tu primera billetera.",2:"Que nunca te roben: estafas, phishing, rug pulls, drainers.",3:"Finanzas descentralizadas: DEX, pools, staking, yield, lending.",4:"La economía NFT: colecciones, utilidad, gaming, RWA.",5:"Lanza un proyecto: branding, comunidad, DAO, tokenomics.",6:"Lee los mercados: soportes, resistencias, tendencias, volumen.",7:"Una estrategia rentable: MTF, gestión del riesgo, position sizing.",8:"Usa la IA: analista cripto, escáner de mercado, estrategias.",9:"Crea tu propio token: contratos inteligentes, liquidez, vesting.",10:"Domina todo el ecosistema de principio a fin."},
@@ -8731,6 +8757,9 @@ function buildNav(){
   nav.querySelector('[data-view="profile"]').onclick=()=>go("profile");
   nav.querySelector('[data-view="vision"]').onclick=()=>go("vision");
 
+  // Barre de navigation du bas
+  document.querySelectorAll('#botnav [data-bnav]').forEach(b=>b.onclick=()=>go(b.dataset.bnav));
+
   // sélecteur de langue
   const sel=$("langSel");
   sel.innerHTML=LANGS.map(l=>`<option value="${l.c}">${l.f} ${l.n}</option>`).join("");
@@ -8753,6 +8782,11 @@ function refreshNavLocks(){
 function setActiveNav(){
   refreshNavLocks();
   document.querySelectorAll("#nav button:not([data-view='academy'])").forEach(b=>b.classList.toggle("active",b.dataset.view===VIEW.name));
+  // Barre du bas : regroupe les vues par famille
+  var fam={home:"home",academies:"academies",academy:"academies",lesson:"academies",quiz:"academies",
+           practice:"practice",trading:"trading",simulator:"trading",hot:"trading",partners:"trading",
+           profile:"profile",referral:"profile",vision:"profile"}[VIEW.name]||"";
+  document.querySelectorAll("#botnav [data-bnav]").forEach(b=>b.classList.toggle("active",b.dataset.bnav===fam));
 }
 function go(name,id){ stopSim(); closeDrawer(); VIEW={name,id:id||1}; render(); }
 
@@ -9562,7 +9596,8 @@ const PR_DRILLS=[
   {key:"entry",  icon:"🎯", t:{fr:"Point d'entrée",en:"Entry point"},                 d:{fr:"Entrée, stop, objectif : le bon plan.",en:"Entry, stop, target: the right plan."}},
   {key:"size",   icon:"🧮", t:{fr:"Taille de position",en:"Position size"},           d:{fr:"Combien investir sans trop risquer.",en:"How much to invest, safely."}},
   {key:"dsr",    icon:"✏️", t:{fr:"Tracer un support",en:"Draw a support"},            d:{fr:"Pose toi-même la ligne clé.",en:"Place the key line yourself."}, tag:1},
-  {key:"dtrend", icon:"📐", t:{fr:"Tracer une tendance",en:"Draw a trendline"},         d:{fr:"Relie les creux, trouve la pente.",en:"Connect the lows, find the slope."}, tag:1}
+  {key:"dtrend", icon:"📐", t:{fr:"Tracer une tendance",en:"Draw a trendline"},         d:{fr:"Relie les creux, trouve la pente.",en:"Connect the lows, find the slope."}, tag:1},
+  {key:"cseq",   icon:"🔀", t:{fr:"Séries de bougies",en:"Candle series"},               d:{fr:"3 bougies : que t'annoncent-elles ?",en:"3 candles: what do they signal?"}}
 ];
 
 /* Questions & libellés sensibles à la langue (FR+EN, repli EN→FR) */
@@ -9570,6 +9605,8 @@ const PRQ={
   q_dir:{fr:"Cette bougie est-elle haussière ou baissière ?",en:"Is this candle bullish or bearish?"},
   q_wick:{fr:"Que signale la longue mèche ?",en:"What does the long wick signal?"},
   q_cfig:{fr:"Quelle est cette figure ?",en:"Which candle is this?"},
+  q_seqname:{fr:"Quelle est cette figure (série de bougies) ?",en:"Which pattern is this (candle series)?"},
+  q_seqsig:{fr:"Que t'annoncent ces bougies ?",en:"What do these candles signal?"},
   q_pat:{fr:"Quelle est cette figure chartiste ?",en:"Which chart pattern is this?"},
   q_sr:{fr:"Quelle ligne le prix respecte-t-il (support/résistance) ?",en:"Which line does price respect (support/resistance)?"},
   q_entry:{fr:"Quel est le meilleur plan de trade ?",en:"What's the best trade plan?"},
@@ -9779,6 +9816,7 @@ function prRound(mount){
   else if(k==="size") prR_size(mount);
   else if(k==="dsr") prR_drawSR(mount);
   else if(k==="dtrend") prR_drawTrend(mount);
+  else if(k==="cseq") prR_cseq(mount);
 }
 
 /* ---------- Ateliers ---------- */
@@ -9833,6 +9871,74 @@ function prR_cfig(mount){
   var correct=opts.findIndex(function(o){return o.k===ans.k;});
   prShell(mount,cfigSVG(ans.k),px(PRQ.q_cfig),opts.map(function(o){return px(o.n);}));
   prWire(mount,correct,px(CFIG_INFO[ans.k]));
+}
+/* ===== Séries de bougies : figures réelles multi-bougies (2-3 bougies) ===== */
+/* Chaque figure : nom (fr/en), bougies {o,c,h,l}, signal, explication.
+   signal ∈ rev_up / rev_down / cont_up / cont_down / indecision. */
+const SEQ=[
+  {k:"morning_star", n:{fr:"Étoile du matin",en:"Morning star"}, sig:"rev_up",
+   c:[{o:108,c:98,h:109,l:97},{o:95,c:94,h:96,l:92},{o:96,c:107,h:108,l:95}],
+   e:{fr:"Étoile du matin : grosse bougie rouge, puis petite bougie d'indécision en bas, puis grosse verte qui remonte dans le corps de la 1re. Retournement haussier après une baisse.",en:"Morning star: big red candle, a small indecision candle at the bottom, then a big green pushing back into the first body. Bullish reversal after a decline."}},
+  {k:"evening_star", n:{fr:"Étoile du soir",en:"Evening star"}, sig:"rev_down",
+   c:[{o:92,c:102,h:103,l:91},{o:105,c:106,h:108,l:104},{o:104,c:93,h:105,l:92}],
+   e:{fr:"Étoile du soir : grosse bougie verte, puis petite bougie d'indécision en haut, puis grosse rouge qui replonge. Retournement baissier après une hausse.",en:"Evening star: big green candle, a small indecision candle at the top, then a big red diving back down. Bearish reversal after a rise."}},
+  {k:"three_soldiers", n:{fr:"Trois soldats blancs",en:"Three white soldiers"}, sig:"cont_up",
+   c:[{o:95,c:100,h:101,l:94},{o:98,c:104,h:105,l:97},{o:102,c:108,h:109,l:101}],
+   e:{fr:"Trois soldats blancs : trois bougies vertes qui montent, chacune clôturant plus haut. Forte pression acheteuse, poursuite de la hausse.",en:"Three white soldiers: three rising green candles, each closing higher. Strong buying pressure, uptrend continues."}},
+  {k:"three_crows", n:{fr:"Trois corbeaux noirs",en:"Three black crows"}, sig:"cont_down",
+   c:[{o:108,c:103,h:109,l:102},{o:105,c:99,h:106,l:98},{o:101,c:95,h:102,l:94}],
+   e:{fr:"Trois corbeaux noirs : trois bougies rouges qui descendent, chacune clôturant plus bas. Forte pression vendeuse, poursuite de la baisse.",en:"Three black crows: three falling red candles, each closing lower. Strong selling pressure, downtrend continues."}},
+  {k:"bull_engulf", n:{fr:"Avalement haussier",en:"Bullish engulfing"}, sig:"rev_up",
+   c:[{o:101,c:98,h:102,l:97},{o:97,c:104,h:105,l:96}],
+   e:{fr:"Avalement haussier : une grande bougie verte avale entièrement la petite rouge précédente. Les acheteurs reprennent le contrôle.",en:"Bullish engulfing: a big green candle fully engulfs the prior small red one. Buyers take control."}},
+  {k:"bear_engulf", n:{fr:"Avalement baissier",en:"Bearish engulfing"}, sig:"rev_down",
+   c:[{o:99,c:102,h:103,l:98},{o:103,c:96,h:104,l:95}],
+   e:{fr:"Avalement baissier : une grande bougie rouge avale entièrement la petite verte précédente. Les vendeurs reprennent le contrôle.",en:"Bearish engulfing: a big red candle fully engulfs the prior small green one. Sellers take control."}},
+  {k:"tweezer_bottom", n:{fr:"Pincettes en bas",en:"Tweezer bottom"}, sig:"rev_up",
+   c:[{o:104,c:98,h:105,l:96},{o:98,c:104,h:105,l:96}],
+   e:{fr:"Pincettes en bas : deux bougies touchant le même plus bas (rouge puis verte). Le support tient : retournement haussier probable.",en:"Tweezer bottom: two candles hitting the same low (red then green). Support holds: likely bullish reversal."}},
+  {k:"tweezer_top", n:{fr:"Pincettes en haut",en:"Tweezer top"}, sig:"rev_down",
+   c:[{o:96,c:103,h:105,l:95},{o:103,c:97,h:105,l:96}],
+   e:{fr:"Pincettes en haut : deux bougies touchant le même plus haut (verte puis rouge). La résistance tient : retournement baissier probable.",en:"Tweezer top: two candles hitting the same high (green then red). Resistance holds: likely bearish reversal."}}
+];
+const SEQ_SIG={
+  rev_up:{fr:"Retournement haussier 🔄🟢",en:"Bullish reversal 🔄🟢"},
+  rev_down:{fr:"Retournement baissier 🔄🔴",en:"Bearish reversal 🔄🔴"},
+  cont_up:{fr:"Poursuite de la hausse 🟢",en:"Uptrend continues 🟢"},
+  cont_down:{fr:"Poursuite de la baisse 🔴",en:"Downtrend continues 🔴"},
+  indecision:{fr:"Indécision / pause ⚪",en:"Indecision / pause ⚪"}
+};
+function seqSVG(cands){
+  var W=300,H=200,pad=18,n=cands.length,vals=[];
+  cands.forEach(function(c){ vals.push(c.h,c.l); });
+  var mn=Math.min.apply(null,vals), mx=Math.max.apply(null,vals), rng=(mx-mn)||1;
+  function Y(p){ return pad+(mx-p)/rng*(H-2*pad); }
+  var slot=W/n, bw=Math.min(30,slot*0.5);
+  var s='<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">';
+  cands.forEach(function(c,i){
+    var cx=slot*(i+0.5), bull=c.c>=c.o, col=bull?'var(--pos)':'var(--red)';
+    var top=Y(Math.max(c.o,c.c)), bot=Y(Math.min(c.o,c.c));
+    s+='<line x1="'+cx.toFixed(1)+'" y1="'+Y(c.h).toFixed(1)+'" x2="'+cx.toFixed(1)+'" y2="'+Y(c.l).toFixed(1)+'" stroke="'+col+'" stroke-width="2.5"/>';
+    s+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(2,bot-top).toFixed(1)+'" fill="'+col+'" rx="2"/>';
+  });
+  return s+'</svg>';
+}
+function prR_cseq(mount){
+  var ans=SEQ[Math.floor(Math.random()*SEQ.length)];
+  var askName=Math.random()<0.5;
+  if(askName){
+    var opts=SEQ.filter(function(f){return f.k!==ans.k;}).sort(function(){return Math.random()-0.5;}).slice(0,3).concat([ans]).sort(function(){return Math.random()-0.5;});
+    var correct=opts.findIndex(function(o){return o.k===ans.k;});
+    prShell(mount,seqSVG(ans.c),px(PRQ.q_seqname),opts.map(function(o){return px(o.n);}),true);
+    prWire(mount,correct,px(ans.e));
+  } else {
+    var sigs=Object.keys(SEQ_SIG);
+    var distract=sigs.filter(function(s){return s!==ans.sig;}).sort(function(){return Math.random()-0.5;}).slice(0,3);
+    var pool=distract.concat([ans.sig]).sort(function(){return Math.random()-0.5;});
+    var correct2=pool.indexOf(ans.sig);
+    prShell(mount,seqSVG(ans.c),px(PRQ.q_seqsig),pool.map(function(k){return px(SEQ_SIG[k]);}),true);
+    prWire(mount,correct2,px(ans.n)+' : '+px(ans.e));
+  }
 }
 function prR_pat(mount){
   var ans=PATTERNS[Math.floor(Math.random()*PATTERNS.length)];
@@ -9997,19 +10103,35 @@ function genSR(){
   return {inner:inner,truthY:best,touches:bestCount,W:W,H:H};
 }
 function genTrend(dir){
-  var W=340,H=200,xA=W*0.14,xB=W*0.9,yA,yB;
-  if(dir==='down'){ yA=0.40*H; yB=0.78*H; } else { yA=0.78*H; yB=0.42*H; }
+  // Vrai graphe en bougies, varié à chaque tirage : sens (up/down), pente,
+  // nombre de bougies. Les extrêmes de contact (creux pour up, sommets pour down)
+  // sont EXACTEMENT sur la vraie ligne (notation juste) ; les autres flottent.
+  var W=340,H=200;
+  var xA=Math.round(W*0.12), xB=Math.round(W*0.88);
+  var hiY=(0.34+Math.random()*0.10)*H;           // haut de l'écran (petit y)
+  var steep=(0.16+Math.random()*0.26)*H;
+  var loY=hiY+steep;                             // bas de l'écran (grand y)
+  var yA,yB;
+  if(dir==='down'){ yA=hiY; yB=loY; } else { yA=loY; yB=hiY; }
   function ly(x){ return yA+(yB-yA)*((x-xA)/((xB-xA)||1)); }
-  var frac=[0,0.2,0.4,0.56,0.74,1],ser=[];
-  ser.push({x:6,y:ly(6)+(dir==='down'?4:-4)});
-  frac.forEach(function(f,i){
-    var x=xA+(xB-xA)*f, touch=(i%2===0), off=34+Math.random()*16;
-    ser.push({x:x,y: touch?ly(x):(dir==='down'?ly(x)+off:ly(x)-off)});
-  });
-  ser.push({x:W-6,y: ly(W-6)+(dir==='down'?22:-22)});
-  var poly=ser.map(function(p){return p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
-  var inner='<polyline points="'+poly+'" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>';
-  return {inner:inner,truth:{a:{x:xA,y:yA},b:{x:xB,y:yB}},W:W,H:H};
+  function cl(v){ return Math.max(6,Math.min(H-6,v)); }
+  var n=9+Math.floor(Math.random()*3), pad=16, bw=Math.min(20,(W-2*pad)/n*0.62), inner='';
+  for(var i=0;i<n;i++){
+    var x=pad+(W-2*pad)*(i/(n-1)), line=ly(x), touch=(i%2===0), off=touch?0:(16+Math.random()*26);
+    var bull=Math.random()<0.5, col=bull?'var(--pos)':'var(--red)', oY,cY,hiv,lov,bodyTop,bodyBot;
+    if(dir==='up'){
+      var lowY=line-off; bodyBot=lowY-(5+Math.random()*7); bodyTop=bodyBot-(9+Math.random()*16);
+      hiv=bodyTop-(3+Math.random()*10); lov=lowY;
+    } else {
+      var highY=line+off; bodyTop=highY+(5+Math.random()*7); bodyBot=bodyTop+(9+Math.random()*16);
+      hiv=highY; lov=bodyBot+(3+Math.random()*10);
+    }
+    if(bull){ cY=bodyTop; oY=bodyBot; } else { oY=bodyTop; cY=bodyBot; }
+    var top=cl(Math.min(oY,cY)), bot=cl(Math.max(oY,cY));
+    inner+='<line x1="'+x.toFixed(1)+'" y1="'+cl(hiv).toFixed(1)+'" x2="'+x.toFixed(1)+'" y2="'+cl(lov).toFixed(1)+'" stroke="'+col+'" stroke-width="2"/>';
+    inner+='<rect x="'+(x-bw/2).toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(2,bot-top).toFixed(1)+'" fill="'+col+'" rx="1.5"/>';
+  }
+  return {inner:inner,truth:{a:{x:xA,y:yA},b:{x:xB,y:yB}},dir:dir,W:W,H:H};
 }
 
 function prR_drawSR(mount){
@@ -10024,9 +10146,13 @@ function prR_drawSR(mount){
     }});
 }
 function prR_drawTrend(mount){
-  var g=genTrend('up');
+  var dir=Math.random()<0.5?'up':'down';
+  var g=genTrend(dir);
+  var hint=px(dir==='up'
+    ?{fr:"Pose 2 points sur les creux de plus en plus hauts (ligne de support).",en:"Place 2 points on the higher lows (support line)."}
+    :{fr:"Pose 2 points sur les sommets de plus en plus bas (ligne de résistance).",en:"Place 2 points on the lower highs (resistance line)."});
   prDraw(mount,{inner:g.inner,W:g.W,H:g.H,mode:'line',
-    question:px(PRQ.q_dtrend),hint:px(PRQ.h_dtrend),
+    question:px(PRQ.q_dtrend),hint:hint,
     grade:function(pts){
       var sp=pts.slice().sort(function(a,b){return a.x-b.x;});
       function lineY(L,x){ return L.a.y+(L.b.y-L.a.y)*((x-L.a.x)/((L.b.x-L.a.x)||1)); }
@@ -10034,7 +10160,9 @@ function prR_drawTrend(mount){
       var err=(Math.abs(lineY(g.truth,0)-sy(0))+Math.abs(lineY(g.truth,g.W)-sy(g.W)))/2;
       var stars=err<9?3:err<18?2:err<30?1:0,ok=stars>=1;
       var overlay='<line x1="0" y1="'+lineY(g.truth,0).toFixed(1)+'" x2="'+g.W+'" y2="'+lineY(g.truth,g.W).toFixed(1)+'" stroke="var(--pos)" stroke-dasharray="6 4" stroke-width="2"/>';
-      return {ok:ok,stars:stars,overlay:overlay,explain:px({fr:"La vraie ligne de tendance (en vert) relie les creux de plus en plus hauts. Tant que le prix reste au-dessus, la tendance est haussière.",en:"The real trendline (green) connects the higher lows. While price holds above it, the trend is up."})};
+      return {ok:ok,stars:stars,overlay:overlay,explain:px(dir==='up'
+        ?{fr:"La vraie ligne (en vert) relie les creux de plus en plus hauts : tant que le prix reste au-dessus, la tendance est haussière.",en:"The real line (green) connects the higher lows: while price holds above it, the trend is up."}
+        :{fr:"La vraie ligne (en vert) relie les sommets de plus en plus bas : tant que le prix reste en dessous, la tendance est baissière.",en:"The real line (green) connects the lower highs: while price stays below it, the trend is down."})};
     }});
 }
 
