@@ -9687,9 +9687,17 @@ function cfigSVG(k){
 /* ---------- Scénarios point d'entrée ---------- */
 var SCEN_FIG={
   breakout:{n:22,path:[[0,.3],[.1,.5],[.2,.62],[.3,.5],[.42,.62],[.52,.52],[.62,.62],[.7,.58],[.8,.62],[.88,.82],[1,.94]],lines:[[0,.62,.82,.62,'pf_resistance',1]],arrow:[.86,.74,'up']},
+  retest:{n:22,path:[[0,.3],[.1,.45],[.2,.55],[.28,.5],[.36,.62],[.44,.66],[.52,.57],[.58,.56],[.66,.64],[.8,.78],[1,.9]],lines:[[0,.55,1,.55,'pf_resistance',1]],arrow:[.56,.63,'up']},
   bounce:{n:22,path:[[0,.8],[.12,.62],[.24,.45],[.36,.34],[.44,.33],[.52,.46],[.62,.58],[.72,.5],[.82,.6],[1,.74]],lines:[[0,.32,1,.32,'pf_support',1]],arrow:[.5,.42,'up']},
+  reject:{n:22,path:[[0,.3],[.12,.5],[.24,.64],[.34,.72],[.4,.7],[.46,.6],[.56,.48],[.68,.4],[.8,.34],[1,.26]],lines:[[0,.72,1,.72,'pf_resistance',1]],arrow:[.5,.6,'down']},
   range:{n:24,path:[[0,.34],[.1,.66],[.22,.34],[.34,.66],[.46,.34],[.58,.66],[.7,.34],[.82,.66],[.92,.42],[1,.52]],lines:[[0,.68,1,.68,'pf_resistance',1],[0,.32,1,.32,'pf_support',1]]},
-  knife:{n:20,path:[[0,.92],[.12,.86],[.24,.74],[.36,.58],[.48,.42],[.6,.3],[.72,.22],[.84,.17],[1,.13]],lines:[]}
+  knife:{n:20,path:[[0,.92],[.12,.86],[.24,.74],[.36,.58],[.48,.42],[.6,.3],[.72,.22],[.84,.17],[1,.13]],lines:[]},
+  pullback:{n:24,path:[[0,.3],[.1,.45],[.18,.38],[.28,.56],[.38,.48],[.5,.64],[.58,.54],[.64,.5],[.72,.64],[.84,.78],[1,.9]],lines:[[0,.3,.92,.72,'pf_support',1]],arrow:[.66,.56,'up']},
+  breakdown:{n:22,path:[[0,.7],[.1,.5],[.2,.4],[.3,.52],[.4,.4],[.5,.5],[.58,.4],[.66,.3],[.78,.2],[1,.12]],lines:[[0,.4,.62,.4,'pf_support',1]],arrow:[.7,.3,'down']},
+  doubletop:{n:24,path:[[0,.4],[.12,.62],[.22,.8],[.3,.74],[.38,.55],[.46,.5],[.54,.55],[.62,.74],[.7,.8],[.78,.66],[.86,.5],[1,.32]],lines:[[.1,.5,.88,.5,'pf_neckline',1]],arrow:[.8,.5,'down']},
+  doublebottom:{n:24,path:[[0,.6],[.12,.38],[.22,.2],[.3,.26],[.38,.45],[.46,.5],[.54,.45],[.62,.26],[.7,.2],[.78,.34],[.86,.5],[1,.68]],lines:[[.1,.5,.88,.5,'pf_neckline',1]],arrow:[.8,.5,'up']},
+  spike:{n:20,path:[[0,.32],[.2,.34],[.4,.32],[.55,.35],[.64,.5],[.72,.72],[.8,.9],[.9,.95],[1,.9]],lines:[]},
+  flag:{n:24,path:[[0,.25],[.12,.5],[.22,.78],[.3,.72],[.38,.76],[.46,.7],[.54,.74],[.62,.7],[.72,.8],[.84,.92],[1,.97]],lines:[],arrow:[.66,.76,'up']}
 };
 function scenSVG(kind){
   var fig=SCEN_FIG[kind]||SCEN_FIG.breakout;
@@ -9705,54 +9713,66 @@ function scenSVG(kind){
   return '<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">'+o+'</svg>';
 }
 const PR_SCEN=[
-  { kind:"breakout",
-    s:{fr:"Le prix casse une résistance testée 3 fois, avec du volume. Un pullback (retour sur le niveau) est en cours.",en:"Price breaks a resistance tested 3×, on volume. A pullback (retest of the level) is underway."},
-    opts:[
-      {ok:true,  fr:"Entrée sur le pullback au niveau cassé · Stop juste sous · Objectif = hauteur du range",en:"Enter on the pullback at the broken level · Stop just below · Target = range height"},
-      {ok:false, fr:"Acheter tout de suite au plus haut · Stop à −20% · Aucun objectif",en:"Buy right now at the high · Stop at −20% · No target"},
-      {ok:false, fr:"Vendre à découvert la cassure haussière",en:"Short the bullish breakout"}
-    ],
-    why:{fr:"Après une cassure, le retest du niveau offre une entrée avec un stop serré sous le niveau et un bon ratio risque/récompense.",en:"After a breakout, the retest gives an entry with a tight stop below the level and a solid risk/reward."} },
-  { kind:"bounce",
-    s:{fr:"Le prix revient sur un support majeur testé plusieurs fois et y forme un marteau.",en:"Price returns to a major support tested several times and prints a hammer there."},
-    opts:[
-      {ok:true,  fr:"Entrée au rebond sur le support · Stop sous le support · Objectif = résistance au-dessus",en:"Enter on the bounce at support · Stop below support · Target = resistance above"},
-      {ok:false, fr:"Vendre car ça va forcément casser",en:"Sell because it will surely break"},
-      {ok:false, fr:"Entrer sans stop, « je verrai bien »",en:"Enter with no stop, 'I'll see how it goes'"}
-    ],
-    why:{fr:"Un support confirmé + un marteau = rebond probable. Le stop sous le support limite la perte si ça casse.",en:"Confirmed support + a hammer = likely bounce. A stop below support caps the loss if it breaks."} },
-  { kind:"range",
-    s:{fr:"Le prix oscille dans un range horizontal bien net depuis des semaines.",en:"Price has been oscillating in a clean horizontal range for weeks."},
-    opts:[
-      {ok:true,  fr:"Acheter en bas du range · Stop sous le range · Vendre en haut du range",en:"Buy at range low · Stop below range · Sell at range high"},
-      {ok:false, fr:"Acheter au milieu du range avec un stop très large",en:"Buy mid-range with a very wide stop"},
-      {ok:false, fr:"Acheter en haut du range en espérant une cassure immédiate",en:"Buy at range high hoping for an instant breakout"}
-    ],
-    why:{fr:"En range, on achète bas / vend haut. Acheter en haut, c'est payer le plus cher avec le pire ratio.",en:"In a range you buy low / sell high. Buying at the top means paying the most with the worst ratio."} },
-  { kind:"knife",
-    s:{fr:"Le prix chute de −30% en ligne droite, sans aucun signe de stabilisation.",en:"Price drops −30% in a straight line, with no sign of stabilizing."},
-    opts:[
-      {ok:true,  fr:"Attendre une stabilisation / un signal avant d'agir",en:"Wait for stabilization / a signal before acting"},
-      {ok:false, fr:"Tout acheter maintenant, « c'est soldé »",en:"Buy it all now, 'it's on sale'"},
-      {ok:false, fr:"Acheter avec un stop à −1% juste sous le prix",en:"Buy with a −1% stop right under price"}
-    ],
-    why:{fr:"« Attraper un couteau qui tombe » est risqué : sans stabilisation, la chute peut continuer. Mieux vaut attendre.",en:"'Catching a falling knife' is risky: without stabilization the drop can continue. Better to wait."} },
-  { kind:"breakout",
-    s:{fr:"Setup d'achat validé, entrée à 100. Tu hésites sur le placement du stop.",en:"Valid buy setup, entry at 100. You're unsure where to put the stop."},
-    opts:[
-      {ok:true,  fr:"Stop sous le dernier creux (support), objectif à +2× le risque",en:"Stop below the last swing low (support), target at +2× the risk"},
-      {ok:false, fr:"Stop à −50% pour « ne jamais être sorti »",en:"Stop at −50% so you're 'never stopped out'"},
-      {ok:false, fr:"Pas de stop, HODL quoi qu'il arrive",en:"No stop, HODL no matter what"}
-    ],
-    why:{fr:"Le stop se place à un niveau technique (sous le creux). Un ratio ≥ 2:1 rend la stratégie rentable même avec 50% de réussite.",en:"The stop goes at a technical level (below the swing low). A ≥ 2:1 ratio makes the strategy profitable even at a 50% win rate."} },
-  { kind:"bounce",
-    s:{fr:"Belle configuration… mais la prendre pleinement représenterait 60% de tout ton capital.",en:"Nice setup… but taking it fully would be 60% of your whole capital."},
-    opts:[
-      {ok:true,  fr:"Réduire la taille pour ne risquer que 1–2% du capital",en:"Size down to risk only 1–2% of capital"},
-      {ok:false, fr:"Mettre 100% du capital, c'est une occasion en or",en:"Go 100% in, it's a golden opportunity"},
-      {ok:false, fr:"Emprunter pour mettre encore plus",en:"Borrow to put in even more"}
-    ],
-    why:{fr:"La gestion du risque passe avant le setup. Ne jamais risquer plus de 1–2% du capital sur un seul trade.",en:"Risk management comes before the setup. Never risk more than 1–2% of capital on a single trade."} }
+  { kind:"breakout", s:{fr:"Le prix casse une résistance testée 3 fois, avec du volume, puis fait un pullback dessus.",en:"Price breaks a resistance tested 3×, on volume, then pulls back to it."},
+    opts:[{ok:true,fr:"Entrée sur le pullback au niveau cassé · stop juste sous · objectif = hauteur du range",en:"Enter on the pullback at the broken level · stop just below · target = range height"},
+          {ok:false,fr:"Acheter tout de suite au plus haut, stop à −20%",en:"Buy right now at the high, stop at −20%"},
+          {ok:false,fr:"Vendre à découvert la cassure haussière",en:"Short the bullish breakout"}],
+    why:{fr:"Le retest du niveau cassé offre une entrée avec un stop serré et un bon ratio.",en:"The retest of the broken level gives an entry with a tight stop and a good ratio."} },
+  { kind:"retest", s:{fr:"Après la cassure, l'ancienne résistance est retestée et tient désormais comme support.",en:"After the break, the old resistance is retested and now holds as support."},
+    opts:[{ok:true,fr:"Entrée au retest confirmé · stop sous l'ancien niveau",en:"Enter on the confirmed retest · stop below the old level"},
+          {ok:false,fr:"Tout vendre, la cassure est un piège",en:"Sell everything, the break is a trap"},
+          {ok:false,fr:"Acheter beaucoup plus haut, loin du niveau",en:"Buy much higher, far from the level"}],
+    why:{fr:"Une ancienne résistance qui tient en support confirme la cassure : entrée à faible risque.",en:"An old resistance holding as support confirms the breakout: low-risk entry."} },
+  { kind:"bounce", s:{fr:"Le prix revient sur un support majeur testé plusieurs fois et y forme un marteau.",en:"Price returns to a major support tested several times and prints a hammer there."},
+    opts:[{ok:true,fr:"Achat au rebond · stop sous le support · objectif = résistance au-dessus",en:"Buy the bounce · stop below support · target = resistance above"},
+          {ok:false,fr:"Vendre car ça va forcément casser",en:"Sell because it will surely break"},
+          {ok:false,fr:"Entrer sans stop",en:"Enter with no stop"}],
+    why:{fr:"Support confirmé + marteau = rebond probable, stop sous le support.",en:"Confirmed support + hammer = likely bounce, stop below support."} },
+  { kind:"reject", s:{fr:"Le prix monte jusqu'à une résistance forte et forme une étoile filante (rejet net).",en:"Price rises to a strong resistance and prints a shooting star (clear rejection)."},
+    opts:[{ok:true,fr:"Ne pas acheter ici · attendre une cassure ou un repli",en:"Don't buy here · wait for a break or a pullback"},
+          {ok:false,fr:"Acheter la hausse au contact de la résistance",en:"Buy the rally right at resistance"},
+          {ok:false,fr:"Acheter sans stop, « ça va casser »",en:"Buy with no stop, 'it'll break'"}],
+    why:{fr:"Acheter juste sous une résistance qui rejette = mauvais ratio. On attend.",en:"Buying right under a rejecting resistance = poor ratio. Wait."} },
+  { kind:"range", s:{fr:"Le prix oscille dans un range horizontal bien net depuis des semaines.",en:"Price has oscillated in a clean horizontal range for weeks."},
+    opts:[{ok:true,fr:"Acheter bas du range · stop sous le range · vendre haut du range",en:"Buy range low · stop below range · sell range high"},
+          {ok:false,fr:"Acheter au milieu avec un stop très large",en:"Buy mid-range with a very wide stop"},
+          {ok:false,fr:"Acheter en haut en espérant une cassure immédiate",en:"Buy at the top hoping for an instant breakout"}],
+    why:{fr:"En range on achète bas / vend haut. Acheter en haut = pire ratio.",en:"In a range you buy low / sell high. Buying at the top = worst ratio."} },
+  { kind:"knife", s:{fr:"Chute de −30% en ligne droite, aucun signe de stabilisation.",en:"−30% drop in a straight line, no sign of stabilizing."},
+    opts:[{ok:true,fr:"Attendre une stabilisation / un signal avant d'agir",en:"Wait for stabilization / a signal before acting"},
+          {ok:false,fr:"Tout acheter maintenant, « c'est soldé »",en:"Buy it all now, 'it's on sale'"},
+          {ok:false,fr:"Acheter avec un stop à −1% juste sous le prix",en:"Buy with a −1% stop right under price"}],
+    why:{fr:"Attraper un couteau qui tombe est risqué : sans stabilisation, la chute continue.",en:"Catching a falling knife is risky: without stabilization the drop continues."} },
+  { kind:"pullback", s:{fr:"Tendance haussière (creux de plus en plus hauts). Repli sain sur la ligne de tendance.",en:"Uptrend (higher lows). Healthy pullback onto the trendline."},
+    opts:[{ok:true,fr:"Acheter le repli sur la trendline · stop sous le dernier creux",en:"Buy the pullback on the trendline · stop below the last swing low"},
+          {ok:false,fr:"Vendre à découvert le repli",en:"Short the pullback"},
+          {ok:false,fr:"Acheter loin au-dessus de la trendline",en:"Buy far above the trendline"}],
+    why:{fr:"Dans une tendance haussière, le repli sur la trendline est une entrée à bon ratio.",en:"In an uptrend, the pullback to the trendline is a good-ratio entry."} },
+  { kind:"breakdown", s:{fr:"Un support testé plusieurs fois casse enfin vers le bas, avec volume.",en:"A support tested several times finally breaks down, on volume."},
+    opts:[{ok:true,fr:"Ne pas acheter · le support cassé devient résistance",en:"Don't buy · broken support becomes resistance"},
+          {ok:false,fr:"Acheter le rebond, « ça va remonter »",en:"Buy the bounce, 'it'll come back'"},
+          {ok:false,fr:"Moyenner à la baisse sans stop",en:"Average down with no stop"}],
+    why:{fr:"Un support cassé agit comme résistance : acheter à l'aveugle est risqué.",en:"Broken support acts as resistance: buying blindly is risky."} },
+  { kind:"doubletop", s:{fr:"Deux sommets au même niveau, puis cassure de la ligne de cou vers le bas.",en:"Two peaks at the same level, then the neckline breaks downward."},
+    opts:[{ok:true,fr:"Sortir / vendre · objectif = hauteur du motif",en:"Exit / sell · target = pattern height"},
+          {ok:false,fr:"Acheter le deuxième sommet",en:"Buy the second peak"},
+          {ok:false,fr:"Attendre un troisième sommet",en:"Wait for a third peak"}],
+    why:{fr:"Un double sommet avec cassure de la ligne de cou est un signal baissier.",en:"A double top breaking the neckline is a bearish signal."} },
+  { kind:"doublebottom", s:{fr:"Deux creux au même niveau, puis cassure de la ligne de cou vers le haut.",en:"Two troughs at the same level, then the neckline breaks upward."},
+    opts:[{ok:true,fr:"Achat à la cassure de la ligne de cou · stop sous les creux",en:"Buy the neckline break · stop below the troughs"},
+          {ok:false,fr:"Vendre, ça va rechuter",en:"Sell, it will drop again"},
+          {ok:false,fr:"Acheter au creux avant toute confirmation",en:"Buy at the trough before any confirmation"}],
+    why:{fr:"Un double creux avec cassure de la ligne de cou est un signal haussier confirmé.",en:"A double bottom breaking the neckline is a confirmed bullish signal."} },
+  { kind:"spike", s:{fr:"Bougie verticale +40% en une journée, très loin des moyennes (euphorie).",en:"Vertical +40% candle in a day, far above the averages (euphoria)."},
+    opts:[{ok:true,fr:"Ne pas courir après (FOMO) · attendre un repli",en:"Don't chase it (FOMO) · wait for a pullback"},
+          {ok:false,fr:"Acheter maintenant avant que ça parte",en:"Buy now before it runs"},
+          {ok:false,fr:"Acheter avec du levier pour profiter du move",en:"Buy with leverage to ride the move"}],
+    why:{fr:"Acheter une bougie parabolique = payer le plus cher juste avant le repli. On attend.",en:"Buying a parabolic candle = paying the most right before the pullback. Wait."} },
+  { kind:"flag", s:{fr:"Après une forte hausse, le prix consolide dans un petit drapeau serré.",en:"After a strong rally, price consolidates in a tight flag."},
+    opts:[{ok:true,fr:"Entrée à la cassure du drapeau · stop sous · objectif = taille du mât",en:"Enter on the flag break · stop below · target = pole height"},
+          {ok:false,fr:"Vendre la consolidation",en:"Sell the consolidation"},
+          {ok:false,fr:"Acheter sans attendre la cassure",en:"Buy without waiting for the break"}],
+    why:{fr:"Un drapeau est une pause : l'entrée se fait à la cassure dans le sens du mât.",en:"A flag is a pause: enter on the break in the pole's direction."} }
 ];
 
 /* ---------- Moteur ---------- */
