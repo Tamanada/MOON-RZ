@@ -9685,22 +9685,24 @@ function cfigSVG(k){
 }
 
 /* ---------- Scénarios point d'entrée ---------- */
+var SCEN_FIG={
+  breakout:{n:22,path:[[0,.3],[.1,.5],[.2,.62],[.3,.5],[.42,.62],[.52,.52],[.62,.62],[.7,.58],[.8,.62],[.88,.82],[1,.94]],lines:[[0,.62,.82,.62,'pf_resistance',1]],arrow:[.86,.74,'up']},
+  bounce:{n:22,path:[[0,.8],[.12,.62],[.24,.45],[.36,.34],[.44,.33],[.52,.46],[.62,.58],[.72,.5],[.82,.6],[1,.74]],lines:[[0,.32,1,.32,'pf_support',1]],arrow:[.5,.42,'up']},
+  range:{n:24,path:[[0,.34],[.1,.66],[.22,.34],[.34,.66],[.46,.34],[.58,.66],[.7,.34],[.82,.66],[.92,.42],[1,.52]],lines:[[0,.68,1,.68,'pf_resistance',1],[0,.32,1,.32,'pf_support',1]]},
+  knife:{n:20,path:[[0,.92],[.12,.86],[.24,.74],[.36,.58],[.48,.42],[.6,.3],[.72,.22],[.84,.17],[1,.13]],lines:[]}
+};
 function scenSVG(kind){
-  var W=300,H=120,s='<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">';
-  if(kind==="breakout"){
-    s+='<line x1="0" y1="55" x2="'+W+'" y2="55" stroke="var(--red)" stroke-dasharray="5 4" stroke-width="1.5"/>';
-    s+='<polyline points="10,100 70,85 130,62 150,56 190,40 240,30 290,20" fill="none" stroke="var(--text)" stroke-width="2.3" stroke-linejoin="round"/>';
-  } else if(kind==="bounce"){
-    s+='<line x1="0" y1="92" x2="'+W+'" y2="92" stroke="var(--pos)" stroke-dasharray="5 4" stroke-width="1.5"/>';
-    s+='<polyline points="10,25 70,55 130,86 150,90 190,70 240,45 290,28" fill="none" stroke="var(--text)" stroke-width="2.3" stroke-linejoin="round"/>';
-  } else if(kind==="range"){
-    s+='<line x1="0" y1="35" x2="'+W+'" y2="35" stroke="var(--red)" stroke-dasharray="5 4" stroke-width="1.5"/>';
-    s+='<line x1="0" y1="92" x2="'+W+'" y2="92" stroke="var(--pos)" stroke-dasharray="5 4" stroke-width="1.5"/>';
-    s+='<polyline points="10,90 55,40 110,88 165,38 220,90 275,40" fill="none" stroke="var(--text)" stroke-width="2.3" stroke-linejoin="round"/>';
-  } else {
-    s+='<polyline points="10,20 60,30 110,55 160,90 210,108 260,114" fill="none" stroke="var(--red)" stroke-width="2.3" stroke-linejoin="round"/>';
-  }
-  return s+'</svg>';
+  var fig=SCEN_FIG[kind]||SCEN_FIG.breakout;
+  var W=300,H=150,padL=10,padR=10,padT=16,padB=12;
+  var bars=candlesFromPath(fig.path, fig.n||22);
+  var ch=candleChart(bars,{W:W,H:H,padL:padL,padR:padR,padT:padT,padB:padB,grid:true});
+  function Xf(f){ return padL+f*(W-padL-padR); }
+  var o=ch.inner;
+  (fig.lines||[]).forEach(function(L){ var x1=Xf(L[0]),y1=ch.Y(L[1]),x2=Xf(L[2]),y2=ch.Y(L[3]);
+    o+='<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="5 4" opacity="0.9"/>'; });
+  (fig.lines||[]).forEach(function(L){ if(L[4]) o+=patLabel((Xf(L[0])+Xf(L[2]))/2,(ch.Y(L[1])+ch.Y(L[3]))/2,t(L[4])); });
+  if(fig.arrow){ var ax=Xf(fig.arrow[0]),ap=ch.Y(fig.arrow[1]); o+=patArrow(ax,ap,fig.arrow[2]==='up'); }
+  return '<svg viewBox="0 0 '+W+' '+H+'" class="pr-svg wide">'+o+'</svg>';
 }
 const PR_SCEN=[
   { kind:"breakout",
