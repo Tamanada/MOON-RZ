@@ -408,13 +408,14 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .pg-opt.no{background:var(--red);border-color:var(--red);color:#2a0707}
   .pg-feed{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px;min-height:10px;font-weight:600}
   /* 🎮 Practice — ateliers interactifs */
-  .pr-chart{display:flex;justify-content:center;margin:8px 0 2px}
+  .pr-chart{display:flex;flex-wrap:wrap;justify-content:center;margin:8px 0 2px}
+  .pr-chart .pr-svg.wide{flex:0 0 100%}
   .pr-svg{width:150px;height:auto;max-width:100%}
   .pr-svg.wide{width:100%;max-width:470px}
   .pr-patimg{display:block;width:100%;max-width:300px;margin:0 auto;background:#fff;border-radius:10px;border:1px solid var(--border)}
   .pr-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
   .pr-opts.one{grid-template-columns:1fr}
-  .pr-scen{color:var(--text);font-weight:600;margin:10px 2px 0;line-height:1.45}
+  .pr-scen{flex-basis:100%;color:var(--text);font-weight:600;margin:10px 2px 0;line-height:1.45}
   .pr-expl{flex-basis:100%;color:var(--muted);font-weight:500;font-size:13px;line-height:1.5;margin-top:2px}
   .pr-done{text-align:center;padding:12px 6px}
   .pr-done-em{font-size:48px;line-height:1}
