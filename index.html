@@ -216,7 +216,12 @@ window.MOONRZ_ASSETS=(function(){var B='assets/brand/';return{
   .bar{height:8px;background:#ffffff12;border-radius:999px;overflow:hidden}
   .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--moon),var(--gold));transition:width .6s cubic-bezier(.2,.8,.2,1)}
   .rankchip{font-size:12px;padding:4px 11px;border-radius:999px;background:linear-gradient(90deg,var(--accent-soft),#0000);border:1px solid var(--accent-soft);font-weight:700}
-  .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--user-accent,var(--moon));box-shadow:0 0 14px -2px var(--user-accent,var(--moon));transition:.15s;flex:none}
+  .avatarchip{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:21px;cursor:pointer;background:var(--panel-2);border:2px solid var(--user-accent,var(--moon));box-shadow:0 0 14px -2px var(--user-accent,var(--moon));transition:.15s;flex:none;overflow:hidden}
+  .avatarchip img{width:100%;height:100%;object-fit:cover;display:block}
+  #profAv img{width:1.05em;height:1.05em;border-radius:50%;object-fit:cover;vertical-align:-0.12em;display:inline-block}
+  .av-upload{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .av-prev{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--accent);flex:none}
+  .av-prev img{width:100%;height:100%;object-fit:cover;display:block}
   .langsel{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer;max-width:140px}
   .installbtn{background:linear-gradient(90deg,var(--moon),var(--moon-2));border:0;color:var(--on-accent);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;box-shadow:0 6px 16px -6px var(--moon-2)}
   .installbtn:hover{filter:brightness(1.08)}
@@ -954,6 +959,7 @@ Object.assign(T, {"pr_pass_t":{"en":"Series passed!","fr":"Série validée !","e
 Object.assign(T, {"prev_page":{"en":"Back","fr":"Précédent","es":"Anterior","pt":"Anterior","de":"Zurück","ru":"Назад","tr":"Geri","ar":"السابق","zh":"上一个","ja":"戻る","ko":"이전","hi":"पिछला","id":"Kembali","vi":"Trước","th":"ก่อนหน้า","my":"နောက်သို့"},"lesson_finish_t":{"en":"Lesson read!","fr":"Leçon lue !","es":"¡Lección leída!","pt":"Lição lida!","de":"Lektion gelesen!","ru":"Урок прочитан!","tr":"Ders okundu!","ar":"انتهت القراءة!","zh":"读完啦！","ja":"読了！","ko":"레슨 완료!","hi":"पाठ पढ़ा!","id":"Pelajaran dibaca!","vi":"Đã đọc xong!","th":"อ่านจบแล้ว!","my":"သင်ခန်းစာ ပြီးပြီ!"}}); // 📖 Lecteur i18n
 Object.assign(T, {"bn_learn":{"en":"Academies","fr":"Académies","es":"Academias","pt":"Academias","de":"Akademien","ru":"Академии","tr":"Akademiler","ar":"الأكاديميات","zh":"学院","ja":"アカデミー","ko":"아카데미","hi":"अकादमी","id":"Akademi","vi":"Học viện","th":"สถาบัน","my":"အကယ်ဒမီ"},"bn_profile":{"en":"Profile","fr":"Profil","es":"Perfil","pt":"Perfil","de":"Profil","ru":"Профиль","tr":"Profil","ar":"الملف","zh":"个人","ja":"プロフィール","ko":"프로필","hi":"प्रोफ़ाइल","id":"Profil","vi":"Hồ sơ","th":"โปรไฟล์","my":"ပရိုဖိုင်"}}); // 📱 Bottom nav i18n
 Object.assign(T, {"pf_support":{"en":"Support","fr":"Support","es":"Soporte","pt":"Suporte","de":"Unterstützung","ru":"Поддержка","tr":"Destek","ar":"دعم","zh":"支撑","ja":"サポート","ko":"지지","hi":"सपोर्ट","id":"Support","vi":"Hỗ trợ","th":"แนวรับ","my":"ပံ့ပိုး"},"pf_resistance":{"en":"Resistance","fr":"Résistance","es":"Resistencia","pt":"Resistência","de":"Widerstand","ru":"Сопротивление","tr":"Direnç","ar":"مقاومة","zh":"阻力","ja":"レジスタンス","ko":"저항","hi":"रेज़िस्टेंस","id":"Resisten","vi":"Kháng cự","th":"แนวต้าน","my":"ခုခံ"},"pf_neckline":{"en":"Neckline","fr":"Ligne de cou","es":"Línea de cuello","pt":"Linha de pescoço","de":"Nackenlinie","ru":"Линия шеи","tr":"Boyun çizgisi","ar":"خط العنق","zh":"颈线","ja":"ネックライン","ko":"넥라인","hi":"नेकलाइन","id":"Garis leher","vi":"Đường viền cổ","th":"เส้นคอ","my":"လည်ပင်းမျဉ်း"},"pf_breakout":{"en":"Breakout","fr":"Cassure","es":"Ruptura","pt":"Rompimento","de":"Ausbruch","ru":"Пробой","tr":"Kırılım","ar":"اختراق","zh":"突破","ja":"ブレイク","ko":"돌파","hi":"ब्रेकआउट","id":"Breakout","vi":"Phá vỡ","th":"เบรกเอาต์","my":"ဖောက်ထွက်"},"pf_channel":{"en":"Channel","fr":"Canal","es":"Canal","pt":"Canal","de":"Kanal","ru":"Канал","tr":"Kanal","ar":"قناة","zh":"通道","ja":"チャネル","ko":"채널","hi":"चैनल","id":"Kanal","vi":"Kênh","th":"แชนเนล","my":"ချန်နယ်"}}); // 📐 Figures chartistes i18n
+Object.assign(T, {"av_upload":{"en":"Upload a photo","fr":"Importer une photo","es":"Subir una foto","pt":"Enviar foto","de":"Foto hochladen","ru":"Загрузить фото","tr":"Fotoğraf yükle","ar":"ارفع صورة","zh":"上传照片","ja":"写真をアップ","ko":"사진 업로드","hi":"फ़ोटो अपलोड","id":"Unggah foto","vi":"Tải ảnh lên","th":"อัปโหลดรูป","my":"ဓာတ်ပုံတင်"},"av_remove":{"en":"Remove photo","fr":"Retirer la photo","es":"Quitar foto","pt":"Remover foto","de":"Foto entfernen","ru":"Удалить фото","tr":"Fotoğrafı kaldır","ar":"أزل الصورة","zh":"移除照片","ja":"写真を削除","ko":"사진 제거","hi":"फ़ोटो हटाएँ","id":"Hapus foto","vi":"Xóa ảnh","th":"เอารูปออก","my":"ဓာတ်ပုံဖယ်"},"av_ok":{"en":"Photo updated 👍","fr":"Photo mise à jour 👍","es":"Foto actualizada 👍","pt":"Foto atualizada 👍","de":"Foto aktualisiert 👍","ru":"Фото обновлено 👍","tr":"Fotoğraf güncellendi 👍","ar":"تم تحديث الصورة 👍","zh":"照片已更新 👍","ja":"写真を更新 👍","ko":"사진 업데이트됨 👍","hi":"फ़ोटो अपडेट 👍","id":"Foto diperbarui 👍","vi":"Đã cập nhật ảnh 👍","th":"อัปเดตรูปแล้ว 👍","my":"ဓာတ်ပုံ ပြင်ပြီး 👍"},"av_err":{"en":"Could not read that image","fr":"Impossible de lire cette image","es":"No se pudo leer la imagen","pt":"Não foi possível ler a imagem","de":"Bild konnte nicht gelesen werden","ru":"Не удалось прочитать изображение","tr":"Görsel okunamadı","ar":"تعذّر قراءة الصورة","zh":"无法读取该图片","ja":"画像を読み込めません","ko":"이미지를 읽을 수 없음","hi":"छवि पढ़ नहीं सके","id":"Gagal membaca gambar","vi":"Không đọc được ảnh","th":"อ่านรูปไม่ได้","my":"ပုံဖတ်၍မရပါ"}}); // 🖼️ Avatar upload i18n
 const ACA_INTRO={
  en:{1:"Understand blockchain from scratch and handle your first wallet.",2:"Never get robbed: scams, phishing, rug pulls, drainers.",3:"Decentralized finance: DEX, pools, staking, yield, lending.",4:"The NFT economy: collections, utility, gaming, RWA.",5:"Launch a project: branding, community, DAO, tokenomics.",6:"Read the markets: support, resistance, trends, volume.",7:"A profitable strategy: MTF, risk management, position sizing.",8:"Use AI: crypto analyst, market scanner, strategies.",9:"Create your own token: smart contracts, liquidity, vesting.",10:"Master the entire ecosystem end to end."},
  es:{1:"Entiende la blockchain desde cero y maneja tu primera billetera.",2:"Que nunca te roben: estafas, phishing, rug pulls, drainers.",3:"Finanzas descentralizadas: DEX, pools, staking, yield, lending.",4:"La economía NFT: colecciones, utilidad, gaming, RWA.",5:"Lanza un proyecto: branding, comunidad, DAO, tokenomics.",6:"Lee los mercados: soportes, resistencias, tendencias, volumen.",7:"Una estrategia rentable: MTF, gestión del riesgo, position sizing.",8:"Usa la IA: analista cripto, escáner de mercado, estrategias.",9:"Crea tu propio token: contratos inteligentes, liquidez, vesting.",10:"Domina todo el ecosistema de principio a fin."},
@@ -8646,7 +8652,7 @@ function ac(aid){
 /* ---------- ÉTAT JOUEUR ---------- */
 const DEFAULT={xp:0,coins:0,done:{},passed:{},streak:1,lastDay:null,lastSeen:null,lang:"fr",onboarded:false,
   sim:{cash:10000,qty:{},started:false},
-  profile:{name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},
+  profile:{name:"",avatar:"🧑‍🚀",avatarImg:"",accent:"#a78bfa"},
   ref:{code:"",invited:0},referredBy:null,refSynced:false};
 let S=load();
 
@@ -8658,7 +8664,7 @@ function load(){
   const s=Object.assign({},DEFAULT,r);
   s.done=Object.assign({},r.done); s.passed=Object.assign({},r.passed);
   s.sim=Object.assign({cash:10000,qty:{},started:false},r.sim||{});
-  s.profile=Object.assign({name:"",avatar:"🧑‍🚀",accent:"#a78bfa"},r.profile||{});
+  s.profile=Object.assign({name:"",avatar:"🧑‍🚀",avatarImg:"",accent:"#a78bfa"},r.profile||{});
   s.ref=Object.assign({code:"",invited:0},r.ref||{});
   if(!s.ref.code) s.ref.code=genRefCode();
   return s;
@@ -8711,10 +8717,25 @@ function award(xp,coins,msg){
 }
 function levelUp(l){ document.getElementById("luLvl").textContent=l; document.getElementById("luRank").textContent=rankFor(l); document.getElementById("levelup").style.display="flex"; }
 
+/* Avatar : image perso uploadée si présente, sinon emoji */
+function avatarMarkup(){ return S.profile.avatarImg ? '<img src="'+S.profile.avatarImg+'" alt="avatar"/>' : S.profile.avatar; }
+/* Lit un fichier image, recadre en 160x160 et compresse en JPEG (léger pour localStorage) */
+function readAvatarFile(file, cb){
+  if(!file || !/^image\//.test(file.type)) { toast(t("av_err")); return; }
+  var r=new FileReader();
+  r.onload=function(){ var img=new Image(); img.onload=function(){
+    var s=160, c=document.createElement('canvas'); c.width=s; c.height=s; var ctx=c.getContext('2d');
+    var scale=Math.max(s/img.width, s/img.height), w=img.width*scale, h=img.height*scale;
+    ctx.drawImage(img,(s-w)/2,(s-h)/2,w,h);
+    try{ cb(c.toDataURL('image/jpeg',0.82)); }catch(e){ toast(t("av_err")); }
+  }; img.onerror=function(){ toast(t("av_err")); }; img.src=r.result; };
+  r.onerror=function(){ toast(t("av_err")); };
+  r.readAsDataURL(file);
+}
 function renderHUD(){
   const L=levelFromXp(S.xp);
   tokenBal.textContent=S.coins; streak.textContent=S.streak;
-  avatarChip.textContent=S.profile.avatar; applyAccent();
+  avatarChip.innerHTML=avatarMarkup(); applyAccent();
   const lw=t("level"), pct=Math.min(100,(L.into/L.need)*100);
   $("lvlRoller").innerHTML=
     `<div class="lr-side lr-prev">${L.lvl>1?lw+" "+(L.lvl-1):"&nbsp;"}</div>`+
@@ -9306,7 +9327,7 @@ function viewProfile(){
   return `
    <div class="mrz-card" style="padding:24px;margin-bottom:16px">
      <span class="mrz-chip mrz-mono" style="display:inline-block;padding:5px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:10px">${t("monespace")}</span>
-     <h1 class="mrz-display" style="font-size:26px;color:var(--text);line-height:1.15"><span id="profAv">${S.profile.avatar}</span> <span style="color:var(--accent)">${displayName()}</span></h1>
+     <h1 class="mrz-display" style="font-size:26px;color:var(--text);line-height:1.15"><span id="profAv">${avatarMarkup()}</span> <span style="color:var(--accent)">${displayName()}</span></h1>
      <p style="color:var(--muted);margin-top:8px">${t("level")} ${L.lvl} · ${S.xp} XP · ${S.coins} MOON-RZ.</p>
    </div>
 
@@ -9333,7 +9354,8 @@ function viewProfile(){
    <div class="section-title">${t("prof_customize")}</div>
    <div class="mrz-card" style="padding:20px">
      <div class="field"><label>${t("lbl_pseudo")}</label><input type="text" id="nameInput" maxlength="20" placeholder="${rankFor(L.lvl)}" value="${(S.profile.name||'').replace(/"/g,'&quot;')}" /></div>
-     <div class="field"><label>${t("lbl_avatar")}</label><div class="picker" id="avPicker">${AVATARS.map(a=>`<div class="av ${a===S.profile.avatar?'sel':''}" data-av="${a}">${a}</div>`).join("")}</div></div>
+     <div class="field"><label>${t("lbl_avatar")}</label><div class="picker" id="avPicker">${AVATARS.map(a=>`<div class="av ${(!S.profile.avatarImg&&a===S.profile.avatar)?'sel':''}" data-av="${a}">${a}</div>`).join("")}</div>
+       <div class="av-upload"><label class="btn ghost sm" for="avFile">📷 ${t("av_upload")}</label><input type="file" id="avFile" accept="image/*" hidden/>${S.profile.avatarImg?`<span class="av-prev"><img src="${S.profile.avatarImg}" alt=""/></span><button class="btn ghost sm" id="avRemove">${t("av_remove")}</button>`:''}</div></div>
      <div class="field" style="margin-bottom:6px"><label>${t("lbl_accent")}</label><div class="picker" id="colPicker">${ACCENTS.map(c=>`<div class="col ${c===S.profile.accent?'sel':''}" data-col="${c}" style="background:${c}"></div>`).join("")}</div></div>
    </div>
 
@@ -10395,10 +10417,13 @@ function bindProfile(){
   const ni=$("nameInput");
   if(ni) ni.oninput=()=>{ S.profile.name=ni.value; save(); const a=$("profAv"); renderHUD(); };
   document.querySelectorAll("#avPicker .av").forEach(el=>el.onclick=()=>{
-    S.profile.avatar=el.dataset.av; save();
-    document.querySelectorAll("#avPicker .av").forEach(x=>x.classList.remove("sel")); el.classList.add("sel");
-    const pa=$("profAv"); if(pa) pa.textContent=el.dataset.av; renderHUD();
+    S.profile.avatar=el.dataset.av; S.profile.avatarImg=""; save();
+    renderHUD(); render(); // image retirée + sélection emoji
   });
+  const af=$("avFile");
+  if(af) af.onchange=()=>{ const f=af.files&&af.files[0]; if(f) readAvatarFile(f,url=>{ S.profile.avatarImg=url; save(); renderHUD(); render(); toast(t("av_ok")); }); };
+  const ar=$("avRemove");
+  if(ar) ar.onclick=()=>{ S.profile.avatarImg=""; save(); renderHUD(); render(); };
   document.querySelectorAll("#colPicker .col").forEach(el=>el.onclick=()=>{
     S.profile.accent=el.dataset.col; save();
     document.querySelectorAll("#colPicker .col").forEach(x=>x.classList.remove("sel")); el.classList.add("sel");
